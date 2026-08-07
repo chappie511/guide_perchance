@@ -13,11 +13,11 @@ function chargerSection(idDeLaBoite, cheminDuFichier) {
         .catch(erreur => console.error("Erreur :", erreur));
 }
 
-// Charge automatiquement les 21 sections situées dans le même dossier que index.html
+// Charge automatiquement les 21 sections depuis le dossier sections_du_guide
 for (let i = 1; i <= 21; i++) {
     const num = String(i).padStart(2, '0');
-    // Correction ici : la section est au même niveau que index.html
-    chargerSection(`conteneur-section-${i}`, `./section_${num}.html`);
+    // Le chemin pointe maintenant correctement vers ton nouveau dossier !
+    chargerSection(`conteneur-section-${i}`, `./sections_du_guide/section_${num}.html`);
 }
 
 // Script sélectionné/copié (Délégation d'événements)
