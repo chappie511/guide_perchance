@@ -1,0 +1,60 @@
+<!-- Section 20 : Lexique d'Optique & Défauts de Lentille -->
+      <details name="groupe-sections" class="section-accordion">
+        <summary>🔬 Section 20 : Lexique d'Optique & Défauts de Lentille</summary>
+        <div class="section-body">
+          <div class="content-p">Comprendre la physique des lentilles permet d'exploiter les imperfections optiques réelles. Que tu souhaites ajouter une touche "photo brute/sur le vif" dans le prompt positif ou verrouiller une netteté absolue dans le Negative Prompt, voici les concepts clés :</div>
+
+          <div class="content-h3">1. L'Aberration Chromatique</div>
+          <div class="content-p">L'aberration chromatique est un défaut de mise au point d'un objectif provoqué par la dispersion de la lumière. La verre de la lentille ne dévisant pas toutes les longueurs d'onde (couleurs) de la même façon, les couleurs ne convergent pas exactement sur le même plan focal. Cela se traduit par des franges colorées (violettes, vertes, rouges ou cyans) autour des zones à fort contraste.</div>
+
+          <div class="custom-li"><strong>Aberration Axiale (Longitudinale) :</strong> Produit des halos colorés autour du sujet, même au centre du cadre (souvent violet en avant du plan de netteté et vert en arrière).</div>
+          <div class="custom-li"><strong>Aberration Latérale (Transversale) :</strong> Se produit principalement sur les bords de l'image. Les contours apparaissent dédoublés par des franges rouges/cyans ou bleues/jaunes.</div>
+
+          <div class="content-h3">2. Défauts d'Objectifs et Impact sur Perchance</div>
+          
+          <div class="custom-li"><strong>Accidental blur (Flou accidentel / Flou de bougé) :</strong> Flou provoqué par le mouvement de l'appareil ou du sujet lors du déclenchement. <br>
+            • <em>Dans le prompt positif :</em> Apporte un style instantané, sur le vif (candid snapshot) ou photo de rue nocturne.<br>
+            • <em>Dans le Negative Prompt :</em> Indispensable pour forcer une image d'une netteté absolue (tack-sharp focus).
+          </div>
+
+          <div class="custom-li"><strong>Distorted lens geometry (Distorsion géométrique de l'objectif) :</strong> Déformation optique provoquée par les lentilles (particulièrement sur les grands-angles) où les lignes droites se courbent (en barillet ou en coussinet). <br>
+            • <em>Impact :</em> Sur un portrait rapproché (28mm/35mm), elle risque d'étirer le nez et de déformer les proportions du visage.<br>
+            • <em>Recommandation :</em> À placer dans le Negative Prompt pour garantir des proportions anatomiques naturelles.
+          </div>
+
+          <div class="custom-li"><strong>Smudged edges (Bords maculés / bavés) :</strong> Perte de piqué et de contraste sur les bords extérieurs du cadre, typique des objectifs anciens ou de basse qualité. <br>
+            • <em>Impact :</em> Fait "baver" les ombres nettes sur les côtés de l'image.<br>
+            • <em>Recommandation :</em> À inclure dans le Negative Prompt Essentiel pour maintenir une netteté homogène du centre jusqu'aux bords (edge-to-edge sharpness).
+          </div>
+
+          <div class="content-h4">Tableau Récapitulatif d'Optique pour le Prompting</div>
+          <div style="overflow-x: auto; margin-top: 10px;">
+            <table style="width: 100%; border-collapse: collapse; font-size: 12.5px; text-align: left;">
+              <thead>
+                <tr style="background-color: #2563eb; color: #ffffff;">
+                  <th style="padding: 8px; border: 1px solid #cbd5e1;">Terme</th>
+                  <th style="padding: 8px; border: 1px solid #cbd5e1;">Définition physique</th>
+                  <th style="padding: 8px; border: 1px solid #cbd5e1;">Emplacement recommandé</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="background-color: #ffffff;">
+                  <td style="padding: 8px; border: 1px solid #cbd5e1;"><strong>accidental blur</strong></td>
+                  <td style="padding: 8px; border: 1px solid #cbd5e1;">Flou de bougé ou de mouvement rapide.</td>
+                  <td style="padding: 8px; border: 1px solid #cbd5e1;">Negative Prompt (Sauf style "photo sur le vif").</td>
+                </tr>
+                <tr style="background-color: #f8fafc;">
+                  <td style="padding: 8px; border: 1px solid #cbd5e1;"><strong>distorted lens geometry</strong></td>
+                  <td style="padding: 8px; border: 1px solid #cbd5e1;">Déformation des traits/décor par la courbure de la lentille.</td>
+                  <td style="padding: 8px; border: 1px solid #cbd5e1;">Negative Prompt (Pour préserver l'anatomie).</td>
+                </tr>
+                <tr style="background-color: #ffffff;">
+                  <td style="padding: 8px; border: 1px solid #cbd5e1;"><strong>smudged edges</strong></td>
+                  <td style="padding: 8px; border: 1px solid #cbd5e1;">Coins et bords de la photo laiteux ou flous.</td>
+                  <td style="padding: 8px; border: 1px solid #cbd5e1;">Negative Prompt (Pour un piqué propre partout).</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </details>

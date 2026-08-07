@@ -1,0 +1,75 @@
+ <!-- Section 14 : Maîtrise des Prompts Négatifs, Bloc Realism & Composition -->
+      <details name="groupe-sections" class="section-accordion">
+        <summary>🛡️ Section 14 : Maîtrise des Prompts Négatifs, Bloc "Realism" & Composition</summary>
+        <div class="section-body">
+          <div class="content-p">Pour parfaire ton contrôle sur Perchance, l'attribution de poids négatifs et l'utilisation du Negative Prompt sont aussi cruciales que l'invite positive. Elles permettent de dresser une barrière absolue contre les dérives algorithmiques naturelles de l'IA et de verrouiller un rendu photographique organique.</div>
+          
+          <div class="content-h3">1. Éliminer le Syndrome Plastique (Anti-Lissage)</div>
+          <div class="content-p">Par défaut, les modèles d'IA ont été entraînés sur d'immenses bases d'images publicitaires retouchées. Pour préserver ton style "Casual Photo" et les textures de peau générées par SUPIR, tu dois explicitement interdire le lissage esthétique.</div>
+          <div class="negative-box"><strong>Mots-clés négatifs :</strong> airbrushed, plastic skin, CGI, 3D render, digital illustration, smooth skin filter, glamour photography retouching, airbrush, doll-like skin, wax texture.</div>
+          <div class="content-p" style="font-style: italic; margin-top: 5px;">Pourquoi ça marche : En excluant "airbrushed" et "CGI", tu indiques à la matrice que les aplats de textures sans relief sont interdits, ce qui la pousse à préserver le grain numérique et les pores de la peau.</div>
+
+          <div class="content-h3">2. Verrouiller la Structure Optique (Anti-Flou Aléatoire)</div>
+          <div class="content-p">Si tu demandes une netteté globale infinie (hyperfocale) ou un diaphragme fermé à f/8, l'IA peut parfois appliquer un flou artistique par habitude. Tu dois nettoyer le prompt négatif pour sécuriser ta géométrie optique.</div>
+          <div class="negative-box"><strong>Mots-clés négatifs :</strong> accidental blur, unfocused background (uniquement pour le grand-angle), chromatic smudge, distorted lens geometry, smudged edges, low-quality optics.</div>
+
+          <div class="content-h3">3. Corriger les Postures de Mannequin (Anti-Pose)</div>
+          <div class="content-p">Pour garantir l'effet d'un instantané pris sur le vif (candid snapshot), il faut bloquer les tics de positionnement des banques d'images de mode rigides.</div>
+          <div class="negative-box"><strong>Mots-clés négatifs :</strong> studio pose, runway model posture, mannequin, over-posed, staring blankly, fake smile, studio photography staging, commercial catalog look.</div>
+
+          <div class="content-h3">4. Bloquer les Bavements de Lumière (Light Bleeding)</div>
+          <div class="content-p">Quand une source lumineuse frappe l'arrière d'un sujet, l'IA a tendance à faire "baver" la lumière sur les contours du visage (effet appelé <em>light bleeding</em> ou <em>blooming</em>), ce qui détruit la netteté des yeux de profil. Ajoute ces tokens spécifiques à ton négatif pour dresser une barrière :</div>
+          <div class="negative-box"><strong>Mots-clés négatifs :</strong> light bleeding on face, lens blooming, flared facial features, halo smudging on eyes, overexposed iris contour.</div>
+
+          <!-- INTÉGRATION DE LA SECTION 20 : BLOC REALISM -->
+          <div class="content-h3">5. Le Bloc "Realism" Optimisé & Negative Prompt Universel</div>
+          <div class="content-p">Pour obtenir un rendu photographique de haute fidélité sans lourdeur de calcul ni artefacts visuels, couple un bloc positif de texture cutanée à un Negative Prompt universel équilibré.</div>
+
+          <div class="content-h4">Bloc Positif "Realism" (SDXL & SUPIR) :</div>
+          <div class="prompt-box">(authentic skin textures:1.2), visible pores, subtle micro-imperfections, natural subsurface scattering, realistic specular reflections, zero digital smoothing, organic film grain, razor-sharp focal precision, SUPIR enhanced rendering, high-fidelity micro-details</div>
+          
+          <div class="tip-text">
+            <strong>Pourquoi ce réglage est ultra-efficace :</strong><br>
+            • <strong>Pondération ciblée :</strong> Seul <span class="code-word">(authentic skin textures:1.2)</span> conserve un poids renforcé pour forcer le grain biologique sans déformer les contours.<br>
+            • <strong>Absence de bruit sémantique :</strong> Évite la répétition de synonymes inutiles et préserve la bande passante du modèle.<br>
+            • <strong>Subsurface scattering :</strong> Simule la pénétration naturelle de la lumière dans la peau, éliminant l'effet "poupée de cire".
+          </div>
+
+          <div class="content-h4">Negative Prompt Universel Essentiel (Pondéré à :1.3) :</div>
+          <div class="negative-box">(bad anatomy:1.3), (deformed hands:1.3), (plastic skin:1.3), (distorted face:1.3), 3D render, CGI, cartoon, illustration, drawing, painting, airbrushed, smooth skin filter, glamour retouching, wax texture, overexposed skin, generic model, stock photo face, worst quality, lowres, jpeg artifacts</div>
+
+          <div class="negative-box" style="margin-top: 8px;">
+            <strong>Tokens Négatifs Spécifiques aux Styles Intimes / Volés :</strong><br>
+            posed fashion model, smiling for camera, generic stock photo pose, theatrical overacting, artificial Instagram look, exaggerated expressions
+          </div>
+
+          <!-- COMPOSITION ET PERSPECTIVES -->
+          <div class="content-h3">6. Le Point de Fuite (Vanishing Point)</div>
+          <div class="content-p">Le point de fuite (ou <em>vanishing point</em>) est un concept fondamental pour créer une illusion de profondeur en 3D sur une surface plane. Imagine que tu te trouves au milieu d'une longue route droite : plus tu regardes loin vers l'horizon, plus les lignes parallèles semblent se rapprocher et se rencontrer en un point exact.</div>
+          
+          <div class="content-h4">Pourquoi est-ce crucial ?</div>
+          <div class="custom-li"><strong>Créer une profondeur immersive (Depth of Field) :</strong> Transforme une photo plate en une scène réaliste.</div>
+          <div class="custom-li"><strong>Diriger l'œil du spectateur (Leading Lines) :</strong> Toutes les lignes de l'environnement (murs, immeubles, néons) agissent comme des flèches invisibles convergentes. Si tu places ton modèle sur ce point ou juste devant, il captera 100 % de l'attention.</div>
+          <div class="custom-li"><strong>Dynamisme ou stabilité :</strong> Un point de fuite au centre (symétrie) donne une impression de calme et de monumentalité. Décalé sur le côté, il apporte du mouvement et un aspect plus documentaire.</div>
+          
+          <div class="content-h4" style="margin-top: 8px;">Les 3 types de perspectives principales :</div>
+          <div class="custom-li"><strong>Perspective à un point (One-point perspective) :</strong> Le spectateur est face au sujet, les lignes horizontales/verticales sont droites, seules les lignes de profondeur fuient vers un point central (ex: un couloir symétrique).</div>
+          <div class="custom-li"><strong>Perspective à deux points (Two-point perspective) :</strong> Le spectateur regarde le coin d'un bâtiment. Les lignes fuient vers deux points différents sur l'horizon.</div>
+          <div class="custom-li"><strong>Perspective à trois points (Three-point perspective) :</strong> Forte plongée ou contre-plongée, un troisième point apparaît vers le ciel ou le sol, déformant le sujet.</div>
+          
+          <div class="content-h4" style="margin-top: 8px;">Comment l'utiliser dans tes prompts Perchance ?</div>
+          <div class="custom-li"><strong>Pour centrer l'attention :</strong> <div class="prompt-box">one-point perspective, perfectly symmetrical composition, leading lines converging to the center.</div></div>
+          <div class="custom-li"><strong>Pour un effet dramatique :</strong> <div class="prompt-box">vanishing point far in the background, rows of neon lights leading to the vanishing point, infinite depth.</div></div>
+          <div class="custom-li"><strong>Pour l'architecture :</strong> <div class="prompt-box">two-point perspective, shooting from an angle, sharp converging lines.</div></div>
+
+          <div class="content-h4" style="margin-top: 8px;">Options de vocabulaire avancées (Reflets & Nuances) :</div>
+          <div class="custom-li"><span class="code-word">An underlying shimmer</span> <strong>(Miroitement sous-jacent) :</strong> Excellent si le reflet bouge subtilement ou donne une impression de texture vivante (peau huilée, surface humide).</div>
+          <div class="custom-li"><span class="code-word">A subliminal reflection</span> <strong>(Reflet imperceptible) :</strong> Idéal pour un rendu psychologique ou très sombre, où le reflet se devine à peine dans la pénombre.</div>
+          <div class="custom-li"><span class="code-word">A deep-seated gleam</span> <strong>(Lueur ancrée en profondeur) :</strong> Parfait si la lueur semble provenir de l'intérieur de la matière ou à travers des couches de liquide (optimisé pour SUPIR).</div>
+          <div class="custom-li"><span class="code-word">A muted undertone of light</span> <strong>(Nuance de lumière discrète) :</strong> Technique utile pour doser l'intensité lumineuse sans saturer l'image.</div>
+          
+          <div class="good-example-box"><strong>Intégration fluide dans vos prompts :</strong><br>
+          "...every glistening smear of fluid rendered with SUPIR-enhanced clarity, revealing an underlying shimmer that forces the viewer to bear witness."<br>
+          "...every carnal detail and glistening smear of fluid capturing a subliminal reflection within the shadows, forcing the viewer to bear witness."</div>
+        </div>
+      </details>

@@ -1,0 +1,22 @@
+<details name="groupe-sections" class="section-accordion">
+        <summary>🔍 Section 7: Maîtrise de la Profondeur de Champ (Depth of Field)</summary>
+        <div class="section-body">
+          <div class="content-p">La profondeur de champ (DoF) détermine la zone de netteté d'une photo. Par défaut, si tu écris simplement "depth of field", l'IA a tendance à appliquer un flou d'arrière-plan générique et aléatoire. Pour obtenir un contrôle chirurgical, tu dois spécifier ses variantes géométriques :</div>
+          
+          <div class="content-h3">1. Shallow Depth of Field (Faible Profondeur de Champ)</div>
+          <div class="content-p">Seule une zone très mince de l'image est nette, tandis que l'avant-plan et l'arrière-plan sont complètement noyés dans le flou. C'est l'idéal pour isoler un sujet unique ou capturer un détail macro. Afin d'éviter que l'IA ne floute accidentellement le visage du modèle, verrouille toujours la cible de la mise au point dans le prompt à l'aide de l'expression <em>focus lock on her eyes</em>, et utilise des valeurs d'ouverture physique virtuelles très grandes comme f/1.2 ou f/1.8.</div>
+          <div class="prompt-box">"A casual portrait of a woman, shallow depth of field with a sharp focus lock on her eyes, shot on 85mm f/1.2 lens, background smoothly blurred into creamy textures."</div>
+
+          <div class="content-h3">2. Deep Depth of Field / Extended Depth of Field (Profondeur de Champ Étendue)</div>
+          <div class="content-p">La zone de netteté est ici maximale. Les éléments au premier plan, le sujet principal et l'arrière-plan éloigné sont tous nets en même temps. Cette approche est indispensable lorsque tu photographies plusieurs personnes (un groupe de 2 ou 3 personnes) ou lorsque tu utilises des angles complexes (comme une contre-plongée depuis les cuisses) pour éviter que la moitié du corps de ton modèle ne devienne floue. Associe cet effet à des ouvertures virtuelles plus petites comme f/5.6 ou f/8.</div>
+          <div class="prompt-box">"A professional editorial group portrait of three people standing side-by-side on the exact same focal plane, deep depth of field, shot with a 35mm lens set to f/8 for absolute clarity across all subjects, razor-sharp focus."</div>
+
+          <div class="content-h3">3. Isolation Depth of Field / Selective Focus (Mise au Point Sélective)</div>
+          <div class="content-p">L'appareil photo virtuel isole un plan précis au milieu de l'image, rendant flous à la fois ce qui est très proche (premier plan) et ce qui est loin (arrière-plan). C'est parfait pour créer une sensation d'immersion totale, façon "photo volée" ou vue subjective (POV) à travers un obstacle. Tu peux l'utiliser pour intégrer des éléments de premier plan (des feuilles, un cadre de porte ou un bras) qui guident le regard vers le sujet central net.</div>
+          <div class="prompt-box">"A personal POV perspective, selective focus capturing a man talking, shot through a window, the glass reflections in the foreground are out of focus, the subject is in razor-sharp focus, and the background is a soft blur."</div>
+
+          <div class="content-h3">4. Pan-focal Sharpness / Hyperfocal (Netteté Globale Infinie)</div>
+          <div class="content-p">Une variante extrême de la profondeur de champ où l'objectif virtuel est réglé pour que la netteté s'étende du premier plan le plus proche jusqu'à l'infini absolu. À utiliser impérativement pour les plans d'ensemble (establishing shots), les paysages massifs ou les architectures complexes vus au grand-angle. Cela interdit formellement à l'IA d'ajouter le moindre flou ou effet de bokeh artificiel dans l'image.</div>
+          <div class="prompt-box">"An establishing shot of a massive futuristic city skyline, pan-focal sharpness, hyperfocal composition, shot on a wide-angle lens at f/11, every single building from the foreground to the distant horizon is in crystal-clear focus."</div>
+        </div>
+      </details>

@@ -1,0 +1,481 @@
+<style>
+  .tabbed-comments-plugin-add-custom-channel {
+    display: none;
+  }
+
+  /* Fix: private gallery info editor clips top entries due to justify-content:center + overflow:auto */
+  div[style*="z-index: 10001"] div[style*="justify-content: center"][style*="overflow: auto"] {
+    justify-content: flex-start !important;
+  }
+
+  /* === Private gallery info editor: field styling === */
+  div[style*="z-index: 10001"] input[placeholder="entry name"],
+  div[style*="z-index: 10001"] textarea[placeholder="entry content"] {
+    padding: 10px !important;
+    margin-bottom: 15px !important;
+    border-radius: 8px !important;
+    box-sizing: border-box;
+    font-family: inherit;
+    line-height: 1.5;
+  }
+  div[style*="z-index: 10001"] textarea[placeholder="entry content"] {
+    min-height: 120px !important;
+    background-color: #f8fafc;
+  }
+  div[style*="z-index: 10001"] [data-key="prompt"] textarea,
+  div[style*="z-index: 10001"] [data-key="negativeprompt"] textarea {
+    min-height: 160px !important;
+  }
+  div[style*="z-index: 10001"] [data-key="seed"] input,
+  div[style*="z-index: 10001"] [data-key="guidancescale"] input,              div[style*="z-index: 10001"] [data-key="prompt"] input,                     div[style*="z-index: 10001"] [data-key="negativeprompt"] input {
+    font-weight: bold;
+    color: #2563eb;
+    max-width: 140px;
+  }
+
+  body {
+    background-color: #f8fafc; 
+    margin: 0;
+    padding: 0;
+  }
+
+  .perchance-guide-container {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    max-width: 100%;
+    margin: 10px auto;
+    padding: 6px;
+    background-color: #f8fafc;
+    color: #1e293b;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    font-size: 14px;
+    line-height: 1.5;
+    text-align: left !important; 
+  }
+
+  .guide-header {
+    text-align: center;
+    padding: 16px 10px;
+    background: linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%);
+    border-radius: 10px;
+    margin-bottom: 12px;
+    border: 1px solid #e2e8f0;
+    border-bottom: 3px solid #2563eb;
+  }
+
+  .guide-header .main-title {
+    font-size: 18px;
+    color: #0f172a;
+    margin: 0 0 6px 0;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+  }
+
+  .guide-header .subtitle {
+    font-size: 11.5px;
+    color: #64748b;
+    margin: 0;
+    font-weight: 500;
+  }
+
+  .main-accordion {
+    background-color: #ffffff;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #2563eb;
+  }
+
+  .main-summary {
+    padding: 14px;
+    font-weight: bold;
+    font-size: 13px;
+    background-color: #2563eb;
+    color: #ffffff;
+    cursor: pointer;
+    outline: none;
+    list-style: none;
+    text-align: center;
+    letter-spacing: 0.5px;
+  }
+  
+  .main-summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .guide-content {
+    padding: 8px;
+    background-color: #f8fafc;
+  }
+
+  .section-accordion {
+    margin-bottom: 8px;
+    background-color: #ffffff;
+    border-radius: 6px;
+    border: 1px solid #cbd5e1;
+  }
+
+  .section-accordion > summary {
+    display: block; 
+    padding: 12px;
+    font-weight: 600;
+    color: #1d4ed8;
+    cursor: pointer;
+    outline: none;
+    font-size: 13px;
+    background-color: #f1f5f9;
+    border-radius: 6px;
+  }
+
+  .section-accordion > summary::-webkit-details-marker {
+    display: none !important;
+  }
+
+  .section-accordion[open] > summary {
+    border-bottom: 1px solid #cbd5e1;
+    color: #2563eb;
+    background-color: #e2e8f0;
+  }
+
+  .section-body {
+    padding: 12px;
+    font-size: 13.5px;
+    background-color: #ffffff;
+  }
+
+  .content-h3 {
+    font-size: 14px;
+    font-weight: bold;
+    color: #0f172a;
+    margin: 14px 0 6px 0;
+    border-left: 3px solid #2563eb;
+    padding-left: 6px;
+  }
+
+  .content-h4 {
+    font-size: 13px;
+    font-weight: bold;
+    color: #334155;
+    margin: 12px 0 4px 14px;
+    text-decoration: underline;
+  }
+
+  .content-p {
+    margin: 0 0 10px 14px;
+    color: #334155;
+  }
+
+  .custom-li {
+    margin-bottom: 8px;
+    padding-left: 14px;
+    position: relative;
+    color: #334155;
+  }
+  
+  .custom-li::before {
+    content: "•";
+    color: #2563eb;
+    font-weight: bold;
+    position: absolute;
+    left: 2px;
+    top: 0;
+  }
+
+  .prompt-box {
+    background-color: #f0fdf4;
+    border-left: 3px solid #16a34a;
+    padding: 10px;
+    margin: 8px 0;
+    border-radius: 4px;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 12px;
+    color: #14532d;
+    word-break: break-word;
+    user-select: all;
+  }
+
+.good-example-box {
+  background-color: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-left: 4px solid #bbf7d0;
+  border-right: 4px solid #bbf7d0;
+  padding: 10px 12px;
+  margin: 12px 0;
+  border-radius: 6px;
+  color: #14532d;
+  font-size: 12px;
+  font-family: "Courier New", Courier, monospace;
+  text-align: left;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  word-break: break-word;
+}
+
+  .negative-box {
+    background-color: #fef2f2;
+    border-left: 3px solid #dc2626;
+    padding: 10px;
+    margin: 8px 0;
+    border-radius: 4px;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 12px;
+    color: #7f1d1d;
+    word-break: break-word;
+  }
+
+  .option-box {
+    background-color: #f1f5f9;
+    border: 1px dashed #64748b;
+    padding: 8px;
+    margin: 10px 0;
+    border-radius: 6px;
+  }
+
+  .code-word {
+    font-family: monospace;
+    background-color: #ffe4e6;
+    padding: 1px 4px;
+    border-radius: 3px;
+    color: #b91c1c;
+    font-size: 12px;
+  }
+
+  .tip-title {
+    font-size: 13.5px;
+    font-weight: bold;
+    color: #b45309;
+    border-left: 3px solid #d97706;
+    padding-left: 6px;
+    margin-top: 14px;
+    margin-bottom: 4px;
+  }
+
+  .tip-text {
+    background-color: #fef9c3;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #f59e0b;
+    color: #78350f;
+    margin: 8px 0;
+  }
+
+  .fluo { 
+    background-color: #ffff00; 
+  }
+
+  .back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 99998;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: #2563eb;
+    color: #fff;
+    border: none;
+    font-size: 24px;
+    line-height: 1;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.2s, background 0.2s;
+    opacity: 0.1;
+  }
+  .back-to-top:hover { background: #1d4ed8; }
+  .back-to-top.visible { display: flex; opacity: 1; }
+
+/* 1. Le bouton émoji (Le parent) */
+.tooltip {
+  position: relative; 
+  display: inline-block;
+  cursor: pointer; 
+  margin-left: 6px; 
+}
+
+/* 2. La bulle cachée par défaut (L'enfant) */
+.tooltip .tooltip-texte {
+  visibility: hidden;
+  width: 85%; /* S'adapte intelligemment à la largeur du cellulaire */
+  max-width: 300px; /* Évite que ce soit trop large sur un écran d'ordinateur */
+  background-color: #333; 
+  color: #fff; 
+  text-align: center;
+  border-radius: 8px; 
+  padding: 12px; 
+  
+  /* POSITIONNEMENT FIXÉ À L'ÉCRAN */
+  position: fixed;
+  z-index: 100; /* Un chiffre élevé pour être certain d'être au-dessus de tout */
+  
+  /* Centrage parfait au milieu de l'écran */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  
+  /* Ajout d'une ombre pour un effet pop-up professionnel */
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.6);
+
+  /* Effet d'apparition en douceur */
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+/* 3. L'apparition de la bulle au survol (PC) ou au clic (Cellulaire) */
+.tooltip:hover .tooltip-texte,
+.tooltip:active .tooltip-texte {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* === Navigation Rapide de la Section 21 === */
+.quick-nav-container {
+  background-color: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 16px;
+}
+
+.quick-nav-title {
+  font-weight: bold;
+  font-size: 13px;
+  color: #1d4ed8;
+  margin-bottom: 8px;
+  border-bottom: 1px solid #cbd5e1;
+  padding-bottom: 4px;
+}
+
+.quick-nav-subgroup {
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #475569;
+  margin: 8px 0 4px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.quick-nav-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+.quick-nav-btn {
+  background-color: #ffffff;
+  border: 1px solid #2563eb;
+  color: #2563eb;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 11.5px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+
+.quick-nav-btn:hover, .quick-nav-btn:active {
+  background-color: #2563eb;
+  color: #ffffff;
+}
+
+.back-to-sec-menu {
+  display: inline-block;
+  margin-top: 8px;
+  font-size: 11px;
+  color: #2563eb;
+  text-decoration: underline;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* === Nouvelle boîte pour le Texte Injecté par Défaut === */
+.injected-box {
+  background-color: #eff6ff;
+  border: 1px solid #bfdbfe;
+  border-left: 4px solid #2563eb;
+  padding: 8px 12px;
+  margin: 8px 0 10px 0;
+  border-radius: 6px;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 12px;
+  color: #1e40af;
+  word-break: break-word;
+  user-select: all; /* Permet de tout sélectionner d'un coup au toucher */
+}
+
+.injected-label {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  color: #1d4ed8;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+  display: block;
+}
+
+/* === Navigation Rapide de la Section 21 === */
+.quick-nav-container {
+  background-color: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 16px;
+}
+
+.quick-nav-title {
+  font-weight: bold;
+  font-size: 13px;
+  color: #1d4ed8;
+  margin-bottom: 8px;
+  border-bottom: 1px solid #cbd5e1;
+  padding-bottom: 4px;
+}
+
+.quick-nav-subgroup {
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #475569;
+  margin: 8px 0 4px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.quick-nav-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+.quick-nav-btn {
+  background-color: #ffffff;
+  border: 1px solid #2563eb;
+  color: #2563eb;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 11.5px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+
+.quick-nav-btn:hover, .quick-nav-btn:active {
+  background-color: #2563eb;
+  color: #ffffff;
+}
+
+.back-to-sec-menu {
+  display: inline-block;
+  margin-top: 8px;
+  font-size: 11px;
+  color: #2563eb;
+  text-decoration: underline;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+</style>
