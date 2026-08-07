@@ -13,7 +13,7 @@ function chargerSection(idDeLaBoite, cheminDuFichier) {
         .catch(erreur => console.error("Erreur :", erreur));
 }
 
-// Charge automatiquement les 21 sections depuis le dossier sections_du_guide
+// Charge automatiquement les 22 sections depuis le dossier sections_du_guide
 for (let i = 1; i <= 22; i++) {
     const num = String(i).padStart(2, '0');
     // Le chemin pointe maintenant correctement vers ton nouveau dossier !
