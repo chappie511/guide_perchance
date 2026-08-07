@@ -9,6 +9,18 @@
             En raison de la mécanique d'attention des modèles de diffusion (SDXL), le texte placé en fin de prompt s'applique comme une <strong>consigne structurelle finale</strong>. Si tu utilises une position complexe (ex: <em>Model arch pose</em>), évite impérativement d'ajouter des termes de cadrage contradictoires dans ton prompt principal.
           </div>
 
+                    <div class="tip-title">🚫 Paires de Cadrages Contradictoires à ÉVITER :</div>
+          <div class="content-p">
+            <strong>Pourquoi le conflit se produit :</strong><br> L'option de position sélectionnée est injectée à la toute fin de ton prompt. Si ton prompt principal contient un token de cadrage opposé, l'IA hésitera entre deux instructions géométriques irréconciliables, ce qui produit des corps tronqués, des membres surnuméraires ou des visages déformés.
+            <br><br>
+            <strong>Incompatibilités fréquentes à proscrire :</strong><br>
+            • ❌ <strong>Pose en pied (ex: <span class="code-word">standing full body</span>) + <span class="code-word">close-up</span> / <span class="code-word">headshot</span> :</strong> L'IA ne sait pas s'il faut cadrer le visage ou les pieds.<br>
+            • ❌ <strong>Pose de dos (ex: <span class="code-word">shot from behind</span>) + <span class="code-word">looking at camera</span> / <span class="code-word">detailed eyes</span> :</strong> Force une torsion de cou irréaliste à 180°.<br>
+            • ❌ <strong>Pose assise/allongée (ex: <span class="code-word">sitting</span> / <span class="code-word">lying</span>) + <span class="code-word">walking</span> / <span class="code-word">running</span> / <span class="code-word">jumping</span> :</strong> Crée une fusion incohérente des jambes.<br>
+            • ❌ <strong>Pose accroupie/à genoux (ex: <span class="code-word">squatting</span>) + <span class="code-word">knees-up shot</span> :</strong> Bloque la coupe anatomique aux genoux alors que la pose nécessite de voir le sol.
+          </div>
+
+
           <!-- MENU DE NAVIGATION RAPIDE PAR ANCRES -->
           <div class="quick-nav-container" style="margin-top: 14px;">
             <div class="quick-nav-title">📍 Sommaire Rapide des Poses (Toucher pour accéder) :</div>
@@ -111,7 +123,7 @@
           <div class="option-box" id="pose-standing">
             <strong>Standing (Debout neutre)</strong>
             <div class="injected-box">
-              <span class="injected-label">💉 Code injecté par défaut :</span>
+              <span class="injected-label">💉 Texte injecté par défaut :</span>
               she is standing
             </div>
             <strong>Description :</strong> Posture debout simple et neutre.<br>
@@ -121,7 +133,7 @@
           <div class="option-box" id="pose-armsfolded">
             <strong>Standing arms folded / Crossed arms (Bras croisés)</strong>
             <div class="injected-box">
-              <span class="injected-label">💉 Code injecté par défaut :</span>
+              <span class="injected-label">💉 Texte injecté par défaut :</span>
               She is standing with her arms folded
             </div>
             <strong>Description :</strong> Debout, bras croisés sur la poitrine (attitude fermée, assurée ou confiante).<br>
@@ -131,7 +143,7 @@
           <div class="option-box" id="pose-behindback">
             <strong>Standing arms behind back (Mains dans le dos)</strong>
             <div class="injected-box">
-              <span class="injected-label">💉 Code injecté par défaut :</span>
+              <span class="injected-label">💉 Texte injecté par défaut :</span>
               The subject is standing with hands clasped behind their back-posture formal, restrained, or contemplative.
             </div>
             <strong>Description :</strong> Debout, mains jointes dans le dos (posture formelle, retenue ou contemplative).<br>
@@ -141,7 +153,7 @@
           <div class="option-box" id="pose-behindhead">
             <strong>Standing hands behind head / hands on head (Mains sur la tête)</strong>
             <div class="injected-box">
-              <span class="injected-label">💉 Code injecté par défaut :</span>
+              <span class="injected-label">💉 Texte injecté par défaut :</span>
               She is standing with her hands behind her head
             </div>
             <strong>Description :</strong> Debout, les mains derrière ou posées sur la tête (étire la silhouette et met en valeur les lignes du buste).<br>
@@ -151,7 +163,7 @@
           <div class="option-box" id="pose-onhips">
             <strong>Standing hands on hips (Mains sur les hanches)</strong>
             <div class="injected-box">
-              <span class="injected-label">💉 Code injecté par défaut :</span>
+              <span class="injected-label">💉 Texte injecté par défaut :</span>
               She is standing with hands on her hip
             </div>
             <strong>Description :</strong> Debout, mains posées sur les hanches (posture dynamique, affirmée et sûre d'elle).<br>
@@ -161,7 +173,7 @@
           <div class="option-box" id="pose-inpocket">
             <strong>Standing with one hand in pocket (Main dans la poche)</strong>
             <div class="injected-box">
-              <span class="injected-label">💉 Code injecté par défaut :</span>
+              <span class="injected-label">💉 Texte injecté par défaut :</span>
               The subject is standing with one hand tucked into a pocket-suggesting casualness, confidence, or aloofness.
             </div>
             <strong>Description :</strong> Debout avec une main glissée dans la poche (style décontracté, confiant ou distant).<br>
@@ -171,7 +183,7 @@
           <div class="option-box" id="pose-legup">
             <strong>Standing one leg up (Une jambe surélevée)</strong>
             <div class="injected-box">
-              <span class="injected-label">💉 Code injecté par défaut :</span>
+              <span class="injected-label">💉 Texte injecté par défaut :</span>
               She is standing with one leg lifted onto something
             </div>
             <strong>Description :</strong> Debout avec une jambe surélevée appuyée sur un support (marche, rebord, rocher).<br>
@@ -181,7 +193,7 @@
           <div class="option-box" id="pose-leaningwall">
             <strong>Leaning against wall (Adossée au mur)</strong>
             <div class="injected-box">
-              <span class="injected-label">💉 Code injecté par défaut :</span>
+              <span class="injected-label">💉 Texte injecté par défaut :</span>
               leaning her back against a wall
             </div>
             <strong>Description :</strong> Dos adossé contre un mur ou une surface verticale.<br>
@@ -191,7 +203,7 @@
           <div class="option-box" id="pose-leaningforward">
             <strong>Leaning forward (Penchée vers l'avant)</strong>
             <div class="injected-box">
-              <span class="injected-label">💉 Code injecté par défaut :</span>
+              <span class="injected-label">💉 Texte injecté par défaut :</span>
               leaning her body forward while standing or sitting
             </div>
             <strong>Description :</strong> Buste incliné vers l'avant (en position debout ou assise), créant une proximité visuelle.<br>
@@ -201,7 +213,7 @@
           <div class="option-box" id="pose-bentover">
             <strong>Bent over (Penchée en avant)</strong>
             <div class="injected-box">
-              <span class="injected-label">💉 Code injecté par défaut :</span>
+              <span class="injected-label">💉 Texte injecté par défaut :</span>
               she is bent over with her ass exposed
             </div>
             <strong>Description :</strong> Penchée fortement en avant, mettant l'accent sur le bas du corps.<br>
@@ -211,7 +223,7 @@
           <div class="option-box" id="pose-bentoverknees">
             <strong>Bent over hands on knees (Mains sur les genoux)</strong>
             <div class="injected-box">
-              <span class="injected-label">💉 Code injecté par défaut :</span>
+              <span class="injected-label">💉 Texte injecté par défaut :</span>
               The subject is bent forward with hands resting on knees-suggesting exhaustion, readiness, or casual engagement.
             </div>
             <strong>Description :</strong> Penchée en avant, mains appuyées sur les genoux (suggère l'épuisement, la récupération ou l'attente).<br>
@@ -221,7 +233,7 @@
           <div class="option-box" id="pose-bentoverwall">
             <strong>Bent over hands on wall (Mains contre le mur)</strong>
             <div class="injected-box">
-              <span class="injected-label">💉 Code injecté par défaut :</span>
+              <span class="injected-label">💉 Texte injecté par défaut :</span>
               The subject is bent forward with palms pressed against a wall-suggesting tension, vulnerability, or physical exertion.
             </div>
             <strong>Description :</strong> Penchée en avant, paumes plaquées contre un mur (suggère la tension, la vulnérabilité ou l'effort).<br>
@@ -231,7 +243,7 @@
           <div class="option-box" id="pose-touchingtoes">
             <strong>Touching toes (Mains aux pieds)</strong>
             <div class="injected-box">
-              <span class="injected-label">💉 Code injecté par défaut :</span>
+              <span class="injected-label">💉 Texte injecté par défaut :</span>
               She is fully bent over. Her fingers are touching her toes
             </div>
             <strong>Description :</strong> Pliée en deux vers l'avant, le bout des doigts touchant les pieds.<br>
@@ -241,7 +253,7 @@
           <div class="option-box" id="pose-archedbackstanding">
             <strong>Arched back (standing) (Dos cambré debout)</strong>
             <div class="injected-box">
-              <span class="injected-label">💉 Code injecté par défaut :</span>
+              <span class="injected-label">💉 Texte injecté par défaut :</span>
               standing with arched back, chest pushed out
             </div>
             <strong>Description :</strong> Debout, dos fortement cambré et poitrine mise en avant.<br>
@@ -254,7 +266,7 @@
           <div class="option-box" id="pose-sitting">
             <strong>Sitting (Assise neutre)</strong>
             <div class="injected-box">
-              <span class="injected-label">💉 Code injecté par défaut :</span>
+              <span class="injected-label">💉 Texte injecté par défaut :</span>
               she is sitting down
             </div>
             <strong>Description :</strong> Posture assise standard.<br>
@@ -264,7 +276,7 @@
           <div class="option-box" id="pose-crosslegged">
             <strong>Sitting cross-legged (Assise en tailleur)</strong>
             <div class="injected-box">
-              <span class="injected-label">💉 Code injecté par défaut :</span>
+              <span class="injected-label">💉 Texte injecté par défaut :</span>
               sitting cross-legged on the ground
             </div>
             <strong>Description :</strong> Assise en tailleur directement sur le sol.<br>
@@ -274,7 +286,7 @@
           <div class="option-box" id="pose-onelegcrossed">
             <strong>Sitting one leg crossed (Jambe croisée)</strong>
             <div class="injected-box">
-              <span class="injected-label">💉 Code injecté par défaut :</span>
+              <span class="injected-label">💉 Texte injecté par défaut :</span>
               sitting with one leg crossed over other
             </div>
             <strong>Description :</strong> Assise avec une jambe croisée sur l'autre.<br>
@@ -284,7 +296,7 @@
           <div class="option-box" id="pose-sittingsideways">
             <strong>Sitting sideways (Assise de profil)</strong>
             <div class="injected-box">
-              <span class="injected-label">💉 Code injecté par défaut :</span>
+              <span class="injected-label">💉 Texte injecté par défaut :</span>
               sitting sideways on a chair or bench
             </div>
             <strong>Description :</strong> Assise de profil sur une chaise, un banc ou un rebord.<br>
@@ -294,7 +306,7 @@
           <div class="option-box" id="pose-huggingknees">
             <strong>Sitting hugging knees (Repliée genoux enlacés)</strong>
             <div class="injected-box">
-              <span class="injected-label">💉 Code injecté par défaut :</span>
+              <span class="injected-label">💉 Texte injecté par défaut :</span>
               sitting curled up hugging knees
             </div>
             <strong>Description :</strong> Assise, repliée sur elle-même en enlaçant ses genoux contre sa poitrine.<br>
@@ -304,7 +316,7 @@
           <div class="option-box" id="pose-legsspread">
             <strong>Sitting with legs spread (Jambes écartées)</strong>
             <div class="injected-box">
-              <span class="injected-label">💉 Code injecté par défaut :</span>
+              <span class="injected-label">💉 Texte injecté par défaut :</span>
               sitting with legs spread wide open
             </div>
             <strong>Description :</strong> Assise avec les jambes largement écartées.<br>
@@ -314,7 +326,7 @@
           <div class="option-box" id="pose-elbowsonknees">
             <strong>Elbows on knees (Coudes sur les genoux)</strong>
             <div class="injected-box">
-              <span class="injected-label">💉 Code injecté par défaut :</span>
+              <span class="injected-label">💉 Texte injecté par défaut :</span>
               The subject is seated with elbows resting on knees-leaning forward in thought, fatigue, or casual posture.
             </div>
             <strong>Description :</strong> Assise, coudes posés sur les genoux (posture pensive, fatiguée ou décontractée).<br>
@@ -324,7 +336,7 @@
           <div class="option-box" id="pose-proppinghead">
             <strong>Propping head with hands (Tête soutenue)</strong>
             <div class="injected-box">
-              <span class="injected-label">💉 Code injecté par défaut :</span>
+              <span class="injected-label">💉 Texte injecté par défaut :</span>
               sitting or lying with head propped up by hand
             </div>
             <strong>Description :</strong> Assise ou allongée, le visage ou la tête soutenu par une ou deux mains.<br>
@@ -337,7 +349,7 @@
           <div class="option-box" id="pose-kneeling">
             <strong>Kneeling (À genoux neutre)</strong>
             <div class="injected-box">
-              <span class="injected-label">💉 Code injecté par défaut :</span>
+              <span class="injected-label">💉 Texte injecté par défaut :</span>
               she is kneeling on the floor
             </div>
             <strong>Description :</strong> Posée à genoux sur le sol.<br>
@@ -347,7 +359,7 @@
           <div class="option-box" id="pose-kneelingupright">
             <strong>Kneeling upright (À genoux buste droit)</strong>
             <div class="injected-box">
-              <span class="injected-label">💉 Code injecté par défaut :</span>
+              <span class="injected-label">💉 Texte injecté par défaut :</span>
               The subject is kneeling with torso straight and hands resting on thighs-suggesting reverence, discipline, or readiness.
             </div>
             <strong>Description :</strong> À genoux, buste bien droit, mains posées sur les cuisses (posture formelle, disciplinée ou attentive).<br>
@@ -357,7 +369,7 @@
           <div class="option-box" id="pose-kneelinglookingup">
             <strong>Kneeling and looking up (À genoux regard vers le haut)</strong>
             <div class="injected-box">
-              <span class="injected-label">💉 Code injecté par défaut :</span>
+              <span class="injected-label">💉 Texte injecté par défaut :</span>
               kneeling and looking upward
             </div>
             <strong>Description :</strong> À genoux, la tête et le visage orientés vers le haut.<br>
@@ -367,7 +379,7 @@
           <div class="option-box" id="pose-kneelingheaddown">
             <strong>Kneeling with head down (À genoux tête baissée)</strong>
             <div class="injected-box">
-              <span class="injected-label">💉 Code injecté par défaut :</span>
+              <span class="injected-label">💉 Texte injecté par défaut :</span>
               The subject is kneeling with head lowered and arms relaxed-suggesting submission, grief, or prayer.
             </div>
             <strong>Description :</strong> À genoux, tête baissée et bras relâchés (évoque la soumission, le recueillement ou la tristesse).<br>
@@ -377,7 +389,7 @@
           <div class="option-box" id="pose-sittingonknees">
             <strong>Sitting on knees (Assise sur les talons)</strong>
             <div class="injected-box">
-              <span class="injected-label">💉 Code injecté par défaut :</span>
+              <span class="injected-label">💉 Texte injecté par défaut :</span>
               sitting back on her knees
             </div>
             <strong>Description :</strong> Assise directement en arrière sur ses talons et ses genoux pliés.<br>
@@ -387,7 +399,7 @@
           <div class="option-box" id="pose-squatting">
             <strong>Squatting (Accroupie)</strong>
             <div class="injected-box">
-              <span class="injected-label">💉 Code injecté par défaut :</span>
+              <span class="injected-label">💉 Texte injecté par défaut :</span>
               she is squatting down
             </div>
             <strong>Description :</strong> Posture accroupie près du sol.<br>
@@ -397,7 +409,7 @@
           <div class="option-box" id="pose-allfours">
             <strong>All fours (À quatre pattes)</strong>
             <div class="injected-box">
-              <span class="injected-label">💉 Code injecté par défaut :</span>
+              <span class="injected-label">💉 Texte injecté par défaut :</span>
               she is on all fours, she is in the doggy style sex position
             </div>
             <strong>Description :</strong> Position à quatre pattes, mains et genoux posés au sol.<br>
@@ -407,7 +419,7 @@
           <div class="option-box" id="pose-crawling">
             <strong>Crawling (Rampante à quatre pattes)</strong>
             <div class="injected-box">
-              <span class="injected-label">💉 Code injecté par défaut :</span>
+              <span class="injected-label">💉 Texte injecté par défaut :</span>
               crawling forward on hands and knees
             </div>
             <strong>Description :</strong> En train de ramper vers l'avant sur les mains et les genoux.<br>
@@ -417,7 +429,7 @@
           <div class="option-box" id="pose-pushup">
             <strong>Push-up position (Position de pompe)</strong>
             <div class="injected-box">
-              <span class="injected-label">💉 Code injecté par défaut :</span>
+              <span class="injected-label">💉 Texte injecté par défaut :</span>
               in a push-up position
             </div>
             <strong>Description :</strong> Horizontale en appui sur les mains et les pieds (position de pompe ou gainage).<br>
@@ -430,7 +442,7 @@
           <div class="option-box" id="pose-lyingfront">
             <strong>Lying (front) / Lying flat on stomach (Plat ventre)</strong>
             <div class="injected-box">
-              <span class="injected-label">💉 Code injecté par défaut :</span>
+              <span class="injected-label">💉 Texte injecté par défaut :</span>
               she is lying on her front. (ou The subject is lying flat on their stomach, head turned to side-posture relaxed, playful, or subdued.)
             </div>
             <strong>Description :</strong> Allongée à plat ventre, la tête tournée sur le côté.<br>
@@ -440,7 +452,7 @@
           <div class="option-box" id="pose-lyingbackbed">
             <strong>Lying (back, on bed) (Allongée sur le dos dans un lit)</strong>
             <div class="injected-box">
-              <span class="injected-label">💉 Code injecté par défaut :</span>
+              <span class="injected-label">💉 Texte injecté par défaut :</span>
               she is lying on her back. (lying on bed:1.2), (on back:1.2)
             </div>
             <strong>Description :</strong> Allongée sur le dos dans un lit.<br>
@@ -450,7 +462,7 @@
           <div class="option-box" id="pose-lyingbackfloor">
             <strong>Lying (back, on floor) (Allongée sur le dos au sol)</strong>
             <div class="injected-box">
-              <span class="injected-label">💉 Code injecté par défaut :</span>
+              <span class="injected-label">💉 Texte injecté par défaut :</span>
               she is lying on her back. (lying on the floor:1.2), (on back:1.2)
             </div>
             <strong>Description :</strong> Allongée sur le dos directement sur le sol.<br>
@@ -460,7 +472,7 @@
           <div class="option-box" id="pose-lyingside">
             <strong>Lying (side) / Lying on side (Allongée sur le côté)</strong>
             <div class="injected-box">
-              <span class="injected-label">💉 Code injecté par défaut :</span>
+              <span class="injected-label">💉 Texte injecté par défaut :</span>
               she is lying on her side (ou The subject is lying on one side, legs slightly bent and head supported-suggesting sleep, intimacy, or repose.)
             </div>
             <strong>Description :</strong> Allongée sur le côté, les jambes légèrement pliées.<br>
@@ -470,7 +482,7 @@
           <div class="option-box" id="pose-restingsidehead">
             <strong>Resting on side with head propped (Sur le côté, tête soutenue)</strong>
             <div class="injected-box">
-              <span class="injected-label">💉 Code injecté par défaut :</span>
+              <span class="injected-label">💉 Texte injecté par défaut :</span>
               The subject is lying on their side with head supported by hand-suggesting relaxation, flirtation, or thoughtfulness.
             </div>
             <strong>Description :</strong> Allongée sur le côté, la tête appuyée sur la main (évoque la détente, le flirt ou la rêverie).<br>
@@ -480,7 +492,7 @@
           <div class="option-box" id="pose-archedbacklying">
             <strong>Arched back (lying) (Allongée dos cambré)</strong>
             <div class="injected-box">
-              <span class="injected-label">💉 Code injecté par défaut :</span>
+              <span class="injected-label">💉 Texte injecté par défaut :</span>
               lying down with back arched and hips lifted
             </div>
             <strong>Description :</strong> Allongée avec le dos fortement cambré et les hanches surélevées.<br>
@@ -490,7 +502,7 @@
           <div class="option-box" id="pose-fetal">
             <strong>Fetal position / Lying (curled up) (Position fœtale)</strong>
             <div class="injected-box">
-              <span class="injected-label">💉 Code injecté par défaut :</span>
+              <span class="injected-label">💉 Texte injecté par défaut :</span>
               The subject is lying curled on their side, knees tucked and arms wrapped around the body-evoking sleep, fear, or emotional withdrawal.
             </div>
             <strong>Description :</strong> Repliée en position fœtale sur le côté, genoux contre le buste et bras entourant le corps.<br>
@@ -500,7 +512,7 @@
           <div class="option-box" id="pose-recliningarms">
             <strong>Reclining with arms support (Semi-allongée appui bras)</strong>
             <div class="injected-box">
-              <span class="injected-label">💉 Code injecté par défaut :</span>
+              <span class="injected-label">💉 Texte injecté par défaut :</span>
               The subject is reclining with one arm supporting their upper body-suggesting ease, elegance, or seduction.
             </div>
             <strong>Description :</strong> Semi-allongée, le haut du corps maintenu par un bras posé en soutien.<br>
@@ -510,7 +522,7 @@
           <div class="option-box" id="pose-reclininglegs">
             <strong>Reclining with legs bent (Semi-allongée genoux pliés)</strong>
             <div class="injected-box">
-              <span class="injected-label">💉 Code injecté par défaut :</span>
+              <span class="injected-label">💉 Texte injecté par défaut :</span>
               The subject is reclining with knees bent and feet flat-suggesting casual rest, readiness, or comfort.
             </div>
             <strong>Description :</strong> Semi-allongée avec les genoux pliés et les pieds à plat sur la surface.<br>
@@ -520,7 +532,7 @@
           <div class="option-box" id="pose-sleeping">
             <strong>Sleeping (Endormie)</strong>
             <div class="injected-box">
-              <span class="injected-label">💉 Code injecté par défaut :</span>
+              <span class="injected-label">💉 Texte injecté par défaut :</span>
               she is sleeping
             </div>
             <strong>Description :</strong> Représentation d'une personne endormie.<br>
@@ -530,7 +542,7 @@
           <div class="option-box" id="pose-sunbathing">
             <strong>Sunbathing (Bain de soleil)</strong>
             <div class="injected-box">
-              <span class="injected-label">💉 Code injecté par défaut :</span>
+              <span class="injected-label">💉 Texte injecté par défaut :</span>
               She is sunbathing. She is lying on a sun lounger
             </div>
             <strong>Description :</strong> Allongée sur une chaise longue pour un bain de soleil.<br>
@@ -543,7 +555,7 @@
           <div class="option-box" id="pose-modelarch">
             <strong>Model arch pose (Cambrure dramatique de studio)</strong>
             <div class="injected-box">
-              <span class="injected-label">💉 Code injecté par défaut :</span>
+              <span class="injected-label">💉 Texte injecté par défaut :</span>
               The subject is arching their back dramatically, often with one leg extended and arms posed-suggesting glamour, tension, or stylized elegance.
             </div>
             <strong>Description :</strong> Cambrure dramatique style mannequin avec une jambe tendue, créant une ligne très stylisée et glamour.<br>
@@ -553,7 +565,7 @@
           <div class="option-box" id="pose-modelleanforward">
             <strong>Model lean forward (Mannequin incliné vers l'avant)</strong>
             <div class="injected-box">
-              <span class="injected-label">💉 Code injecté par défaut :</span>
+              <span class="injected-label">💉 Texte injecté par défaut :</span>
               The subject is leaning forward from the waist, hands on thighs or knees-suggesting engagement, allure, or intensity.
             </div>
             <strong>Description :</strong> Inclinaison du buste vers l'avant à partir de la taille, mains sur les cuisses ou les genoux.<br>
@@ -563,7 +575,7 @@
           <div class="option-box" id="pose-modelleanback">
             <strong>Model Lean Back (Mannequin inclinée vers l'arrière)</strong>
             <div class="injected-box">
-              <span class="injected-label">💉 Code injecté par défaut :</span>
+              <span class="injected-label">💉 Texte injecté par défaut :</span>
               The subject is leaning backward, supported by arms or surface-suggesting confidence, seduction, or ease.
             </div>
             <strong>Description :</strong> Inclinée vers l'arrière, soutenue par les bras ou adossée à un support.<br>
@@ -573,7 +585,7 @@
           <div class="option-box" id="pose-modelsitside">
             <strong>Model sit side (Assise latérale de studio)</strong>
             <div class="injected-box">
-              <span class="injected-label">💉 Code injecté par défaut :</span>
+              <span class="injected-label">💉 Texte injecté par défaut :</span>
               The subject is seated with legs bent to one side and torso angled-suggesting elegance, poise, or softness.
             </div>
             <strong>Description :</strong> Assise élégante de studio, jambes ramenées d'un côté et buste légèrement pivoté.<br>
@@ -583,7 +595,7 @@
           <div class="option-box" id="pose-modelsquat">
             <strong>Model squat (Accroupie de studio)</strong>
             <div class="injected-box">
-              <span class="injected-label">💉 Code injecté par défaut :</span>
+              <span class="injected-label">💉 Texte injecté par défaut :</span>
               The subject is squatting with one leg bent and the other extended-suggesting strength, balance, or stylized posture.
             </div>
             <strong>Description :</strong> Posture accroupie de studio avec une jambe pliée et l'autre tendue sur le côté.<br>
@@ -596,7 +608,7 @@
           <div class="option-box" id="pose-dancing">
             <strong>Dancing / Dancing 2 / Dancing pose (Danse dynamique)</strong>
             <div class="injected-box">
-              <span class="injected-label">💉 Code injecté par défaut :</span>
+              <span class="injected-label">💉 Texte injecté par défaut :</span>
               She is dancing, Salsa, feet are in movement, beautiful choreography, hands make shapes, arms make shapes, body is in movement, dynamic pose, dynamic body language.
             </div>
             <strong>Description :</strong> Mouvement de danse dynamique (Salsa, chorégraphie en déplacement).<br>
@@ -606,7 +618,7 @@
           <div class="option-box" id="pose-jumping">
             <strong>Jumping (Saut dans les airs)</strong>
             <div class="injected-box">
-              <span class="injected-label">💉 Code injecté par défaut :</span>
+              <span class="injected-label">💉 Texte injecté par défaut :</span>
               she is jumping up in the air.
             </div>
             <strong>Description :</strong> Saisie en plein saut dans les airs.<br>
@@ -616,7 +628,7 @@
           <div class="option-box" id="pose-running">
             <strong>Running (Course rapide)</strong>
             <div class="injected-box">
-              <span class="injected-label">💉 Code injecté par défaut :</span>
+              <span class="injected-label">💉 Texte injecté par défaut :</span>
               She is running, one foot in front of the other, one leg to the front, one leg to the back, rapid movement, one foot doesn't touch the ground, arms swinging, looking forward
             </div>
             <strong>Description :</strong> En pleine course avec les bras et jambes en mouvement d'extension.<br>
@@ -626,7 +638,7 @@
           <div class="option-box" id="pose-swimming">
             <strong>Swimming (Nage immergée)</strong>
             <div class="injected-box">
-              <span class="injected-label">💉 Code injecté par défaut :</span>
+              <span class="injected-label">💉 Texte injecté par défaut :</span>
               Subject is Swimming, submerged in water, making swimming moves with legs and arms, moving forward
             </div>
             <strong>Description :</strong> En train de nager, immergée dans l'eau.<br>
@@ -636,7 +648,7 @@
           <div class="option-box" id="pose-workingout">
             <strong>Working out (Entraînement physique)</strong>
             <div class="injected-box">
-              <span class="injected-label">💉 Code injecté par défaut :</span>
+              <span class="injected-label">💉 Texte injecté par défaut :</span>
               she is working out
             </div>
             <strong>Description :</strong> En séance d'exercice ou de fitness.<br>
@@ -646,7 +658,7 @@
           <div class="option-box" id="pose-yoga">
             <strong>Yoga / Cat pose (Posture de Yoga)</strong>
             <div class="injected-box">
-              <span class="injected-label">💉 Code injecté par défaut :</span>
+              <span class="injected-label">💉 Texte injecté par défaut :</span>
               She is doing a yoga lotus pose on the floor, legs crossed under her, fronting camera, arms extended on each side, thumb and middle finger joined, peaceful looking, eyes closed, humming with mouth closed
             </div>
             <strong>Description :</strong> Posture de yoga (Lotus ou Chat à quatre pattes).<br>
@@ -656,7 +668,7 @@
           <div class="option-box" id="pose-victory">
             <strong>Victory pose (Pose de victoire)</strong>
             <div class="injected-box">
-              <span class="injected-label">💉 Code injecté par défaut :</span>
+              <span class="injected-label">💉 Texte injecté par défaut :</span>
               arms raised in triumph
             </div>
             <strong>Description :</strong> Bras levés en signe de victoire ou de triomphe.<br>
@@ -666,7 +678,7 @@
           <div class="option-box" id="pose-closeup">
             <strong>Close up (Cadrage serré visage)</strong>
             <div class="injected-box">
-              <span class="injected-label">💉 Code injecté par défaut :</span>
+              <span class="injected-label">💉 Texte injecté par défaut :</span>
               close up portrait
             </div>
             <strong>Description :</strong> Cadrage resserré sur le portrait pour forcer la priorité absolue sur le visage.<br>
@@ -676,7 +688,7 @@
           <div class="option-box" id="pose-selfie">
             <strong>Selfie / Selfie (full body) / Selfie (mirror)</strong>
             <div class="injected-box">
-              <span class="injected-label">💉 Code injecté par défaut :</span>
+              <span class="injected-label">💉 Texte injecté par défaut :</span>
               (taking a selfie, selfie pose, looking at the camera, portrait pose details) (ou holding smartphone)
             </div>
             <strong>Description :</strong> Prise de vue style selfie (visage, plein pied ou au miroir avec smartphone).<br>
@@ -689,7 +701,7 @@
           <div class="option-box" id="pose-spreadinglegs">
             <strong>Spreading legs / Lying (back, legs spread) (Jambes écartées)</strong>
             <div class="injected-box">
-              <span class="injected-label">💉 Code injecté par défaut :</span>
+              <span class="injected-label">💉 Texte injecté par défaut :</span>
               she is lying on her back. (lying:1.2), (on back:1.2), (spread legs:1.2)
             </div>
             <strong>Description :</strong> Allongée sur le dos avec les jambes écartées.<br>
@@ -699,7 +711,7 @@
           <div class="option-box" id="pose-legsup">
             <strong>Lying (back, legs up) (Jambes relevées tenue par les mains)</strong>
             <div class="injected-box">
-              <span class="injected-label">💉 Code injecté par défaut :</span>
+              <span class="injected-label">💉 Texte injecté par défaut :</span>
               she is laying on her back with her legs spread, she is holding legs back with her hands
             </div>
             <strong>Description :</strong> Allongée sur le dos avec les jambes relevées et maintenues vers l'arrière par ses mains.<br>
@@ -709,7 +721,7 @@
           <div class="option-box" id="pose-handsonbreasts">
             <strong>Standing hands on breasts (Mains moulant la poitrine)</strong>
             <div class="injected-box">
-              <span class="injected-label">💉 Code injecté par défaut :</span>
+              <span class="injected-label">💉 Texte injecté par défaut :</span>
               She is standing and cupping her breasts with her hands
             </div>
             <strong>Description :</strong> Debout, tenant ou moulant ses seins avec ses mains.<br>
@@ -719,7 +731,7 @@
           <div class="option-box" id="pose-showering">
             <strong>Showering (Sous la douche)</strong>
             <div class="injected-box">
-              <span class="injected-label">💉 Code injecté par défaut :</span>
+              <span class="injected-label">💉 Texte injecté par défaut :</span>
               She is standing fully nude in the shower. Her hands behind her head, washing her hair while leaning back and blushing with her eyes closed and a relaxed smile. Her hair is soaked with water and covered in soapy suds from shampoo. Her pussy is visible. She is drenched in suds and water. The shower is steaming hot
             </div>
             <strong>Description :</strong> Nude sous la douche, cheveux mouillés et couverts de mousse de shampooing.<br>
@@ -729,7 +741,7 @@
           <div class="option-box" id="pose-allfoursnude">
             <strong>All fours (nude) (À quatre pattes nude)</strong>
             <div class="injected-box">
-              <span class="injected-label">💉 Code injecté par défaut :</span>
+              <span class="injected-label">💉 Texte injecté par défaut :</span>
               She is on all fours, presenting her ass, anus visible, looking over her shoulder directly into the lens from slightly above eye level, big smile.
             </div>
             <strong>Description :</strong> À quatre pattes nude, regardant par-dessus l'épaule directement vers l'objectif.<br>
@@ -739,7 +751,7 @@
           <div class="option-box" id="pose-masturbating">
             <strong>Masturbating (Scène de masturbation)</strong>
             <div class="injected-box">
-              <span class="injected-label">💉 Code injecté par défaut :</span>
+              <span class="injected-label">💉 Texte injecté par défaut :</span>
               she is masturbating, her fingers are touching her clitoris, her pussy is soaking wet, her mouth is open, her eyes are closed, her skin is glistening with sweat, her back is arched, her head is tilted back, she is lying on her back
             </div>
             <strong>Description :</strong> Scène de masturbation explicite sur le dos.<br>
@@ -749,7 +761,7 @@
           <div class="option-box" id="pose-dildosquat">
             <strong>Dildo squat (Pénétration dildo accroupie)</strong>
             <div class="injected-box">
-              <span class="injected-label">💉 Code injecté par défaut :</span>
+              <span class="injected-label">💉 Texte injecté par défaut :</span>
               squatting down on dildo, dildo penetrates vagina, vagina engulfs head of dildo
             </div>
             <strong>Description :</strong> Posture accroupie avec pénétration.<br>
