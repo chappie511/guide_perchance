@@ -19,11 +19,13 @@ Un guide complet et interactif dédié au *Prompt Engineering* sur Perchance. Il
 
 ```text
 guide_perchance/
- ├── index.html        # Structure HTML principale
  ├── css/
- │    └── index.css    # Feuilles de style UI & composantes
+ │    └── index.css           # Feuilles de style UI & composantes
  ├── js/
- │    └── index.js     # Script de chargement dynamique et interactions
- ├── section_01.html   # Contenu de la Section 1
- ├── section_02.html   # Contenu de la Section 2
- └── ...               # Jusqu'à section_21.html
+ │    └── index.js            # Script de chargement dynamique et interactions
+ ├── sections_du_guide/
+ │    ├── section_01.html     # Contenu de la Section 1
+ │    ├── section_02.html     # Contenu de la Section 2
+ │    └── ...                 # Jusqu'à section_22.html
+ ├── index.html               # Structure HTML principale
+ └── README.md                # Documentation du projet
