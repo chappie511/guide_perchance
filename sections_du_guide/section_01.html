@@ -1,15 +1,55 @@
-<details name="groupe-sections" class="section-accordion">
-        <summary>☕ Section 1: Le Style "Casual Photo" (Photo Décontractée)</summary>
-        <div class="section-body">
-          <div class="content-h3">1. Définition du Style</div>
-          <div class="content-p">Le style "Casual Photo" vise à créer une image qui semble avoir été prise de manière spontanée, naturelle et non planifiée. Contrairement à une photographie de studio ou professionnelle, une photo décontractée se concentre sur l'authenticité et le moment présent.</div>
-          
-          <div class="custom-li"><strong>Sujet Naturel :</strong> Les sujets ne posent pas de manière rigide. Leurs expressions et leurs poses sont détendues, souvent capturées en pleine action (un sourire spontané, un regard fuyant, un éclat de rire).</div>
-          <div class="custom-li"><strong>Éclairage Naturel :</strong> L'éclairage privilégie la lumière ambiante disponible, comme la lumière directe du soleil ou un éclairage d'intérieur standard, plutôt que des flashs de studio complexes.</div>
-          <div class="custom-li"><strong>Composition Simple :</strong> La composition est directe, sans fioritures architecturales, et s'intègre naturellement dans l'environnement.</div>
-          <div class="custom-li"><strong>Arrière-plan Réaliste :</strong> La scène s'ancre dans un lieu réel (une rue passante, un café, un parc, une maison) qui ajoute du contexte et de la vérité à l'image.</div>
-          
-          <div class="content-h3">2. Conseils d'Utilisation</div>
-          <div class="content-p">Pour réussir ce style, décris une action plutôt que de simplement nommer un sujet. Au lieu de demander un modèle figé, décris ton personnage en train de faire quelque chose de naturel. Par exemple, utilise la formule : <em>"une jeune femme riant en tenant sa tasse de café"</em>. Précise toujours l'environnement pour donner de la consistance à la scène, comme <em>"dans un petit café parisien en terrasse"</em>. Enfin, élimine impérativement les termes de studio. Évite les mots-clés comme "studio lighting" ou "professional photography" qui contredisent frontalement l'esthétique décontractée recherchée.</div>
-        </div>
-      </details>
+<!-- Section 01 : Guide de Création de Prompts (Méthode des 6 Piliers) -->
+<details name="groupe-sections" class="section-accordion" id="section-1">
+  <summary>🏛️ Section 1 : Méthode des 6 Piliers & Architecture de Prompt</summary>
+  <div class="section-body">
+      <div class="content-p">Dans le domaine de la génération d'images par intelligence artificielle, la qualité du rendu final ne dépend pas d'adjectifs génériques, mais de la précision de votre vocabulaire technique. Une invite (prompt) efficace agit comme une véritable feuille de route photographique : elle dicte à l'algorithme le cadrage exact, l'anatomie du sujet, les propriétés physiques de la lumière et les spécifications optiques de la prise de vue.</div>
+      <div class="content-p">​Cette section propose une <strong>structure universelle standardisée</strong> conçue pour éliminer les ambiguïtés d'interprétation. En décomposant vos instructions selon un ordre méthodique inspiré des standards du cinéma et de la photographie de studio, vous obtenez un contrôle total et reproductible sur vos créations visuelles.</div>
+
+    
+    <div class="content-h3">1. L'Ordre de Priorité (De gauche à droite)</div>
+    <div class="content-p">Les modèles de diffusion accordent une importance décroissante aux tokens : le texte placé au début du prompt capte l'attention algorithmique maximale. Place systématiquement ton sujet principal en tête de phrase.</div>
+
+    <div class="content-h3">2. La Règle de Pondération (Weighting)</div>
+    <div class="content-p">Pour forcer l'IA à respecter un détail complexe ou au contraire pour atténuer un effet indésirable, utilise les marqueurs de poids :</div>
+    
+    <div class="custom-li"><strong>(terme:1.3) :</strong> Augmente la force du token (recommandé pour isoler plusieurs personnages ou verrouiller une pose).</div>
+    <div class="custom-li"><strong>(terme:0.5) :</strong> Réduit l'impact du token dans l'espace latent.</div>
+
+    <div class="content-h3">3. Les 6 Piliers Fondamentaux du Prompt</div>
+    <div class='tip-title'>Conseil pratique : Rédiger exclusivement en anglais</div>
+    <div class='tip-text'>Bien que l'interface et les options du générateur puissent être en français, les fragments de texte injectés dans le prompt final doivent toujours être en anglais. Les encodeurs de texte des modèles d'image y reconnaissent les nuances photographiques et artistiques avec une fidélité bien plus élevée.               
+    </div>
+    <div class="content-p">Voici in exemple de prompt qui sera décortiqué :</div>
+    <div class="good-example-box">Waist-up editorial studio portrait of a young girl with straight light-brown hair in a crouched fashion pose, elbow on knee, looking at camera with a playful expression, wearing a pastel pink ruffled swimsuit with unicorn print and matching bow headband, seamless pure white backdrop, professional high-key studio lighting, shot on 50mm lens at f/4.0, deep depth of field, natural skin texture, subsurface scattering, ACES color grading, commercial catalog photography --ar 4:5 --q 2</div>
+    <div class="content-h4">Pilier 1 : Cadrage & Genre :</div> 
+    <div class="content-p">Waist-up editorial studio portrait → Impose immédiatement la distance de la caméra et le type de production.</div>
+    
+    <div class="content-h4">Pilier 2 : Sujet & Pose :</div> 
+    <div class="content-p">young girl with straight light-brown hair in a crouched fashion pose, elbow on knee, looking at camera with a playful expression → Verrouille l'anatomie, la posture et l'émotion.</div>
+    
+    <div class="content-h4">Pilier 3 : Arrière-plan / Décor :</div> 
+    <div class="content-p">seamless pure white backdrop → Isole le sujet proprement.</div>
+    
+    <div class="content-h4">Pilier 4 : Éclairage & Rendu technique :</div> 
+    <div class="content-p">professional high-key studio lighting, natural skin texture, subsurface scattering, ACES color grading → Contrôle la diffusion de la lumière et évite l'effet « peau de plastique ».</div>
+    
+    <div class="content-h4">Pilier 5 : Paramètres optiques :</div> 
+    <div class="content-p">shot on 50mm lens at f/4.0, deep depth of field → Dicte la perspective et le niveau de netteté.</div>
+    
+    <div class="content-h4">Pilier 6 : Style & Paramètres moteurs :</div> 
+    <div class="content-p">commercial catalog photography --ar 4:5 --q 2 → Définit l'esthétique globale et les drapeaux techniques.</div>
+    
+    <div class="good-example-box">
+      <strong>Exemple de Prompt Final Optimisé :</strong><br>
+      ​<strong>(</strong>Cadrage / Style de prise de vue<strong>)</strong> of <strong>(</strong>Sujet principal + caractéristiques<strong>)</strong>, <strong>(</strong>Pose précise + expression faciale<strong>)</strong>, wearing <strong>(</strong>Vêtements détaillés / Accessoires<strong>)</strong>, <strong>(</strong>Arrière-plan / Environnement<strong>)</strong>, <strong>(</strong>Schéma d'éclairage<strong>)</strong>, shot on <strong>(</strong>Focale mm<strong>)</strong> at <strong>(</strong>Ouverture f/stop<strong>)</strong>, <strong>(</strong>Profondeur de champ<strong>)</strong>, <strong>(</strong>Mots-clés de texture / Rendu lumière<strong>)</strong>, <strong>(</strong>Étalonnage des couleurs / Style photographique<strong>)</strong> <strong>(</strong>Paramètres moteur<strong>)</strong>
+    </div> 
+
+    <div class="content-h3">4. Le Negative Prompt de Sécurité (L'Anti-Description)</div>
+    <div class="content-p">À copier-coller dans la zone <em>Negative Prompt</em> pour garantir la propreté et la structure de l'image :</div>
+    <div class="negative-box">(distorted lens geometry:1.2), worst quality, low-resolution, jpeg artifacts, watermark, low-quality optics, normal quality, over-sharpened, harsh micro-contrast, crunchy details, image noise, restoration artifacts</div>
+
+    <div class="content-h3">5. Astuce : Le Séparateur « BREAK »</div>
+    <div class="content-p">Si des caractéristiques bavent d'un sujet sur l'autre (par exemple si les vêtements fusionnent avec l'arrière-plan), insère le mot-clé <span class="code-word">BREAK</span> en majuscules entre deux piliers. Cette commande réinitialise le vecteur d'attention du modèle de diffusion pour traiter chaque bloc de façon indépendante.</div>
+
+  </div>
+</details>
