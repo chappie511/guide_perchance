@@ -1,38 +1,5 @@
 <style>
-  .tabbed-comments-plugin-add-custom-channel {
-    display: none;
-  }
-
-  /* Fix: private gallery info editor clips top entries due to justify-content:center + overflow:auto */
-  div[style*="z-index: 10001"] div[style*="justify-content: center"][style*="overflow: auto"] {
-    justify-content: flex-start !important;
-  }
-
-  /* === Private gallery info editor: field styling === */
-  div[style*="z-index: 10001"] input[placeholder="entry name"],
-  div[style*="z-index: 10001"] textarea[placeholder="entry content"] {
-    padding: 10px !important;
-    margin-bottom: 15px !important;
-    border-radius: 8px !important;
-    box-sizing: border-box;
-    font-family: inherit;
-    line-height: 1.5;
-  }
-  div[style*="z-index: 10001"] textarea[placeholder="entry content"] {
-    min-height: 120px !important;
-    background-color: #f8fafc;
-  }
-  div[style*="z-index: 10001"] [data-key="prompt"] textarea,
-  div[style*="z-index: 10001"] [data-key="negativeprompt"] textarea {
-    min-height: 160px !important;
-  }
-  div[style*="z-index: 10001"] [data-key="seed"] input,
-  div[style*="z-index: 10001"] [data-key="guidancescale"] input,              div[style*="z-index: 10001"] [data-key="prompt"] input,                     div[style*="z-index: 10001"] [data-key="negativeprompt"] input {
-    font-weight: bold;
-    color: #2563eb;
-    max-width: 140px;
-  }
-
+    
   body {
     background-color: #f8fafc; 
     margin: 0;
@@ -179,6 +146,61 @@
     left: 2px;
     top: 0;
   }
+  
+  .division_contenu {
+    border-bottom: thick double #32a1ce;
+    margin: 0 0 6px 0;
+  }
+
+/* === Boîte Pour Aller Plus Loin / Décryptage Pédagogique === */
+  .learn-box {
+    background-color: #f5f3ff;
+    border: 1px solid #ddd6fe;
+    border-left: 4px solid #7c3aed;
+    padding: 10px 12px;
+    margin: 8px 0;
+    border-radius: 6px;
+    color: #4c1d95;
+    font-size: 12.5px;
+    line-height: 1.5;
+  }
+
+  .learn-label {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    color: #6d28d9;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 6px;
+    display: block;
+  }
+
+/* === Nouvelle boîte pour le Texte Injecté par Défaut === */
+  .injected-box {
+    background-color: #eff6ff;
+    border: 1px solid #bfdbfe;
+    border-left: 4px solid #2563eb;
+    padding: 8px 12px;
+    margin: 8px 0 10px 0;
+    border-radius: 6px;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 12px;
+    color: #1e40af;
+    word-break: break-word;
+    user-select: all; /* Permet de tout sélectionner d'un coup au toucher */
+  }
+
+  .injected-label {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    color: #1d4ed8;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+    display: block;
+  }
 
   .prompt-box {
     background-color: #f0fdf4;
@@ -193,21 +215,21 @@
     user-select: all;
   }
 
-.good-example-box {
-  background-color: #f0fdf4;
-  border: 1px solid #bbf7d0;
-  border-left: 4px solid #bbf7d0;
-  border-right: 4px solid #bbf7d0;
-  padding: 10px 12px;
-  margin: 12px 0;
-  border-radius: 6px;
-  color: #14532d;
-  font-size: 12px;
-  font-family: "Courier New", Courier, monospace;
-  text-align: left;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-  word-break: break-word;
-}
+  .good-example-box {
+    background-color: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    border-left: 4px solid #bbf7d0;
+    border-right: 4px solid #bbf7d0;
+    padding: 10px 12px;
+    margin: 12px 0;
+    border-radius: 6px;
+    color: #14532d;
+    font-size: 12px;
+    font-family: "Courier New", Courier, monospace;
+    text-align: left;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    word-break: break-word;
+  }
 
   .negative-box {
     background-color: #fef2f2;
@@ -282,200 +304,271 @@
     transition: opacity 0.2s, background 0.2s;
     opacity: 0.1;
   }
-  .back-to-top:hover { background: #1d4ed8; }
-  .back-to-top.visible { display: flex; opacity: 1; }
+  
+  .back-to-top:hover { 
+    background: #1d4ed8; 
+  }
+  
+  .back-to-top.visible { 
+    display: flex; opacity: 1; 
+  }
 
 /* 1. Le bouton émoji (Le parent) */
-.tooltip {
-  position: relative; 
-  display: inline-block;
-  cursor: pointer; 
-  margin-left: 6px; 
-}
+  .tooltip {
+    position: relative; 
+    display: inline-block;
+    cursor: pointer; 
+    margin-left: 6px; 
+  }
 
 /* 2. La bulle cachée par défaut (L'enfant) */
-.tooltip .tooltip-texte {
-  visibility: hidden;
-  width: 85%; /* S'adapte intelligemment à la largeur du cellulaire */
-  max-width: 300px; /* Évite que ce soit trop large sur un écran d'ordinateur */
-  background-color: #333; 
-  color: #fff; 
-  text-align: center;
-  border-radius: 8px; 
-  padding: 12px; 
+  .tooltip .tooltip-texte {
+    visibility: hidden;
+    width: 85%; /* S'adapte intelligemment à la largeur du cellulaire */
+    max-width: 300px; /* Évite que ce soit trop large sur un écran d'ordinateur */
+    background-color: #333; 
+    color: #fff; 
+    text-align: center;
+    border-radius: 8px; 
+    padding: 12px; 
   
   /* POSITIONNEMENT FIXÉ À L'ÉCRAN */
-  position: fixed;
-  z-index: 100; /* Un chiffre élevé pour être certain d'être au-dessus de tout */
+    position: fixed;
+    z-index: 100; /* Un chiffre élevé pour être certain d'être au-dessus de tout */
   
   /* Centrage parfait au milieu de l'écran */
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   
   /* Ajout d'une ombre pour un effet pop-up professionnel */
-  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.6);
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.6);
 
   /* Effet d'apparition en douceur */
-  opacity: 0;
-  transition: opacity 0.3s;
-}
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
 
 /* 3. L'apparition de la bulle au survol (PC) ou au clic (Cellulaire) */
-.tooltip:hover .tooltip-texte,
-.tooltip:active .tooltip-texte {
-  visibility: visible;
-  opacity: 1;
-}
+  .tooltip:hover .tooltip-texte,
+  .tooltip:active .tooltip-texte {
+    visibility: visible;
+    opacity: 1;
+  }
 
-/* === Navigation Rapide de la Section 21 === */
-.quick-nav-container {
-  background-color: #f1f5f9;
-  border: 1px solid #cbd5e1;
-  border-radius: 8px;
-  padding: 12px;
-  margin-bottom: 16px;
-}
+/* === Navigation Rapide === */
+  .quick-nav-container {
+    background-color: #f1f5f9;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    padding: 12px;
+    margin-bottom: 16px;
+  }
 
-.quick-nav-title {
-  font-weight: bold;
-  font-size: 13px;
-  color: #1d4ed8;
-  margin-bottom: 8px;
-  border-bottom: 1px solid #cbd5e1;
-  padding-bottom: 4px;
-}
+  .quick-nav-title {
+    font-weight: bold;
+    font-size: 13px;
+    color: #1d4ed8;
+    margin-bottom: 8px;
+    border-bottom: 1px solid #cbd5e1;
+    padding-bottom: 4px;
+  }
 
-.quick-nav-subgroup {
-  font-size: 11.5px;
-  font-weight: 700;
-  color: #475569;
-  margin: 8px 0 4px 0;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
+  .quick-nav-subgroup {
+    font-size: 11.5px;
+    font-weight: 700;
+    color: #475569;
+    margin: 8px 0 4px 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
 
-.quick-nav-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin-bottom: 8px;
-}
+  .quick-nav-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 8px;
+  }
 
-.quick-nav-btn {
-  background-color: #ffffff;
-  border: 1px solid #2563eb;
-  color: #2563eb;
-  padding: 4px 8px;
-  border-radius: 4px;
-  font-size: 11.5px;
-  text-decoration: none;
-  font-weight: 500;
-  transition: all 0.2s ease;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
-}
+  .quick-nav-btn {
+    background-color: #ffffff;
+    border: 1px solid #2563eb;
+    color: #2563eb;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 11.5px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  }
 
-.quick-nav-btn:hover, .quick-nav-btn:active {
-  background-color: #2563eb;
-  color: #ffffff;
-}
+  .quick-nav-btn:hover {
+    background-color: #2563eb;
+    color: #ffffff;
+  }
 
-.back-to-sec-menu {
-  display: inline-block;
-  margin-top: 8px;
-  font-size: 11px;
-  color: #2563eb;
-  text-decoration: underline;
-  font-weight: 600;
-  cursor: pointer;
-}
+  .quick-nav-btn:active {
+    transform: scale(0.96);
+    background-color: #1d4ed8;
+    color: #ffffff;
+  }
 
-/* === Nouvelle boîte pour le Texte Injecté par Défaut === */
-.injected-box {
-  background-color: #eff6ff;
-  border: 1px solid #bfdbfe;
-  border-left: 4px solid #2563eb;
-  padding: 8px 12px;
-  margin: 8px 0 10px 0;
-  border-radius: 6px;
-  font-family: "Courier New", Courier, monospace;
-  font-size: 12px;
-  color: #1e40af;
-  word-break: break-word;
-  user-select: all; /* Permet de tout sélectionner d'un coup au toucher */
-}
+  .back-to-sec-menu {
+    display: inline-block;
+    margin-top: 8px;
+    font-size: 11px;
+    color: #2563eb;
+    text-decoration: underline;
+    font-weight: 600;
+    cursor: pointer;
+  }
 
-.injected-label {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  font-size: 11px;
-  font-weight: 700;
-  color: #1d4ed8;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  margin-bottom: 4px;
-  display: block;
-}
+/* === Optimisations d'Interaction & Navigation === */
 
-/* === Navigation Rapide de la Section 21 === */
-.quick-nav-container {
-  background-color: #f1f5f9;
-  border: 1px solid #cbd5e1;
-  border-radius: 8px;
-  padding: 12px;
-  margin-bottom: 16px;
-}
+/* Défilement fluide sur toute la page */
+  html {
+    scroll-behavior: smooth;
+  }
 
-.quick-nav-title {
-  font-weight: bold;
-  font-size: 13px;
-  color: #1d4ed8;
-  margin-bottom: 8px;
-  border-bottom: 1px solid #cbd5e1;
-  padding-bottom: 4px;
-}
+/* 1. Décalage d'aération : uniquement pour les éléments internes de section */
+  .option-box[id], 
+  #sec18-tableau-photo {
+    scroll-margin-top: 10px;
+  }
 
-.quick-nav-subgroup {
-  font-size: 11.5px;
-  font-weight: 700;
-  color: #475569;
-  margin: 8px 0 4px 0;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
+/* 2. Surbrillance : restreinte exclusivement aux sous-éléments (ignore les grands accordéons) */
+  .option-box:target, 
+  #sec18-tableau-photo:target {
+    border-color: #2563eb;
+    background-color: #eff6ff;
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
+    transition: background-color 0.3s ease,    border-color 0.3s ease;
+  }
+  
+    /* === Fenêtre Plein Écran (Modal) pour Menu Rapide === */
+  .modal-overlay {
+    display: none; /* Caché par défaut */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #f8fafc; /* Garde le même fond que ton site */
+    z-index: 100000; /* Assure que le menu passe par-dessus TOUT le reste */
+    overflow-y: auto; /* Permet le défilement vertical si tu as beaucoup de boutons */
+    padding: 16px;
+    box-sizing: border-box;
+    role: dialog;
+    aria-modal="true"
+  }
 
-.quick-nav-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin-bottom: 8px;
-}
+/* Classe ajoutée via JavaScript pour afficher la fenêtre */
+  .modal-overlay.active {
+    display: block; 
+  }
 
-.quick-nav-btn {
-  background-color: #ffffff;
-  border: 1px solid #2563eb;
-  color: #2563eb;
-  padding: 4px 8px;
-  border-radius: 4px;
-  font-size: 11.5px;
-  text-decoration: none;
-  font-weight: 500;
-  transition: all 0.2s ease;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
-}
+/* === Bouton pour OUVRIR le menu (Interface principale) === */
+  .btn-open-menu {
+    display: block;
+    width: 100%;
+    background-color: #2563eb;
+    color: #ffffff;
+    border: none;
+    padding: 14px;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 8px;
+    text-align: center;
+    margin-bottom: 16px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    cursor: pointer;
+  }
 
-.quick-nav-btn:hover, .quick-nav-btn:active {
-  background-color: #2563eb;
-  color: #ffffff;
-}
+  .btn-open-menu:active {
+    background-color: #1d4ed8;
+    transform: scale(0.98); /* Petit effet d'enfoncement au toucher */
+  }
 
-.back-to-sec-menu {
-  display: inline-block;
-  margin-top: 8px;
-  font-size: 11px;
-  color: #2563eb;
-  text-decoration: underline;
-  font-weight: 600;
-  cursor: pointer;
-}
+/* === Bouton pour FERMER le menu (À l'intérieur du modal) === */
+  .btn-close-menu {
+    display: block;
+    width: 100%;
+    background-color: #ef4444; /* Rouge pour identifier clairement l'action de fermer */
+    color: #ffffff;
+    border: none;
+    padding: 14px;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    cursor: pointer;
+  }
 
+  .btn-close-menu:active {
+    background-color: #dc2626;
+  }
+
+/* Ajustement cosmétique pour ton conteneur existant dans le modal */
+  .modal-overlay .quick-nav-container {
+    border: none; /* Retire la bordure pour un look plus épuré en plein écran */
+    box-shadow: none;
+    padding: 0;
+  }
+  
+/* === Composant : Tableau Rapide === */
+  .tableau-rapide {
+    width: 100%; /* Un peu moins de 100% pour laisser un petit espace sur les côtés */
+    margin: 16px auto; /* Centre le tableau horizontalement */
+    border-collapse: collapse;
+    font-size: 12.5px;
+    background-color: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    display: block;
+    overflow-x: auto;
+    box-sizing: border-box;
+  }
+
+/* L'en-tête du tableau (la première ligne) */
+  .tableau-rapide th {
+    background-color: #2563eb; 
+    color: #ffffff;
+    font-weight: 600;
+    text-align: center;
+    padding: 10px 12px;
+  /* Ajoute les lignes séparatrices (grille) dans l'en-tête */
+    border: 1px solid #cbd5e1; 
+  }
+
+/* Les cellules normales */
+  .tableau-rapide td {
+    padding: 8px 12px;
+    color: #334155;
+  /* Ajoute les lignes verticales et horizontales partout */
+    border: 1px solid #cbd5e1; 
+  }
+
+/* Enlever la bordure de la toute dernière ligne pour un fini parfait */
+  .tableau-rapide tr:last-child td {
+    border-bottom: none;
+  }
+
+/* Bonus : Effet de surbrillance très léger quand on touche une ligne */
+  .tableau-rapide tr:active {
+    background-color: #f1f5f9;
+  }
+    
+/* L'effet s'applique UNIQUEMENT quand l'élément est ouvert */
+  #sec12-tableau-comparatif[open] {
+    border-color: #2563eb;
+    background-color: #eff6ff;
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+    border-radius: 6px;
+  }
+ 
 </style>
