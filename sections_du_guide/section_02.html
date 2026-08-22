@@ -1,18 +1,57 @@
-      <details name="groupe-sections" class="section-accordion">
-        <summary>✨ Section 2: Guide Évolutif des Effets Visuels</summary>
+<!--PARTIE I : Fondations & Méthodologie -->
+              <!-- Section 2 -->
+<details name="groupe-sections" class="section-accordion" id="section-2">
+        <summary>⚙️ Section 2 : Référence technique : Prompts, variables dynamiques et modificateurs</summary>
         <div class="section-body">
-          <div class="content-p">Pour enrichir tes visuels, tu peux intégrer des effets optiques précis directement dans la narration de tes invites :</div>
-          
-          <div class="custom-li"><strong>Le bokeh :</strong> Rend l'arrière-plan flou en le transformant en de doux cercles de lumière ronds. Le sujet principal reste quant à lui d'une netteté chirurgicale. C'est l'effet idéal pour les portraits ou les gros plans d'objets où tu souhaites isoler le sujet de manière élégante.</div>
-          <div class="custom-li"><strong>L'effet tilt-shift :</strong> Crée une très faible profondeur de champ sélective qui donne l'impression magique que la scène est une maquette miniature ou un jouet. C'est un outil puissant, mais à utiliser avec parcimonie ; il se montre beaucoup plus efficace sur des paysages urbains ou des scènes complexes vus d'un angle élevé.</div>
-          <div class="custom-li"><strong>Le soft focus :</strong> Si tu cherches une ambiance plus onirique, il adoucit l'ensemble de l'image. Il rend les contours moins nets et diffuse la lumière pour donner une apparence rêveuse ou nostalgique. C'est le choix parfait pour les portraits féminins, les scènes de rêverie ou pour imiter l'aspect d'un vieux film.</div>
-          <div class="custom-li"><strong>Le background blur :</strong> Une alternative plus brute au bokeh. Il rend l'arrière-plan flou pour faire ressortir le sujet, mais sa transition entre le net et le flou est beaucoup plus directe. Utilise-le pour tes photos de mode ou tes portraits de rue si tu veux un flou simple et moins stylisé.</div>
-          <div class="custom-li"><strong>Les chromatic aberrations :</strong> Pour injecter du réalisme optique ou un aspect "lo-fi", tu peux invoquer cet effet. Il crée des franges de couleur (souvent rouge-cyan) autour des bords à fort contraste, modélisant ainsi les défauts esthétiques des vieux objectifs photo.</div>
-          <div class="custom-li"><strong>Les light leaks :</strong> Dans la même veine vintage, ils ajoutent des bandes ou des taches de lumière colorée et diffuse dans les tons orange et rouge, comme si ton film argentique avait été accidentellement exposé à la lumière. C'est l'idéal pour les styles de photos typés "polaroid".</div>
-          <div class="custom-li"><strong>Le rear projection :</strong> Simule les techniques de l'ancien Hollywood : le sujet semble superposé à un arrière-plan projeté, laissant apparaître une subtile différence de luminosité ou de texture. Utilise cet effet pour créer des scènes de conduite rétro ou un style vieux film de studio.</div>
-          <div class="custom-li"><strong>Le lens flare :</strong> Pour ajouter du dynamisme et de la chaleur à tes scènes ensoleillées ou à tes couchers de soleil, cet effet est incontournable. Il ajoute des cercles lumineux, des hexagones ou des stries de lumière parasites lorsque la source lumineuse frappe virtuellement l'objectif.</div>
-          <div class="custom-li"><strong>La long exposure :</strong> Si ta scène comporte du mouvement, la longue exposition te permettra de flouter les objets mobiles (l'eau d'une cascade, les phares de voitures) tout en gardant les éléments fixes parfaitement nets, ce qui est idéal pour suggérer le passage du temps en milieu urbain nocturne.</div>
-          <div class="custom-li"><strong>La golden hour :</strong> C'est sans doute l'effet le plus simple et le plus efficace pour embellir instantanément tes portraits et tes paysages. Elle baigne la scène dans un éclairage doux, chaud, diffus et doré, tout en étirant de longues ombres portées.</div>
-          <div class="custom-li"><strong>La silhouette :</strong> À l'inverse, si tu places cette source lumineuse directement derrière ton sujet, tu obtiendras une silhouette. Le sujet devient alors presque entièrement noir et dénué de détails, ce qui est parfait pour créer du mystère, de la dramaturgie ou des compositions minimalistes percutantes.</div>
+            <div class="content-p">Ce document détaille le fonctionnement interne et la logique d'assemblage des prompts au sein du générateur Perchance text-to-image. Il explique comment les directives visuelles positives et négatives sont traitées, comment les variables dynamiques s'injectent en temps réel via la syntaxe entre crochets, et de quelle manière les listes de modificateurs interagissent avec l'interface pour affiner le rendu final de l'image.</div>
+          <div class="content-h3">📝 Prompt</div>
+            <div class="content-p">​L'instruction textuelle qui indique à l'IA ce que l'image doit afficher. Sur Perchance, les prompts sont généralement construits de manière dynamique à l'aide d'expressions entre crochets plutôt qu'écrits manuellement. Dans ce générateur, le prompt est assemblé au moment de la génération en concaténant l'option sélectionnée de chaque menu déroulant :</div>
+            <div class="content-p">
+Pour des raisons techniques, les délimiteurs ne sont pas inscritent.                    
+<em>BRAKET​</em>input.artStyle.prompt<em>BRAKET</em>; <em>BRAKET</em>input.lighting.prompt<em>BRAKET</em>; <em>BRAKET</em>input.persona.prompt<em>BRAKET</em>; <em>BRAKET</em>input.description<em>BRAKET</em>;
+​(Voir main.pjs:78). Chaque élément de liste possède une propriété enfant prompt qui contient le fragment de texte qu'il injecte.
+</div>
+            <div class="content-h4">Bracket delimiters</div>
+            
+            <div class="custom-li"><strong>Délimitation :</strong> ils encadrent du code JavaScript (variables, listes, opérations).                 
+              </div>
+            <div class="custom-li">
+                  <strong>Évaluation :</strong> le code interne est exécuté à la volée lors de la génération.
+              </div>
+            <div class="custom-li">
+                  <strong>Substitution :</strong> le résultat remplace automatiquement les crochets dans le prompt final pour produire un texte dynamique.
+              </div>
+
+            <div class="content-h4">input</div>
+            <div class="content-p"> un objet unique qui regroupe toutes les entrées utilisateur du générateur, chacune étant accessible par son nom.</div>
+            <div class="content-h4">​input.lighting</div> 
+            <div class="content-p">l'option actuellement sélectionnée dans le menu déroulant « lighting ». Sur Perchance, les listes sont des objets de données ; il s'agit donc d'une liste / d'un nœud, et non d'une simple variable.</div>
+            <div class="content-h4">​input.lighting.prompt</div>
+            <div class="content-p"> une propriété enfant de ce nœud. Chaque option du menu déroulant « lighting » comporte un enfant prompt contenant le texte qu'elle injecte :</div>
+            <div class="good-example-box">              
+              lighting                 ← le menu déroulant (une liste d'options)
+  Backlit                ← une option (un nœud)
+    prompt = Lighting: Light source behind the subject...
+  Candlelight
+    prompt = Lighting: Soft, warm light from candles...</div>
+            <div class="content-p">Ainsi, input.lighting.prompt se lit : « le prompt de l'option actuellement sélectionnée dans le menu déroulant lighting ». Si l'utilisateur choisit Backlit, cette expression s'évalue en Lighting: Light source behind the subject... ; s'il choisit Candlelight, elle prend la valeur du texte associé aux bougies.</div>
+                     
+                                       
+          <div class="content-h3">⛔ Prompt négatif (negative / negativePrompt)</div>
+           <div class="content-p">​Le texte qui indique à l'IA ce que l'image doit éviter (ex. : worst quality, jpeg artifacts, watermark). Le plugin text-to-image de Perchance l'accepte soit via l'option d'image negativePrompt, soit directement dans le prompt grâce à la syntaxe (negativePrompt:::).
+</div>
+               <div class="content-h4">Dans ce générateur :</div>
+               <div class="content-p">negativePrompt = <em>BRAKET</em>input.artStyle.negative<em>BRAKET</em>, <em>BRAKET</em>input.extraNegative<em>BRAKET</em></div>
+               <div class="content-p">​(Voir main.pjs:79). Cela constitue une liste de base que l'utilisateur peut enrichir via les champs de saisie Anti-Description.</div>
+             <div class="content-h3">​✍️ input.description</div>
+              <div class="content-p">​Une expression de modèle Perchance entre crochets. input est un objet généré par t2i-framework-plugin qui expose chaque saisie utilisateur issue de userInputs par son nom ; ainsi, input.description correspond à la saisie nommée "description" (la zone de texte Description).</div>
+              <div class="content-p">L'expression <em>BRAKET</em>input.description<em>BRAKET</em> injecte dynamiquement le texte saisi dans ce champ au sein de tout modèle l'utilisant lors de son évaluation (comme dans saveTitle, main.pjs:63). De manière générale, les crochets permettent d'insérer des valeurs en temps réel (entrées utilisateur, sélections de listes, fonctions) directement dans le prompt.
+              </div>
+             <div class="content-h3">​🎚️ Modifiers (Modificateurs)</div>
+              <div class="content-p">​De courtes expressions de qualification que l'on peut ajouter à un prompt pour ajuster le style ou le contenu. Sur le framework text-to-image de Perchance, un champ de saisie de texte peut déclarer une liste modifiers ; chaque élément de cette liste devient un menu déroulant (ex. : "Add character...", "Add action...") situé au-dessus de la zone textarea. Sélectionner une option insère automatiquement son texte dans la zone.</div>
+              <div class="content-h4">Dans ce générateur :</div> 
+              <div class="content-p">modifiers = <em>BRAKET</em>input.artStyle?.modifiers || null<em>BRAKET</em> ​(Voir main.pjs:104). Ainsi, le style artistique choisi apporte automatiquement son propre ensemble de menus déroulants de modificateurs. De plus : modifierUpdates = "event:description.input, event:artStyle.change" ​Cette ligne réaffiche les modificateurs à chaque modification de la description ou lors d'un changement de style.
+              </div>
+                
         </div>
       </details>
