@@ -1,1008 +1,1540 @@
-<details name="groupe-sections" class="section-accordion"
-id="section-3">
-        <summary>📐 Section 3 : Répertoire Universel des Vues & Cadrages (Views's Perchance)</summary>
+      <!-- Section 03 : Répertoire des Styles et Médiums Graphiques -->
+      <details name="groupe-sections" class="section-accordion" id="section-3">
+        <summary>🎭 Section 3 : Répertoire des Styles & Paramètres (Perchance)</summary>
         <div class="section-body">
-            
-            <div class="content-p">Ce répertoire recense les 39 instructions de cadrage, de distance et d'angle de vue calibrées pour Perchance et SDXL. Utilise le menu interactif ci-dessous pour sauter directement à la vue de ton choix.</div>
+            <!-- NOUVEAU : Le bouton qui remplace l'immense menu -->
+          <button id="btnOuvrirStyles" class="btn-open-menu">
+  ☰ Ouvrir le sommaire des 63 styles d'art
+</button>
+          <div class="content-p">Cette section référence les styles d'art, les prompts par défaut et les modificateurs intégrés dans le générateur. Utilise le menu interactif ci-dessous pour une consultation rapide.</div>
+          <!-- GROUPE 1 : STYLES RÉALISTES & HUMAINS -->
+          <div class="content-h3">1. Styles Réalistes & Humains</div>
 
-          <!-- MENU DE NAVIGATION RAPIDE INTERACTIF -->
-          <div class="quick-nav-container">
-            <div class="quick-nav-title">📍 Sommaire Rapide des 39 Vues (Toucher pour accéder) :</div>
-            
-            <div class="quick-nav-subgroup">Lot 1 : Plans Larges & Distants</div>
-            <div class="quick-nav-grid">
-              <a href="#vue-afar" class="quick-nav-btn">1. Afar</a>
-              <a href="#vue-distant" class="quick-nav-btn">2. Distant shot</a>
-              <a href="#vue-longshot" class="quick-nav-btn">3. Long shot</a>
-              <a href="#vue-fullbody" class="quick-nav-btn">4. Full body</a>
-              <a href="#vue-standing" class="quick-nav-btn">5. Standing</a>
-              <a href="#vue-sitting" class="quick-nav-btn">6. Sitting</a>
-              <a href="#vue-fulllength" class="quick-nav-btn">7. Full length</a>
-              <a href="#vue-headtoes" class="quick-nav-btn">8. Head to toes</a>
-            </div>
-
-            <div class="quick-nav-subgroup">Lot 2 : Plans Rapprochés & Portraits</div>
-            <div class="quick-nav-grid">
-              <a href="#vue-bust" class="quick-nav-btn">9. Bust shot</a>
-              <a href="#vue-chest" class="quick-nav-btn">10. Chest-focused</a>
-              <a href="#vue-closeup" class="quick-nav-btn">11. Close-up</a>
-              <a href="#vue-closeupportrait" class="quick-nav-btn">12. Close-up portrait</a>
-              <a href="#vue-extremecloseup" class="quick-nav-btn">13. Extreme close-up</a>
-              <a href="#vue-facefocused" class="quick-nav-btn">14. Face-focused</a>
-              <a href="#vue-headshot" class="quick-nav-btn">15. Head shot</a>
-              <a href="#vue-portrait" class="quick-nav-btn">16. Portrait</a>
-              <a href="#vue-mediumshot" class="quick-nav-btn">17. Medium shot</a>
-              <a href="#vue-waistup" class="quick-nav-btn">18. Waist up</a>
-              <a href="#vue-kneesup" class="quick-nav-btn">19. Knees-up shot</a>
-            </div>
-
-            <div class="quick-nav-subgroup">Lot 3 : Angles & Perspectives Dynamiques</div>
-            <div class="quick-nav-grid">
-              <a href="#vue-birdseye" class="quick-nav-btn">20. Bird's eye view</a>
-              <a href="#vue-topdown" class="quick-nav-btn">21. Top-down view</a>
-              <a href="#vue-bottomup" class="quick-nav-btn">22. Bottom-up view</a>
-              <a href="#vue-frombelow" class="quick-nav-btn">23. From below</a>
-              <a href="#vue-wormseye" class="quick-nav-btn">24. Worm's eye view</a>
-              <a href="#vue-dynamichigh" class="quick-nav-btn">25. Dynamic high angle</a>
-              <a href="#vue-dynamiclow" class="quick-nav-btn">26. Dynamic low angle</a>
-              <a href="#vue-firstperson" class="quick-nav-btn">27. First-person / POV</a>
-            </div>
-
-            <div class="quick-nav-subgroup">Lot 4 : Orientations, Profils & Compositions Spéciales</div>
-            <div class="quick-nav-grid">
-              <a href="#vue-front" class="quick-nav-btn">28. Front</a>
-              <a href="#vue-side" class="quick-nav-btn">29. Side</a>
-              <a href="#vue-sideprofile" class="quick-nav-btn">30. Side profile</a>
-              <a href="#vue-back" class="quick-nav-btn">31. Back</a>
-              <a href="#vue-threequarter" class="quick-nav-btn">32. Three-Quarter</a>
-              <a href="#vue-overtheshoulder" class="quick-nav-btn">33. Over the shoulder</a>
-              <a href="#vue-mirror" class="quick-nav-btn">34. Mirror reflection</a>
-              <a href="#vue-shoes" class="quick-nav-btn">35. Shoes-focused</a>
-              <a href="#vue-candid" class="quick-nav-btn">36. Candid view</a>
-            </div>
-
-            <div class="quick-nav-subgroup">Lot 5 : Mises en page Diptyques & Contenus Spécifiques</div>
-            <div class="quick-nav-grid">
-              <a href="#vue-clothednude" class="quick-nav-btn">37. Clothed and nude</a>
-              <a href="#vue-frontback" class="quick-nav-btn">38. Front and back</a>
-              <a href="#vue-povadult" class="quick-nav-btn">39. Adult POV Specifics</a>
-            </div>
-          </div>
-
-          <!-- LOT 1 : PLANS LARGES & DISTANTS -->
-          <div class="content-h3">Lot 1 : Plans Larges & Distants</div>
-
-          <!-- 1. Afar -->
-          <div class="option-box" id="vue-afar">
-            <strong>1. Afar (Prise de vue de très loin)</strong>
-            
+          <div class="option-box" id="style-casual">
+          <strong>Casual Photo</strong>
+      <div class="content-p" style="margin: 6px 0 8px 0; font-size: 12.5px; line-height: 1.45;">
+        <strong>Description :</strong> Rendu photo du quotidien, non posé et spontané. Met l'accent sur un éclairage naturel, des angles simples et une ambiance décontractée sans mise en scène élaborée.
+      </div>   
             <div class="injected-box">
-              <span class="injected-label">💉 Texte injecté par défaut :</span>
-              shot taken from afar. The subject of the photo is in the distance.
-            </div>
-
-            <strong>Définition :</strong> Plan d'ensemble ou très grand cadrage où le sujet humain est placé loin dans le décor, n'occupant qu'une faible proportion de la surface de la photo.<br>
-            <strong>Effet recherché :</strong> Renforce l'immensité de l'environnement, le sentiment d'isolement, d'anonymat ou de solitude.<br>
-            <div class="tip-text">
-              <strong>Conseils d'utilisation :</strong><br>
-              • Associer avec des décors très texturés ou architecturaux (bâtiments abandonnés, désert, forêt, rue de nuit).<br>
-              • Idéal avec un objectif grand-angle (24mm à 35mm) et un diaphragme fermé (f/8.0 à f/11) pour maintenir une netteté globale.
+              <span class="injected-label">💉 Prompt Positif Injecté :</span>         A casual photo. It's a casual photo.
             </div>
             <div class="negative-box">
-              <strong>Contre-indications :</strong><br>
-              • À proscrire si l'objectif est d'obtenir des micro-détails sur le visage (l'IA générera très peu de pixels pour le visage).<br>
-              • Ne pas associer avec <span class="code-word">close-up</span>, <span class="code-word">headshot</span> ou <span class="code-word">portrait</span>.
+              <strong>Prompt Négatif :</strong> <em>Aucun</em>
             </div>
-            <div class="good-example-box">
-              shot taken from afar. The subject of the photo is in the distance. A lonely figure walking down a wet rain-slicked concrete alley, towering brutalist concrete walls, dark night ambiance, sickly cold cyan streetlights, heavy atmospheric mist, shot on 35mm lens at f/8.0, raw cinematic storytelling realism, SUPIR enhanced rendering.
-            </div>
-            <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire de la section</a>
+            <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire des styles</a>
           </div>
 
-          <!-- 2. Distant shot -->
-          <div class="option-box" id="vue-distant">
-            <strong>2. Distant shot (Sujet petit dans le cadre)</strong>
-            
+          <div class="option-box" id="style-realphoto">
+  <strong>Real Photo</strong>
+      <div class="content-p" style="margin: 6px 0 8px 0; font-size: 12.5px; line-height: 1.45;">
+          <strong>Description :</strong> Rendu strictement photographique haute fidélité, simulant les caractéristiques d'un véritable appareil photo (profondeur de champ naturelle, texture de peau détaillée, optique réelle).
+             </div> 
             <div class="injected-box">
-              <span class="injected-label">💉 Texte injecté par défaut :</span>
-              subject is small in frame, distant
-            </div>
-
-            <strong>Définition :</strong> Variante du plan large où le sujet est intentionnellement maintenu très petit dans la composition globale.<br>
-            <strong>Effet recherché :</strong> Accentue la petitesse du sujet face à son environnement. Idéal pour une esthétique contemplative, voyeuriste ou mystérieuse.<br>
-            <div class="tip-text">
-              <strong>Conseils d'utilisation :</strong> Très utile pour créer des ambiances avec brume (<span class="code-word">atmospheric fog</span>), échelle oppressive (<span class="code-word">oppressive scale</span>) ou ruines urbaines (<span class="code-word">urban decay</span>).
+              <span class="injected-label">💉 Prompt Positif Injecté :</span>
+              Like a real photo.
             </div>
             <div class="negative-box">
-              <strong>Contre-indications :</strong> Risque élevé de déformation faciale si un upscaler (SUPIR) n'est pas appliqué après la génération. À éviter pour mettre en valeur des vêtements complexes ou des bijoux.
+              <strong>Prompt Négatif :</strong> <em>Aucun</em>
             </div>
-            <div class="good-example-box">
-              subject is small in frame, distant. A woman standing at the edge of a massive abandoned industrial warehouse, dark pitch-black background, dramatic volumetric light beam shining down, small scale subject, raw photojournalistic mood, sharp structural details, organic film grain.
-            </div>
-            <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire de la section</a>
+            <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire des styles</a>
           </div>
 
-          <!-- 3. Long shot -->
-          <div class="option-box" id="vue-longshot">
-            <strong>3. Long shot (Plan général complet)</strong>
-            
+          <div class="option-box" id="style-realistic">        
+ <strong>Realistic</strong>
+      <div class="content-p" style="margin: 6px 0 8px 0; font-size: 12.5px; line-height: 1.45;">
+        <strong>Description :</strong> Terme général indiquant que le sujet et les textures doivent paraître crédibles et tangibles, qu'il s'agisse d'un rendu photo, 3D ou d'illustration réaliste.
+      </div>           
             <div class="injected-box">
-              <span class="injected-label">💉 Texte injecté par défaut :</span>
-              It is a long shot. It is a shot of her entire body from a distance
-            </div>
-
-            <strong>Définition :</strong> Plan général montrant le personnage en entier de la tête aux pieds, avec un espace visible au-dessus de la tête et sous les pieds.<br>
-            <strong>Effet recherché :</strong> Équilibre classique entre la lisibilité de la posture et l'intégration du sujet dans le décor.<br>
-            <div class="tip-text">
-              <strong>Conseils d'utilisation :</strong> Parfait pour exposer une tenue vestimentaire complète. Utiliser une focale de 35mm ou 50mm à f/5.6.
+              <span class="injected-label">💉 Prompt Positif Injecté :</span>
+              realistic, photorealistic, ultra-detailed, ultra-realistic, 8k, sharp focus, cinematic lighting, hyper-detailed, intricate details, lifelike, natural lighting, high resolution, ultra HD, 4k, 8k, 16
             </div>
             <div class="negative-box">
-              <strong>Contre-indications :</strong> Ne pas associer à un flou d'arrière-plan extrême (<span class="code-word">extreme bokeh</span>, <span class="code-word">f/1.2</span>) sous peine de détruire le contexte spatial.
+              <strong>Prompt Négatif :</strong> 3D, drawing, illustration, anime
             </div>
-            <div class="good-example-box">
-              It is a long shot. It is a shot of her entire body from a distance. A woman in a dark tailored trench coat walking against a stark concrete wall, harsh directional sunlight casting long shadows, natural unposed posture, shot on 50mm lens at f/5.6, crisp environmental detail, authentic textures.
-            </div>
-            <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire de la section</a>
+            <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire des styles</a>
           </div>
 
-          <!-- 4. Full body -->
-          <div class="option-box" id="vue-fullbody">
-            <strong>4. Full body (Plan en pied de la tête aux pieds)</strong>
-            
+          <div class="option-box" id="style-luxury">
+            <strong>Luxury</strong>
+      <div class="content-p" style="margin: 6px 0 8px 0; font-size: 12.5px; line-height: 1.45;">
+        <strong>Description :</strong> Esthétique haut de gamme et raffinée. Met en avant un éclairage soigné de type studio/mode, des matériaux nobles, des décors prestigieux et une ambiance élégante.
+      </div>
             <div class="injected-box">
-              <span class="injected-label">💉 Texte injecté par défaut :</span>
-              full body, head-to-toe visible
-            </div>
-
-            <strong>Définition :</strong> Cadre strict en pied où le sujet est entièrement visible, sans aucune coupe aux chevilles.<br>
-            <strong>Effet recherché :</strong> Permet une représentation anatomique complète et lisible de la silhouette.<br>
-            <div class="tip-text">
-              <strong>Conseils d'utilisation :</strong> Indispensable pour générer des tenues intégrales. S'assurer que le Negative Prompt contienne des filtres anatomiques solides (<span class="code-word">(bad anatomy:1.3)</span>, <span class="code-word">(deformed hands:1.3)</span>).
+              <span class="injected-label">💉 Prompt Positif Injecté :</span>
+              A masterpiece, best quality, ultra-realistic photography, photorealistic, hyper-detailed real human skin with natural pores, subtle imperfections, and radiant glow, raw photo, 8k, sharp focus, real human anatomy, shot on Canon EOS R5 85mm lens f/1.4, soft cinematic lighting with warm golden rim light and gentle key light from side, dramatic yet flattering shadows, soft warm cinematic lighting with golden hour rim light, atmospheric depth of field, cinematic composition, raw ultimate sensuality, highly detailed textures on lace, skin, stockings, heels, hair, and background luxury.
             </div>
             <div class="negative-box">
-              <strong>Contre-indications :</strong> Peut inciter l'IA à adopter une posture rigide de type "banque d'images" si l'attitude n'est pas spécifiée.
+              <strong>Prompt Négatif :</strong> <em>Aucun</em>
             </div>
-            <div class="good-example-box">
-              full body, head-to-toe visible. Professional editorial photography of a woman wearing a black leather jacket and dark denim jeans, standing against a textured backdrop, harsh direct on-camera flash casting a sharp obsidian shadow onto the wall, shot at f/8.0, natural matte skin texture, razor-sharp edge clarity.
-            </div>
-            <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire de la section</a>
+            <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire des styles</a>
           </div>
 
-          <!-- 5. Full body standing -->
-          <div class="option-box" id="vue-standing">
-            <strong>5. Full body standing (Plan en pied debout)</strong>
-            
+          <div class="option-box" id="style-generator">
+            <strong>Realistic Human Generator</strong>
+      <div class="content-p" style="margin: 6px 0 8px 0; font-size: 12.5px; line-height: 1.45;">
+        <strong>Description :</strong> Générateur de portrait humain photoréaliste axé sur le piqué brut (RAW), la fidélité des micro-pores et l'authenticité des imperfections cutanées sans cosmétiques artificiels.
+      </div>
             <div class="injected-box">
-              <span class="injected-label">💉 Texte injecté par défaut :</span>
-              standing full body shot, head to toes visible
-            </div>
-
-            <strong>Définition :</strong> Variante du plan en pied imposing explicitement la position debout au sujet.<br>
-            <strong>Effet recherché :</strong> Stabilise la composition verticale et donne de l'élégance ou de l'autorité au modèle.<br>
-            <div class="tip-text">
-              <strong>Conseils d'utilisation :</strong> Utiliser un ratio d'image vertical (9:16 ou 2:3). Idéal avec un flash direct casting an obsidian shadow.
+              <span class="injected-label">💉 Prompt Positif Injecté :</span>
+              in soft gaze, looking straight at the camera, skin blemishes, imperfect skin, skin pores, no makeup, no cosmetics, solo, centered, RAW photo, detailed, clear features, sharp focus, film grain, 8k uhd, candid portrait, natural lighting
             </div>
             <div class="negative-box">
-              <strong>Contre-indications :</strong> Ne pas combiner avec <span class="code-word">sitting</span>, <span class="code-word">crouching</span> ou <span class="code-word">kneeling</span>.
+              <strong>Prompt Négatif :</strong> (wrong sex, wrong gender, wrong age, perfect skin, facial hair on women: 1.1), (black and white, monochrome, highly saturated, overexposure:1.1), (cropped, collage, multiple people:1.1), (famous people, models, artists, celebrities), makeup, cosmetics, denim, gore, blood, camera, deviantart, artstation, semi-realistic, cgi, 3d, render, sketch, cartoon, drawing, anime, illustration, painting, cross eyes, have strabismus, hands, jpeg
             </div>
-            <div class="good-example-box">
-              standing full body shot, head to toes visible. A woman with a confident stance, wearing high-waisted trousers and a fitted black top, stark minimalist studio environment, oppressive low-key chiaroscuro lighting, subtle rim light, shot on 85mm lens at f/5.6, anatomically precise composition.
-            </div>
-            <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire de la section</a>
+            <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire des styles</a>
           </div>
 
-          <!-- 6. Full body sitting -->
-          <div class="option-box" id="vue-sitting">
-            <strong>6. Full body sitting (Plan en pied assis)</strong>
-            
+          <div class="option-box" id="style-realimages">
+            <strong>Realistic images</strong>
+      <div class="content-p" style="margin: 6px 0 8px 0; font-size: 12.5px; line-height: 1.45;">
+        <strong>Description :</strong> Style visant une représentation fidèle à la réalité visuelle (textures, lumières, proportions), applicable à divers sujets sans nécessairement imiter un appareil photo précis.
+      </div>
             <div class="injected-box">
-              <span class="injected-label">💉 Texte injecté par défaut :</span>
-              sitting pose full body shot
-            </div>
-
-            <strong>Définition :</strong> Plan complet montrant le sujet dans une position assise (sur une chaise, le sol, un rebord) de la tête aux pieds.<br>
-            <strong>Effet recherché :</strong> Apporte un côté décontracté, intime, vulnérable ou naturel.<br>
-            <div class="tip-text">
-              <strong>Conseils d'utilisation :</strong> Toujours mentionner le support dans le prompt (ex: <span class="code-word">sitting on a concrete ledge</span>) pour éviter que le modèle ne semble flotter.
+              <span class="injected-label">💉 Prompt Positif Injecté :</span>
+              high quality image, 4k, 8k, HD, UHD, Sharp Focus, In Frame
             </div>
             <div class="negative-box">
-              <strong>Contre-indications :</strong> Attention aux plis ou aux croisements de jambes qui nécessitent un Negative Prompt renforcé sur les membres.
+              <strong>Prompt Négatif :</strong> low quality, deformed, blurry, bad art, drawing, painting, horrible resolutions, low DPI, low PPI, blurry, glitch, error
             </div>
-            <div class="good-example-box">
-              sitting pose full body shot. A woman sitting casually on a raw concrete ledge, relaxed unposed posture, intimate moody atmosphere, side rim light creating subtle specular reflections, shot on 50mm lens at f/4.0, zero digital smoothing, SUPIR ultra-detailed textures.
-            </div>
-            <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire de la section</a>
+            <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire des styles</a>
           </div>
 
-          <!-- 7. Full length -->
-          <div class="option-box" id="vue-fulllength">
-            <strong>7. Full length (Vue intégrale éditoriale)</strong>
-            
+          <div class="option-box" id="style-realhumans">
+            <strong>Realistic humans</strong>
+      <div class="content-p" style="margin: 6px 0 8px 0; font-size: 12.5px; line-height: 1.45;">
+        <strong>Description :</strong> Configuration haute définition dédiée à la structure anatomique humaine complète, intégrant un large filtre négatif contre les déformations corporelles.
+      </div>
             <div class="injected-box">
-              <span class="injected-label">💉 Texte injecté par défaut :</span>
-              full length shot
-            </div>
-
-            <strong>Définition :</strong> Terme d'origine photographique et éditoriale désignant une vue qui couvre l'intégralité de la hauteur du modèle.<br>
-            <strong>Effet recherché :</strong> Rendu très épuré, axé sur la ligne du corps, la mode et les proportions verticales.<br>
-            <div class="tip-text">
-              <strong>Conseils d'utilisation :</strong> Synergise parfaitement avec un 50mm ou 85mm pour préserver des proportions naturelles en mode magazine.
+              <span class="injected-label">💉 Prompt Positif Injecté :</span>
+              high quality image, 4k, 8k, HD, UHD
             </div>
             <div class="negative-box">
-              <strong>Contre-indications :</strong> Terme parfois interprété de manière neutre par l'IA si la description de la lumière et du décor n'est pas appuyée.
+              <strong>Prompt Négatif :</strong> low quality, deformed, blurry, bad art, drawing, painting, incorrect anatomy, ugliness, ugly, horrible resolutions, low DPI, low PPI, bad character positioning, absurd anatomy, tiling, pixelization, low pixel count, blurry, low-res face, low poly, Poorly Drawn Characters, Badly Drawn Eyes, Badly Drawn Mouth, Badly Drawn Ears, Badly Drawn Nose, Badly Drawn Hands, Badly Drawn Feet, Badly Drawn Legs, Badly Drawn Hair, Badly Drawn Clothing, bad anatomy, (ugly), missing arms, bad proportions, tiling, missing legs, blurry, (poorly drawn feet), morbid, cloned face, ((extra limbs)), (mutated hands), cropped, (disfigured), mutation, deformed, (mutilated), dehydrated, body out of frame, out of frame, (disfigured), ((bad anatomy)), (poorly drawn face), duplicate, cut off, (poorly drawn hands), error, low contrast, signature, (extra arms), underexposed, text, (extra fingers), overexposed, (too many fingers), (extra legs), bad art, ugly, (extra limbs), beginner, username, (fused fingers), amateur, watermark, (distorted face), worst quality, jpeg artifacts, low quality, (malformed limbs), long neck, low-res, (poorly Rendered face), low resolution, low saturation, (bad composition), Images cut out at the top, left, right, bottom, (deformed body features), (poorly rendered hands)
             </div>
-            <div class="good-example-box">
-              full length shot. High-fashion raw portrait of a woman in minimalist dark attire, clean geometric background, balanced neutral lighting, natural depth of field, 102MP medium-format sensor fidelity, smooth focal roll-off, raw analog aesthetic.
-            </div>
-            <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire de la section</a>
+            <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire des styles</a>
           </div>
 
-          <!-- 8. Head to toes -->
-          <div class="option-box" id="vue-headtoes">
-            <strong>8. Head to toes (Cadre renforcé avec chaussures)</strong>
-            
-            <div class="injected-box">
-              <span class="injected-label">💉 Texte injecté par défaut :</span>
-              shot showing full person from shoes to head
-            </div>
+          <!-- GROUPE 2 : EFFETS SPÉCIAUX & RÉSEAUX SOCIAUX -->
+          <div class="content-h3">2. Effets Spéciaux & Réseaux Sociaux</div>
 
-            <strong>Définition :</strong> Instruction renforcée qui insiste explicitement sur la visibilité des chaussures jusqu'au sommet de la tête.<br>
-            <strong>Effet recherché :</strong> Force l'IA à ne pas couper la photo aux chevilles ou aux mollets, problème fréquent sur SDXL en format vertical.<br>
-            <div class="tip-text">
-              <strong>Conseils d'utilisation :</strong> À utiliser si les chaussures sont un élément central du style ou si tu combines la vue avec <span class="code-word">shoes-focused</span>.
+          <div class="option-box" id="style-polaroid">
+            <strong>Polaroid</strong>
+      <div class="content-p" style="margin: 6px 0 8px 0; font-size: 12.5px; line-height: 1.45;">
+        <strong>Description :</strong> Rendu vintage et instantané. Se distingue par des couleurs légèrement délavées ou chaudes, des contrastes doux, un grain argentique caractéristique et souvent le cadrage carré emblématique.
+      </div>
+            <div class="injected-box">
+              <span class="injected-label">💉 Prompt Positif Injecté :</span>
+              authentic 2000s disposable camera Polaroid instant photo, thick white border at bottom with slight chemical imperfections and light leaks, square format, grainy film texture, warm color cast, harsh direct flash illumination with strong glare and overexposed highlights on skin and fluids, soft focus edges, classic Polaroid vignetting, Polaroid film characteristics,
             </div>
             <div class="negative-box">
-              <strong>Contre-indications :</strong> À éviter absolument si tu cherches un cadrage serré de type buste ou portrait rapproché.
+              <strong>Prompt Négatif :</strong> <em>Aucun</em>
             </div>
-            <div class="good-example-box">
-              shot showing full person from shoes to head. Full view of a woman wearing leather boots and a dark trench coat, standing in a dimly lit corridor, clear focus from footwear to hair, direct spotlight from above, high-fidelity micro-details.
-            </div>
-            <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire de la section</a>
+            <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire des styles</a>
           </div>
 
-          <!-- LOT 2 : PLANS RAPPROCHÉS & PORTRAITS -->
-          <div class="content-h3">Lot 2 : Plans Rapprochés & Portraits</div>
-
-          <!-- 9. Bust shot -->
-          <div class="option-box" id="vue-bust">
-            <strong>9. Bust shot (Vue poitrine / buste)</strong>
-            
+          <div class="option-box" id="style-snapchat">
+            <strong>Snapchat</strong>
+      <div class="content-p" style="margin: 6px 0 8px 0; font-size: 12.5px; line-height: 1.45;">
+        <strong>Description :</strong> Rendu de type photo prise sur le vif au smartphone, souvent vertical, avec un angle selfie, une compression d'image typique des réseaux sociaux et parfois des éléments d'interface ou de légères imperfections de capteur mobile.
+      </div>
             <div class="injected-box">
-              <span class="injected-label">💉 Texte injecté par défaut :</span>
-              from the bust (chest up) view
-            </div>
-
-            <strong>Définition :</strong> Cadre intermédiaire coupant le modèle au niveau de la poitrine, montrant les épaules, le cou et la tête.<br>
-            <strong>Effet recherché :</strong> Cadrage très équilibré. Offre un excellent niveau de détail sur le visage tout en conservant la visibilité des épaules et des bijoux.<br>
-            <div class="tip-text">
-              <strong>Conseils d'utilisation :</strong> Recommandé avec un objectif 85mm à f/2.8 pour détacher doucement le sujet du fond.
+              <span class="injected-label">💉 Prompt Positif Injecté :</span>
+              A Snapchat photograph. It is a selfie taken with a cellphone
             </div>
             <div class="negative-box">
-              <strong>Contre-indications :</strong> Ne pas combiner avec <span class="code-word">full body</span> ou <span class="code-word">waist up</span>.
+              <strong>Prompt Négatif :</strong> <em>Aucun</em>
             </div>
-            <div class="good-example-box">
-              from the bust (chest up) view. Professional editorial portrait of a woman wearing an open leather jacket, stark concrete background, dramatic side key light with deep shadows, shot on 85mm lens at f/2.8, visible pores, authentic skin textures, raw photography.
-            </div>
-            <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire de la section</a>
+            <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire des styles</a>
           </div>
 
-          <!-- 10. Chest-focused shot -->
-          <div class="option-box" id="vue-chest">
-            <strong>10. Chest-focused shot (Focus poitrine et épaules)</strong>
-            
+          <div class="option-box" id="style-instagram">
+            <strong>Instagram</strong>
+      <div class="content-p" style="margin: 6px 0 8px 0; font-size: 12.5px; line-height: 1.45;">
+        <strong>Description :</strong> Esthétique soignée pour les flux sociaux : photo prise au smartphone de qualité supérieure, cadrage portrait dynamique et colorimétrie moderne et contrastée.
+      </div>
             <div class="injected-box">
-              <span class="injected-label">💉 Texte injecté par défaut :</span>
-              focuses on the chest and shoulders
-            </div>
-
-            <strong>Définition :</strong> Cadrage centré spécifiquement sur le thorax, la poitrine et la ligne des épaules.<br>
-            <strong>Effet recherché :</strong> Met l'accent sur le haut du corps, la clavicule, la posture des épaules et les textures textiles.<br>
-            <div class="tip-text">
-              <strong>Conseils d'utilisation :</strong> Très efficace sous une lumière rasante (<span class="code-word">rim light</span>) avec du <span class="code-word">subsurface scattering</span>.
+              <span class="injected-label">💉 Prompt Positif Injecté :</span>
+              An Instagram photograph. It is a selfie taken with a cellphone
             </div>
             <div class="negative-box">
-              <strong>Contre-indications :</strong> L'IA peut parfois couper ou ignorer le haut de la tête. À éviter si l'expression faciale est primordiale.
+              <strong>Prompt Négatif :</strong> <em>Aucun</em>
             </div>
-            <div class="good-example-box">
-              focuses on the chest and shoulders. A woman wearing a fine knit top, subtle rim lighting highlighting the collarbones and shoulders, intimate moody atmosphere, 90mm macro lens precision, zero digital smoothing, SUPIR enhanced rendering.
-            </div>
-            <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire de la section</a>
+            <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire des styles</a>
           </div>
 
-          <!-- 11. Close-up -->
-          <div class="option-box" id="vue-closeup">
-            <strong>11. Close-up (Gros plan visage)</strong>
-            
+          <div class="option-box" id="style-pixar">
+            <strong>Pixar Character (experimental)</strong>
+      <div class="content-p" style="margin: 6px 0 8px 0; font-size: 12.5px; line-height: 1.45;">
+        <strong>Description :</strong> Style d'animation 3D stylisé inspiré des studios Pixar : traits expressifs, yeux arrondis, textures lisses et détaillées, avec un éclairage doux et coloré.
+      </div>
             <div class="injected-box">
-              <span class="injected-label">💉 Texte injecté par défaut :</span>
-              close up shot
-            </div>
-
-            <strong>Définition :</strong> Gros plan cadré de près, englobant principalement la tête et le haut du cou.<br>
-            <strong>Effet recherché :</strong> Élimine les distractions du décor pour créer un contact direct. Maximise la densité de détails du visage.<br>
-            <div class="tip-text">
-              <strong>Conseils d'utilisation :</strong> Excellent pour révéler la micro-texture de la peau (<span class="code-word">visible pores</span>, <span class="code-word">subtle micro-imperfections</span>).
+              <span class="injected-label">💉 Prompt Positif Injecté :</span>
+              A picture rendered in the style of the Toy Story animation franchise. 3D cartoon Pixar character portrait render. bokeh, 4k, highly detailed, Pixar render, CGI Animation, Pixar, dof, cinematic film, Pixar realism, subtle details, breathtaking Pixar short, fine details, close up, sharp focus, HDR, Pixar-style octane render, incredible composition, superb lighting and detail,  Overall, it's an absolute world-class masterpiece 3D Pixar-inspired Character. It's an aesthetically pleasing 3D Pixar-inspired piece with impeccable attention to detail and impressive composition.
             </div>
             <div class="negative-box">
-              <strong>Contre-indications :</strong> Nécessite un Negative Prompt irréprochable sur les yeux (<span class="code-word">bad eyes</span>) et la peau (<span class="code-word">plastic skin</span>).
+              <strong>Prompt Négatif :</strong> <em>Aucun</em>
             </div>
-            <div class="good-example-box">
-              close up shot. Raw candid portrait of a woman, harsh direct on-camera flash casting an obsidian shadow behind her head, intense eye contact, natural matte skin, sharp focal precision, 102MP resolution, organic film grain.
-            </div>
-            <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire de la section</a>
+            <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire des styles</a>
           </div>
 
-          <!-- 12. Close-up portrait -->
-          <div class="option-box" id="vue-closeupportrait">
-            <strong>12. Close-up portrait (Gros plan avec regard caméra)</strong>
-            
+          <div class="option-box" id="style-nostyle">
+           <strong>No style</strong>
+      <div class="content-p" style="margin: 6px 0 8px 0; font-size: 12.5px; line-height: 1.45;">
+        <strong>Description :</strong> Absence de filtre artistique ou de modificateur spécifique. Laisse le modèle d'IA interpréter le prompt brut selon ses données de base, sans forcer un rendu particulier.
+      </div>
             <div class="injected-box">
-              <span class="injected-label">💉 Texte injecté par défaut :</span>
-              Close up portrait, she is looking at the camera
-            </div>
-
-            <strong>Définition :</strong> Gros plan orienté portrait où le modèle fixe directement et intensément l'objectif.<br>
-            <strong>Effet recherché :</strong> Établit un lien psychologique immédiat et immersif (<span class="code-word">intense confrontational eye contact</span>).<br>
-            <div class="tip-text">
-              <strong>Conseils d'utilisation :</strong> Utiliser un 85mm ou 105mm à f/4.0 pour garder les deux yeux parfaitement nets sur le même plan.
+              <span class="injected-label">💉 Prompt Positif Injecté :</span>
+              <em>Aucun ajout automatique</em>
             </div>
             <div class="negative-box">
-              <strong>Contre-indications :</strong> Ne pas associer à des termes de regard détourné (<span class="code-word">averted gaze</span>, <span class="code-word">looking away</span>).
+              <strong>Prompt Négatif :</strong> <em>Aucun</em>
             </div>
-            <div class="good-example-box">
-              Close up portrait, she is looking at the camera. Striking raw portrait of a woman, intense gaze, subtle chiaroscuro illumination, razor-sharp focus lock on the eyes, realistic specular reflections, natural subsurface scattering, SUPIR ultra-detailed.
-            </div>
-            <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire de la section</a>
+            <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire des styles</a>
           </div>
 
-          <!-- 13. Extreme close-up -->
-          <div class="option-box" id="vue-extremecloseup">
-            <strong>13. Extreme close-up (Très gros plan / Macro visage)</strong>
-            
-            <div class="injected-box">
-              <span class="injected-label">💉 Texte injecté par défaut :</span>
-              extreme close up of face
-            </div>
+          <!-- GROUPE 3 : STYLES CINÉMATOGRAPHIQUES & CONCEPT ART -->
+          <div class="content-h3">3. Styles Cinématographiques & Concept Art</div>
 
-            <strong>Définition :</strong> Très gros plan serré sur une zone spécifique du visage (ex: des yeux aux lèvres, ou du nez au front).<br>
-            <strong>Effet recherché :</strong> Impact visuel dramatique, intimité maximale et rendu microscopique des détails (cils, iris, pores).<br>
-            <div class="tip-text">
-              <strong>Conseils d'utilisation :</strong> Utiliser impérativement des termes de piqué comme <span class="code-word">high-fidelity micro-details</span> ou <span class="code-word">macro photography</span>.
+          <div class="option-box" id="style-cinematic">
+            <strong>Cinematic</strong>
+      <div class="content-p" style="margin: 6px 0 8px 0; font-size: 12.5px; line-height: 1.45;">
+        <strong>Description :</strong> Rendu inspiré du cinéma grand écran. Se caractérise par un cadrage immersif, un éclairage dramatique travaillé (ombres marquées, contre-jour), une palette de couleurs étalonnée (color grading) et une forte ambiance narrative.
+      </div>
+            <div class="injected-box">
+              <span class="injected-label">💉 Prompt Positif Injecté :</span>
+              cinematic shot, dynamic lighting, 75mm, Technicolor, Panavision, cinemascope, sharp focus, fine details, 8k, HDR, realism, realistic, key visual, film still, cinematic color grading, depth of field. Overall, it's an absolute world-class cinematic masterpiece. It's an aesthetically pleasing cinematic shot with impeccable attention to detail and impressive composition.
             </div>
             <div class="negative-box">
-              <strong>Contre-indications :</strong> Risque d'artefacts si la résolution de base est trop faible. Toujours accentuer avec SUPIR en post-process.
+              <strong>Prompt Négatif :</strong> <em>Aucun</em>
             </div>
-            <div class="good-example-box">
-              extreme close up of face. Macro photography of a woman's face from nose to forehead, highly detailed iris texture, delicate eyelashes, dry skin micro-texture, raw lighting, zero digital smoothing, 102MP medium-format sensor fidelity.
-            </div>
-            <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire de la section</a>
+            <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire des styles</a>
           </div>
 
-          <!-- 14. Face-focused -->
-          <div class="option-box" id="vue-facefocused">
-            <strong>14. Face-focused (Focus prioritaire sur le visage)</strong>
-            
+          <div class="option-box" id="style-conceptart">
+           <strong>Concept Art</strong>
+      <div class="content-p" style="margin: 6px 0 8px 0; font-size: 12.5px; line-height: 1.45;">
+        <strong>Description :</strong> Illustration conceptuelle pour le jeu vidéo ou le cinéma. Vise à poser une idée, une ambiance ou un décor rapidement et efficacement, souvent avec un mélange de réalisme et de coups de brosse larges axés sur la silhouette et la lumière.
+      </div>
             <div class="injected-box">
-              <span class="injected-label">💉 Texte injecté par défaut :</span>
-              focuses on the face closely
-            </div>
-
-            <strong>Définition :</strong> Instruction qui ordonne à l'IA de placer la priorité absolue de la mise au point sur la structure faciale.<br>
-            <strong>Effet recherché :</strong> Garantit la netteté et la cohérence anatomique du visage en lui réservant la majorité de l'image.<br>
-            <div class="tip-text">
-              <strong>Conseils d'utilisation :</strong> Très utile si le prompt contient des éléments complexes qui risqueraient de distraire le générateur.
+              <span class="injected-label">💉 Prompt Positif Injecté :</span>
+              concept art, digital art, illustration, inspired by wlop style, 8k, fine details, sharp, very detailed, high resolution, world-class masterpiece. Overall, it's absolute world-class masterpiece concept art. It's an aesthetically pleasing concept art with impeccable attention to detail and impressive composition.
             </div>
             <div class="negative-box">
-              <strong>Contre-indications :</strong> Incompatible avec la présentation d'une tenue vestimentaire intégrale ou d'un grand décor.
+              <strong>Prompt Négatif :</strong> <em>Aucun</em>
             </div>
-            <div class="good-example-box">
-              focuses on the face closely. Raw portrait of a woman with natural features, soft directional window light, subtle freckles and visible pores, realistic specular highlights on lips, clear optical depth, authentic photojournalistic feel.
-            </div>
-            <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire de la section</a>
+            <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire des styles</a>
           </div>
 
-          <!-- 15. Head shot -->
-          <div class="option-box" id="vue-headshot">
-            <strong>15. Head shot (Portrait standard tête et épaules)</strong>
-            
+          <div class="option-box" id="style-conceptsketch">
+            <strong>Concept Sketch</strong>
+      <div class="content-p" style="margin: 6px 0 8px 0; font-size: 12.5px; line-height: 1.45;">
+        <strong>Description :</strong> Croquis de recherche préliminaire. Traits de crayon ou de stylet rapides, lignes de structure visibles et coloration minimale (souvent en lavis ou niveaux de gris), axé sur la forme et la composition.
+      </div>
             <div class="injected-box">
-              <span class="injected-label">💉 Texte injecté par défaut :</span>
-              It is a headshot. It is a standard portrait headshot. It is a shot of her head and shoulders
-            </div>
-
-            <strong>Définition :</strong> Portrait standard classique de l'industrie photo (tête et haut des épaules).<br>
-            <strong>Effet recherché :</strong> Cadrage professionnel, propre, neutre et très lisible.<br>
-            <div class="tip-text">
-              <strong>Conseils d'utilisation :</strong> Idéal pour les books photo ou profils éditoriaux. Utiliser une focale de 85mm sur fond épuré.
+              <span class="injected-label">💉 Prompt Positif Injecté :</span>
+              black and white technical drawing showcasing annotation details, world-class masterpiece black and white, pencil strokes, annotated technical concept art sketch, pencil texture. Overall, it's a charmingly aesthetic and well-composed concept sketch.
             </div>
             <div class="negative-box">
-              <strong>Contre-indications :</strong> Peut donner un rendu trop académique si l'éclairage n'est pas personnalisé (<span class="code-word">harsh flash</span>, <span class="code-word">low-key</span>).
+              <strong>Prompt Négatif :</strong> <em>Aucun</em>
             </div>
-            <div class="good-example-box">
-              It is a headshot. It is a standard portrait headshot. It is a shot of her head and shoulders. Professional studio portrait of a woman, minimalist dark backdrop, soft box illumination, crisp focal precision on the eyes, natural matte complexion.
-            </div>
-            <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire de la section</a>
+            <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire des styles</a>
           </div>
 
-          <!-- 16. Portrait -->
-          <div class="option-box" id="vue-portrait">
-            <strong>16. Portrait (Portrait classique tête et buste)</strong>
-            
-            <div class="injected-box">
-              <span class="injected-label">💉 Texte injecté par défaut :</span>
-              It is a portrait style shot. It is a shot of her head and upper body
-            </div>
+          <!-- GROUPE 4 : STYLES PEINTURES (DIGITAL & HUILE) -->
+          <div class="content-h3">4. Styles Peintures (Digital & Huile)</div>
 
-            <strong>Définition :</strong> Vue portrait classique englobant la tête, le cou et le haut du buste.<br>
-            <strong>Effet recherché :</strong> Style universel offrant un équilibre idéal entre expression faciale et attitude de posture.<br>
-            <div class="tip-text">
-              <strong>Conseils d'utilisation :</strong> C'est la vue "passe-partout" la plus stable avec le bloc optique (<span class="code-word">shot on 85mm lens at f/2.8</span>).
+          <div class="option-box" id="style-digitalpainting">
+            <strong>Digital Painting</strong>
+      <div class="content-p" style="margin: 6px 0 8px 0; font-size: 12.5px; line-height: 1.45;">
+        <strong>Description :</strong> Peinture numérique. Combine la fluidité des outils digitaux avec des touches de pinceau plus ou moins visibles, offrant des dégradés riches, des détails précis et une grande variété de textures.
+      </div>
+            <div class="injected-box">
+              <span class="injected-label">💉 Prompt Positif Injecté :</span>
+              breathtaking digital art, trending on artstation, in the style of atey ghailan, in the style of greg rutkowski, in the style of greg tocchini, in the style of james gilleard, 8k, high resolution, best quality. Overall, it's an absolute world-class masterpiece digital painting. It's an aesthetically pleasing digital painting with impeccable attention to detail and impressive composition.
             </div>
             <div class="negative-box">
-              <strong>Contre-indications :</strong> Aucune contre-indication majeure, c'est l'un des cadrages les plus solides.
+              <strong>Prompt Négatif :</strong> <em>Aucun</em>
             </div>
-            <div class="good-example-box">
-              It is a portrait style shot. It is a shot of her head and upper body. Cinematic raw portrait of a woman, moody low-key lighting, subtle rim light on hair, authentic skin textures, realistic depth of field, SUPIR enhanced rendering.
-            </div>
-            <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire de la section</a>
+            <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire des styles</a>
           </div>
 
-          <!-- 17. Medium shot -->
-          <div class="option-box" id="vue-mediumshot">
-            <strong>17. Medium shot (Plan moyen jusqu'à la taille)</strong>
-            
+          <div class="option-box" id="style-painterly">
+            <strong>Painterly</strong>
+      <div class="content-p" style="margin: 6px 0 8px 0; font-size: 12.5px; line-height: 1.45;">
+        <strong>Description :</strong> Rendu très pictural où le geste de l'artiste prime. Les coups de pinceau sont assumés, texturés et visibles, privilégiant la couleur, la lumière et la matière plutôt que des contours rigides et nets.
+      </div>
             <div class="injected-box">
-              <span class="injected-label">💉 Texte injecté par défaut :</span>
-              It is a medium shot. It is a shot of her from the waist up
-            </div>
-
-            <strong>Définition :</strong> Plan moyen cadrant le personnage de la ceinture jusqu'au sommet de la tête.<br>
-            <strong>Effet recherché :</strong> Permet de voir simultanément le visage, la gestuelle des mains et l'environnement proche.<br>
-            <div class="tip-text">
-              <strong>Conseils d'utilisation :</strong> Idéal pour raconter une histoire (<span class="code-word">storytelling</span>) avec un objectif 35mm ou 50mm à f/4.0.
+              <span class="injected-label">💉 Prompt Positif Injecté :</span>
+              painterly digital painting, digital painting in the style of Ilya Kuvshinov with painterly brush strokes, in the style of Ilya Kuvshinov, world-class painterly masterpiece. Overall, it's an absolute world-class masterpiece painterly digital painting. It's an aesthetically pleasing painterly digital painting with impeccable attention to detail and impressive composition.
             </div>
             <div class="negative-box">
-              <strong>Contre-indications :</strong> Attention aux mains qui entrent dans le cadre. Sécuriser avec <span class="code-word">(deformed hands:1.3)</span>.
+              <strong>Prompt Négatif :</strong> <em>Aucun</em>
             </div>
-            <div class="good-example-box">
-              It is a medium shot. It is a shot of her from the waist up. A woman standing inside a dimly lit urban space, leaning against a pillar, candid posture, natural spatial depth, 50mm prime lens at f/4.0, organic film grain, raw storytelling.
-            </div>
-            <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire de la section</a>
+            <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire des styles</a>
           </div>
 
-          <!-- 18. Waist up -->
-          <div class="option-box" id="vue-waistup">
-            <strong>18. Waist up (Cadrage à la taille)</strong>
-            
+          <div class="option-box" id="style-oilpainting">
+            <strong>Oil Painting</strong>
+      <div class="content-p" style="margin: 6px 0 8px 0; font-size: 12.5px; line-height: 1.45;">
+        <strong>Description :</strong> Peinture à l'huile classique. Se distingue par la matière de la pâte, les empâtements, les transitions fondues et la texture visible de la toile.
+      </div>
             <div class="injected-box">
-              <span class="injected-label">💉 Texte injecté par défaut :</span>
-              It is shot from the waist up
-            </div>
-
-            <strong>Définition :</strong> Cadrage strict à partir de la ceinture vers le haut.<br>
-            <strong>Effet recherché :</strong> Variante directe du Medium shot, très efficace pour stabiliser la hauteur de coupe de l'IA.<br>
-            <div class="tip-text">
-              <strong>Conseils d'utilisation :</strong> Très utile pour mettre en valeur les vêtements du haut et les postures de bras croisés.
+              <span class="injected-label">💉 Prompt Positif Injecté :</span>
+              breathtaking alla prima oil painting, close up, alla prima style, oil on linen, painterly oil on canvas, painterly style, exquisite composition and lighting, modern painterly masterpiece, in the style of alexi zaitsev, award-winning painterly alla prima oil painting. Overall, it's an absolute world-class masterpiece oil painting. It's an aesthetically pleasing oil painting with impeccable attention to detail and impressive composition.
             </div>
             <div class="negative-box">
-              <strong>Contre-indications :</strong> Ne pas associer avec des termes demandant la visibilité des jambes (<span class="code-word">full body</span>, <span class="code-word">knees-up</span>).
+              <strong>Prompt Négatif :</strong> <em>Aucun</em>
             </div>
-            <div class="good-example-box">
-              It is shot from the waist up. High-fashion raw photo of a woman in a fitted black top, stark background, direct camera flash casting razor-sharp obsidian shadows, natural skin imperfections, SUPIR ultra-detailed rendering.
-            </div>
-            <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire de la section</a>
+            <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire des styles</a>
           </div>
 
-          <!-- 19. Knees-up shot -->
-          <div class="option-box" id="vue-kneesup">
-            <strong>19. Knees-up shot (Plan américain aux genoux)</strong>
-            
+          <div class="option-box" id="style-oilrealism">
+            <strong>Oil Painting - Realism</strong>
+      <div class="content-p" style="margin: 6px 0 8px 0; font-size: 12.5px; line-height: 1.45;">
+        <strong>Description :</strong> Peinture à l'huile réaliste. Combine la richesse et la texture des pigments à l'huile avec un haut niveau de précision anatomique et de fidélité aux matières réelles.
+      </div>
             <div class="injected-box">
-              <span class="injected-label">💉 Texte injecté par défaut :</span>
-              from knees upwards
-            </div>
-
-            <strong>Définition :</strong> Plan américain (ou 3/4) coupant le sujet au niveau des genoux ou mi-cuisses.<br>
-            <strong>Effet recherché :</strong> Offre une présence imposante, élégante et dynamique sans inclure les pieds.<br>
-            <div class="tip-text">
-              <strong>Conseils d'utilisation :</strong> Utilisé au cinéma pour garder l'action lisible. Très efficace en format vertical 9:16 ou 2:3.
+              <span class="injected-label">💉 Prompt Positif Injecté :</span>
+              breathtaking oil painting, photorealistic oil painting, in the style of charlie bowater, fine details, in the style of wlop, trending on artstation, very detailed. Overall, it's an absolute world-class masterpiece realism oil painting. It's an aesthetically pleasing realism oil painting with impeccable attention to detail and impressive composition.
             </div>
             <div class="negative-box">
-              <strong>Contre-indications :</strong> Ne pas utiliser si le choix des chaussures est un élément clé du prompt.
+              <strong>Prompt Négatif :</strong> <em>Aucun</em>
             </div>
-            <div class="good-example-box">
-              from knees upwards. Cinematic portrait of a woman wearing a trench coat, standing in a textured concrete corridor, harsh directional lighting, confident stance, shot on 70mm lens at f/4.0, raw photography, natural spatial depth.
-            </div>
-            <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire de la section</a>
+            <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire des styles</a>
           </div>
 
-          <!-- LOT 3 : ANGLES & PERSPECTIVES DYNAMIQUES -->
-          <div class="content-h3">Lot 3 : Angles & Perspectives Dynamiques</div>
-
-          <!-- 20. Bird's eye view -->
-          <div class="option-box" id="vue-birdseye">
-            <strong>20. Bird's eye view (Plongée zénithale à 90°)</strong>
-            
+          <div class="option-box" id="style-oilold">
+            <strong>Oil Painting - Old</strong>
+      <div class="content-p" style="margin: 6px 0 8px 0; font-size: 12.5px; line-height: 1.45;">
+        <strong>Description :</strong> Peinture à l'huile d'époque (type Renaissance ou Baroque). Teintes plus sombres ou jaunies, clair-obscur prononcé, vernis patiné et parfois micro-craquelures dues au vieillissement de l'œuvre.
+      </div>
             <div class="injected-box">
-              <span class="injected-label">💉 Texte injecté par défaut :</span>
-              shot directly from above like a bird's perspective
-            </div>
-
-            <strong>Définition :</strong> Vue en plongée totale à 90°, perpendiculaire au sol, comme si la caméra était au-dessus du sujet.<br>
-            <strong>Effet recherché :</strong> Crée une composition graphique et géométrique. Écrase la perspective et met en valeur le sol et les ombres.<br>
-            <div class="tip-text">
-              <strong>Conseils d'utilisation :</strong> Très efficace pour des sujets allongés ou assis sur le sol (béton, draps, eau). Focale 24mm-35mm à f/8.0.
+              <span class="injected-label">💉 Prompt Positif Injecté :</span>
+              Oil painting in the style of Jean-François Millet and Gustave Courbet and Jules Breton
             </div>
             <div class="negative-box">
-              <strong>Contre-indications :</strong> Peut aplatir les traits du visage si le sujet regarde directement vers le haut.
+              <strong>Prompt Négatif :</strong> <em>Aucun</em>
             </div>
-            <div class="good-example-box">
-              shot directly from above like a bird's perspective. A woman lying on a raw concrete floor, dramatic overhead single light source casting sharp shadows, graphic composition, 35mm lens at f/8.0, crisp geometric alignment, authentic skin textures, SUPIR enhanced rendering.
-            </div>
-            <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire de la section</a>
+            <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire des styles</a>
           </div>
 
-          <!-- 21. Top-down view -->
-          <div class="option-box" id="vue-topdown">
-            <strong>21. Top-down view (Vue en plongée classique)</strong>
-            
+          <div class="option-box" id="style-oil70spulp">
+            <strong>Oil Painting - 70s Pulp</strong>
+      <div class="content-p" style="margin: 6px 0 8px 0; font-size: 12.5px; line-height: 1.45;">
+        <strong>Description :</strong> Peinture à l'huile inspirée des couvertures de romans de poche, de fantasy et de science-fiction des années 1970 (style Frank Frazetta, Boris Vallejo). Elle se caractérise par des scènes d'action ou d'aventure sensationnalistes, des palettes de couleurs chaudes et saturées (ocres, bruns, teintes dorées), un fort contraste d'éclairage dramatique et une touche picturale rétro bien marquée.
+      </div>
             <div class="injected-box">
-              <span class="injected-label">💉 Texte injecté par défaut :</span>
-              shot from above looking downward
-            </div>
-
-            <strong>Définition :</strong> Vue en plongée classique sous un angle élevé (sans être forcément à 90° vertical).<br>
-            <strong>Effet recherché :</strong> Suggère la vulnérabilité, l'intimité ou la douceur. Accentue le haut du visage et le regard.<br>
-            <div class="tip-text">
-              <strong>Conseils d'utilisation :</strong> Idéal pour capter des regards vers le haut (<span class="code-word">piercing upward gaze</span>) avec un 50mm à f/2.8.
+              <span class="injected-label">💉 Prompt Positif Injecté :</span>
+              1970s vintage pulp art, ultra realistic, fully restored, exquisite lighting and composition, polished, masterpiece, vintage pulp art, in the style of Earle K. Bergey, in the style of Kelly Freas, in the style of Alex Schomburg, in the style of H. J. Ward, glossy pulp art, Amazing Stories, Weird Tales, 8k, high resolution, best quality, hyper-realistic, Mattias Adolfsson style, detailed stylization, ultra realistic, wlop-style, exquisite lighting and composition, polished, world-class masterpiece, digitally enhanced, breathtaking shot, subtle details, superb quality, art in the style of Kuvshinov, Kuvshinov style, detailed stylization. Overall, it's an absolute world-class masterpiece artwork. It's an aesthetically pleasing restored 1970s vintage pulp art with impeccable attention to detail and impressive composition. It has perfect contrast and color balance. Almost photorealism.
             </div>
             <div class="negative-box">
-              <strong>Contre-indications :</strong> Réduit la taille perçue des jambes (raccourci de perspective).
+              <strong>Prompt Négatif :</strong> scratches, faded, washed out, grainy, dirty
             </div>
-            <div class="good-example-box">
-              shot from above looking downward. Intimate portrait of a woman looking upward toward the camera, soft directional light illuminating her face, natural depth of field, 50mm prime lens at f/2.8, subtle subsurface scattering, raw photo.
-            </div>
-            <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire de la section</a>
+            <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire des styles</a>
           </div>
 
-          <!-- 22. Bottom-up view -->
-          <div class="option-box" id="vue-bottomup">
-            <strong>22. Bottom-up view (Vue en contre-plongée)</strong>
-            
+          <div class="option-box" id="style-watercolor">
+            <strong>Watercolor</strong>
+      <div class="content-p" style="margin: 6px 0 8px 0; font-size: 12.5px; line-height: 1.45;">
+        <strong>Description :</strong> Rendu aquarelle traditionnelle. Met en valeur la transparence des pigments, les lavis subtils, les bords d'eau fondus, les éclaboussures légères et le grain texturé du papier absorbant.
+      </div>
             <div class="injected-box">
-              <span class="injected-label">💉 Texte injecté par défaut :</span>
-              shot from below looking upward
-            </div>
-
-            <strong>Définition :</strong> Vue en contre-plongée où la caméra est placée sous la ligne des yeux et pointe vers le haut.<br>
-            <strong>Effet recherché :</strong> Héroïse le sujet, lui donne de l'autorité, de la taille et de la puissance.<br>
-            <div class="tip-text">
-              <strong>Conseils d'utilisation :</strong> Se marie magnifiquement avec un contre-jour ou un cadrage <span class="code-word">standing full body</span>.
+              <span class="injected-label">💉 Prompt Positif Injecté :</span>
+              (watercolor), high resolution, intricate details, 4k, wallpaper, concept art, watercolor on textured paper. Overall, it's an absolute world-class masterpiece watercolor artwork. It's an aesthetically pleasing watercolor artwork with impeccable attention to detail and impressive composition.
             </div>
             <div class="negative-box">
-              <strong>Contre-indications :</strong> Peut déformer le dessous du menton ou le nez si l'angle est trop brutal.
+              <strong>Prompt Négatif :</strong> <em>Aucun</em>
             </div>
-            <div class="good-example-box">
-              shot from below looking upward. A woman standing in a powerful stance, towering against a stark wall, dramatic harsh lighting from above, imposing presence, shot on 35mm lens at f/5.6, razor-sharp edge clarity, SUPIR ultra-detailed.
-            </div>
-            <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire de la section</a>
+            <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire des styles</a>
           </div>
 
-          <!-- 23. From below -->
-          <div class="option-box" id="vue-frombelow">
-            <strong>23. From below (Contre-plongée sur le regard)</strong>
-            
-            <div class="injected-box">
-              <span class="injected-label">💉 Texte injecté par défaut :</span>
-              The picture is shot from below, looking up at her
-            </div>
+          <!-- GROUPE 5 : STYLES ANIMÉS & MANGAS -->
+          <div class="content-h3">5. Styles Animés & Mangas</div>
 
-            <strong>Définition :</strong> Variante de la contre-plongée axée spécifiquement sur le regard dominant posé sur le spectateur.<br>
-            <strong>Effet recherché :</strong> Instaure un rapport de force vertical où le spectateur se trouve plus bas que le sujet.<br>
-            <div class="tip-text">
-              <strong>Conseils d'utilisation :</strong> Idéal pour le portrait de mode éditorial ou les scènes de domination narrative. Focale 50mm à f/4.0.
+          <div class="option-box" id="style-paintedanime">
+            <strong>Painted Anime</strong>
+      <div class="content-p" style="margin: 6px 0 8px 0; font-size: 12.5px; line-height: 1.45;">
+        <strong>Description :</strong> Style anime rendu avec une technique picturale. Contrairement au dessin animé plat traditionnel, les ombrages et les textures sont peints avec des dégradés riches et des coups de pinceau perceptibles.
+      </div>
+            <div class="injected-box">
+              <span class="injected-label">💉 Prompt Positif Injecté :</span>
+              art in the style of atey ghailan, painterly anime style at pixiv, art in the style of kantoku, in art style of redjuice/necömi/rella/tiv pixiv collab, your name anime art style, masterpiece digital painting, exquisite lighting and composition, inspired by wlop art style, 8k, sharp, very detailed, high resolution, illustration. Overall, it's an absolute world-class masterpiece painterly anime-inspired digital art. It's an aesthetically pleasing painterly anime-inspired digital artwork with impeccable attention to detail and impressive composition. ^2 painterly anime artwork, world-class masterpiece, fine details, breathtaking artwork, painterly art style, high quality, 8k, very detailed, high resolution, exquisite composition and lighting. Overall, it's an absolute world-class masterpiece painterly anime artwork. It's an aesthetically pleasing painterly anime artwork with impeccable attention to detail and impressive composition.
             </div>
             <div class="negative-box">
-              <strong>Contre-indications :</strong> Éviter les ultra grands-angles (< 24mm) de très près qui déforment le visage.
+              <strong>Prompt Négatif :</strong> <em>Aucun</em>
             </div>
-            <div class="good-example-box">
-              The picture is shot from below, looking up at her. Raw editorial photo of a woman looking down at the frame with a cool confident expression, stark background, harsh camera flash, high contrast, non-greasy matte skin, 102MP resolution.
-            </div>
-            <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire de la section</a>
+            <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire des styles</a>
           </div>
 
-          <!-- 24. Worm's eye view -->
-          <div class="option-box" id="vue-wormseye">
-            <strong>24. Worm's eye view (Contre-plongée extrême au sol)</strong>
-            
+          <div class="option-box" id="style-anime">
+            <strong>Anime</strong>
+      <div class="content-p" style="margin: 6px 0 8px 0; font-size: 12.5px; line-height: 1.45;">
+        <strong>Description :</strong> Style standard d'animation japonaise. Contours nets et propres, ombrages en aplats francs (cel-shading), grands yeux expressifs et esthétique fidèle aux séries modernes.
+      </div>
             <div class="injected-box">
-              <span class="injected-label">💉 Texte injecté par défaut :</span>
-              extreme bottom-up view from ground level
-            </div>
-
-            <strong>Définition :</strong> Contre-plongée extrême, directement au niveau du sol (perspective "à hauteur de ver de terre").<br>
-            <strong>Effet recherché :</strong> Perspective ultra-dynamique, exagération des hauteurs et effet dramatique très prononcé.<br>
-            <div class="tip-text">
-              <strong>Conseils d'utilisation :</strong> Met en valeur les chaussures au premier plan puis l'élancement du corps vers le ciel.
+              <span class="injected-label">💉 Prompt Positif Injecté :</span>
+              anime art, world-class masterpiece, 4k, best quality, anime art. Overall, it's an absolute world-class masterpiece anime-inspired artwork. It's an aesthetically pleasing anime art with impeccable attention to detail and beautiful composition.
             </div>
             <div class="negative-box">
-              <strong>Contre-indications :</strong> Risque important de déformation anatomique. Sécuriser avec <span class="code-word">(unrealistic proportions:1.3)</span>.
+              <strong>Prompt Négatif :</strong> <em>Aucun</em>
             </div>
-            <div class="good-example-box">
-              extreme bottom-up view from ground level. Dynamic wide-angle shot of a woman in boots standing on a concrete floor, high dramatic perspective, stark urban environment, direct light beam, shot at f/8.0, sharp optical roll-off, raw realism.
-            </div>
-            <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire de la section</a>
+            <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire des styles</a>
           </div>
 
-          <!-- 25. Dynamic high angle -->
-          <div class="option-box" id="vue-dynamichigh">
-            <strong>25. Dynamic high angle (Plongée dramatique stylisée)</strong>
-            
+          <div class="option-box" id="style-drawnanime">
+            <strong>Drawn Anime</strong>
+      <div class="content-p" style="margin: 6px 0 8px 0; font-size: 12.5px; line-height: 1.45;">
+        <strong>Description :</strong> Rendu anime avec un accent prononcé sur le dessin fait main. Les traits d'encrage ou de crayon sont plus organiques, imparfaits et expressifs que dans un rendu numérique standardisé.
+      </div>
             <div class="injected-box">
-              <span class="injected-label">💉 Texte injecté par défaut :</span>
-              high angle dramatic perspective
-            </div>
-
-            <strong>Définition :</strong> Plongée prononcée avec un angle stylisé et une intention dramatique marquée.<br>
-            <strong>Effet recherché :</strong> Insuffle de l'énergie cinématographique, un sentiment de surveillance, de poursuite ou de tension.<br>
-            <div class="tip-text">
-              <strong>Conseils d'utilisation :</strong> Parfait pour les scènes de mouvement (<span class="code-word">candid walk</span>) ou les ambiances "film noir".
+              <span class="injected-label">💉 Prompt Positif Injecté :</span>
+              anime-style illustration with perfect clean lines, illustration, anime drawing/art, bold linework, illustration, cel shaded, anime-style digital illustration. It's an anime-inspired 2D-style anime illustration. Aesthetic high-skill, professional anime illustration, which looks like a screencap from an anime series. It has clean line work and a pleasant, appealing drawn aesthetic style. Overall, it's a world-class illustration with flawless line work, perfect composition, and impeccable attention to detail.
             </div>
             <div class="negative-box">
-              <strong>Contre-indications :</strong> Ne pas coupler avec des termes imposant une vue neutre de niveau (<span class="code-word">standard headshot</span>, <span class="code-word">front view</span>).
+              <strong>Prompt Négatif :</strong> <em>Aucun</em>
             </div>
-            <div class="good-example-box">
-              high angle dramatic perspective. Cinematic shot of a woman walking near a concrete wall, heavy shadows on the ground, high-contrast low-key lighting, raw storytelling mood, 35mm lens precision, organic film grain.
-            </div>
-            <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire de la section</a>
+            <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire des styles</a>
           </div>
 
-          <!-- 26. Dynamic low angle -->
-          <div class="option-box" id="vue-dynamiclow">
-            <strong>26. Dynamic low angle (Contre-plongée dramatique)</strong>
-            
+          <div class="option-box" id="style-animescreencap">
+            <strong>Anime Screencap</strong>
+      <div class="content-p" style="margin: 6px 0 8px 0; font-size: 12.5px; line-height: 1.45;">
+        <strong>Description :</strong> Capture d'écran authentique issue d'un épisode d'animation japonaise à haut budget, avec étalonnage de production télévisuelle, contraste soigné et grain cinématographique.
+      </div>
             <div class="injected-box">
-              <span class="injected-label">💉 Texte injecté par défaut :</span>
-              low angle dramatic perspective
-            </div>
-
-            <strong>Définition :</strong> Contre-plongée stylisée et dynamique accentuant les lignes de fuite vers le haut.<br>
-            <strong>Effet recherché :</strong> Apporte du mouvement, de la prestance et une esthétique street/éditoriale très marquée.<br>
-            <div class="tip-text">
-              <strong>Conseils d'utilisation :</strong> Excellent avec des blousons en cuir et un flash cobra direct (<span class="code-word">harsh direct on-camera flash</span>) à f/8.0.
+              <span class="injected-label">💉 Prompt Positif Injecté :</span>
+              Anime screencap. It's an anime screencap from a popular anime. Beautiful visual quality, remastered, extremely high quality, very aesthetic, high production value, high-skill masterpiece. The image shows impeccable and beautiful composition and contrast. It's an exquisite anime screencap style image.
             </div>
             <div class="negative-box">
-              <strong>Contre-indications :</strong> Nécessite de verrouiller la netteté du visage avec <span class="code-word">sharp focus lock on expression</span>.
+              <strong>Prompt Négatif :</strong> faded, washed out, low quality
             </div>
-            <div class="good-example-box">
-              low angle dramatic perspective. High-fashion raw photo of a woman in a leather jacket against a stark wall, aggressive direct camera flash casting a sharp obsidian shadow, razor-sharp focus on expression, f/8.0 aperture, SUPIR rendering.
-            </div>
-            <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire de la section</a>
+            <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire des styles</a>
           </div>
 
-          <!-- 27. First-person / POV -->
-          <div class="option-box" id="vue-firstperson">
-            <strong>27. First-person / POV (Vue à la première personne)</strong>
-            
+          <div class="option-box" id="style-cuteanime">
+            <strong>Cute Anime</strong>
+      <div class="content-p" style="margin: 6px 0 8px 0; font-size: 12.5px; line-height: 1.45;">
+        <strong>Description :</strong> Esthétique anime douce et mignonne (kawaii/moe). Palette de couleurs pastel, contours adoucis, éclairages diffus et bienveillants avec des designs de personnages arrondis.
+      </div>
             <div class="injected-box">
-              <span class="injected-label">💉 Texte injecté par défaut :</span>
-              it is a first person view. POV shot
-            </div>
-
-            <strong>Définition :</strong> Vue à la première personne où la caméra adopte le regard exact de l'observateur dans la scène.<br>
-            <strong>Effet recherché :</strong> Immersion totale. Le spectateur est directement impliqué et interagit avec le modèle.<br>
-            <div class="tip-text">
-              <strong>Conseils d'utilisation :</strong> À combiner avec un regard direct vers la caméra et une focale naturelle (35mm ou 50mm).
+              <span class="injected-label">💉 Prompt Positif Injecté :</span>
+              adorable, cute, kawaii, cute moe anime character portrait, adorable, featured on pixiv, kawaii moé masterpiece, cuteness overload, very detailed, sooooo adorable. Overall, it's an absolute world-class masterpiece anime-inspired artwork. It's an aesthetically pleasing anime art with impeccable attention to detail and beautiful composition.
             </div>
             <div class="negative-box">
-              <strong>Contre-indications :</strong> Éviter de placer le sujet trop loin dans le décor sous peine de perdre l'effet d'interaction.
+              <strong>Prompt Négatif :</strong> <em>Aucun</em>
             </div>
-            <div class="good-example-box">
-              it is a first person view. POV shot. Candid portrait of a woman sitting across a small table in a dimly lit space, natural interaction, looking directly at the viewer, soft ambient key light, 50mm prime lens at f/2.0, realistic depth of field.
-            </div>
-            <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire de la section</a>
+            <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire des styles</a>
           </div>
 
-          <!-- LOT 4 : ORIENTATIONS, PROFILS & COMPOSITIONS SPÉCIALES -->
-          <div class="content-h3">Lot 4 : Orientations, Profils & Compositions Spéciales</div>
-
-          <!-- 28. Front -->
-          <div class="option-box" id="vue-front">
-            <strong>28. Front (Vue de face stricte)</strong>
-            
+          <div class="option-box" id="style-softanime">
+            <strong>Soft Anime</strong>
+      <div class="content-p" style="margin: 6px 0 8px 0; font-size: 12.5px; line-height: 1.45;">
+        <strong>Description :</strong> Esthétique inspirée des longs-métrages d'animation modernes (style Makoto Shinkai, Your Name, The Garden of Words). Lumières douces, reflets volumétriques et niveau de détail contemplatif.
+      </div>
             <div class="injected-box">
-              <span class="injected-label">💉 Texte injecté par défaut :</span>
-              shot from the front
-            </div>
-
-            <strong>Définition :</strong> Vue de face stricte et directe, parfaitement parallèle au corps et au visage du modèle.<br>
-            <strong>Effet recherché :</strong> Symétrie, franchise, présence directe et clarté anatomique.<br>
-            <div class="tip-text">
-              <strong>Conseils d'utilisation :</strong> À associer avec un flash direct pour projeter une ombre portée nette sur le mur arrière (à f/8.0).
+              <span class="injected-label">💉 Prompt Positif Injecté :</span>
+              anime masterpiece with soft lighting, gentle intricate style, highly detailed, pixiv, anime art, 4k, art from your name anime, garden of words style art, high quality. Overall, it's an absolute world-class masterpiece soft beautiful anime-inspired artwork. It's an aesthetically pleasing, soft, beautiful anime art with impeccable attention to detail and beautiful composition.
             </div>
             <div class="negative-box">
-              <strong>Contre-indications :</strong> Peut donner un aspect rigide de type "photo de passeport" si la posture manque de caractère.
+              <strong>Prompt Négatif :</strong> <em>Aucun</em>
             </div>
-            <div class="good-example-box">
-              shot from the front. Clean symmetrical portrait of a woman against a textured concrete wall, direct camera flash casting an obsidian shadow, raw matte skin texture, razor-sharp focus, f/8.0 aperture, SUPIR ultra-detailed rendering.
-            </div>
-            <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire de la section</a>
+            <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire des styles</a>
           </div>
 
-          <!-- 29. Side -->
-          <div class="option-box" id="vue-side">
-            <strong>29. Side (Vue latérale à 90°)</strong>
-            
+          <div class="option-box" id="style-vintageanime">
+            <strong>Vintage Anime</strong>
+      <div class="content-p" style="margin: 6px 0 8px 0; font-size: 12.5px; line-height: 1.45;">
+        <strong>Description :</strong> Animation japonaise rétro (années 70 à 90, type celluloïd). Couleurs légèrement patinées, grain d'animation analogique, contours encrés à la main et esthétique nostalgique.
+      </div>
             <div class="injected-box">
-              <span class="injected-label">💉 Texte injecté par défaut :</span>
-              shot from the side
-            </div>
-
-            <strong>Définition :</strong> Cadrage latéral à 90° montrant le sujet entièrement de côté.<br>
-            <strong>Effet recherché :</strong> Met l'accent sur la silhouette globale, la ligne du dos, la démarche ou les détails de profil.<br>
-            <div class="tip-text">
-              <strong>Conseils d'utilisation :</strong> Très efficace pour les plans de marche (<span class="code-word">walking shot</span>) et les jeux de lumière rasante (<span class="code-word">rim light</span>).
+              <span class="injected-label">💉 Prompt Positif Injecté :</span>
+              1990s anime, vintage anime, 90's anime style, in the style of hajime sorayama, in the style of greg tocchini, anime masterpiece, pixiv, akira-style art, akira anime art, 4k, high quality. Overall, it's an absolute world-class masterpiece vintage anime artwork. It's an aesthetically pleasing vintage anime artwork with impeccable attention to detail and impressive composition.
             </div>
             <div class="negative-box">
-              <strong>Contre-indications :</strong> Si la tête pivote légèrement, l'IA peut parfois hésiter entre profil et face pour l'œil éloigné.
+              <strong>Prompt Négatif :</strong> <em>Aucun</em>
             </div>
-            <div class="good-example-box">
-              shot from the side. Full body profile of a woman walking against a plain wall, harsh directional side lighting creating strong contrast, candid movement, 50mm lens at f/4.0, zero digital smoothing, raw photography.
-            </div>
-            <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire de la section</a>
+            <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire des styles</a>
           </div>
 
-          <!-- 30. Side profile -->
-          <div class="option-box" id="vue-sideprofile">
-            <strong>30. Side profile (Profil pur et strict)</strong>
-            
+          <div class="option-box" id="style-neonvintageanime">
+            <strong>Neon Vintage Anime</strong>
+      <div class="content-p" style="margin: 6px 0 8px 0; font-size: 12.5px; line-height: 1.45;">
+        <strong>Description :</strong> Style anime rétro des années 1980 et 1990 teinté d'ambiance cyberpunk ou synthwave. Combine le grain de l'animation sur celluloïd avec des éclairages au néon vibrants (rose, cyan, violet), des reflets urbains nocturnes et une forte lueur diffuse (bloom).
+      </div>
             <div class="injected-box">
-              <span class="injected-label">💉 Texte injecté par défaut :</span>
-              pure profile view from the side
-            </div>
-
-            <strong>Définition :</strong> Profil pur (la tête et le corps sont orientés exactement à 90° par rapport à l'objectif).<br>
-            <strong>Effet recherché :</strong> Isole l'arête du nez, la ligne de la mâchoire, les lèvres et le cou dans un tracé graphique parfait.<br>
-            <div class="tip-text">
-              <strong>Conseils d'utilisation :</strong> Sublimé par un contre-jour ou une lumière latérale rasante. Nécessite un 85mm pour éviter la distorsion.
+              <span class="injected-label">💉 Prompt Positif Injecté :</span>
+              neon vintage anime style, 90's anime style, 1990s anime, hajime sorayama, greg tocchini, neon vintage anime masterpiece, anime art, 4k, high quality. Overall, it's an absolute world-class masterpiece neon vintage anime artwork. It's an aesthetically pleasing neon vintage anime artwork with impeccable attention to detail and impressive composition.
             </div>
             <div class="negative-box">
-              <strong>Contre-indications :</strong> Ne pas ajouter de termes de regard direct comme <span class="code-word">looking at camera</span> (risque de déformation du cou).
+              <strong>Prompt Négatif :</strong> <em>Aucun</em>
             </div>
-            <div class="good-example-box">
-              pure profile view from the side. Dramatic silhouette portrait of a woman in profile, stark background, precise key light highlighting jawline and bridge of nose, deep shadows, 85mm lens at f/2.8, 102MP medium-format fidelity.
-            </div>
-            <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire de la section</a>
+            <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire des styles</a>
           </div>
 
-          <!-- 31. Back -->
-          <div class="option-box" id="vue-back">
-            <strong>31. Back (Vue de dos)</strong>
-            
+          <div class="option-box" id="style-manga">
+            <strong>Manga</strong>
+      <div class="content-p" style="margin: 6px 0 8px 0; font-size: 12.5px; line-height: 1.45;">
+        <strong>Description :</strong> Style de bande dessinée japonaise imprimée. Trait d'encrage noir et blanc très contrasté, utilisation de trames de points (screentones), hachures dynamiques et lignes d'action expressives.
+      </div>
             <div class="injected-box">
-              <span class="injected-label">💉 Texte injecté par défaut :</span>
-              shot from behind
-            </div>
-
-            <strong>Définition :</strong> Vue de dos où le modèle tourne entièrement le dos à l'appareil photo.<br>
-            <strong>Effet recherché :</strong> Mystère, anonymat, narration ouverte, voyeurisme ou mise en valeur de la tenue vécue de dos.<br>
-            <div class="tip-text">
-              <strong>Conseils d'utilisation :</strong> S'associe parfaitement aux ambiances cinématographiques nocturnes ou aux espaces ouverts.
+              <span class="injected-label">💉 Prompt Positif Injecté :</span>
+              incredible hand-drawn manga, black and white, in the style of Takehiko Inoue, in the style of Katsuhiro Otomo and akira toriyama manga, hand-drawn art in the style of rumiko takahashi and Inio Asano, Ken Akamatsu manga art. Overall, it's an absolute world-class masterpiece black and white manga-style artwork. It's an aesthetically pleasing black and white manga artwork with impeccable attention to detail and impressive composition.
             </div>
             <div class="negative-box">
-              <strong>Contre-indications :</strong> Incompatible avec le maquillage ou le regard. Ne pas inclure de mots-clés faciaux dans le prompt positif.
+              <strong>Prompt Négatif :</strong> <em>Aucun</em>
             </div>
-            <div class="good-example-box">
-              shot from behind. A woman in a dark leather jacket seen from behind, walking down a dimly lit concrete alley, moody low-key lighting, subtle rim light on hair, raw storytelling mood, 50mm prime lens, organic film grain.
-            </div>
-            <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire de la section</a>
+            <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire des styles</a>
           </div>
 
-          <!-- 32. Three-Quarter -->
-          <div class="option-box" id="vue-threequarter">
-            <strong>32. Three-Quarter (Vue de trois-quarts à 45°)</strong>
-            
+          <div class="option-box" id="style-waifu">
+            <strong>Waifu</strong>
+      <div class="content-p" style="margin: 6px 0 8px 0; font-size: 12.5px; line-height: 1.45;">
+        <strong>Description :</strong> Style d'illustration anime centré sur un personnage féminin stylisé, séduisant et expressif. Met en valeur des traits de visage soignés, de grands yeux détaillés, une pose charismatique et une esthétique visuelle très léchée typique de la culture pop japonaise.
+      </div>
             <div class="injected-box">
-              <span class="injected-label">💉 Texte injecté par défaut :</span>
-              It is a three quarter view.
-            </div>
-
-            <strong>Définition :</strong> Angle de trois-quarts (45°), intermédiaire naturel entre la vue de face et le profil.<br>
-            <strong>Effet recherché :</strong> L'angle le plus esthétique en portraiture : donne du volume et sculpte les contours de la mâchoire.<br>
-            <div class="tip-text">
-              <strong>Conseils d'utilisation :</strong> Associer avec un éclairage à 45° (<span class="code-word">Rembrandt lighting</span>) sur un 85mm à f/2.8.
+              <span class="injected-label">💉 Prompt Positif Injecté :</span>
+              waifu character portrait, 1girl, very high resolution, semi-realistic anime art. Intricate and impressive anime artwork with stunningly beautiful composition and style. Overall, it's an absolute world-class masterpiece anime artwork. It's an aesthetically pleasing waifu artwork with impeccable attention to detail and impressive composition. It's an aesthetically pleasing character portrait. It's an aesthetically pleasing image.
             </div>
             <div class="negative-box">
-              <strong>Contre-indications :</strong> Aucune, c'est l'un des cadrages les plus stables de la génération d'images.
+              <strong>Prompt Négatif :</strong> <em>Aucun</em>
             </div>
-            <div class="good-example-box">
-              It is a three quarter view. Raw candid portrait of a woman turned slightly away from camera, confident expression, soft directional window light, natural specular reflections, visible pores, shot on 85mm lens at f/2.8, SUPIR rendering.
-            </div>
-            <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire de la section</a>
+            <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire des styles</a>
           </div>
 
-          <!-- 33. Over the shoulder -->
-          <div class="option-box" id="vue-overtheshoulder">
-            <strong>33. Over the shoulder (Plan en amorce par-dessus l'épaule)</strong>
-            
-            <div class="injected-box">
-              <span class="injected-label">💉 Texte injecté par défaut :</span>
-              It is an over the shoulder shot. It is a shot of her from behind, with her shoulder in the foreground
-            </div>
+              <!-- GROUPE 6 : MONDES FANTASTIQUES & CARTOGRAPHIE -->
+    <div class="content-h3">6. Mondes Fantastiques & Cartographie</div>
 
-            <strong>Définition :</strong> Plan où l'épaule ou le dos d'un personnage au premier plan encadre le sujet principal.<br>
-            <strong>Effet recherché :</strong> Immersion, sentiment de dialogue ou impression d'être un témoin silencieux.<br>
-            <div class="tip-text">
-              <strong>Conseils d'utilisation :</strong> Utiliser une faible profondeur de champ (f/2.0 à f/2.8) pour flouter légèrement l'épaule au premier plan.
-            </div>
-            <div class="negative-box">
-              <strong>Contre-indications :</strong> Attention aux déformations d'épaule si la description du premier plan est ambiguë.
-            </div>
-            <div class="good-example-box">
-              It is an over the shoulder shot. It is a shot of her from behind, with her shoulder in the foreground. Intimate moody scene, focus on a woman looking back over her shoulder towards the viewer, soft bokeh on foreground, 85mm lens at f/2.0, natural skin realism.
-            </div>
-            <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire de la section</a>
-          </div>
+    <div class="option-box" id="style-fantasypainting">
+      <strong>Fantasy Painting</strong>
+      <div class="content-p" style="margin: 6px 0 8px 0; font-size: 12.5px; line-height: 1.45;">
+        <strong>Description :</strong> Peinture d'illustration fantasy épique (style Frank Frazetta ou Magic: The Gathering). Éclairages dramatiques, créatures mythiques, magie luminescente et riche travail de textures sur les armures, paysages et effets magiques.
+      </div>
+      <div class="injected-box">
+        <span class="injected-label">💉 Prompt Positif Injecté :</span>
+        d&d, fantasy, highly detailed, digital painting, artstation, sharp focus, fantasy art, illustration, 8k, in the style of greg rutkowski. It's an absolute world-class masterpiece artwork. It's an aesthetically pleasing artwork with impeccable attention to detail and impressive composition.
+      </div>
+      <div class="negative-box">
+        <strong>Prompt Négatif :</strong> <em>Aucun</em>
+      </div>
+      <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire des styles</a>
+    </div>
 
-          <!-- 34. Mirror reflection -->
-          <div class="option-box" id="vue-mirror">
-            <strong>34. Mirror reflection (Reflet dans un miroir)</strong>
-            
-            <div class="injected-box">
-              <span class="injected-label">💉 Texte injecté par défaut :</span>
-              showing reflection in a mirror
-            </div>
+    <div class="option-box" id="style-fantasylandscape">
+      <strong>Fantasy Landscape</strong>
+      <div class="content-p" style="margin: 6px 0 8px 0; font-size: 12.5px; line-height: 1.45;">
+        <strong>Description :</strong> Paysage imaginaire grandiose. Décors panoramiques intégrant châteaux perchés, ciels spectaculaires, flore fantastique ou ruines anciennes avec une forte profondeur de champ et une lumière immersive.
+      </div>
+      <div class="injected-box">
+        <span class="injected-label">💉 Prompt Positif Injecté :</span>
+        fantasy matte painting, absolute masterpiece, detailed matte painting in the style of andreas rocha and greg rutkowski, in the style of Brothers Hildebrandt, superb composition, vivid fantasy art, breathtaking fantasy masterpiece. It's an absolute world-class masterpiece artwork. It's an aesthetically pleasing artwork with impeccable attention to detail and impressive composition.
+      </div>
+      <div class="negative-box">
+        <strong>Prompt Négatif :</strong> <em>Aucun</em>
+      </div>
+      <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire des styles</a>
+    </div>
 
-            <strong>Définition :</strong> Composition montrant le sujet à travers son reflet dans un miroir ou une surface réfléchissante.<br>
-            <strong>Effet recherché :</strong> Effet de mise en abyme, de dualité et d'intimité.<br>
-            <div class="tip-text">
-              <strong>Conseils d'utilisation :</strong> Permet de capturer le dos du modèle au premier plan tout en révélant son visage dans le miroir.
-            </div>
-            <div class="negative-box">
-              <strong>Contre-indications :</strong> Exige un Negative Prompt strict sur la cohérence des visages pour éviter les duplications étranges.
-            </div>
-            <div class="good-example-box">
-              showing reflection in a mirror. Intimate candid shot of a woman looking at her reflection in a bathroom mirror, subtle directional light, raw authentic atmosphere, clear glass reflection, 35mm lens, natural imperfections, SUPIR enhanced.
-            </div>
-            <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire de la section</a>
-          </div>
+    <div class="option-box" id="style-fantasyportrait">
+      <strong>Fantasy Portrait</strong>
+      <div class="content-p" style="margin: 6px 0 8px 0; font-size: 12.5px; line-height: 1.45;">
+        <strong>Description :</strong> Portrait centré sur un personnage fantastique (elfes, mages, guerriers, etc.). Met l'accent sur les détails du visage, le regard expressif, les parures ornées et une ambiance lumineuse mystique ou féerique.
+      </div>
+      <div class="injected-box">
+        <span class="injected-label">💉 Prompt Positif Injecté :</span>
+        d&d, fantasy, highly detailed, digital painting, artstation, sharp focus, fantasy art, character art, illustration, 8k, art in the style of artgerm and greg rutkowski. It's an absolute world-class masterpiece artwork. It's an aesthetically pleasing artwork with impeccable attention to detail and impressive composition.
+      </div>
+      <div class="negative-box">
+        <strong>Prompt Négatif :</strong> <em>Aucun</em>
+      </div>
+      <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire des styles</a>
+    </div>
 
-          <!-- 35. Shoes-focused -->
-          <div class="option-box" id="vue-shoes">
-            <strong>35. Shoes-focused (Focus pieds et chaussures)</strong>
-            
-            <div class="injected-box">
-              <span class="injected-label">💉 Texte injecté par défaut :</span>
-              focusing specifically on shoes and lower legs
-            </div>
+    <div class="option-box" id="style-fantasyworldmap">
+      <strong>Fantasy World Map</strong>
+      <div class="content-p" style="margin: 6px 0 8px 0; font-size: 12.5px; line-height: 1.45;">
+        <strong>Description :</strong> Carte géographique imaginaire (style Tolkien ou jeux de rôle sur table). Présente des continents dessinés, des parchemins vieillis, des reliefs illustrés (montagnes, forêts), des boussoles ouvragées et une typographie calligraphique.
+      </div>
+      <div class="injected-box">
+        <span class="injected-label">💉 Prompt Positif Injecté :</span>
+        beautiful fantasy map inspired by middle earth and azeroth and discworld and westeros and essos and the witcher world and tamriel and faerûn and thedas, 4k, beautiful colors, crisp, high-resolution artistic map, topographic 3D terrain, artistic map.\n\nOverall, it's an absolute world-class masterpiece fantasy world map. It's an aesthetically pleasing fantasy world map artwork with impeccable attention to detail and impressive composition.
+      </div>
+      <div class="negative-box">
+        <strong>Prompt Négatif :</strong> <em>Aucun</em>
+      </div>
+      <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire des styles</a>
+    </div>
 
-            <strong>Définition :</strong> Cadrage resserré sur les pieds, les chaussures et le bas des jambes.<br>
-            <strong>Effet recherché :</strong> Mise en valeur du chaussant, des détails textiles et des textures du sol.<br>
-            <div class="tip-text">
-              <strong>Conseils d'utilisation :</strong> À combiner avec des textures au sol marquées (béton mouillé, asphalte) et des détails macro à f/5.6.
-            </div>
-            <div class="negative-box">
-              <strong>Contre-indications :</strong> Ne génèrera pas le visage. À proscrire pour tout ce qui touche aux expressions faciales.
-            </div>
-            <div class="good-example-box">
-              focusing specifically on shoes and lower legs. Close-up photo of leather boots standing on a wet concrete surface, sharp texture details, realistic light reflection, 50mm macro lens precision at f/5.6, raw editorial aesthetic.
-            </div>
-            <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire de la section</a>
-          </div>
+    <div class="option-box" id="style-fantasycitymap">
+      <strong>Fantasy City Map</strong>
+      <div class="content-p" style="margin: 6px 0 8px 0; font-size: 12.5px; line-height: 1.45;">
+        <strong>Description :</strong> Vue aérienne détaillée d'une cité imaginaire conçue pour les univers de jeux de rôle sur table (TTRPG), intégrant l'architecture urbaine, les fortifications et une mise en page cartographique professionnelle.
+      </div>
+      <div class="injected-box">
+        <span class="injected-label">💉 Prompt Positif Injecté :</span>
+        an aerial view of a city, TTRPG city map showing the full city, fantasy art, highly-skilled senior environment artist piece, beautiful fantasy map.\n\nOverall, it's an absolute world-class masterpiece fantasy city map. It's an aesthetically pleasing fantasy city map artwork with impeccable attention to detail and impressive composition.
+      </div>
+      <div class="negative-box">
+        <strong>Prompt Négatif :</strong> <em>Aucun</em>
+      </div>
+      <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire des styles</a>
+    </div>
 
-          <!-- 36. Candid view -->
-          <div class="option-box" id="vue-candid">
-            <strong>36. Candid view (Vue instantanée sur le vif)</strong>
-            
-            <div class="injected-box">
-              <span class="injected-label">💉 Texte injecté par défaut :</span>
-              casual non-posed candid shot
-            </div>
+    <div class="option-box" id="style-oldworldmap">
+      <strong>Old World Map</strong>
+      <div class="content-p" style="margin: 6px 0 8px 0; font-size: 12.5px; line-height: 1.45;">
+        <strong>Description :</strong> Carte du monde ancien style peinture numérique détaillée, combinant une esthétique médiévale ou d'époque d'exploration avec une illustration artistique riche et texturée.
+      </div>
+      <div class="injected-box">
+        <span class="injected-label">💉 Prompt Positif Injecté :</span>
+        fantasy world map, highly detailed digital painting, fantasy art, map illustration, 8k.\n\nOverall, it's an absolute world-class masterpiece old world map. It's an aesthetically pleasing old world style map artwork with impeccable attention to detail and impressive composition.
+      </div>
+      <div class="negative-box">
+        <strong>Prompt Négatif :</strong> <em>Aucun</em>
+      </div>
+      <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire des styles</a>
+    </div>
 
-            <strong>Définition :</strong> Vue "sur le vif" imitant une prise de vue spontanée où le modèle ne pose pas pour l'appareil.<br>
-            <strong>Effet recherché :</strong> Authenticité maximale, réalisme documentaire et rupture avec le style mannequin.<br>
-            <div class="tip-text">
-              <strong>Conseils d'utilisation :</strong> S'accorde parfaitement avec des postures naturelles (<span class="code-word">unposed posture</span>, <span class="code-word">averted gaze</span>).
-            </div>
-            <div class="negative-box">
-              <strong>Contre-indications :</strong> À proscrire absolument du Negative Prompt ! Veiller à ne pas y laisser le mot <span class="code-word">candid</span>.
-            </div>
-            <div class="good-example-box">
-              casual non-posed candid shot. A young woman sitting in a dimly lit space, relaxed unposed posture, looking slightly away from frame, raw analog snapshot aesthetic, natural skin texture, 50mm lens at f/2.8, authentic atmosphere.
-            </div>
-            <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire de la section</a>
-          </div>
+    <!-- GROUPE 7 : UI, ICÔNES & LOGOS -->
+    <div class="content-h3">7. UI, Icônes & Logos</div>
 
-          <!-- LOT 5 : MISES EN PAGE DIPTYQUES & CONTENUS SPÉCIFIQUES -->
-          <div class="content-h3">Lot 5 : Mises en page Diptyques & Contenus Spécifiques</div>
+    <div class="option-box" id="style-3disoicon">
+      <strong>3D Isometric Icon</strong>
+      <div class="content-p" style="margin: 6px 0 8px 0; font-size: 12.5px; line-height: 1.45;">
+        <strong>Description :</strong> Icône modélisée en trois dimensions vue sous une perspective isométrique (angle plongeant à 30° sans point de fuite). Volume géométrique clair, ombres douces et rendu propre type miniature technique ou jeu de gestion.
+      </div>
+      <div class="injected-box">
+        <span class="injected-label">💉 Prompt Positif Injecté :</span>
+        3D isometric render, 3D app icon, clean isometric design, beautiful design, soft gradient background, soft colors, centered, 3D blender render, masterpiece, best quality, high resolution, 8k octane render, beautiful color scheme, soft smooth lighting, physically based rendering, square image, high polycount
+      </div>
+      <div class="negative-box">
+        <strong>Prompt Négatif :</strong> <em>Aucun</em>
+      </div>
+      <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire des styles</a>
+    </div>
 
-          <!-- 37. Clothed and nude -->
-          <div class="option-box" id="vue-clothednude">
-            <strong>37. Clothed and nude (Diptyque Habillé / Nu)</strong>
-            
-            <div class="injected-box">
-              <span class="injected-label">💉 Texte injecté par défaut :</span>
-              A diptych photograph showing 2 views of the same identical subject side by side. In the left picture the subject is wearing clothing. In the right picture the subject is completely nude
-            </div>
+    <div class="option-box" id="style-flatstyleicon">
+      <strong>Flat Style Icon</strong>
+      <div class="content-p" style="margin: 6px 0 8px 0; font-size: 12.5px; line-height: 1.45;">
+        <strong>Description :</strong> Icône en design plat bidimensionnel. Formes vectorielles simples, absence de relief ou de texture réaliste, aplats de couleurs vives et lisibilité graphique immédiate pour les interfaces utilisateur.
+      </div>
+      <div class="injected-box">
+        <span class="injected-label">💉 Prompt Positif Injecté :</span>
+        creative icon, flat style icon, masterpiece, high resolution, crisp, beautiful composition and color choice, beautiful flat painted style, behance contest-winner, award winning icon illustration, 8k, best quality
+      </div>
+      <div class="negative-box">
+        <strong>Prompt Négatif :</strong> <em>Aucun</em>
+      </div>
+      <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire des styles</a>
+    </div>
 
-            <strong>Définition :</strong> Format diptyque (image scindée en deux panneaux côte à côte) présentant le même modèle habillé à gauche et nu à droite.<br>
-            <strong>Effet recherché :</strong> Esthétique d'étude artistique, de catalogue anatomique ou de projet photo conceptuel.<br>
-            <div class="tip-text">
-              <strong>Conseils d'utilisation :</strong> Utiliser un ratio d'image horizontal large (16:9) et préciser un fond identique pour maintenir la cohérence.
-            </div>
-            <div class="negative-box">
-              <strong>Contre-indications :</strong> Risque d'incohérence faciale entre la gauche et la droite si le Negative Prompt manque de rigueur.
-            </div>
-            <div class="good-example-box">
-              A diptych photograph showing 2 views of the same identical subject side by side. In the left picture the subject is wearing clothing. In the right picture the subject is completely nude. Studio lighting, seamless grey concrete backdrop, clear distinction between panels, natural skin textures, 50mm lens, 102MP resolution, SUPIR enhanced rendering.
-            </div>
-            <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire de la section</a>
-          </div>
+    <div class="option-box" id="style-flatstylelogo">
+      <strong>Flat Style Logo</strong>
+      <div class="content-p" style="margin: 6px 0 8px 0; font-size: 12.5px; line-height: 1.45;">
+        <strong>Description :</strong> Logo vectoriel minimaliste en 2D. Met l'accent sur une silhouette épurée, une composition géométrique mémorable, un fort contraste et une totale absence d'effets de matière ou de dégradés lourds.
+      </div>
+      <div class="injected-box">
+        <span class="injected-label">💉 Prompt Positif Injecté :</span>
+        beautiful flat-style logo design, creative flat-style logo design, trending on dribbble, featured on behance, portfolio piece, minimal flat design, breathtaking graphic design, 8k, high resolution vector logo, plain background, amazingly beautiful logo design, winner of best logo award
+      </div>
+      <div class="negative-box">
+        <strong>Prompt Négatif :</strong> <em>Aucun</em>
+      </div>
+      <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire des styles</a>
+    </div>
 
-          <!-- 38. Front and back -->
-          <div class="option-box" id="vue-frontback">
-            <strong>38. Front and back (Diptyque Face / Dos)</strong>
-            
-            <div class="injected-box">
-              <span class="injected-label">💉 Texte injecté par défaut :</span>
-              diptych photograph showing a front and back view of the same identical subject side by side
-            </div>
+    <div class="option-box" id="style-gamearticon">
+      <strong>Game Art Icon</strong>
+      <div class="content-p" style="margin: 6px 0 8px 0; font-size: 12.5px; line-height: 1.45;">
+        <strong>Description :</strong> Icône d'objet ou de compétence pour jeu vidéo (inventaire, interface RPG). Rendu soigné et semi-réaliste, bordures contrastées pour bien ressortir sur fond sombre, avec effets de lueur magique ou reflets métalliques.
+      </div>
+      <div class="injected-box">
+        <span class="injected-label">💉 Prompt Positif Injecté :</span>
+        a concept art icon for league of legends, a digital art logo, illustration, league of legends style icon, inspired by wlop style, 8k, dota 2 style icon, fine details, sharp, very detailed icon, high resolution rpg ability/spell/item icon
+      </div>
+      <div class="negative-box">
+        <strong>Prompt Négatif :</strong> <em>Aucun</em>
+      </div>
+      <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire des styles</a>
+    </div>
 
-            <strong>Définition :</strong> Format diptyque montrant le même sujet photographié de face (à gauche) et de dos (à droite).<br>
-            <strong>Effet recherché :</strong> Présentation complète à 360° d'un modèle ou d'une tenue (style lookbook de mode).<br>
-            <div class="tip-text">
-              <strong>Conseils d'utilisation :</strong> Exige un format paysage (16:9). Associer avec une tenue structurée pour apprécier les détails textiles.
-            </div>
-            <div class="negative-box">
-              <strong>Contre-indications :</strong> Veiller à ce que l'IA ne génère pas un visage sur le panneau de dos (confusion d'orientation).
-            </div>
-            <div class="good-example-box">
-              diptych photograph showing a front and back view of the same identical subject side by side. High-fashion lookbook presentation, woman wearing a fitted black leather jacket, stark studio background, balanced key lighting, crisp focus, f/5.6 aperture, raw realism.
-            </div>
-            <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire de la section</a>
-          </div>
+    <div class="option-box" id="style-digitalpaintingicon">
+      <strong>Digital Painting Icon</strong>
+      <div class="content-p" style="margin: 6px 0 8px 0; font-size: 12.5px; line-height: 1.45;">
+        <strong>Description :</strong> Icône réalisée avec une technique de peinture numérique. Met en avant des dégradés fondus, des touches de pinceau visibles et un rendu artistique riche tout en conservant un cadrage compact.
+      </div>
+      <div class="injected-box">
+        <span class="injected-label">💉 Prompt Positif Injecté :</span>
+        app logo icon, digital art pictogram icon, trending on artstation, app icon in the style of atey ghailan, app icon in the style of greg rutkowski, app icon in the style of greg tocchini, app icon in the style of james gilleard, 8k, high resolution, best quality
+      </div>
+      <div class="negative-box">
+        <strong>Prompt Négatif :</strong> <em>Aucun</em>
+      </div>
+      <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire des styles</a>
+    </div>
 
-          <!-- 39. Adult POV Specifics -->
-          <div class="option-box" id="vue-povadult">
-            <strong>39. Adult POV Specifics (POV Adulte & Intensité du Regard)</strong>
-            
-            <div class="injected-box">
-              <span class="injected-label">💉 Texte injecté par défaut (Option Fellation) :</span>
-              She is on her knees on the floor giving a blowjob, A large penis depends deep into her mouth, Deepthroat, fellatio, choking on a cock, she is on her knees, her gaze piercing upward with intensity, she takes the full penis length down her throat. Lips stretch around the thick base, cheeks hollowed dramatically, saliva strands connecting her chin to the veiny shaft. Her hands rest on his thighs, fingers subtly tensed. Drool glistens at the corners of her swollen mouth, male pov looking down, penis, real, real life, looking up at the camera.
-            </div>
+    <div class="option-box" id="style-conceptarticon">
+      <strong>Concept Art Icon</strong>
+      <div class="content-p" style="margin: 6px 0 8px 0; font-size: 12.5px; line-height: 1.45;">
+        <strong>Description :</strong> Icône de recherche visuelle ou de préproduction. Privilégie la clarté du concept, des textures texturées/brossées et un éclairage dynamique, souvent avec un aspect brut mais très expressif.
+      </div>
+      <div class="injected-box">
+        <span class="injected-label">💉 Prompt Positif Injecté :</span>
+        a concept art icon, a digital art logo, illustration, league of legends style concept art logo icon, inspired by wlop style, 8k, fine details, sharp, very detailed, high resolution logo icon
+      </div>
+      <div class="negative-box">
+        <strong>Prompt Négatif :</strong> <em>Aucun</em>
+      </div>
+      <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire des styles</a>
+    </div>
 
-            <div class="injected-box">
-              <span class="injected-label">💉 Texte injecté par défaut (Option Stimulation Manuelle) :</span>
-              She is on her knees on the floor giving a handjob, her hand firmly going up and down the penis, male pov looking down, penis, real, real life, looking up at the camera.
-            </div>
+    <div class="option-box" id="style-cute3dicon">
+      <strong>Cute 3D Icon</strong>
+      <div class="content-p" style="margin: 6px 0 8px 0; font-size: 12.5px; line-height: 1.45;">
+        <strong>Description :</strong> Icône 3D douce et mignonne (kawaii). Bords très arrondis, matériaux lisses ou effet argile/plastique doux, éclairage chaleureux et palette de couleurs pastel ou acidulées.
+      </div>
+      <div class="injected-box">
+        <span class="injected-label">💉 Prompt Positif Injecté :</span>
+        a cute 3D icon, cartoon 3D icon, very cute shape, stylized octane render, 8k, masterpiece, soooo cute, beautiful cute perfection, beautiful soft lighting, soft colors, centered, high resolution, soft gradient background
+      </div>
+      <div class="negative-box">
+        <strong>Prompt Négatif :</strong> <em>Aucun</em>
+      </div>
+      <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire des styles</a>
+    </div>
 
-            <strong>Définition :</strong> Vues explicites à la première personne (POV masculin) depuis le haut, axées sur l'intensité du regard vers le haut (<span class="code-word">gaze piercing upward</span>) et le réalisme des fluides.<br>
-            <strong>Effet recherché :</strong> Contenu adulte explicite (NSFW) à haute tension visuelle, axé sur la perspective immersive de haut en bas.<br>
-            <div class="tip-text">
-              <strong>Conseils d'utilisation :</strong> Utiliser un éclairage rasant ou au flash direct pour faire ressortir les textures humides (<span class="code-word">drool glistens</span>, <span class="code-word">saliva strands</span>).
-            </div>
-            <div class="negative-box">
-              <strong>Contre-indications :</strong> Contenu strictly réservé aux environnements autorisant le NSFW. Nécessite un Negative Prompt irréprochable sur les mains (<span class="code-word">(deformed hands:1.3)</span>).
-            </div>
-            <div class="good-example-box">
-              She is on her knees on the floor giving a blowjob, A large penis depends deep into her mouth, Deepthroat, fellatio, choking on a cock, she is on her knees, her gaze piercing upward with intensity, she takes the full penis length down her throat. Lips stretch around the thick base, cheeks hollowed dramatically, saliva strands connecting her chin to the veiny shaft. Her hands rest on his thighs, fingers subtly tensed. Drool glistens at the corners of her swollen mouth, male pov looking down, penis, real, real life, looking up at the camera. Raw lighting, organic film grain, natural skin realism, SUPIR enhanced micro-details.
-            </div>
-            <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire de la section</a>
-            </div>
+    <div class="option-box" id="style-cute3diconset">
+      <strong>Cute 3D Icon Set</strong>
+      <div class="content-p" style="margin: 6px 0 8px 0; font-size: 12.5px; line-height: 1.45;">
+        <strong>Description :</strong> Ensemble harmonisé d'icônes 3D mignonnes. Même univers visuel, cohérence stricte dans la palette de couleurs, l'éclairage doux et les formes arrondies, présentées sous forme de collection coordonnée.
+      </div>
+      <div class="injected-box">
+        <span class="injected-label">💉 Prompt Positif Injecté :</span>
+        a set of lovely little 3D icons, cute 3D icons, very cute shapes, stylized octane render, 8k, masterpiece, soooo cute, beautiful cute perfection, beautiful soft lighting, soft colors, centered, high resolution, cute icon set
+      </div>
+      <div class="negative-box">
+        <strong>Prompt Négatif :</strong> <em>Aucun</em>
+      </div>
+      <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire des styles</a>
+    </div>
+
+    <!-- GROUPE 8 : PHOTOGRAPHIE RÉTRO, DÉCENNIES & VINTAGE -->
+    <div class="content-h3">8. Photographie Rétro, Décennies & Vintage</div>
+
+    <div class="option-box" id="style-profphoto">
+      <strong>Professional Photo</strong>
+      <div class="content-p" style="margin: 6px 0 8px 0; font-size: 12.5px; line-height: 1.45;">
+        <strong>Description :</strong> Photographie de studio ou commerciale haut de gamme. Se caractérise par un éclairage maîtrisé en trois points, une netteté parfaite sur le sujet, un piqué optique précis et une composition très soignée.
+      </div>
+      <div class="injected-box">
+        <span class="injected-label">💉 Prompt Positif Injecté :</span>
+        sharp focus, depth of field, 8k photo, HDR, professional lighting, taken with Canon EOS R5, DSLR, 75mm lens
+      </div>
+      <div class="negative-box">
+        <strong>Prompt Négatif :</strong> <em>Aucun</em>
+      </div>
+      <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire des styles</a>
+    </div>
+
+    <div class="option-box" id="style-1990sphoto">
+      <strong>1990s Photo</strong>
+      <div class="content-p" style="margin: 6px 0 8px 0; font-size: 12.5px; line-height: 1.45;">
+        <strong>Description :</strong> Esthétique photographique argentique ou jetable des années 1990. Couleurs légèrement saturées aux dominantes chaudes/vertes, flash direct marqué produisant des ombres dures, léger flou optique et grain de pellicule caractéristique.
+      </div>
+      <div class="injected-box">
+        <span class="injected-label">💉 Prompt Positif Injecté :</span>
+        90s home video, nostalgic 90s photo, taken with kodak disposable camera
+      </div>
+      <div class="negative-box">
+        <strong>Prompt Négatif :</strong> <em>Aucun</em>
+      </div>
+      <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire des styles</a>
+    </div>
+
+    <div class="option-box" id="style-1980sphoto">
+      <strong>1980s Photo</strong>
+      <div class="content-p" style="margin: 6px 0 8px 0; font-size: 12.5px; line-height: 1.45;">
+        <strong>Description :</strong> Photographie sur pellicule des années 1980. Couleurs vives et contrastées, utilisation fréquente du flash direct, légères aberrations chromatiques et grain caractéristique des appareils grand public (compacts 35mm).
+      </div>
+      <div class="injected-box">
+        <span class="injected-label">💉 Prompt Positif Injecté :</span>
+        famous vintage 80s photo, grainy photograph, 80s photo with film grain, Kodacolor II 80s photo with vignetting, retro, r/OldSchoolCool, 80s photo with wear and tear and minor creasing and scratches, vintage color photo
+      </div>
+      <div class="negative-box">
+        <strong>Prompt Négatif :</strong> <em>Aucun</em>
+      </div>
+      <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire des styles</a>
+    </div>
+
+    <div class="option-box" id="style-1970sphoto">
+      <strong>1970s Photo</strong>
+      <div class="content-p" style="margin: 6px 0 8px 0; font-size: 12.5px; line-height: 1.45;">
+        <strong>Description :</strong> Rendu rétro très chaleureux. Teintes dominées par les jaunes, ocres et bruns, noirs légèrement délavés (faible contraste), grain argentique visible et reflets lumineux (lens flare) organiques.
+      </div>
+      <div class="injected-box">
+        <span class="injected-label">💉 Prompt Positif Injecté :</span>
+        famous vintage 70s photo, grainy photograph, 1970s photo with film grain, 70s photo with vignetting, retro, r/OldSchoolCool, 70s photo, vintage photo
+      </div>
+      <div class="negative-box">
+        <strong>Prompt Négatif :</strong> <em>Aucun</em>
+      </div>
+      <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire des styles</a>
+    </div>
+
+    <div class="option-box" id="style-1960sphoto">
+      <strong>1960s Photo</strong>
+      <div class="content-p" style="margin: 6px 0 8px 0; font-size: 12.5px; line-height: 1.45;">
+        <strong>Description :</strong> Rendu argentique des sixties. Couleurs légèrement saturées avec des dominantes dorées ou pastel, vignetage optique subtil, grain texturé et esthétique pop ou documentaire d'époque.
+      </div>
+      <div class="injected-box">
+        <span class="injected-label">💉 Prompt Positif Injecté :</span>
+        famous vintage 60s photo, grainy photograph, 1960s photo with film grain, 60s photo with vignetting, retro, r/OldSchoolCool, 60s photo, vintage photo
+      </div>
+      <div class="negative-box">
+        <strong>Prompt Négatif :</strong> <em>Aucun</em>
+      </div>
+      <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire des styles</a>
+    </div>
+
+    <div class="option-box" id="style-1950sphoto">
+      <strong>1950s Photo</strong>
+      <div class="content-p" style="margin: 6px 0 8px 0; font-size: 12.5px; line-height: 1.45;">
+        <strong>Description :</strong> Esthétique photographique des années 1950. Couleurs Kodachrome emblématiques et chaudes, rouges et turquoises éclatants, grain moyen, ambiance lumineuse et optimiste d'après-guerre.
+      </div>
+      <div class="injected-box">
+        <span class="injected-label">💉 Prompt Positif Injecté :</span>
+        famous vintage 50s photo, grainy photograph, 1950s photo with film grain, 1950s photo with vignetting, retro, r/OldSchoolCool, 1950s photo, vintage photo
+      </div>
+      <div class="negative-box">
+        <strong>Prompt Négatif :</strong> <em>Aucun</em>
+      </div>
+      <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire des styles</a>
+    </div>
+
+    <div class="option-box" id="style-1940sphoto">
+      <strong>1940s Photo</strong>
+      <div class="content-p" style="margin: 6px 0 8px 0; font-size: 12.5px; line-height: 1.45;">
+        <strong>Description :</strong> Photo d'époque Seconde Guerre mondiale / après-guerre. Début des premières pellicules couleur (type Kodachrome primitif) aux teintes riches mais douces, ou noir et blanc contrasté avec éclairage façon film noir.
+      </div>
+      <div class="injected-box">
+        <span class="injected-label">💉 Prompt Positif Injecté :</span>
+        famous vintage 1940s photo, grainy photograph, 1940s photo with film grain, 1940s photo with vignetting, retro, r/OldSchoolCool, 1940s photo, vintage photo
+      </div>
+      <div class="negative-box">
+        <strong>Prompt Négatif :</strong> <em>Aucun</em>
+      </div>
+      <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire des styles</a>
+    </div>
+
+    <div class="option-box" id="style-1930sphoto">
+      <strong>1930s Photo</strong>
+      <div class="content-p" style="margin: 6px 0 8px 0; font-size: 12.5px; line-height: 1.45;">
+        <strong>Description :</strong> Photographie noir et blanc de l'époque de la Grande Dépression. Se caractérise par des contrastes doux ou dramatiques, une profondeur de champ marquée, une texture argentique fine et une patine monochrome vintage (parfois légèrement sépia).
+      </div>
+      <div class="injected-box">
+        <span class="injected-label">💉 Prompt Positif Injecté :</span>
+        famous vintage 1930s photo, grainy photograph, 1930s photo with film grain, 1930s photo with vignetting, retro, r/OldSchoolCool, 1930s photo, vintage photo
+      </div>
+      <div class="negative-box">
+        <strong>Prompt Négatif :</strong> <em>Aucun</em>
+      </div>
+      <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire des styles</a>
+    </div>
+
+    <div class="option-box" id="style-1920sphoto">
+      <strong>1920s Photo</strong>
+      <div class="content-p" style="margin: 6px 0 8px 0; font-size: 12.5px; line-height: 1.45;">
+        <strong>Description :</strong> Cliché historique restauré des années 1920, caractérisé par un rendu monochrome ou sépia d'archive, un contraste doux et une texture optique ancienne.
+      </div>
+      <div class="injected-box">
+        <span class="injected-label">💉 Prompt Positif Injecté :</span>
+        famous vintage 1920s photo, 1920s photo, restored photograph, black and white, historical archive photo
+      </div>
+      <div class="negative-box">
+        <strong>Prompt Négatif :</strong> <em>Aucun</em>
+      </div>
+      <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire des styles</a>
+    </div>
+
+    <div class="option-box" id="style-vintagepulpart">
+      <strong>Vintage Pulp Art</strong>
+      <div class="content-p" style="margin: 6px 0 8px 0; font-size: 12.5px; line-height: 1.45;">
+        <strong>Description :</strong> Illustration sensationnaliste des magazines pulp du début/milieu du XXe siècle. Couleurs primaires criardes, fort dynamisme, scènes dramatiques de science-fiction, polar ou aventure, et texture de papier journal vieilli.
+      </div>
+      <div class="injected-box">
+        <span class="injected-label">💉 Prompt Positif Injecté :</span>
+        1970s vintage pulp art, vintage pulp art, in the style of Earle K. Bergey, in the style of Kelly Freas, in the style of Alex Schomburg, in the style of H. J. Ward, glossy pulp art, Amazing Stories, Weird Tales, 8k, high resolution, best quality
+      </div>
+      <div class="negative-box">
+        <strong>Prompt Négatif :</strong> <em>Aucun</em>
+      </div>
+      <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire des styles</a>
+    </div>
+
+    <div class="option-box" id="style-50senamelsign">
+      <strong>50s Enamel Sign</strong>
+      <div class="content-p" style="margin: 6px 0 8px 0; font-size: 12.5px; line-height: 1.45;">
+        <strong>Description :</strong> Enseigne émaillée publicitaire vintage des années 1950, avec typographie d'époque, couleurs vives vitrifiées et bordures métalliques authentiques.
+      </div>
+      <div class="injected-box">
+        <span class="injected-label">💉 Prompt Positif Injecté :</span>
+        50s enamel sign, 50s advert enamel sign, masterpiece, authentic vintage enamel sign
+      </div>
+      <div class="negative-box">
+        <strong>Prompt Négatif :</strong> <em>Aucun</em>
+      </div>
+      <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire des styles</a>
+    </div>
+
+    <div class="option-box" id="style-vintagecomic">
+      <strong>Vintage Comic</strong>
+      <div class="content-p" style="margin: 6px 0 8px 0; font-size: 12.5px; line-height: 1.45;">
+        <strong>Description :</strong> Style de bande dessinée rétro (années 40 à 60). Utilise une trame de demi-teintes visible (Ben-Day dots), une palette de couleurs d'impression primaire limitée, un papier jauni et un encrage manuel marqué.
+      </div>
+      <div class="injected-box">
+        <span class="injected-label">💉 Prompt Positif Injecté :</span>
+        comic book style art, drawing, in the style of Dave Stevens, in the style of Adam Hughes, 1940's, 1950's, hand-drawn, color, high resolution, best quality, closeup
+      </div>
+      <div class="negative-box">
+        <strong>Prompt Négatif :</strong> <em>Aucun</em>
+      </div>
+      <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire des styles</a>
+    </div>
+
+              <!-- GROUPE 9 : ESTHÉTIQUES ALTERNATIVES & SPÉCIFIQUES -->
+    <div class="content-h3">9. Esthétiques Alternatives & Spécifiques</div>
+
+    <div class="option-box" id="style-francobelgian">
+      <strong>Franco-Belgian Comic</strong>
+      <div class="content-p" style="margin: 6px 0 8px 0; font-size: 12.5px; line-height: 1.45;">
+        <strong>Description :</strong> Style bande dessinée franco-belge classique (BD européenne). Traits encrés équilibrés, décors soignés, découpage narratif clair et colorisation souvent posée en aplats ou légers dégradés.
+      </div>
+      <div class="injected-box">
+        <span class="injected-label">💉 Prompt Positif Injecté :</span>
+        comic book style art, drawing, in the style of Albert Uderzo, in the style of Jean Giraud, in the style of André Franquin, in the style of Morris, hand-drawn, color, high resolution, best quality, closeup
+      </div>
+      <div class="negative-box">
+        <strong>Prompt Négatif :</strong> <em>Aucun</em>
+      </div>
+      <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire des styles</a>
+    </div>
+
+    <div class="option-box" id="style-tintin">
+      <strong>Tintin Comic</strong>
+      <div class="content-p" style="margin: 6px 0 8px 0; font-size: 12.5px; line-height: 1.45;">
+        <strong>Description :</strong> Style pur de la « ligne claire » façon Hergé. Contours noirs d'épaisseur constante et ultra-précis, absence d'ombres portées complexes ou de dégradés, et grande lisibilité géométrique des décors.
+      </div>
+      <div class="injected-box">
+        <span class="injected-label">💉 Prompt Positif Injecté :</span>
+        comic book style art, drawing, in the style of Hergé, The Adventures of Tintin, ligne claire style, hand-drawn, color, high resolution, best quality, closeup
+      </div>
+      <div class="negative-box">
+        <strong>Prompt Négatif :</strong> <em>Aucun</em>
+      </div>
+      <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire des styles</a>
+    </div>
+
+    <div class="option-box" id="style-90scomic">
+      <strong>90s Comic</strong>
+      <div class="content-p" style="margin: 6px 0 8px 0; font-size: 12.5px; line-height: 1.45;">
+        <strong>Description :</strong> Style de comics américain des années 1990 (type Image Comics / Marvel 90s). Muscles hyper-développés, hachures d'ombrage intenses (cross-hatching), poses héroïques extrêmes, armes surdimensionnées et angles dynamiques.
+      </div>
+      <div class="injected-box">
+        <span class="injected-label">💉 Prompt Positif Injecté :</span>
+        comic book style art, drawing, in the style of Todd McFarlane, in the style of Jim Lee, in the style of Rob Liefeld, in the style of Marc Silvestri, 1990's, hand-drawn, color, high resolution, best quality, closeup
+      </div>
+      <div class="negative-box">
+        <strong>Prompt Négatif :</strong> <em>Aucun</em>
+      </div>
+      <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire des styles</a>
+    </div>
+
+    <div class="option-box" id="style-pixelart">
+      <strong>Pixel Art</strong>
+      <div class="content-p" style="margin: 6px 0 8px 0; font-size: 12.5px; line-height: 1.45;">
+        <strong>Description :</strong> Style graphique rétro inspiré des jeux vidéo 8-bit et 16-bit. L'image est construite bloc par bloc à l'aide de pixels visibles, avec des palettes de couleurs restreintes et des contours géométriques nets.
+      </div>
+      <div class="injected-box">
+        <span class="injected-label">💉 Prompt Positif Injecté :</span>
+        pixel art, 16-bit pixel art, in the style of eBoy, in the style of Fool, in the style of Paul Robertson, in the style of Simon Stålenhag, pixelated, 8k, high resolution, best quality.\n\nOverall, it's an absolute world-class masterpiece pixel artwork. It's an aesthetically pleasing pixel artwork with impeccable attention to detail and impressive composition.
+      </div>
+      <div class="negative-box">
+        <strong>Prompt Négatif :</strong> <em>Aucun</em>
+      </div>
+      <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire des styles</a>
+    </div>
+
+    <div class="option-box" id="style-furrycinematic">
+      <strong>Furry - Cinematic</strong>
+      <div class="content-p" style="margin: 6px 0 8px 0; font-size: 12.5px; line-height: 1.45;">
+        <strong>Description :</strong> Personnages anthropomorphes intégrés dans une mise en scène cinématographique. Se distingue par un éclairage volumétrique dramatique, un rendu réaliste des matières (fourrure, écailles, yeux profonds) et une composition immersive digne d'un film à gros budget.
+      </div>
+      <div class="injected-box">
+        <span class="injected-label">💉 Prompt Positif Injecté :</span>
+        detailed furry cinematic, cinematic 3D furry character render, dramatic lighting, sharp focus, fine details, 8k, HDR, realism, realistic, furry art, anthro art.\n\nOverall, it's an absolute world-class furry cinematic masterpiece.
+      </div>
+      <div class="negative-box">
+        <strong>Prompt Négatif :</strong> <em>Aucun</em>
+      </div>
+      <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire des styles</a>
+    </div>
+
+    <div class="option-box" id="style-furrypainted">
+      <strong>Furry - Painted</strong>
+      <div class="content-p" style="margin: 6px 0 8px 0; font-size: 12.5px; line-height: 1.45;">
+        <strong>Description :</strong> Art anthropomorphe réalisé avec une approche de peinture numérique ou traditionnelle. Met l'accent sur les touches de pinceau visibles, des fondus doux pour la texture des pelages et une gestion picturale de la lumière sans encrage strict.
+      </div>
+      <div class="injected-box">
+        <span class="injected-label">💉 Prompt Positif Injecté :</span>
+        painterly furry art, digital painting, fine brush strokes, soft fur texture, detailed lighting, anthro character portrait, 8k, high quality painterly artwork.
+      </div>
+      <div class="negative-box">
+        <strong>Prompt Négatif :</strong> <em>Aucun</em>
+      </div>
+      <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire des styles</a>
+    </div>
+
+    <div class="option-box" id="style-furrydrawn">
+      <strong>Furry - Drawn</strong>
+      <div class="content-p" style="margin: 6px 0 8px 0; font-size: 12.5px; line-height: 1.45;">
+        <strong>Description :</strong> Style anthropomorphe axé sur le dessin et l'illustration 2D. Se caractérise par un encrage net aux lignes bien définies (line art), des aplats de couleurs ou ombrages simples, typiques des bandes dessinées ou webcomics du genre.
+      </div>
+      <div class="injected-box">
+        <span class="injected-label">💉 Prompt Positif Injecté :</span>
+        clean lineart furry drawing, 2D anthro illustration, bold clean lines, cel-shaded furry art, webcomic style, vibrant colors.
+      </div>
+      <div class="negative-box">
+        <strong>Prompt Négatif :</strong> <em>Aucun</em>
+      </div>
+      <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire des styles</a>
+    </div>
+
+    <div class="option-box" id="style-cutefigurine">
+      <strong>Cute Figurine</strong>
+      <div class="content-p" style="margin: 6px 0 8px 0; font-size: 12.5px; line-height: 1.45;">
+        <strong>Description :</strong> Rendu imitant un jouet de collection miniature ou une figurine stylisée (type Nendoroid, Funko Pop ou résine vinylique). Traits mignons, proportions chibi, finition plastique/brillante ou vinyle mat, et mise en scène comme un petit objet physique posé sur un socle.
+      </div>
+      <div class="injected-box">
+        <span class="injected-label">💉 Prompt Positif Injecté :</span>
+        cute vinyl toy figurine, chibi proportions, 3D collectible figure, glossy smooth finish, studio miniature lighting, toy photography, tabletop display, 8k render.
+      </div>
+      <div class="negative-box">
+        <strong>Prompt Négatif :</strong> <em>Aucun</em>
+      </div>
+      <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire des styles</a>
+    </div>
+
+    <div class="option-box" id="style-3demoji">
+      <strong>3D Emoji</strong>
+      <div class="content-p" style="margin: 6px 0 8px 0; font-size: 12.5px; line-height: 1.45;">
+        <strong>Description :</strong> Rendu tridimensionnel stylisé inspiré des émojis modernes (type Apple ou Microsoft Fluent). Formes rondes et lisses, textures brillantes ou caoutchouteuses, éclairage doux et expressions faciales ultra-simplifiées et expressives.
+      </div>
+      <div class="injected-box">
+        <span class="injected-label">💉 Prompt Positif Injecté :</span>
+        3D stylized emoji, smooth glossy clay render, vibrant colorful material, soft studio lighting, cute expressive emoji character, centered, clean gradient background, 8k.
+      </div>
+      <div class="negative-box">
+        <strong>Prompt Négatif :</strong> <em>Aucun</em>
+      </div>
+      <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire des styles</a>
+    </div>
+
+    <div class="option-box" id="style-cuteillustration">
+      <strong>Cute Illustration</strong>
+      <div class="content-p" style="margin: 6px 0 8px 0; font-size: 12.5px; line-height: 1.45;">
+        <strong>Description :</strong> Illustration douce et mignonne (kawaii). Couleurs pastel ou joyeuses, formes simplifiées et arrondies, ambiances chaleureuses et personnages aux expressions attachantes.
+      </div>
+      <div class="injected-box">
+        <span class="injected-label">💉 Prompt Positif Injecté :</span>
+        sweet cute illustration, pastel color palette, soft gentle lighting, heartwarming children book art, charming whimsical shapes, high quality digital artwork.
+      </div>
+      <div class="negative-box">
+        <strong>Prompt Négatif :</strong> <em>Aucun</em>
+      </div>
+      <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire des styles</a>
+    </div>
+
+    <div class="option-box" id="style-flatillustration">
+      <strong>Flat Illustration</strong>
+      <div class="content-p" style="margin: 6px 0 8px 0; font-size: 12.5px; line-height: 1.45;">
+        <strong>Description :</strong> Illustration vectorielle en deux dimensions (flat design). Se définit par une absence totale de textures réalistes ou de dégradés 3D complexes, privilégiant les formes géométriques épurées, les aplats de couleurs franches et la lisibilité graphique.
+      </div>
+      <div class="injected-box">
+        <span class="injected-label">💉 Prompt Positif Injecté :</span>
+        minimal flat design illustration, modern vector art, bold clean geometric shapes, solid color blocks, corporate editorial illustration, behance trending.
+      </div>
+      <div class="negative-box">
+        <strong>Prompt Négatif :</strong> <em>Aucun</em>
+      </div>
+      <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire des styles</a>
+    </div>
+
+    <div class="option-box" id="style-50sinfomercial">
+      <strong>50s Infomercial Anime</strong>
+      <div class="content-p" style="margin: 6px 0 8px 0; font-size: 12.5px; line-height: 1.45;">
+        <strong>Description :</strong> Mélange unique entre l'animation rétro et les films promotionnels/éducatifs des années 1950. Couleurs pastel désaturées, grain de pellicule 16mm vieillie, designs de personnages vintage simplifiés et ambiance rétro-futuriste ou publicitaire d'époque.
+      </div>
+      <div class="injected-box">
+        <span class="injected-label">💉 Prompt Positif Injecté :</span>
+        1950s educational cartoon film still, 16mm faded film grain, retro commercial animation, mid-century atomic age cartoon, vintage muted pastel palette.
+      </div>
+      <div class="negative-box">
+        <strong>Prompt Négatif :</strong> <em>Aucun</em>
+      </div>
+      <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire des styles</a>
+    </div>
+
+    <div class="option-box" id="style-3dpokemon">
+      <strong>3D Pokemon</strong>
+      <div class="content-p" style="margin: 6px 0 8px 0; font-size: 12.5px; line-height: 1.45;">
+        <strong>Description :</strong> Modélisation et rendu tridimensionnel façon jeux vidéo récents ou film Detective Pikachu. Textures détaillées (peau, pelage, écailles), éclairage réaliste en trois dimensions et proportions fidèles aux créatures de la franchise.
+      </div>
+      <div class="injected-box">
+        <span class="injected-label">💉 Prompt Positif Injecté :</span>
+        3D pokemon render, realistic creature textures, detective pikachu style CGI, studio lighting, detailed fur and scales, high poly octane render.
+      </div>
+      <div class="negative-box">
+        <strong>Prompt Négatif :</strong> <em>Aucun</em>
+      </div>
+      <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire des styles</a>
+    </div>
+
+    <div class="option-box" id="style-paintedpokemon">
+      <strong>Painted Pokemon</strong>
+      <div class="content-p" style="margin: 6px 0 8px 0; font-size: 12.5px; line-height: 1.45;">
+        <strong>Description :</strong> Illustration Pokémon traitée à la peinture numérique ou traditionnelle (façon cartes à collectionner pleine illustration). Coups de pinceau visibles, textures riches, jeux de lumière immersifs et arrière-plans picturaux soignés.
+      </div>
+      <div class="injected-box">
+        <span class="injected-label">💉 Prompt Positif Injecté :</span>
+        full art pokemon card illustration, painterly brushwork, rich digital painting textures, dynamic atmospheric lighting, scenic environment background.
+      </div>
+      <div class="negative-box">
+        <strong>Prompt Négatif :</strong> <em>Aucun</em>
+      </div>
+      <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire des styles</a>
+    </div>
+
+    <div class="option-box" id="style-2dpokemon">
+      <strong>2D Pokemon</strong>
+      <div class="content-p" style="margin: 6px 0 8px 0; font-size: 12.5px; line-height: 1.45;">
+        <strong>Description :</strong> Style anime classique de la franchise. Contours encrés nets et lisibles, colorisation en aplats francs (cel-shading), palette de couleurs vives et respect rigoureux du design officiel des créatures et dresseurs.
+      </div>
+      <div class="injected-box">
+        <span class="injected-label">💉 Prompt Positif Injecté :</span>
+        official 2D pokemon anime art style, ken sugimori classic art, clean lineart, vibrant cel-shaded colors, authentic anime series screencap.
+      </div>
+      <div class="negative-box">
+        <strong>Prompt Négatif :</strong> <em>Aucun</em>
+      </div>
+      <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire des styles</a>
+    </div>
+
+    <div class="option-box" id="style-tattoodesign">
+      <strong>Tattoo Design</strong>
+      <div class="content-p" style="margin: 6px 0 8px 0; font-size: 12.5px; line-height: 1.45;">
+        <strong>Description :</strong> Dessin conçu pour être encré sur la peau (motif de tatouage). Présente des contours noirs nets et audacieux (bold lines), des ombrages contrastés (points, hachures ou dégradés d'encre), une composition équilibrée et un fond souvent épuré ou blanc.
+      </div>
+      <div class="injected-box">
+        <span class="injected-label">💉 Prompt Positif Injecté :</span>
+        tattoo flash art, bold clean black lineart, stippling dotwork shading, isolated on white background, neo-traditional tattoo style, crisp vector lines.
+      </div>
+      <div class="negative-box">
+        <strong>Prompt Négatif :</strong> <em>Aucun</em>
+      </div>
+      <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire des styles</a>
+    </div>
+
+    <div class="option-box" id="style-crayondrawing">
+      <strong>Crayon Drawing</strong>
+      <div class="content-p" style="margin: 6px 0 8px 0; font-size: 12.5px; line-height: 1.45;">
+        <strong>Description :</strong> Dessin aux crayons de cire ou pastels gras. Se caractérise par une texture granuleuse et rugueuse sur le papier, des traits épais et naïfs, et des couleurs vives légèrement cireuses.
+      </div>
+      <div class="injected-box">
+        <span class="injected-label">💉 Prompt Positif Injecté :</span>
+        wax crayon drawing, heavy textured paper, rough waxy strokes, vibrant primary colors, naive authentic child-like crayon texture.
+      </div>
+      <div class="negative-box">
+        <strong>Prompt Négatif :</strong> <em>Aucun</em>
+      </div>
+      <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire des styles</a>
+    </div>
+
+    <div class="option-box" id="style-pencil">
+      <strong>Pencil</strong>
+      <div class="content-p" style="margin: 6px 0 8px 0; font-size: 12.5px; line-height: 1.45;">
+        <strong>Description :</strong> Dessin au crayon graphite ou crayon à papier classique. Met l'accent sur les nuances de gris, le travail de hachures et d'estompes, la finesse des traits et le grain authentique du papier à dessin.
+      </div>
+      <div class="injected-box">
+        <span class="injected-label">💉 Prompt Positif Injecté :</span>
+        graphite pencil sketch, fine detailed hatching and cross-hatching, smooth tonal shading, textured sketchbook paper, monochrome drawing.
+      </div>
+      <div class="negative-box">
+        <strong>Prompt Négatif :</strong> <em>Aucun</em>
+      </div>
+      <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire des styles</a>
+    </div>
+
+    <div class="option-box" id="style-yugiohart">
+      <strong>YuGiOh Art</strong>
+      <div class="content-p" style="margin: 6px 0 8px 0; font-size: 12.5px; line-height: 1.45;">
+        <strong>Description :</strong> Style dynamique et anguleux inspiré des cartes et de l'anime Yu-Gi-Oh!. Contours noirs marqués, proportions élancées, reflets vifs très contrastés, mèches de cheveux pointues et effets magiques ou d'énergie holographique percutants.
+      </div>
+      <div class="injected-box">
+        <span class="injected-label">💉 Prompt Positif Injecté :</span>
+        kazuki takahashi anime style, sharp angular lineart, dramatic card artwork, holographic lighting bursts, intense high-contrast shadows.
+      </div>
+      <div class="negative-box">
+        <strong>Prompt Négatif :</strong> <em>Aucun</em>
+      </div>
+      <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire des styles</a>
+    </div>
+
+    <div class="option-box" id="style-traditionaljapanese">
+      <strong>Traditional Japanese</strong>
+      <div class="content-p" style="margin: 6px 0 8px 0; font-size: 12.5px; line-height: 1.45;">
+        <strong>Description :</strong> Art traditionnel du Japon (style estampe Ukiyo-e). Se caractérise par des lignes d'encrage calligraphiques fluides, des aplats de couleurs minérales, des motifs décoratifs récurrents (vagues, nuages stylisés, fleurs de cerisier) et une composition en deux dimensions sans perspective occidentale.
+      </div>
+      <div class="injected-box">
+        <span class="injected-label">💉 Prompt Positif Injecté :</span>
+        ukiyo-e woodblock print, hokusai and hiroshige style, flowing sumi-e ink lines, mineral pigments on washi paper, traditional japanese art.
+      </div>
+      <div class="negative-box">
+        <strong>Prompt Négatif :</strong> <em>Aucun</em>
+      </div>
+      <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire des styles</a>
+    </div>
+
+    <div class="option-box" id="style-nihongapainting">
+      <strong>Nihonga Painting</strong>
+      <div class="content-p" style="margin: 6px 0 8px 0; font-size: 12.5px; line-height: 1.45;">
+        <strong>Description :</strong> Peinture japonaise moderne/traditionnelle réalisée avec des pigments naturels (poudre de roche, coquillages, feuille d'or) sur papier washi ou soie. Rendu texturé et délicat, dégradés subtils, finitions mates ou dorées et atmosphère poétique et épurée.
+      </div>
+      <div class="injected-box">
+        <span class="injected-label">💉 Prompt Positif Injecté :</span>
+        nihonga art style, natural mineral pigments, delicate gold leaf accents, textured washi silk background, soft subtle poetic gradients.
+      </div>
+      <div class="negative-box">
+        <strong>Prompt Négatif :</strong> <em>Aucun</em>
+      </div>
+      <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire des styles</a>
+    </div>
+
+    <div class="option-box" id="style-claymation">
+      <strong>Claymation</strong>
+      <div class="content-p" style="margin: 6px 0 8px 0; font-size: 12.5px; line-height: 1.45;">
+        <strong>Description :</strong> Animation en pâte à modeler image par image (type Wallace et Gromit ou Chicken Run). Personnages et décors sculptés en trois dimensions, textures d'argile ou de plasticine visibles (souvent avec de légères empreintes de doigts), et éclairage de studio miniature tangible.
+      </div>
+      <div class="injected-box">
+        <span class="injected-label">💉 Prompt Positif Injecté :</span>
+        aardman style claymation, plasticine sculpted character, stop-motion studio lighting, visible subtle fingerprint clay textures, miniature tactile set.
+      </div>
+      <div class="negative-box">
+        <strong>Prompt Négatif :</strong> <em>Aucun</em>
+      </div>
+      <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire des styles</a>
+    </div>
+
+    <div class="option-box" id="style-cartoon">
+      <strong>Cartoon</strong>
+      <div class="content-p" style="margin: 6px 0 8px 0; font-size: 12.5px; line-height: 1.45;">
+        <strong>Description :</strong> Style d'animation humoristique occidentale. Formes très exagérées et simplifiées, proportions cartoonesques (élasticité, grands yeux expressifs), contours noirs nets et palette de couleurs vives et dynamiques.
+      </div>
+      <div class="injected-box">
+        <span class="injected-label">💉 Prompt Positif Injecté :</span>
+        classic western cartoon, exaggerated dynamic proportions, expressive goofy faces, bold clean black outlines, bright joyful flat colors.
+      </div>
+      <div class="negative-box">
+        <strong>Prompt Négatif :</strong> <em>Aucun</em>
+      </div>
+      <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire des styles</a>
+    </div>
+
+    <div class="option-box" id="style-cursedphoto">
+      <strong>Cursed Photo</strong>
+      <div class="content-p" style="margin: 6px 0 8px 0; font-size: 12.5px; line-height: 1.45;">
+        <strong>Description :</strong> Photographie « maudite » ou dérangeante. Ambiance étrange et inconfortable, souvent prise au flash direct dans un lieu sombre ou insolite, avec une basse résolution, un grain numérique marqué et une mise en scène involontairement absurde, mystérieuse ou inquiétante.
+      </div>
+      <div class="injected-box">
+        <span class="injected-label">💉 Prompt Positif Injecté :</span>
+        cursed image, direct harsh camera flash in darkness, eerie unsettling atmosphere, low resolution digital noise, mysterious surreal vintage capture.
+      </div>
+      <div class="negative-box">
+        <strong>Prompt Négatif :</strong> <em>Aucun</em>
+      </div>
+      <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire des styles</a>
+    </div>
+
+          <!-- GROUPE 10 : 🔞 Adultes -->
           
-          <div class="custom-li"><strong>Aerial (vue aérienne) :</strong> Pour situer l'action dans une grande zone géographique, cet angle te permet de prendre de la hauteur comme si tu utilisais un drone ou un hélicoptère, pointant directement vers le bas ou vers l'horizon. C'est parfait pour cartographier un paysage ou montrer l'immensité d'un décor.</div>
-          <div class="custom-li"><strong>Extreme close-up (très gros plan) :</strong> À l'extrême opposé, il isole un détail précis du sujet (les yeux, les lèvres, les mains, un rouage mécanique) de manière à ce qu'il remplisse tout l'écran. C'est l'outil ultime pour intensifier une émotion dramatique ou forcer l'attention sur un indice crucial.</div>
-          <div class="custom-li"><strong>Low-angle (contre-plongée) :</strong> En jouant sur les hauteurs, la contre-plongée place la caméra en dessous du sujet pour regarder vers le haut. Cela donne instantanément une impression de puissance, de grandeur ou d'autorité au personnage.</div>
-          <div class="custom-li"><strong>High-angle (plongée) :</strong> À l'inverse, la plongée place la caméra au-dessus du sujet et regarde vers le bas. Cet angle rend le sujet plus petit, vulnérable ou isolé, et s'avère très utile pour accentuer la solitude ou donner une vue texturée du sol.</div>
-          <div class="custom-li"><strong>Close-up (gros plan) :</strong> Pour un portrait intime où l'expression faciale doit raconter l'histoire, il cadre principalement le visage du haut des épaules jusqu'à la tête.</div>
-          <div class="custom-li"><strong>Portrait classique :</strong> Si tu cherches un juste milieu plus équilibré pour la génération de personnages, le portrait classique (du buste ou de la taille jusqu'à la tête) est le choix standard. Il fonctionne d'ailleurs à merveille avec ton style "Casual Photo".</div>
-          <div class="custom-li"><strong>Photographie macro :</strong> Pour révéler des détails invisibles à l'œil nu, elle offre une prise de vue extrêmement rapprochée d'un sujet minuscule (une goutte de pluie, un insecte, la texture fine de la peau).</div>
-          <div class="custom-li"><strong>Wide-angle (grand-angle) :</strong> Si tu as besoin d'espace, il utilise un objectif virtuel au champ de vision très large pour capturer une grande partie de l'environnement autour du sujet, ce qui est parfait pour intégrer un personnage dans une rue animée.</div>
-          <div class="custom-li"><strong>Establishing shot (plan d'ensemble) :</strong> Lorsque le sujet principal devient le lieu lui-même, il montre le décor global (une ville entière, une forêt) pour introduire le contexte visuel.</div>
-          <div class="custom-li"><strong>Over-the-shoulder (plan en amorce) :</strong> Pour simuler une interaction humaine, il filme le sujet principal par-dessus l'épaule d'un autre personnage laissé au premier plan, recréant parfaitement l'ambiance d'une conversation ou d'une confrontation intime.</div>
-          <div class="custom-li"><strong>Telephoto (téléobjectif) :</strong> Il imite l'utilisation d'un zoom puissant : il rapproche les éléments lointains et compresse la distance entre le sujet et le fond, te permettant de détacher très fortement ton modèle d'un arrière-plan éloigné.</div>
-          <div class="custom-li"><strong>Handheld (caméra au poing) :</strong> Pour renforcer le réalisme spontané de tes "Casual Photos", ce modificateur simule une photo prise rapidement à la main, induisant de légères imperfections de cadrage très crédibles.</div>
-          <div class="custom-li"><strong>Panoramic :</strong> Offre un ratio très allongé horizontalement pour capturer un horizon complet à 180 degrés, créant un sentiment d'immensité épique.</div>
-          <div class="custom-li"><strong>Dramatic :</strong> Si tu as besoin d'intensité, ce cadrage accentue les contrastes et utilise des angles prononcés ou une lumière intense en clair-obscur pour renforcer la tension émotionnelle de ton histoire visuelle.</div>
+          <div class="content-h3">10. 🔞 Adultes</div>
+          <div class="content-p">Cette catégorie regroupe les styles artistiques et photographiques conçus pour explorer l'érotisme, la sensualité et les esthétiques modernes du web pour adultes. 
+          <br>
+Contrairement aux styles traditionnels ou purement éditoriaux, ces configurations utilisent des déclencheurs explicites pour contourner les rendus tout public (SFW) et orienter précisément l'IA vers des atmosphères intimes, de la mise en scène érotique soignée jusqu'à la simulation réaliste d'interfaces et de flux vidéo en direct.</div>   
+
+       <div class="option-box" id="style-NSFW">
+            <strong>NSFW</strong>
+            
+<div 
+class="content-h4"><strong>Concept & Définition :</strong><br></div>
+<div class="content-p" style="margin-left: 14px;">Contenu explicite ou suggestif destiné à un public averti (Not Safe For Work). Ce style est conçu pour générer des photographies à caractère adulte, intime et érotique. Il oriente le rendu vers la sensualité, la nudité et l'érotisme franc tout en excluant explicitement les contenus tout public (SFW).</div>
+
+<div 
+class="content-h4"><strong>Structure & Mots-clés types :</strong><br></div>
+<div 
+class="content-p" style="margin-left: 14px;">Le modèle combine des descripteurs directs pour orienter l'IA vers ce genre : NSFW, nudity, 18+ content, Erotica, Erotica Fashion, Candid Eroticism.</div>
+
+<div class="content-h4"><strong>Modificateurs associés :</strong><br></div>
+<div 
+class="content-p">Il utilise des paramètres dédiés aux poses et aux cadrages intimes (ex. poses nues, scènes suggestives ou explicites).</div>
+
+<div 
+class="content-h4">nsfw Modifiers</div>
+
+    <div class="custom-li">BDSM = It is an erotic scene of BDSM.</div>
+    
+    <div class="custom-li">explicit = It is an explicit sexual image.</div>
+ 
+    <div class="custom-li">lesbian = It is an erotic image of lesbian passion.</div>
+ 
+    <div class="custom-li">sexually explicit = It is a sexually explicit image.</div>
+ 
+    <div class="custom-li">erotic = It is an erotic image.</div>
+ 
+    <div class="custom-li">pornographic = It is a hard pornographic image.</div>
+ 
+    <div class="custom-li">masturbation = She is masturbating. She is playing with her pussy.</div> 
+
+    <div class="custom-li">sex = She is having sex. She is being fucked.</div>
+
+    <div class="custom-li">nude = She is nude. She is naked.</div> 
+
+    <div class="custom-li">nude pose = She is nude. She is naked. She is posing.</div>
+ 
+    <div class="custom-li">nude spread legs = She is nude. She is naked. She is spreading her legs.</div> 
+
+    <div class="custom-li">nude cat pose = She is nude. She is naked. She is in a cat pose.</div> 
+
+    <div class="custom-li">nude shy = She is nude. She is naked. She is shy.</div> 
+
+    <div class="custom-li">nude flush = She is nude. She is naked. She is flush.</div> 
+
+
+            <div class="injected-box">
+              <span class="injected-label">💉 Prompt Positif Injecté :</span>
+              (en début de texte) <br> 
+              A photograph of <br>
+              (en fin de texte) <br>
+              NSFW, inappropriate, nudity,             
+              18+ content, NSFW, fapping, 
+              Erotica, Erotica Fashion, 
+              Candid Eroticism
+            </div>
+            <div class="negative-box">
+              <strong>Prompt Négatif :</strong> <em>SFW</em>
+            </div>
+            <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire des styles</a>
+          </div>
+          
+          
+          
+          <div class="option-box" id="style-Camgirl">
+            <strong>💻 Camgirl</strong>
+            
+<div 
+class="content-h4"><strong>Concept & Définition :</strong><br></div>
+<div 
+class="content-p" style="margin-left: 14px;">Ce style imite l'esthétique et la composition typiques des captures d'écran de sites de diffusion en direct (cam sites comme Chaturbate). L'objectif est de recréer une ambiance intime, spontanée et numérique.</div>
+            
+<div 
+class="content-h4"><strong>Structure & Composition de la scène :</strong><br></div>
+            
+<div class="custom-li"><strong>Mise en scène :</strong><br> Le sujet se trouve généralement sur un lit avec des accessoires du quotidien (comme un clavier sans fil à ses côtés).</div>
+
+<div class="custom-li"><strong>Éléments d'interface (UI) :</strong><br> Le prompt demande l'intégration visuelle d'un panneau de discussion textuelle / chat érotique vertical qui défile sur le côté droit de l'image pour reproduire l'effet d'une capture d'écran de diffusion en direct.</div>
+
+
+            <div class="injected-box">
+              <span class="injected-label">💉 Prompt Positif Injecté :</span>
+              (en début de texte) <br> 
+             A screenshot of her on her bed. She has a wireless keyboard next to her. A sexual chat function is running up the right hand side of the screenshot. The screenshot is typical of cam sites like Chaturbate 
+            </div>
+            <div class="negative-box">
+              <strong>Prompt Négatif :</strong> <em>Aucun</em>
+            </div>
+            <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire des styles</a>
+          </div>
+         
+          <!-- GROUPE 11 : MODIFICATEURS SPÉCIFIQUES -->
+                    
+          <div class="content-h3">11. Modificateurs Spécifiques</div>
+          <div class="content-p">Ces listes de modificateurs s'ajoutent à des styles ou genres particuliers.</div>
+          
+               <div class="option-box" id="mod-shot">
+            <strong>Cadrages Photographiques (Shots)</strong>
+            <div class="injected-box">
+              <span class="injected-label">💉 Textes injectés par modificateur :</span>
+              <strong>extreme close-up</strong> : <span style="color: #475569;">extreme close-up</span><br>
+              <strong>low-angle</strong> : <span style="color: #475569;">low-angle shot</span><br>
+              <strong>high-angle</strong> : <span style="color: #475569;">high-angle shot</span><br>
+              <strong>aerial</strong> : <span style="color: #475569;">aerial shot</span><br>
+              <strong>close-up</strong> : <span style="color: #475569;">close-up shot</span><br>
+              <strong>portrait</strong> : <span style="color: #475569;">close-up portrait</span><br>
+              <strong>macro</strong> : <span style="color: #475569;">macro shot</span><br>
+              <strong>wide-angle</strong> : <span style="color: #475569;">wide-angle shot</span><br>
+              <strong>establishing</strong> : <span style="color: #475569;">establishing shot</span><br>
+              <strong>over-the-shoulder</strong> : <span style="color: #475569;">over-the-shoulder shot</span><br>
+              <strong>telephoto</strong> : <span style="color: #475569;">telephoto shot</span><br>
+              <strong>handheld</strong> : <span style="color: #475569;">handheld shot</span><br>
+              <strong>panoramic</strong> : <span style="color: #475569;">panoramic shot</span><br>
+              <strong>dramatic</strong> : <span style="color: #475569;">dramatic angle, extreme angle shot</span>
+            </div>
+            <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire des styles</a>
+          </div>
+
+          <div class="option-box" id="mod-color">
+            <strong>Couleurs Photographiques (Color)</strong>
+            <div class="injected-box">
+              <span class="injected-label">💉 Textes injectés par modificateur :</span>
+              <strong>vibrant</strong> : <span style="color: #475569;">vibrant color grading</span><br>
+              <strong>warm</strong> : <span style="color: #475569;">warm color grading</span><br>
+              <strong>cool</strong> : <span style="color: #475569;">cool-toned color grading</span><br>
+              <strong>pastel</strong> : <span style="color: #475569;">pastel color grading</span><br>
+              <strong>bright</strong> : <span style="color: #475569;">bright color grading</span><br>
+              <strong>muted</strong> : <span style="color: #475569;">muted color grading</span><br>
+              <strong>neon</strong> : <span style="color: #475569;">neon color grading</span><br>
+              <strong>duotone</strong> : <span style="color: #475569;">duotone color grading</span><br>
+              <strong>monochrome</strong> : <span style="color: #475569;">monochrome</span><br>
+              <strong>sterile</strong> : <span style="color: #475569;">cool-toned sterile colors</span><br>
+              <strong>yellow</strong> : <span style="color: #475569;">a yellow tint</span>
+            </div>
+            <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire des styles</a>
+          </div>
+
+          <div class="option-box" id="mod-effect">
+            <strong>Effets Photographiques (Effect)</strong>
+            <div class="injected-box">
+              <span class="injected-label">💉 Textes injectés par modificateur :</span>
+              <strong>bokeh</strong> : <span style="color: #475569;">bokeh</span><br>
+              <strong>tilt-shift</strong> : <span style="color: #475569;">tilt-shift effect</span><br>
+              <strong>soft focus</strong> : <span style="color: #475569;">soft focus</span><br>
+              <strong>background blur</strong> : <span style="color: #475569;">shallow depth of field</span><br>
+              <strong>chromatic aberrations</strong> : <span style="color: #475569;">chromatic aberrations</span><br>
+              <strong>light leaks</strong> : <span style="color: #475569;">light leaks</span><br>
+              <strong>rear projection</strong> : <span style="color: #475569;">rear projection</span><br>
+              <strong>lens flare</strong> : <span style="color: #475569;">lens flare</span><br>
+              <strong>long exposure</strong> : <span style="color: #475569;">long exposure</span><br>
+              <strong>golden hour</strong> : <span style="color: #475569;">golden hour</span><br>
+              <strong>silhouette</strong> : <span style="color: #475569;">silhouette</span>
+            </div>
+            <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire des styles</a>
+          </div>    
+
+          <div class="option-box" id="mod-genre">
+            <strong>Cinematic Genres<strong>
+            <div class="injected-box">
+              <span class="injected-label">💉 Textes injectés par genre :</span>
+              <strong>adventure</strong> : <span style="color: #475569;">adventure</span><br>
+              <strong>b-horror</strong> : <span style="color: #475569;">b-horror film screencap</span><br>
+              <strong>epic fantasy</strong> : <span style="color: #475569;">epic fantasy</span><br>
+              <strong>sci-fi</strong> : <span style="color: #475569;">sci-fi</span><br>
+              <strong>film noir</strong> : <span style="color: #475569;">film noir</span><br>
+              <strong>horror</strong> : <span style="color: #475569;">horror</span><br>
+              <strong>indie</strong> : <span style="color: #475569;">, indie film screencap</span><br>
+              <strong>western</strong> : <span style="color: #475569;">western, wild west</span><br>
+              <strong>thriller</strong> : <span style="color: #475569;">thriller</span>
+            </div>
+            <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire des styles</a>
+          </div>
+
+          <div class="option-box" id="mod-comic">
+            <strong>Comic & Pulp Modifiers</strong>
+            <div class="injected-box">
+              <span class="injected-label">💉 Textes injectés par modificateur :</span>
+              <strong>retrofuturism</strong> : <span style="color: #475569;">(retrofuturism, atompunk)</span><br>
+              <strong>gritty noir</strong> : <span style="color: #475569;">(gritty noir)</span><br>
+              <strong>pop art</strong> : <span style="color: #475569;">(pop art style)</span><br>
+              <strong>cyberpunk</strong> : <span style="color: #475569;">(cyberpunk aesthetic)</span><br>
+              <strong>steampunk</strong> : <span style="color: #475569;">(steampunk)</span><br>
+              <strong>watercolor</strong> : <span style="color: #475569;">(watercolor wash)</span><br>
+              <strong>sketchy ink</strong> : <span style="color: #475569;">sketchy ink work</span><br>
+              <strong>manga fusion</strong> : <span style="color: #475569;">(manga fusion)</span><br>
+              <strong>psychedelic</strong> : <span style="color: #475569;">psychedelic imagery</span><br>
+              <strong>pulp magazine</strong> : <span style="color: #475569;">pulp magazine look</span><br>
+              <strong>heroic proportions</strong> : <span style="color: #475569;">heroic proportions</span><br>
+              <strong>single-panel</strong> : <span style="color: #475569;">splash panel, full cover image</span><br>
+              <strong>multi-panel</strong> : <span style="color: #475569;">multi-panel comic book page, comic panel layout</span>
+            </div>
+            <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire des styles</a>
+          </div>
+
+          <div class="option-box" id="mod-cursed">
+            <strong>Cursed Modifiers</strong>
+            <div class="injected-box">
+              <span class="injected-label">💉 Textes injectés par modificateur :</span>
+              <strong>found footage</strong> : <span style="color: #475569;">found footage</span><br>
+              <strong>cult</strong> : <span style="color: #475569;">photo from a real cult</span><br>
+              <strong>1920s</strong> : <span style="color: #475569;">1920s photo</span><br>
+              <strong>old phone</strong> : <span style="color: #475569;">old cell phone photo</span><br>
+              <strong>VHS</strong> : <span style="color: #475569;">old VHS footage</span><br>
+              <strong>CCTV</strong> : <span style="color: #475569;">old CCTV footage, high-angle CCTV image</span><br>
+              <strong>trypophobia</strong> : <span style="color: #475569;">trypophobia</span><br>
+              <strong>backrooms</strong> : <span style="color: #475569;">backrooms</span><br>
+              <strong>black & white</strong> : <span style="color: #475569;">black & white</span><br>
+              <strong>grainy</strong> : <span style="color: #475569;">grainy, noisy static effect</span>
+            </div>
+            <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire des styles</a>
+          </div>
+
+          <div class="option-box" id="mod-animemods">
+            <strong>Anime Modifiers</strong>
+            <div class="injected-box">
+              <span class="injected-label">💉 Textes injectés par style / effet :</span>
+              <strong>Ghibli</strong> : <span style="color: #475569;">Ghibli art style, Spirited Away art style</span><br>
+              <strong>Your Name</strong> : <span style="color: #475569;">Your Name art style</span><br>
+              <strong>Paprika</strong> : <span style="color: #475569;">Paprika art style</span><br>
+              <strong>My Hero Academia</strong> : <span style="color: #475569;">My Hero Academia art style</span><br>
+              <strong>Hunter x Hunter</strong> : <span style="color: #475569;">Hunter x Hunter art style</span><br>
+              <strong>Attack on Titan</strong> : <span style="color: #475569;">Attack on Titan art style</span><br>
+              <strong>multi-view</strong> : <span style="color: #475569;">multiple views</span><br>
+              <strong>toon</strong> : <span style="color: #475569;">cartoon-style bold line work, vibrant colors, cel shading</span><br>
+              <strong>vintage</strong> : <span style="color: #475569;">cel shading, vintage anime</span><br>
+              <strong>ethereal</strong> : <span style="color: #475569;">glow, god rays, ethereal, dreamy, heavenly, otherworldly, dream-like, breathtaking, captivating, divine</span><br>
+              <strong>outline</strong> : <span style="color: #475569;">outline, white outline</span>
+            </div>
+            <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire des styles</a>
+          </div>
+
+          <div class="option-box" id="mod-furrymods">
+            <strong>Furry Modifiers</strong>
+            <div class="injected-box">
+              <span class="injected-label">💉 Textes injectés par effet :</span>
+              <strong>humanoid face</strong> : <span style="color: #475569;">human face, not furry</span><br>
+              <strong>multi-view</strong> : <span style="color: #475569;">multiple views</span><br>
+              <strong>toon</strong> : <span style="color: #475569;">cartoon-style bold line work, vibrant colors, cel shading</span><br>
+              <strong>vintage</strong> : <span style="color: #475569;">cel shading, vintage anime</span><br>
+              <strong>ethereal</strong> : <span style="color: #475569;">glow, god rays, ethereal, dreamy, heavenly, otherworldly, dream-like, breathtaking, captivating, divine</span><br>
+              <strong>outline</strong> : <span style="color: #475569;">outline, white outline</span>
+            </div>
+            <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire des styles</a>
+          </div>
+
+          <div class="option-box" id="mod-landscapemods">
+            <strong>Landscape Modifiers</strong>
+            <div class="injected-box">
+              <span class="injected-label">💉 Textes injectés par effet :</span>
+              <strong>tilt-shift</strong> : <span style="color: #475569;">tilt-shift effect</span><br>
+              
+              <strong>golden hour</strong> : <span style="color: #475569;">golden hour</span><br>
+              <strong>mist</strong> : <span style="color: #475569;">misty</span><br>
+              
+              <strong>reflection</strong> : <span style="color: #475569;">water reflection</span><br>
+              <strong>sun flare</strong> : <span style="color: #475569;">sun flare</span><br>
+              <strong>starburst</strong> : <span style="color: #475569;">starburst effect</span><br>
+              <strong>light trails</strong> : <span style="color: #475569;">light trails</span><br>
+              <strong>long exposure</strong> : <span style="color: #475569;">long exposure</span><br>
+              <strong>soft focus</strong> : <span style="color: #475569;">soft focus</span>
+            </div>
+            <a href="#section-3" class="back-to-sec-menu">⬆️ Retour au sommaire des styles</a>
+          </div>
+
         </div>
       </details>
