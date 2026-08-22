@@ -1,22 +1,59 @@
-<details name="groupe-sections" class="section-accordion">
-        <summary>🔍 Section 7: Maîtrise de la Profondeur de Champ (Depth of Field)</summary>
+<!-- Section 07 : Tension, Transgression et Atmosphères Psychologiques -->
+      <details name="groupe-sections" class="section-accordion" id="section-7">
+        <summary>🗝️ Section 7 : Tension, Transgression & Atmosphères Psychologiques</summary>
         <div class="section-body">
-          <div class="content-p">La profondeur de champ (DoF) détermine la zone de netteté d'une photo. Par défaut, si tu écris simplement "depth of field", l'IA a tendance à appliquer un flou d'arrière-plan générique et aléatoire. Pour obtenir un contrôle chirurgical, tu dois spécifier ses variantes géométriques :</div>
-          
-          <div class="content-h3">1. Shallow Depth of Field (Faible Profondeur de Champ)</div>
-          <div class="content-p">Seule une zone très mince de l'image est nette, tandis que l'avant-plan et l'arrière-plan sont complètement noyés dans le flou. C'est l'idéal pour isoler un sujet unique ou capturer un détail macro. Afin d'éviter que l'IA ne floute accidentellement le visage du modèle, verrouille toujours la cible de la mise au point dans le prompt à l'aide de l'expression <em>focus lock on her eyes</em>, et utilise des valeurs d'ouverture physique virtuelles très grandes comme f/1.2 ou f/1.8.</div>
-          <div class="prompt-box">"A casual portrait of a woman, shallow depth of field with a sharp focus lock on her eyes, shot on 85mm f/1.2 lens, background smoothly blurred into creamy textures."</div>
+          <div class="content-p">Pour insuffler une tension psychologique, un sentiment de transgression ou un aspect tabou à une scène, il faut exploiter le contraste entre la rigueur du cadre et la perte de contrôle des personnages. L'objectif est de montrer visuellement et narrativement que l'émotion déborde sur l'environnement.</div>
 
-          <div class="content-h3">2. Deep Depth of Field / Extended Depth of Field (Profondeur de Champ Étendue)</div>
-          <div class="content-p">La zone de netteté est ici maximale. Les éléments au premier plan, le sujet principal et l'arrière-plan éloigné sont tous nets en même temps. Cette approche est indispensable lorsque tu photographies plusieurs personnes (un groupe de 2 ou 3 personnes) ou lorsque tu utilises des angles complexes (comme une contre-plongée depuis les cuisses) pour éviter que la moitié du corps de ton modèle ne devienne floue. Associe cet effet à des ouvertures virtuelles plus petites comme f/5.6 ou f/8.</div>
-          <div class="prompt-box">"A professional editorial group portrait of three people standing side-by-side on the exact same focal plane, deep depth of field, shot with a 35mm lens set to f/8 for absolute clarity across all subjects, razor-sharp focus."</div>
+          <div class="content-h3">1. Les Leviers du Contraste Sensoriel & le Désordre</div>
+          <div class="custom-li"><strong>Le Contraste des Textures (Le Propre vs le Sale) :</strong> Oppose la pureté ou la froideur d'un décor institutionnel (salle de classe, bureau, laboratoire) à la présence brute du corps. La profanation du lieu passe par des objets déplacés ou souillés. <br>
+            Tokens visuels : <div class="prompt-box">scattered papers, overturned chairs, spilled ink, chalk dust clouds</div>
+          </div>
+          <div class="custom-li"><strong>L'Abandon du Personnage (The Loss of Control) :</strong> Pour marquer la rupture avec la norme sociale, le modèle doit afficher des signes de lâcher-prise physique et émotionnel. <br>
+            Tokens visuels : <div class="prompt-box">disheveled hair, untucked shirt, closed eyes, tilted head, gasping</div>
+          </div>
+          <div class="custom-li"><strong>La Symbolique du Lieu Détourné :</strong> Utilise le mobilier associé à l'autorité ou à la règle comme support du désir ou de la passion. <br>
+            Tokens visuels : <div class="prompt-box">leaning against the chalkboard, sitting on a teacher's desk, surrounded by textbooks</div>
+          </div>
 
-          <div class="content-h3">3. Isolation Depth of Field / Selective Focus (Mise au Point Sélective)</div>
-          <div class="content-p">L'appareil photo virtuel isole un plan précis au milieu de l'image, rendant flous à la fois ce qui est très proche (premier plan) et ce qui est loin (arrière-plan). C'est parfait pour créer une sensation d'immersion totale, façon "photo volée" ou vue subjective (POV) à travers un obstacle. Tu peux l'utiliser pour intégrer des éléments de premier plan (des feuilles, un cadre de porte ou un bras) qui guident le regard vers le sujet central net.</div>
-          <div class="prompt-box">"A personal POV perspective, selective focus capturing a man talking, shot through a window, the glass reflections in the foreground are out of focus, the subject is in razor-sharp focus, and the background is a soft blur."</div>
+          <div class="tip-title">Conseil Narratif (Pour les récits écrits)</div>
+          <div class="tip-text">
+            <strong>Rendre la tension palpable par le son et les sens :</strong><br>
+            • <strong>Le contraste sonore :</strong> Oppose le silence d'un bâtiment vide aux sons organiques (souffles courts, froissements de tissu, respirations heurtées).<br>
+            • <strong>La menace de la découverte :</strong> Introduis une retenue forcée (mordre sa lèvre, main sur la bouche pour étouffer un cri) combinée aux bruits extérieurs (bruit de pas dans le couloir, tic-tac d'une horloge).<br>
+            • <strong>Vocabulaire de la profanation :</strong> Utilise des verbes d'invasion active comme <em>invading</em>, <em>bruising</em>, <em>staining</em>, <em>shattering</em> pour traduire la rupture avec l'innocence du lieu.
+          </div>
 
-          <div class="content-h3">4. Pan-focal Sharpness / Hyperfocal (Netteté Globale Infinie)</div>
-          <div class="content-p">Une variante extrême de la profondeur de champ où l'objectif virtuel est réglé pour que la netteté s'étende du premier plan le plus proche jusqu'à l'infini absolu. À utiliser impérativement pour les plans d'ensemble (establishing shots), les paysages massifs ou les architectures complexes vus au grand-angle. Cela interdit formellement à l'IA d'ajouter le moindre flou ou effet de bokeh artificiel dans l'image.</div>
-          <div class="prompt-box">"An establishing shot of a massive futuristic city skyline, pan-focal sharpness, hyperfocal composition, shot on a wide-angle lens at f/11, every single building from the foreground to the distant horizon is in crystal-clear focus."</div>
+          <div class="content-h3">2. L'Ombre du Voyeur & Cadrage Intrusion (Effet Looming)</div>
+          <div class="content-p">Utiliser l'ombre portée d'un observateur anonyme au premier plan est une technique visuelle bien plus puissante qu'un simple mur : elle crée du mystère, confirme une présence et procure un sentiment d'immersion voyeuriste intense.</div>
+
+          <div class="option-box">
+            <strong>Option A : L'Ombre en Amorce Latérale (Framing Shot)</strong>
+            <div class="prompt-box">"A voyeuristic telephoto shot. A large, dark silhouette of an observer looms in the foreground, obscuring the left side of the frame. Through this shadow, we see a woman in a brightly lit classroom. Chiaroscuro effect, high contrast, secretive atmosphere."</div>
+            <strong>Objectif :</strong><br> Utiliser l'ombre d'un tiers pour masquer une partie de l'image et encadrer le sujet net en arrière-plan.
+            <span class="tooltip">ℹ️
+              <span class="tooltip-texte">Le token looming shadow indique une présence imposante et menaçante au premier plan. L'ombre "mange" le cadre tout en préservant le sujet baigné de lumière.</span>
+            </span>
+          </div>
+
+          <div class="option-box">
+            <strong>Option B : Point de Vue Discret depuis l'Obscurité (Peeking Shot)</strong>
+            <div class="prompt-box">"Peeking shot from the darkness. The frame is partially blocked by the looming shadow of a person, creating a sense of being watched. Beyond the shadow, the room is visible in sharp focus. Cinematic suspense, deep black foreground, telephoto lens."</div>
+            <strong>Objectif :</strong><br> Créer une sensation d'espionnage où le spectateur adopte le regard de l'observateur caché.
+          </div>
+
+          <div class="content-h3">3. Atmosphères Psychologiques & Attitudes du Regard</div>
+          <div class="custom-li"><strong>Style Voyeuriste & Volé :</strong> <span class="code-word">voyeuristic perspective</span>, <span class="code-word">stolen moment aesthetic</span>, <span class="code-word">unobserved candid portrait</span>, <span class="code-word">framed through doorways</span>.</div>
+          <div class="custom-li"><strong>Style Intime & Tabou :</strong> <span class="code-word">intimate moody atmosphere</span>, <span class="code-word">subtle taboo tension</span>, <span class="code-word">raw vulnerable presence</span>, <span class="code-word">hushed confidence lighting</span>.</div>
+
+          <div class="content-h4">Direction du Regard & Posture</div>
+          <div class="custom-li"><strong>averted unselfconscious gaze :</strong> Le regard évite l'objectif, le sujet est plongé dans ses pensées (renforce l'instant volé).</div>
+          <div class="custom-li"><strong>intense confrontational eye contact :</strong> Fixe la caméra avec intensité, brisant la distance et provoquant le spectateur.</div>
+          <div class="custom-li"><strong>guarded body posture :</strong> Posture de défense ou de repli suggérant le secret ou la vulnérabilité.</div>
+          <div class="custom-li"><strong>relaxed unposed posture :</strong> Absence de pose mannequin, attitude naturelle et authentique.</div>
+
+          <div class="good-example-box">
+            <strong>Exemple de Prompt d'Atmosphère Intime :</strong><br>
+            "Professional cinematic portrait, voyeuristic perspective, intimate moody atmosphere, a young woman with a guarded posture, averted unselfconscious gaze, framed through a dimly lit doorway, subtle taboo tension, low-key chiaroscuro lighting, shot on 85mm lens at f/2.8, raw storytelling realism, SUPIR enhanced rendering."
+          </div>
         </div>
       </details>
