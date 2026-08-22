@@ -1,33 +1,97 @@
-<details name="groupe-sections" class="section-accordion">
-        <summary>🚀 Section 12: Les Modificateurs de Rendu, de Matrice et d'Upscaling</summary>
+              <!-- Section 12 -->      
+      <details name="groupe-sections" class="section-accordion" id="section-12">
+        <summary>📷 Section 12 : Maîtrise du Matériel Optique</summary>
         <div class="section-body">
-          <div class="content-p">Ces termes forcent l'IA à appliquer des filtres algorithmiques de super-résolution ou à imiter la texture d'un capteur numérique traditionnel haut de gamme.</div>
+          <div class="content-p">Le choix du matériel virtuel dans tes invites dicte la structure géométrique, la netteté brute et le comportement optique global de la génération.</div>
+    
+          <div class="content-h3">1. Les Boîtiers / Appareils Photo (Texture, Couleur et Grain)</div>
+          <div class="custom-li"><strong>Sony A7R V (ou 61MP resolution) :</strong> Le roi de la définition brute numérique. Il force l'IA à générer des textures de peau extrêmement détaillées, révélant les pores, le duvet et les micro-détails des tissus sans lissage artificiel. Idéal pour les gros plans chirurgicaux.</div>
+          <div class="custom-li"><strong>Canon EOS R5 :</strong> Connu pour sa gestion colorimétrique très douce et flatteuse, notamment sur les tons de chair. Excellent pour le style Casual Photo si tu cherches une transition de lumière très douce sur le visage.</div>
+          <div class="custom-li"><strong>Leica M11 :</strong> Produit un contraste micro-optique très élevé (le "Leica Look") avec un rendu des ombres très profond et une netteté presque tridimensionnelle. Parfait pour de la photo de rue.</div>
+          <div class="custom-li"><strong>Fujifilm GFX 100S (Moyen Format) :</strong> Simule les capteurs géants. Donne une impression de relief saisissante, une dynamique de lumière exceptionnelle et des transitions de flou d'une douceur inégalée.</div>
           
-          <div class="content-h3">1. Les Filtres de Style Institutionnels et Éditoriaux</div>
-          <div class="content-p">Le mot-clé <em>editorial photography</em> dit à l'IA d'imiter le style des photos publiées dans les grands magazines de mode ou de reportage (Vogue, Vanity Fair). Cela équilibre automatiquement les contrastes, nettoie la composition et applique un étalonnage des couleurs très soigné. Tu peux affiner ce prisme culturel avec ses variantes :</div>
-          
-          <div class="custom-li"><strong>High-fashion editorial :</strong> Les poses deviennent très graphiques, les vêtements acquièrent des textures luxueuses et la lumière est extrêmement travaillée (idéal avec ton combo rim light / golden hour).</div>
-          <div class="custom-li"><strong>Avant-garde editorial :</strong> Ajoute une touche conceptuelle, théâtrale et parfois surréaliste, parfaite pour des compositions géométriques audacieuses ou des choix de couleurs contrastés.</div>
-          <div class="custom-li"><strong>Commercial editorial :</strong> Plus proche des campagnes publicitaires de grandes marques en extérieur. La lumière est plus propre, plus lumineuse, visant un style de vie luxueux mais accessible.</div>
-          <div class="custom-li"><strong>Cinematic editorial :</strong> Fusionne la mode et le cinéma. L'image adopte un format large (anamorphique), des couleurs étalonnées comme un film et une forte narration en mouvement.</div>
-          <div class="custom-li"><strong>Les équivalents hors du mot "Editorial" :</strong> Tu peux explorer d'autres déclencheurs puissants comme <em>Lookbook photography</em> (focus à 100% sur le modèle et les vêtements, fonds épurés), <em>Magnum Photos style</em> (réalisme brut du photojournalisme, vérité humaine saisissante), <em>Vogue cover style</em> (portrait iconique central à fort charisme) ou encore <em>Sartorial photography</em> (attention chirurgicale aux détails des tissus, des coupes et des plis).</div>
-          
-          <div class="tip-text">💡 <strong>Astuce pour ton guide :</strong> Tu peux créer tes propres associations selon le contexte. Sur un bateau en mouvement, tente <em>"Nautical editorial photography"</em>. Dans une classe avec un chaos de couleurs, essaie <em>"Y2K youth editorial"</em> ou <em>"Nostalgic classroom editorial"</em>.</div>
+          <div class="custom-li"><strong>Hasselblad 500C / Kodak Portra 400 film style :</strong> Bascule l'IA dans l'ère de l'argentique. Ajoute un grain de film organique, des couleurs nostalgiques et une imperfection chaleureuse qui brise le lissage numérique par défaut.
+            <div class="content-h4">Rendu des couleurs :</div> 
+            <div class="content-p">La pellicule Kodak Portra 400 est réputée pour ses teintes chaudes, ses rouges/orangés doux et ses verts légèrement désaturés.</div>
 
-          <div class="content-h3">2. Le Standard Numérique Trad et la Super-Résolution</div>
-          <div class="content-p">Le terme classique <strong>DSLR</strong> reste une valeur sûre et universelle pour forcer l'IA à générer une "vraie" photo plutôt qu'un rendu 3D. Pour aller plus loin, invoque des termes issus d'algorithmes de super-résolution pour pousser l'IA à imiter la netteté du post-traitement :</div>
+            <div class="content-h4">​Comportement des lumières :</div>
+             <div class="content-p">Les hautes lumières sont douces et crémeuses, avec une perte de contraste subtile dans les zones d'ombre.</div>
+             <div class="content-h4">​Usage en prompt IA :</div> 
+             <div class="content-p">À utiliser si vous cherchez une atmosphère rétro, de la texture organique, du grain argentique visible et un rendu portrait très chaleureux.</div>          
+          </div>
           
-          <div class="custom-li"><strong>ESRGAN/Real-ESRGAN :</strong> Supprime les artefacts de compression, affine les contours flous et recrée des micro-détails (fils de tissus, mèches de cheveux). Placé en fin de prompt, il maximise l'effet "razor-sharp focus" sur les visages.</div>
-          <div class="custom-li"><strong>SUPIR rendering (Le Roi Actuel) :</strong> SUPIR intègre une logique de retouche intelligente. Au lieu d'étirer bêtement les pixels, il comprend ce qu'il regarde. Si la peau est floue, il sait à quoi ressemble une vraie texture à 61MP et recrée intelligemment les pores et le duvet sans aucun effet plastique. Le terme à utiliser : <div class="prompt-box">"...absolute razor-sharp focus enhanced by SUPIR ultra-detailed rendering..."</div></div>
+         <div class="custom-li"><strong>Hasselblad X2D 100C</strong>
+             <div class="content-h4">Rendu des couleurs :</div>    
+             <div class="content-p"> S'appuie sur le système HNCS (Hasselblad Natural Colour Solution), qui privilégie des transitions tonales d'un réalisme absolu sans saturation artificielle.</div>
+             <div class="content-h4">​Comportement des lumières :</div>
+             <div class="content-p"> Capteur 100 MP avec une netteté totale de coin en coin, préservant chaque pore de peau, filament de textile ou reflet oculaire.</div>
+             <div class="content-h4">​Usage en prompt IA :</div> 
+             <div class="content-p">À utiliser pour un rendu studio ultra-propre, des fonds blancs parfaits (high-key), et des images commerciales nettes sans aucune trace de grain argentique.</div>
+        </div>
+        
+        <details id="sec12-tableau-comparatif" style="margin: 12px 0;">
+      <summary class="content-h4" style="cursor: pointer;">📊 Tableau Comparatif : Rendu Argentique vs Rendu Numérique Moyen Format (Toucher pour afficher)</summary>
+      
+        <table class="tableau-rapide">
+  <tr>
+    <th>Critères</th>
+    <th>Hasselblad 500C / Kodak Portra 400</th>
+    <th>Hasselblad X2D 100C</th>
+  </tr>
+  <tr>
+    <td><strong>Nature du médium</strong></td>
+    <td>Argentique moyen format mécanique (pellicule)</td>
+    <td>Numérique moyen format 100 MP moderne</td>
+  </tr>
+  <tr>
+    <td><strong>Piqué & Micro-détails</strong></td>
+    <td>Doux, organique, transitions progressives</td>
+    <td>Chirurgical, netteté extrême, texture microscopique</td>
+  </tr>
+  <tr>
+    <td><strong>Couleurs & Teints</strong></td>
+    <td>Tons chauds, dorés, peaux flatteuses et pastel</td>
+    <td>Rendu neutre, couleurs ultra-fidèles (HNCS)</td>
+  </tr>
+  <tr>
+      <td><strong>Structure d'image</strong></td>
+    <td>Grain de film visible (silver halide), micro-flous</td>
+    <td>Clarté numérique pure, zéro grain, plage dynamique géante</td>
+  </tr>
+  <tr>
+      <td><strong>Ambiance visuelle</strong></td>
+    <td>Nostalgique, éditorial 70s-90s, cinématique</td>
+    <td>Publicité de luxe, mode contemporaine, commercial</td>
+  </tr> 
+</table>
+</details>
           
-          <div class="content-p" style="margin-top: 5px;">⚠️ <strong>Attention de vigilance :</strong> Si tu ne spécifies pas le f-stop (l'ouverture), l'IA va paniquer. Elle va appliquer SUPIR pour créer des pores ultra-nets, mais appliquera par défaut un f/1.4 virtuel qui floutera les oreilles ou les mains, détruisant le réalisme. Il faut verrouiller les deux !</div>
-          
-          <div class="prompt-box"><strong>Le Combo Royal de Netteté (Diaphragme Moyen + SUPIR) :</strong><br>"shot on Sony A7R V with a 50mm G-Master lens set to f/5.6 for deep edge-to-edge depth of field. Exceptional 61MP resolution enhanced by SUPIR ultra-detailed rendering, capturing absolute razor-sharp focus across the entire focal plane, including visible pores, subtle skin textures, and every detail of the clothing without digital smoothing."</div>
-          
-          <div class="content-p">🔹 <strong>L'Alternative Ultra-Réaliste (Magnific AI aesthetic) :</strong> Bien que Magnific AI soit un service externe, son nom est devenu un token de style très puissant. Invoquer son nom pousse l'IA à adopter une philosophie du micro-détail infini (fils individuels d'un vêtement en lin, gouttes d'eau de l'écume). Le terme à insérer : <div class="prompt-box">"...photorealistic texture depth inspired by Magnific AI clarity..."</div></div>
+          <div class="content-h3">2. Les Objectifs / Focales (Géométrie et Distance)</div>
+          <div class="content-p">La longueur focale (en mm) détermine l'angle de vision et la distance physique virtuelle entre toi et le modèle. Plus le chiffre est petit, plus le cadre est large ; plus il est grand, plus l'objectif zoome.</div>
+    
+          <div class="custom-li"><strong>14mm lens / 16mm lens (Ultra Grands-Angles) :</strong> Offrent un champ de vision panoramique et immersif. Idéal pour intégrer un sujet dans une architecture immense. 
+            <div style="padding-left: 15px; margin-top: 5px; font-style: italic; color: #64748b;">Attention : en dessous de 24mm, l'IA va simuler des distorsions optiques dynamiques (les lignes se courbent sur les bords du cadre).</div>
+          </div>
+          <div class="custom-li"><strong>24mm lens / 28mm lens (Grands-Angles de Reportage) :</strong> La focale par excellence du paysage et des smartphones. Offre un champ large parfait pour le "portrait environnemental" (le décor raconte une histoire autour du modèle) avec des distorsions très maîtrisées.</div>
+          <div class="custom-li"><strong>35mm lens (Le juste milieu) :</strong> Offre un champ de vision large qui intègre naturellement le sujet dans son environnement. C'est l'objectif parfait pour les récits visuels ou pour le style <em>Snapshot</em> de rue, car il force une proximité humaine sans déformer le visage.</div>
+          <div class="custom-li"><strong>50mm lens (La focale humaine / "Normal") :</strong> Imite parfaitement la perspective naturelle de l'œil humain. Les proportions du visage et du corps sont respectées au millimètre près. C'est la focale la plus polyvalente pour le style Casual Photo.</div>
+          <div class="custom-li"><strong>85mm lens / 135mm lens (Téléobjectifs de portrait) :</strong> Ils compressent magnifiquement les distances entre le sujet et l'arrière-plan, rendant le décor plus proche et isolant le modèle de manière spectaculaire.
+            <div style="padding-left: 15px; margin-top: 5px;">
+              • <strong>85mm (Focale Portrait Standard) :</strong> Offre un angle de vue moyennement serré. À une distance confortable (environ 2 à 3 mètres), tu obtiens un plan américain ou poitrine très flatteur, sans aucune distorsion des traits.<br>
+              • <strong>135mm (Téléobjectif Court) :</strong> L'angle est beaucoup plus étroit. À distance égale, tu n'obtiendras que le visage. Il écrase la perspective : l'arrière-plan semble "aspiré" vers l'avant et se transforme en un flou ultra-crémeux (bokeh smears).
+            </div>
+          </div>
+          <div class="custom-li"><strong>200mm lens / 400mm lens (Super-Téléobjectifs) :</strong> Utilisés pour isoler un sujet à très grande distance (style photo animalière ou paparazzi). L'arrière-plan devient un mur de flou abstrait et le sujet semble totalement détaché du décor.</div>
+          <div class="custom-li"><strong>Helios 44-2 58mm / Noct-Nikkor 58mm :</strong> Objectifs de collection légendaires. Forcent l'IA à générer un flou d'arrière-plan "tournant" (swirling bokeh) très artistique, vintage et texturé, recherché pour les portraits oniriques.</div>
 
-          <div class="content-h3">3. L'Option Open-Source Moderne: Ultrasharp 4x</div>
-          <div class="content-p">Si tu travailles sur des interfaces propulsant Perchance en arrière-plan, l'upscaler 4x-UltraSharp est le grand rival de Real-ESRGAN. Il conserve beaucoup mieux le grain de film argentique original et l'authenticité de la peau sans créer ce look numérique trop nettoyé.</div>
-          <div class="prompt-box">"Shot on Sony A7R V, absolute edge-to-edge clarity powered by SUPIR rendering and 4x-UltraSharp upscaling, capturing ultra-detailed 61MP authentic skin textures, visible pores, and zero digital smoothing."</div>
+          <div class="content-h3">3. Les Ouvertures de Diaphragme / f-stops</div>
+          <div class="content-p">L'ouverture (notée f/) est l'instruction absolue qui gère l'intensité de ta profondeur de champ (la zone de netteté) :</div>
+          <div class="custom-li"><strong>Les Grandes Ouvertures (f/1.2, f/1.4, f/1.8) :</strong> Génèrent une profondeur de champ extrêmement courte. L'arrière-plan est instantanément pulvérisé en un flou artistique total (bokeh de lumière). Idéal pour isoler un visage unique.</div>
+          <div class="custom-li"><strong>Les Ouvertures Moyennes (f/2.8, f/4, f/5.6) :</strong> Offrent un équilibre réaliste. Utile pour garder l'intégralité du corps du modèle net (des pieds au visage) tout en conservant un arrière-plan subtilement adouci et lisible.</div>
+          <div class="custom-li"><strong>Les Petites Ouvertures (f/8, f/11) :</strong> Maximisent le piqué et la netteté globale. Tout ce qui se trouve dans la scène, du premier plan au décor lointain, devient parfaitement net et détaillé. Indispensable pour les photos de groupe (3 personnes ou plus) ou le style reportage brut.</div>
+
+          <div class="content-h3">4. Styles de Capture (L'Intention Photographique)</div>
+          <div class="custom-li"><strong>Candid Snapshot :</strong> L'antidote au côté artificiel de l'IA. Force une photo prise sur le vif, sans pose préparée. Idéal avec un 35mm ou 24mm pour simuler l'authenticité d'un instant volé (sujet qui regarde ailleurs, expression naturelle).</div>
+          <div class="custom-li"><strong>Paparazzi / Caught on camera :</strong> Simule une photo volée à distance (souvent associée à un fort téléobjectif comme le 200mm), avec parfois un léger grain de haute sensibilité (high ISO) ou un flash direct un peu cru.</div>
         </div>
       </details>
