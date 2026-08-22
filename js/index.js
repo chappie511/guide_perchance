@@ -13,8 +13,8 @@ function chargerSection(idDeLaBoite, cheminDuFichier) {
         .catch(erreur => console.error("Erreur :", erreur));
 }
 
-// Charge automatiquement les 22 sections depuis le dossier sections_du_guide
-for (let i = 1; i <= 22; i++) {
+// Charge automatiquement les 24 sections depuis le dossier sections_du_guide
+for (let i = 1; i <= 24; i++) {
     const num = String(i).padStart(2, '0');
     // Le chemin pointe maintenant correctement vers ton nouveau dossier !
     chargerSection(`conteneur-section-${i}`, `./sections_du_guide/section_${num}.html`);
@@ -50,3 +50,43 @@ document.addEventListener('click', function (e) {
   });
   onScroll();
 })();
+
+
+// Écouteur universel pour toute la page
+document.addEventListener('click', function(event) {
+  
+  // 1. OUVRIR LE MODAL DES POSES
+  if (event.target && event.target.id === 'btnOuvrirPoses') {
+    document.getElementById('modalPoses').classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  // 2. OUVRIR LE MODAL DES VUES
+  if (event.target && event.target.id === 'btnOuvrirVues') {
+    document.getElementById('modalVues').classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+  
+  // 3. OUVRIR LE MODAL DE LA SECTION 18
+  if (event.target && event.target.id === 'btnOuvrirSec18') {
+    document.getElementById('modalSec18').classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+  
+  // 4. OUVRIR LE MODAL DE LA 🎭 Section 03 : Répertoire des Styles & Paramètres (Perchance)
+  if (event.target && event.target.id === 'btnOuvrirStyles') {
+    document.getElementById('modalStyles').classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  // 5. FERMER LES MODALS (Bouton fermer OU clic sur un lien de navigation)
+  if (event.target && (event.target.classList.contains('btn-close-menu') || event.target.classList.contains('quick-nav-btn'))) {
+    // La fonction closest() trouve le modal parent dans lequel on vient de cliquer
+    const modalActif = event.target.closest('.modal-overlay');
+    if (modalActif) {
+      modalActif.classList.remove('active');
+      document.body.style.overflow = ''; 
+    }
+  }
+  
+});
