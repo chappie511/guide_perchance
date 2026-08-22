@@ -4,13 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Guide de Prompt Engineering Perchance</title>
+  
+  <link rel="icon" type="image/jpeg" href="https://cdn.jsdelivr.net/gh/chappie511/Icon@main/golden_star_v3.png?v=1000">  
 
-  <link rel="icon" type="image/jpeg" href="https://raw.githubusercontent.com/chappie511/Icon/refs/heads/main/golden_star_solid.jpg?v=2">
-  <!-- Ton chemin CSS reste le même -->
+  <!-- Chemin CSS -->
   <link rel="stylesheet" href="./css/index.css">
 </head>
 <body>
-  
+
   <div class="perchance-guide-container">
     <div class="guide-header">
       <div class="main-title">Guide de Prompt Engineering Perchance</div>
@@ -44,13 +45,400 @@
         <div id="conteneur-section-20"></div>
         <div id="conteneur-section-21"></div>
         <div id="conteneur-section-22"></div>
+        <div id="conteneur-section-23"></div>
+        <div id="conteneur-section-24"></div>
       </div>
     </details>
   </div>
+  
+
+<!-- Modale plein écran : Section 03 (Styles) -->
+  <div id="modalStyles" class="modal-overlay" role="dialog" aria-modal="true" aria-label="Menu des styles d'art">
+    <button class="btn-close-menu" type="button">✖ Fermer le menu des styles d'art</button>    
+      <div class="quick-nav-container" style="margin-top: 14px;">
+            <div class="quick-nav-title">📍 Sommaire Rapide des Styles (Toucher pour accéder)</div>
+ 
+    <!-- Groupes de boutons de navigation Section 3 -->        
+            <div class="quick-nav-subgroup">1. Styles Réalistes & Humains</div>
+            <div class="quick-nav-grid">
+              <a href="#style-casual" class="quick-nav-btn">Casual Photo</a>
+              <a href="#style-realphoto" class="quick-nav-btn">Real Photo</a>
+              <a href="#style-realistic" class="quick-nav-btn">Realistic</a>
+              <a href="#style-luxury" class="quick-nav-btn">Luxury</a>
+              <a href="#style-generator" class="quick-nav-btn">Realistic Human Generator</a>
+              <a href="#style-realimages" class="quick-nav-btn">Realistic Images</a>
+              <a href="#style-realhumans" class="quick-nav-btn">Realistic Humans</a>
+            </div>
+    <!-- suite des sous groupe 2 à 10 -->
+            <div class="quick-nav-subgroup">2. Effets Spéciaux & Réseaux Sociaux</div>
+            <div class="quick-nav-grid">
+              <a href="#style-polaroid" class="quick-nav-btn">Polaroid</a>
+              <a href="#style-snapchat" class="quick-nav-btn">Snapchat</a>
+              <a href="#style-instagram" class="quick-nav-btn">Instagram</a>
+              <a href="#style-pixar" class="quick-nav-btn">Pixar Character</a>
+              <a href="#style-nostyle" class="quick-nav-btn">No Style</a>
+            </div>
+    <!-- suite des sous groupe 3 à 10 -->
+            <div class="quick-nav-subgroup">3. Styles Cinématographiques & Concept Art</div>
+            <div class="quick-nav-grid">
+              <a href="#style-cinematic" class="quick-nav-btn">Cinematic</a>
+              <a href="#style-conceptart" class="quick-nav-btn">Concept Art</a>
+              <a href="#style-conceptsketch" class="quick-nav-btn">Concept Sketch</a>
+            </div>
+    <!-- suite des sous groupe 4 à 10 -->
+            <div class="quick-nav-subgroup">4. Styles Peintures (Digital & Huile)</div>
+            <div class="quick-nav-grid">
+              <a href="#style-digitalpainting" class="quick-nav-btn">Digital Painting</a>
+              <a href="#style-painterly" class="quick-nav-btn">Painterly</a>
+              <a href="#style-oilpainting" class="quick-nav-btn">Oil Painting</a>
+              <a href="#style-oilrealism" class="quick-nav-btn">Oil Painting - Realism</a>
+              <a href="#style-oilold" class="quick-nav-btn">Oil Painting - Old</a>
+              <a href="#style-oil70spulp" class="quick-nav-btn">Oil Painting - 70s Pulp</a>
+              <a href="#style-watercolor" class="quick-nav-btn">Watercolor</a>
+            </div>
+    <!-- suite des sous groupe 5 à 10 -->
+            <div class="quick-nav-subgroup">5. Styles Animés & Mangas</div>
+            <div class="quick-nav-grid">
+              <a href="#style-paintedanime" class="quick-nav-btn">Painted Anime</a>
+              <a href="#style-anime" class="quick-nav-btn">Anime</a>
+              <a href="#style-drawnanime" class="quick-nav-btn">Drawn Anime</a>
+              <a href="#style-animescreencap" class="quick-nav-btn">Anime Screencap</a>
+              <a href="#style-cuteanime" class="quick-nav-btn">Cute Anime</a>
+              <a href="#style-softanime" class="quick-nav-btn">Soft Anime</a>
+              <a href="#style-vintageanime" class="quick-nav-btn">Vintage Anime</a>
+              <a href="#style-neonvintageanime" class="quick-nav-btn">Neon Vintage Anime</a>
+              <a href="#style-manga" class="quick-nav-btn">Manga</a>
+              <a href="#style-waifu" class="quick-nav-btn">Waifu</a>
+            </div>
+    <!-- suite des sous groupe 6 à 10 -->
+            <div class="quick-nav-subgroup">6. Mondes Fantastiques & Cartographie</div>
+            <div class="quick-nav-grid">
+              <a href="#style-fantasypainting" class="quick-nav-btn">Fantasy Painting</a>
+              <a href="#style-fantasylandscape" class="quick-nav-btn">Fantasy Landscape</a>
+              <a href="#style-fantasyportrait" class="quick-nav-btn">Fantasy Portrait</a>
+              <a href="#style-fantasyworldmap" class="quick-nav-btn">Fantasy World Map</a>
+              <a href="#style-fantasycitymap" class="quick-nav-btn">Fantasy City Map</a>
+              <a href="#style-oldworldmap" class="quick-nav-btn">Old World Map</a>
+            </div>
+<!-- suite des sous groupe 7 à 10 -->
+            <div class="quick-nav-subgroup">7. UI, Icônes & Logos</div>
+            <div class="quick-nav-grid">
+              <a href="#style-3disoicon" class="quick-nav-btn">3D Isometric Icon</a>
+              <a href="#style-flatstyleicon" class="quick-nav-btn">Flat Style Icon</a>
+              <a href="#style-flatstylelogo" class="quick-nav-btn">Flat Style Logo</a>
+              <a href="#style-gamearticon" class="quick-nav-btn">Game Art Icon</a>
+              <a href="#style-digitalpaintingicon" class="quick-nav-btn">Digital Painting Icon</a>
+              <a href="#style-conceptarticon" class="quick-nav-btn">Concept Art Icon</a>
+              <a href="#style-cute3dicon" class="quick-nav-btn">Cute 3D Icon</a>
+              <a href="#style-cute3diconset" class="quick-nav-btn">Cute 3D Icon Set</a>
+            </div>
+    <!-- suite des sous groupe 8 à 10 -->
+            <div class="quick-nav-subgroup">8. Photographie Rétro, Décennies & Vintage</div>
+            <div class="quick-nav-grid">
+              <a href="#style-profphoto" class="quick-nav-btn">Professional Photo</a>
+              <a href="#style-1990sphoto" class="quick-nav-btn">1990s Photo</a>
+              <a href="#style-1980sphoto" class="quick-nav-btn">1980s Photo</a>
+              <a href="#style-1970sphoto" class="quick-nav-btn">1970s Photo</a>
+              <a href="#style-1960sphoto" class="quick-nav-btn">1960s Photo</a>
+              <a href="#style-1950sphoto" class="quick-nav-btn">1950s Photo</a>
+              <a href="#style-1940sphoto" class="quick-nav-btn">1940s Photo</a>
+              <a href="#style-1930sphoto" class="quick-nav-btn">1930s Photo</a>
+              <a href="#style-1920sphoto" class="quick-nav-btn">1920s Photo</a>
+              <a href="#style-vintagepulpart" class="quick-nav-btn">Vintage Pulp Art</a>
+              <a href="#style-50senamelsign" class="quick-nav-btn">50s Enamel Sign</a>
+              <a href="#style-vintagecomic" class="quick-nav-btn">Vintage Comic</a>
+            </div>
+    <!-- suite des sous groupe 9 à 10 -->
+            <div class="quick-nav-subgroup">9. Esthétiques Alternatives & Spécifiques</div>
+            <div class="quick-nav-grid">
+              <a href="#style-3ddisney" class="quick-nav-btn">3D Disney Character</a>
+              <a href="#style-2ddisney" class="quick-nav-btn">2D Disney Character</a>
+              <a href="#style-disneysketch" class="quick-nav-btn">Disney Sketch</a>
+              <a href="#style-studioghibli" class="quick-nav-btn">Studio Ghibli</a>
+              <a href="#style-francobelgian" class="quick-nav-btn">Franco-Belgian Comic</a>
+              <a href="#style-tintin" class="quick-nav-btn">Tintin Comic</a>
+              <a href="#style-medieval" class="quick-nav-btn">Medieval</a>
+              <a href="#style-pixelart" class="quick-nav-btn">Pixel Art</a>
+              <a href="#style-furryoil" class="quick-nav-btn">Furry - Oil</a>
+              <a href="#style-furrycinematic" class="quick-nav-btn">Furry - Cinematic</a>
+              <a href="#style-furrypainted" class="quick-nav-btn">Furry - Painted</a>
+              <a href="#style-furrydrawn" class="quick-nav-btn">Furry - Drawn</a>
+              <a href="#style-cutefigurine" class="quick-nav-btn">Cute Figurine</a>
+              <a href="#style-3demoji" class="quick-nav-btn">3D Emoji</a>
+              <a href="#style-illustration" class="quick-nav-btn">Illustration</a>
+              <a href="#style-cuteillustration" class="quick-nav-btn">Cute Illustration</a>
+              <a href="#style-flatillustration" class="quick-nav-btn">Flat Illustration</a>
+              <a href="#style-3dpokemon" class="quick-nav-btn">3D Pokemon</a>
+              <a href="#style-paintedpokemon" class="quick-nav-btn">Painted Pokemon</a>
+              <a href="#style-2dpokemon" class="quick-nav-btn">2D Pokemon</a>
+              <a href="#style-crayondrawing" class="quick-nav-btn">Crayon Drawing</a>
+              <a href="#style-pencil" class="quick-nav-btn">Pencil</a>
+              <a href="#style-tattoodesign" class="quick-nav-btn">Tattoo Design</a>
+              <a href="#style-yugiohart" class="quick-nav-btn">YuGiOh Art</a>
+              <a href="#style-traditionaljapanese" class="quick-nav-btn">Traditional Japanese</a>
+              <a href="#style-nihongapainting" class="quick-nav-btn">Nihonga Painting</a>
+              <a href="#style-claymation" class="quick-nav-btn">Claymation</a>
+              <a href="#style-cartoon" class="quick-nav-btn">Cartoon</a>
+              <a href="#style-cursedphoto" class="quick-nav-btn">Cursed Photo</a>
+            </div>
+    <!-- suite des sous groupe 10 à 10 -->          
+            <div class="quick-nav-subgroup">10. 🔞 Adultes</div>
+            <div class="quick-nav-grid">
+              <a href="#style-NSFW" class="quick-nav-btn">NSFW</a>
+             <a href="#style-Camgirl" class="quick-nav-btn">Camgirl</a>            
+            </div>
+    <!-- suite des sous groupe de la section 18 -->            
+            <div class="quick-nav-subgroup">11. Modificateurs Photographiques & Spécifiques</div>
+            <div class="quick-nav-grid">
+              <a href="#mod-shot" class="quick-nav-btn">Cadrages (Shots)</a>
+              <a href="#mod-color" class="quick-nav-btn">Couleurs (Color)</a>
+              <a href="#mod-effect" class="quick-nav-btn">Effets (Effect)</a>
+              <a href="#mod-genre" class="quick-nav-btn">Cinematic Genres</a>
+              <a href="#mod-comic" class="quick-nav-btn">Comic & Pulp Modifiers</a>
+              <a href="#mod-cursed" class="quick-nav-btn">Cursed Modifiers</a>
+              <a href="#mod-animemods" class="quick-nav-btn">Anime Modifiers</a>
+              <a href="#mod-furrymods" class="quick-nav-btn">Furry Modifiers</a>
+              <a href="#mod-landscapemods" class="quick-nav-btn">Landscape Modifiers</a>
+            </div>
+          </div>
+</div><!-- Balise de fermeture du modal --> 
+<!-- fin du menu rapide de la section 3 -->
+
+<!-- ================= ================= -->
+
+    <!-- Modale plein écran : Section 04 (Vues) -->
+  <div id="modalVues" class="modal-overlay" role="dialog" aria-modal="true">
+    <button class="btn-close-menu" >✖ Fermer le menu des vues</button>
+          
+    <div class="quick-nav-container" >
+      <div class="quick-nav-title">📍 Sommaire Rapide des 39 Vues (Toucher pour accéder)</div>
+
+      <!-- Groupes de boutons de navigation Section 4 -->                      
+            <div class="quick-nav-subgroup">Lot 1 : Plans Larges & Distants</div>
+            <div class="quick-nav-grid">
+              <a href="#vue-afar" class="quick-nav-btn">1. Afar</a>
+              <a href="#vue-distant" class="quick-nav-btn">2. Distant shot</a>
+              <a href="#vue-longshot" class="quick-nav-btn">3. Long shot</a>
+              <a href="#vue-fullbody" class="quick-nav-btn">4. Full body</a>
+              <a href="#vue-standing" class="quick-nav-btn">5. Standing</a>
+              <a href="#vue-sitting" class="quick-nav-btn">6. Sitting</a>
+              <a href="#vue-fulllength" class="quick-nav-btn">7. Full length</a>
+              <a href="#vue-headtoes" class="quick-nav-btn">8. Head to toes</a>
+            </div>
+    <!-- suite des sous groupe 2 à 5 -->
+            <div class="quick-nav-subgroup">Lot 2 : Plans Rapprochés & Portraits</div>
+            <div class="quick-nav-grid">
+              <a href="#vue-bust" class="quick-nav-btn">9. Bust shot</a>
+              <a href="#vue-chest" class="quick-nav-btn">10. Chest-focused</a>
+              <a href="#vue-closeup" class="quick-nav-btn">11. Close-up</a>
+              <a href="#vue-closeupportrait" class="quick-nav-btn">12. Close-up portrait</a>
+              <a href="#vue-extremecloseup" class="quick-nav-btn">13. Extreme close-up</a>
+              <a href="#vue-facefocused" class="quick-nav-btn">14. Face-focused</a>
+              <a href="#vue-headshot" class="quick-nav-btn">15. Head shot</a>
+              <a href="#vue-portrait" class="quick-nav-btn">16. Portrait</a>
+              <a href="#vue-mediumshot" class="quick-nav-btn">17. Medium shot</a>
+              <a href="#vue-waistup" class="quick-nav-btn">18. Waist up</a>
+              <a href="#vue-kneesup" class="quick-nav-btn">19. Knees-up shot</a>
+            </div>
+    <!-- suite des sous groupe 3 à 5 -->
+            <div class="quick-nav-subgroup">Lot 3 : Angles & Perspectives Dynamiques</div>
+            <div class="quick-nav-grid">
+              <a href="#vue-birdseye" class="quick-nav-btn">20. Bird's eye view</a>
+              <a href="#vue-topdown" class="quick-nav-btn">21. Top-down view</a>
+              <a href="#vue-bottomup" class="quick-nav-btn">22. Bottom-up view</a>
+              <a href="#vue-frombelow" class="quick-nav-btn">23. From below</a>
+              <a href="#vue-wormseye" class="quick-nav-btn">24. Worm's eye view</a>
+              <a href="#vue-dynamichigh" class="quick-nav-btn">25. Dynamic high angle</a>
+              <a href="#vue-dynamiclow" class="quick-nav-btn">26. Dynamic low angle</a>
+              <a href="#vue-firstperson" class="quick-nav-btn">27. First-person / POV</a>
+            </div>
+    <!-- suite des sous groupe 4 à 5 -->
+            <div class="quick-nav-subgroup">Lot 4 : Orientations, Profils & Compositions Spéciales</div>
+            <div class="quick-nav-grid">
+              <a href="#vue-front" class="quick-nav-btn">28. Front</a>
+              <a href="#vue-side" class="quick-nav-btn">29. Side</a>
+              <a href="#vue-sideprofile" class="quick-nav-btn">30. Side profile</a>
+              <a href="#vue-back" class="quick-nav-btn">31. Back</a>
+              <a href="#vue-threequarter" class="quick-nav-btn">32. Three-Quarter</a>
+              <a href="#vue-overtheshoulder" class="quick-nav-btn">33. Over the shoulder</a>
+              <a href="#vue-mirror" class="quick-nav-btn">34. Mirror reflection</a>
+              <a href="#vue-shoes" class="quick-nav-btn">35. Shoes-focused</a>
+              <a href="#vue-candid" class="quick-nav-btn">36. Candid view</a>
+            </div>
+    <!-- suite des sous groupe 5 à 5 -->
+            <div class="quick-nav-subgroup">Lot 5 : Mises en page Diptyques & Contenus Spécifiques</div>
+            <div class="quick-nav-grid">
+              <a href="#vue-clothednude" class="quick-nav-btn">37. Clothed and nude</a>
+              <a href="#vue-frontback" class="quick-nav-btn">38. Front and back</a>
+              <a href="#vue-povadult" class="quick-nav-btn">39. Adult POV Specifics</a>
+        </div>
+    </div>            
+</div><!-- Balise de fermeture du modal --> 
+<!-- fin du menu rapide de la section 04 -->
+
+<!-- ================= ================= -->
+  
+  <!-- Modale plein écran : Section 06 (Poses) -->
+  <div id="modalPoses" class="modal-overlay" role="dialog" aria-modal="true" aria-label="Menu des Poses">
+    <button class="btn-close-menu" type="button">✖ Fermer le menu des poses</button>
+
+    <div class="quick-nav-container" style="margin-top: 14px;">
+      <div class="quick-nav-title">📍 Sommaire Rapide des Poses (Toucher pour accéder)&nbsp;</div>
+      
+      <!-- Groupes de boutons de navigation Section 06 -->
+      <div class="quick-nav-subgroup">1. Positions Debout (Standing Poses)</div>
+      <div class="quick-nav-grid">
+        <a href="#pose-standing" class="quick-nav-btn">Standing</a>
+        <a href="#pose-armsfolded" class="quick-nav-btn">Arms folded</a>
+        <a href="#pose-behindback" class="quick-nav-btn">Hands behind back</a>
+        <a href="#pose-behindhead" class="quick-nav-btn">Hands behind head</a>
+        <a href="#pose-onhips" class="quick-nav-btn">Hands on hips</a>
+        <a href="#pose-inpocket" class="quick-nav-btn">Hand in pocket</a>
+        <a href="#pose-legup" class="quick-nav-btn">One leg up</a>
+        <a href="#pose-leaningwall" class="quick-nav-btn">Leaning against wall</a>
+        <a href="#pose-leaningforward" class="quick-nav-btn">Leaning forward</a>
+        <a href="#pose-bentover" class="quick-nav-btn">Bent over</a>
+        <a href="#pose-bentoverknees" class="quick-nav-btn">Bent over (knees)</a>
+        <a href="#pose-bentoverwall" class="quick-nav-btn">Bent over (wall)</a>
+        <a href="#pose-touchingtoes" class="quick-nav-btn">Touching toes</a>
+        <a href="#pose-archedbackstanding" class="quick-nav-btn">Arched back</a>
+      </div>
+    <!-- suite des sous groupe 2 à 7 -->
+            <div class="quick-nav-subgroup">2. Positions Assises (Seated Poses)</div>
+            <div class="quick-nav-grid">
+              <a href="#pose-sitting" class="quick-nav-btn">Sitting</a>
+              <a href="#pose-crosslegged" class="quick-nav-btn">Sitting cross-legged</a>
+              <a href="#pose-onelegcrossed" class="quick-nav-btn">One leg crossed</a>
+              <a href="#pose-sittingsideways" class="quick-nav-btn">Sitting sideways</a>
+              <a href="#pose-huggingknees" class="quick-nav-btn">Hugging knees</a>
+              <a href="#pose-legsspread" class="quick-nav-btn">Legs spread</a>
+              <a href="#pose-elbowsonknees" class="quick-nav-btn">Elbows on knees</a>
+              <a href="#pose-proppinghead" class="quick-nav-btn">Propping head</a>
+            </div>
+    <!-- suite des sous groupe 3 à 7 -->
+            <div class="quick-nav-subgroup">3. Positions à Genoux & au Sol</div>
+            <div class="quick-nav-grid">
+              <a href="#pose-kneeling" class="quick-nav-btn">Kneeling</a>
+              <a href="#pose-kneelingupright" class="quick-nav-btn">Kneeling upright</a>
+              <a href="#pose-kneelinglookingup" class="quick-nav-btn">Kneeling looking up</a>
+              <a href="#pose-kneelingheaddown" class="quick-nav-btn">Kneeling head down</a>
+              <a href="#pose-sittingonknees" class="quick-nav-btn">Sitting on knees</a>
+              <a href="#pose-squatting" class="quick-nav-btn">Squatting</a>
+              <a href="#pose-allfours" class="quick-nav-btn">All fours</a>
+              <a href="#pose-crawling" class="quick-nav-btn">Crawling</a>
+              <a href="#pose-pushup" class="quick-nav-btn">Push-up position</a>
+            </div>
+    <!-- suite des sous groupe 4 à 7 -->    
+            <div class="quick-nav-subgroup">4. Positions Allongées & Repos</div>
+            <div class="quick-nav-grid">
+              <a href="#pose-lyingfront" class="quick-nav-btn">Lying (front / stomach)</a>
+              <a href="#pose-lyingbackbed" class="quick-nav-btn">Lying (back, on bed)</a>
+              <a href="#pose-lyingbackfloor" class="quick-nav-btn">Lying (back, on floor)</a>
+              <a href="#pose-lyingside" class="quick-nav-btn">Lying on side</a>
+              <a href="#pose-restingsidehead" class="quick-nav-btn">Resting on side</a>
+              <a href="#pose-archedbacklying" class="quick-nav-btn">Arched back (lying)</a>
+              <a href="#pose-fetal" class="quick-nav-btn">Fetal position</a>
+              <a href="#pose-recliningarms" class="quick-nav-btn">Reclining (arms)</a>
+              <a href="#pose-reclininglegs" class="quick-nav-btn">Reclining (legs)</a>
+              <a href="#pose-sleeping" class="quick-nav-btn">Sleeping</a>
+              <a href="#pose-sunbathing" class="quick-nav-btn">Sunbathing</a>
+            </div>
+    <!-- suite des sous groupe 5 à 7 -->
+            <div class="quick-nav-subgroup">5. Poses Modèle & Stylisées</div>
+            <div class="quick-nav-grid">
+              <a href="#pose-modelarch" class="quick-nav-btn">Model arch pose</a>
+              <a href="#pose-modelleanforward" class="quick-nav-btn">Model lean forward</a>
+              <a href="#pose-modelleanback" class="quick-nav-btn">Model lean back</a>
+              <a href="#pose-modelsitside" class="quick-nav-btn">Model sit side</a>
+              <a href="#pose-modelsquat" class="quick-nav-btn">Model squat</a>
+            </div>
+    <!-- suite des sous groupe 6 à 7 -->
+            <div class="quick-nav-subgroup">6. Action, Mouvement & Cadrage</div>
+            <div class="quick-nav-grid">
+              <a href="#pose-dancing" class="quick-nav-btn">Dancing</a>
+              <a href="#pose-jumping" class="quick-nav-btn">Jumping</a>
+              <a href="#pose-running" class="quick-nav-btn">Running</a>
+              <a href="#pose-swimming" class="quick-nav-btn">Swimming</a>
+              <a href="#pose-workingout" class="quick-nav-btn">Working out</a>
+              <a href="#pose-yoga" class="quick-nav-btn">Yoga / Cat pose</a>
+              <a href="#pose-victory" class="quick-nav-btn">Victory pose</a>
+              <a href="#pose-closeup" class="quick-nav-btn">Close up</a>
+              <a href="#pose-selfie" class="quick-nav-btn">Selfie / Mirror</a>
+            </div>
+    <!-- suite des sous groupe 7 à 7 -->
+            <div class="quick-nav-subgroup">7. Poses Intimistes & Sensuelles / Adultes</div>
+            <div class="quick-nav-grid">
+              <a href="#pose-spreadinglegs" class="quick-nav-btn">Spreading legs</a>
+              <a href="#pose-legsup" class="quick-nav-btn">Legs up</a>
+              <a href="#pose-handsonbreasts" class="quick-nav-btn">Hands on breasts</a>
+              <a href="#pose-showering" class="quick-nav-btn">Showering</a>
+              <a href="#pose-allfoursnude" class="quick-nav-btn">All fours (nude)</a>
+              <a href="#pose-masturbating" class="quick-nav-btn">Masturbating</a>
+              <a href="#pose-dildosquat" class="quick-nav-btn">Dildo squat</a>
+        </div>
+    </div>            
+</div><!-- Balise de fermeture du modal -->             
+<!-- fin du menu rapide de la section 06 --> 
+
+<!-- ================= ================= -->
+
+  <!-- Modale plein écran : Section 18 (Sec18) -->
+  <div id="modalSec18" class="modal-overlay" role="dialog" aria-modal="true">
+    <button class="btn-close-menu">✖ Fermer le menu de la section 18</button>
+
+    <div class="quick-nav-container" style="margin-top: 14px;">
+      <div class="quick-nav-title">📍 Sommaire Rapide de la Section 18 (Toucher pour accéder)</div>
+
+      <!-- Groupes de boutons de navigation Section 18 -->
+      <div class="quick-nav-subgroup">1. Écosystème Logiciel & Super-Résolution</div>
+      <div class="quick-nav-grid">
+        <a href="#sec18-dxo-pureraw" class="quick-nav-btn">DxO PureRAW</a>
+        <a href="#sec18-topaz-ai" class="quick-nav-btn">Topaz Photo AI</a>
+        <a href="#sec18-upscayl" class="quick-nav-btn">Upscayl / Real-ESRGAN</a>
+        <a href="#sec18-ps-freq" class="quick-nav-btn">Photoshop (Séparation)</a>
+        <a href="#sec18-ps-fill" class="quick-nav-btn">Photoshop (Gen Fill)</a>
+        <a href="#sec18-luminar" class="quick-nav-btn">Luminar Neo</a>
+        <a href="#sec18-autorite" class="quick-nav-btn">Biais d'Autorité (C2PA/ELA)</a>
+      </div>
+    <!-- suite des sous groupe 2 à 4 -->
+      <div class="quick-nav-subgroup">2. Colorimétrie & Étalonnage Numérique</div>
+      <div class="quick-nav-grid">
+        <a href="#sec18-captureone-aces" class="quick-nav-btn">Capture One Pro & ACES</a>
+        <a href="#sec18-canon" class="quick-nav-btn">Canon Color Science</a>
+        <a href="#sec18-hasselblad" class="quick-nav-btn">Hasselblad (HNCS)</a>
+        <a href="#sec18-leica" class="quick-nav-btn">Leica Look</a>
+        <a href="#sec18-nikon" class="quick-nav-btn">Nikon Picture Control</a>
+        <a href="#sec18-vsco" class="quick-nav-btn">VSCO Film</a>
+        <a href="#sec18-mastin" class="quick-nav-btn">Mastin Labs</a>
+        <a href="#sec18-cobalt" class="quick-nav-btn">Cobalt Image</a>
+      </div>
+    <!-- suite des sous groupe 3 à 4 -->
+      <div class="quick-nav-subgroup">3. Chimie Argentique, Émulsions & Tirages d'Art</div>
+      <div class="quick-nav-grid">
+        <a href="#sec18-dehancer-dxo" class="quick-nav-btn">Dehancer / DxO FilmPack</a>
+        <a href="#sec18-hahnemuhle" class="quick-nav-btn">Hahnemühle & Canson</a>
+        <a href="#sec18-ilford" class="quick-nav-btn">Ilford Galerie</a>
+        <a href="#sec18-tableau-photo" class="quick-nav-btn">Tableau Synthétique</a>
+      </div>
+    <!-- suite des sous groupe 4 à 4 -->
+      <div class="quick-nav-subgroup">4. Dynamique & Techniques de Mouvement</div>
+      <div class="quick-nav-grid">
+        <a href="#sec18-shutter-freeze" class="quick-nav-btn">High-Speed Freeze (1/4000s)</a>
+        <a href="#sec18-panning-shot" class="quick-nav-btn">Panning Shot (Filé)</a>
+        <a href="#sec18-shutter-blur" class="quick-nav-btn">Action Shutter Blur (1/60s)</a>
+        <a href="#sec18-candid-walk" class="quick-nav-btn">Candid Walking</a>
+        </div>
+    </div>           
+</div><!-- Balise de fermeture du modal --> 
+<!-- fin du menu rapide de la section 18 -->
+
+<!-- ================= ================= -->
+
+
 
   <button class="back-to-top" id="backToTopBtn" title="Retour en haut" aria-label="Retour en haut">↑</button>
-
-  <!-- Correction du chemin JS -->
+  
+  <!-- Chemin script -->
   <script src="./js/index.js"></script>
 </body>
 </html>
