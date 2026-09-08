@@ -6,6 +6,8 @@
     padding: 0;
   }
 
+/* ============ Base du guide ============ */
+
   .perchance-guide-container {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     max-width: 100%;
@@ -109,6 +111,10 @@
     background-color: #ffffff;
   }
 
+/* ======= Fin de la base du guide ======= */
+
+/* ====== Typographie & Paragraphes ====== */
+
   .content-h3 {
     font-size: 14px;
     font-weight: bold;
@@ -127,9 +133,31 @@
   }
 
   .content-p {
-    margin: 0 0 10px 14px;
+    margin: 10px 14px;
     color: #334155;
   }
+  
+  .code-word {
+    font-family: monospace;
+    background-color: #ffe4e6;
+    padding: 1px 4px;
+    border-radius: 3px;
+    color: #b91c1c;
+    font-size: 12px;
+  }
+  
+  .fluo { 
+    background-color: #ffff00; 
+  }
+  
+  .division_contenu {
+    border-bottom: thick double #32a1ce;
+    margin: 0 0 6px 0;
+  }
+  
+/* == Fin de Typographie & Paragraphes == */
+
+/* =========== Listes à puces =========== */
 
   .custom-li {
     margin-bottom: 8px;
@@ -147,10 +175,35 @@
     top: 0;
   }
   
-  .division_contenu {
-    border-bottom: thick double #32a1ce;
-    margin: 0 0 6px 0;
+  .custom-li-tiptext {
+    margin-bottom: 8px;
+    padding-left: 14px;
+    position: relative;
+    color: #78350f;
   }
+  
+  .custom-li-tiptext::before {
+    content: "•";
+    color: #2563eb;
+    font-weight: bold;
+    position: absolute;
+    left: 2px;
+    top: 0;
+  }
+  
+  .tip-title {
+    font-size: 13.5px;
+    font-weight: bold;
+    color: #b45309;
+    border-left: 3px solid #d97706;
+    padding-left: 6px;
+    margin-top: 14px;
+    margin-bottom: 4px;
+  }
+  
+/* ====== Fin de la listes à puces ====== */
+  
+/* === Boîtes spécialisées (Encadrés) === */  
 
 /* === Boîte Pour Aller Plus Loin / Décryptage Pédagogique === */
   .learn-box {
@@ -176,7 +229,7 @@
     display: block;
   }
 
-/* === Nouvelle boîte pour le Texte Injecté par Défaut === */
+/* === Boîte pour le Texte Injecté par Défaut === */
   .injected-box {
     background-color: #eff6ff;
     border: 1px solid #bfdbfe;
@@ -201,7 +254,8 @@
     margin-bottom: 4px;
     display: block;
   }
-
+  
+/* Boîte Prompt */
   .prompt-box {
     background-color: #f0fdf4;
     border-left: 3px solid #16a34a;
@@ -215,6 +269,7 @@
     user-select: all;
   }
 
+/* Boîte Bon Exemple */
   .good-example-box {
     background-color: #f0fdf4;
     border: 1px solid #bbf7d0;
@@ -230,19 +285,46 @@
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
     word-break: break-word;
   }
+  
+  /* Label pour Boîte Bon Exemple */
+  .good-example-label {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    color: #15803d; 
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+    display: block;
+  }
 
-  .negative-box {
+/* Boîte Négatif */
+    .negative-box {
     background-color: #fef2f2;
     border-left: 3px solid #dc2626;
-    padding: 10px;
+    /* NOUVEAU PADDING : 6px en haut, 10px sur les côtés, 8px en bas */
+    padding: 6px 10px 8px 10px; 
     margin: 8px 0;
     border-radius: 4px;
     font-family: "Courier New", Courier, monospace;
     font-size: 12px;
+    line-height: 1.35; /* NOUVEAU : Resserre l'espace vertical entre les lignes de texte */
     color: #7f1d1d;
     word-break: break-word;
   }
-
+  
+  .negative-label {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    color: #dc2626; 
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+    display: block;
+  }
+  
+/* Boîte d'option */
   .option-box {
     background-color: #f1f5f9;
     border: 1px dashed #64748b;
@@ -251,25 +333,7 @@
     border-radius: 6px;
   }
 
-  .code-word {
-    font-family: monospace;
-    background-color: #ffe4e6;
-    padding: 1px 4px;
-    border-radius: 3px;
-    color: #b91c1c;
-    font-size: 12px;
-  }
-
-  .tip-title {
-    font-size: 13.5px;
-    font-weight: bold;
-    color: #b45309;
-    border-left: 3px solid #d97706;
-    padding-left: 6px;
-    margin-top: 14px;
-    margin-bottom: 4px;
-  }
-
+/* Boîte astuce */
   .tip-text {
     background-color: #fef9c3;
     padding: 8px;
@@ -278,40 +342,10 @@
     color: #78350f;
     margin: 8px 0;
   }
-
-  .fluo { 
-    background-color: #ffff00; 
-  }
-
-  .back-to-top {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 99998;
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    background: #2563eb;
-    color: #fff;
-    border: none;
-    font-size: 24px;
-    line-height: 1;
-    cursor: pointer;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-    display: none;
-    align-items: center;
-    justify-content: center;
-    transition: opacity 0.2s, background 0.2s;
-    opacity: 0.1;
-  }
   
-  .back-to-top:hover { 
-    background: #1d4ed8; 
-  }
+/* =Fin de Boîtes spécialisées (Encadrés)= */
   
-  .back-to-top.visible { 
-    display: flex; opacity: 1; 
-  }
+/* ============== Tooltips ============== */ 
 
 /* 1. Le bouton émoji (Le parent) */
   .tooltip {
@@ -355,8 +389,10 @@
     visibility: visible;
     opacity: 1;
   }
+  
+/* =========== Fin de Tooltips =========== */
 
-/* === Navigation Rapide === */
+/* ========== Navigation Rapide ========== */
   .quick-nav-container {
     background-color: #f1f5f9;
     border: 1px solid #cbd5e1;
@@ -423,30 +459,10 @@
     font-weight: 600;
     cursor: pointer;
   }
-
-/* === Optimisations d'Interaction & Navigation === */
-
-/* Défilement fluide sur toute la page */
-  html {
-    scroll-behavior: smooth;
-  }
-
-/* 1. Décalage d'aération : uniquement pour les éléments internes de section */
-  .option-box[id], 
-  #sec18-tableau-photo {
-    scroll-margin-top: 10px;
-  }
-
-/* 2. Surbrillance : restreinte exclusivement aux sous-éléments (ignore les grands accordéons) */
-  .option-box:target, 
-  #sec18-tableau-photo:target {
-    border-color: #2563eb;
-    background-color: #eff6ff;
-    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
-    transition: background-color 0.3s ease,    border-color 0.3s ease;
-  }
   
-    /* === Fenêtre Plein Écran (Modal) pour Menu Rapide === */
+/* ===== Fin de la navigation rapide ===== */
+  
+/* === Fenêtre Plein Écran (Modal) pour Menu Rapide === */
   .modal-overlay {
     display: none; /* Caché par défaut */
     position: fixed;
@@ -517,9 +533,13 @@
     padding: 0;
   }
   
+/* Fin de la Fenêtre Plein Écran (Modal) pour Menu Rapide */
+  
+/* ========= Tableaux de données ========= */
+  
 /* === Composant : Tableau Rapide === */
   .tableau-rapide {
-    width: 100%; /* Un peu moins de 100% pour laisser un petit espace sur les côtés */
+    width: 100%;
     margin: 16px auto; /* Centre le tableau horizontalement */
     border-collapse: collapse;
     font-size: 12.5px;
@@ -561,7 +581,31 @@
   .tableau-rapide tr:active {
     background-color: #f1f5f9;
   }
-    
+  
+/* ===== Fin de tableaux de données ===== */ 
+ 
+/* === Optimisations d'Interaction & Navigation === */
+
+/* Défilement fluide sur toute la page */
+  html {
+    scroll-behavior: smooth;
+  }
+
+/* 1. Décalage d'aération : uniquement pour les éléments internes de section */
+  .option-box[id], 
+  #sec18-tableau-photo {
+    scroll-margin-top: 10px;
+  }
+
+/* 2. Surbrillance : restreinte exclusivement aux sous-éléments (ignore les grands accordéons) */
+  .option-box:target, 
+  #sec18-tableau-photo:target {
+    border-color: #2563eb;
+    background-color: #eff6ff;
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
+    transition: background-color 0.3s ease,    border-color 0.3s ease;
+  }
+  
 /* L'effet s'applique UNIQUEMENT quand l'élément est ouvert */
   #sec12-tableau-comparatif[open] {
     border-color: #2563eb;
@@ -570,5 +614,59 @@
     transition: background-color 0.3s ease, border-color 0.3s ease;
     border-radius: 6px;
   }
- 
+  
+  #sec-exemple-prompt[open] {
+    border-color: #2563eb;
+    background-color: #eff6ff;
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+    border-radius: 6px;
+  }
+  
+  /* 1. La nouvelle norme (bloque la flèche sur les navigateurs récents) */
+  #sec-exemple-prompt > summary {
+    list-style: none;
+  }
+
+/* 2. La protection supplémentaire pour les très récents (Safari/Firefox) */
+  #sec-exemple-prompt > summary::marker {
+    display: none;
+  }
+
+/* 3. Ton ancien code en renfort (pour les vieux appareils) */
+  #sec-exemple-prompt >   summary::-webkit-details-marker {
+    display: none !important;
+  }
+  
+/* Boutton bleu qui s'affiche pour remonter vers le haut et disparait une fois en haut  */  
+  .back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 99998;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: #2563eb;
+    color: #fff;
+    border: none;
+    font-size: 24px;
+    line-height: 1;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.2s, background 0.2s;
+    opacity: 0.1;
+  }
+  
+  .back-to-top:hover { 
+    background: #1d4ed8; 
+  }
+  
+  .back-to-top.visible { 
+    display: flex; opacity: 1; 
+  }
+
 </style>
