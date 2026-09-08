@@ -5,10 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Guide de Prompt Engineering Perchance</title>
   
+  <!-- Icon du guide -->
   <link rel="icon" type="image/jpeg" href="https://cdn.jsdelivr.net/gh/chappie511/Icon@main/golden_star_v3.png?v=1000">  
 
-  <!-- Chemin CSS -->
+    <!-- Chemin CSS -->
   <link rel="stylesheet" href="./css/index.css">
+  
+    <!-- Lien vers le fichier manifest.json -->
+  <link rel="manifest" href="./manifest.json">
+  <meta name="theme-color" content="#2563eb">
+
 </head>
 <body>
 
@@ -56,7 +62,7 @@
   <div id="modalStyles" class="modal-overlay" role="dialog" aria-modal="true" aria-label="Menu des styles d'art">
     <button class="btn-close-menu" type="button">✖ Fermer le menu des styles d'art</button>    
       <div class="quick-nav-container" style="margin-top: 14px;">
-            <div class="quick-nav-title">📍 Sommaire Rapide des Styles (Toucher pour accéder)</div>
+            <div class="quick-nav-title">⚡ Sommaire Rapide des Styles (Toucher pour accéder)</div>
  
     <!-- Groupes de boutons de navigation Section 3 -->        
             <div class="quick-nav-subgroup">1. Styles Réalistes & Humains</div>
@@ -207,11 +213,11 @@
 <!-- ================= ================= -->
 
     <!-- Modale plein écran : Section 04 (Vues) -->
-  <div id="modalVues" class="modal-overlay" role="dialog" aria-modal="true">
+  <div id="modalVues" class="modal-overlay" role="dialog" aria-modal="true" aria-label="Menu des types de vue">
     <button class="btn-close-menu" >✖ Fermer le menu des vues</button>
           
     <div class="quick-nav-container" >
-      <div class="quick-nav-title">📍 Sommaire Rapide des 39 Vues (Toucher pour accéder)</div>
+      <div class="quick-nav-title">⚡ Sommaire Rapide des 40 Vues (Toucher pour accéder)</div>
 
       <!-- Groupes de boutons de navigation Section 4 -->                      
             <div class="quick-nav-subgroup">Lot 1 : Plans Larges & Distants</div>
@@ -270,20 +276,59 @@
             <div class="quick-nav-grid">
               <a href="#vue-clothednude" class="quick-nav-btn">37. Clothed and nude</a>
               <a href="#vue-frontback" class="quick-nav-btn">38. Front and back</a>
-              <a href="#vue-povadult" class="quick-nav-btn">39. Adult POV Specifics</a>
+              <a href="#vue-blowjob" class="quick-nav-btn">39. Blowjob POV</a>
+              <a href="#vue-handjob" class="quick-nav-btn">40. Handjob POV</a>
         </div>
     </div>            
 </div><!-- Balise de fermeture du modal --> 
 <!-- fin du menu rapide de la section 04 -->
 
 <!-- ================= ================= -->
+
+  <!-- Modale plein écran : Section 05 (Perspectives) -->
+  <div id="modalPerspectives" class="modal-overlay" role="dialog" aria-modal="true" aria-label="Menu des perspectives">
+    <button class="btn-close-menu" type="button">✖ Fermer le menu des perspectives</button>
+        <div class="quick-nav-container" id="sec05-quick-nav">
+            <div class="quick-nav-title">⚡ Navigation Rapide des Perspectives (Toucher pour accéder)</div>
+            
+        <!-- Groupes de boutons de navigation Section 05 -->
+            <div class="quick-nav-subgroup">1. Fondations Théoriques</div>
+            <div class="quick-nav-grid">
+                <a href="#sec05-theorie" class="quick-nav-btn">Angle vs Perspective</a>
+                <a href="#sec05-synthese" class="quick-nav-btn">Synthèse Rédaction</a>
+            </div>
+   <!-- suite des sous groupe 2 à 3 -->
+            <div class="quick-nav-subgroup">2. Perspectives Humaines & Immersion</div>
+            <div class="quick-nav-grid">
+                <a href="#sec05-pov-1" class="quick-nav-btn">1. Personal POV</a>
+                <a href="#sec05-pov-2" class="quick-nav-btn">2. Over-the-shoulder</a>
+                <a href="#sec05-pov-3" class="quick-nav-btn">3. Voyeuristic POV</a>
+                <a href="#sec05-pov-4" class="quick-nav-btn">4. Low-angle POV</a>
+                <a href="#sec05-pov-5" class="quick-nav-btn">5. High-Angle POV</a>
+                <a href="#sec05-pov-6" class="quick-nav-btn">6. Second-Person POV</a>
+                <a href="#sec05-pov-7" class="quick-nav-btn">7. SnorriCam</a>
+                <a href="#sec05-pov-8" class="quick-nav-btn">8. Passerby POV</a>
+            </div>
+    <!-- suite des sous groupe 3 à 3 -->
+            <div class="quick-nav-subgroup">3. Perspectives Spéciales & Expérimentales</div>
+            <div class="quick-nav-grid">
+                <a href="#sec05-pov-9" class="quick-nav-btn">9. Framed POV</a>
+                <a href="#sec05-pov-10" class="quick-nav-btn">10. Ground-Level POV</a>
+                <a href="#sec05-pov-11" class="quick-nav-btn">11. God's-Eye Aerial</a>
+                <a href="#sec05-pov-12" class="quick-nav-btn">12. Creature POV</a>
+            </div>
+        </div>
+</div><!-- Balise de fermeture du modal -->             
+<!-- fin du menu rapide de la section 06 --> 
+
+<!-- ================= ================= -->  
   
   <!-- Modale plein écran : Section 06 (Poses) -->
   <div id="modalPoses" class="modal-overlay" role="dialog" aria-modal="true" aria-label="Menu des Poses">
     <button class="btn-close-menu" type="button">✖ Fermer le menu des poses</button>
 
     <div class="quick-nav-container" style="margin-top: 14px;">
-      <div class="quick-nav-title">📍 Sommaire Rapide des Poses (Toucher pour accéder)&nbsp;</div>
+      <div class="quick-nav-title">⚡ Sommaire Rapide des Poses (Toucher pour accéder)</div>
       
       <!-- Groupes de boutons de navigation Section 06 -->
       <div class="quick-nav-subgroup">1. Positions Debout (Standing Poses)</div>
@@ -382,12 +427,72 @@
 
 <!-- ================= ================= -->
 
+    <!-- Modale plein écran : Section 08 (Éclairage) -->
+<div id="modalÉclairages" class="modal-overlay" role="dialog" aria-modal="true" aria-label="Menu de 35 types d'éclairages">
+    <button class="btn-close-menu">✖ Fermer le menu des éclairages </button>
+    
+    <div class="quick-nav-container" id="sec08-quick-nav">
+            <div class="quick-nav-title">⚡ Sommaire Rapide de 35 types d'éclairages 💡</div>   
+            
+        <!-- Groupes de boutons de navigation Section 08 -->            
+            <div class="quick-nav-subgroup">1. Éclairage Naturel & Temporel</div>
+            <div class="quick-nav-grid">
+                <a href="#sec08-light-12" class="quick-nav-btn">Early Morning</a>
+                <a href="#sec08-light-14" class="quick-nav-btn">Golden Hour</a>
+                <a href="#sec08-light-18" class="quick-nav-btn">Late Afternoon</a>
+                <a href="#sec08-light-20" class="quick-nav-btn">Midday</a>
+                <a href="#sec08-light-25" class="quick-nav-btn">Noon</a>
+                <a href="#sec08-light-31" class="quick-nav-btn">Sunrise</a>
+                <a href="#sec08-light-32" class="quick-nav-btn">Sunset</a>
+                <a href="#sec08-light-33" class="quick-nav-btn">Twilight</a>
+            </div>
+    <!-- suite des sous groupe 2 à 3 -->
+            <div class="quick-nav-subgroup">2. Ambiance Sombre & Dramatique</div>
+            <div class="quick-nav-grid">
+                <a href="#sec08-light-1" class="quick-nav-btn">Backlit</a>
+                <a href="#sec08-light-2" class="quick-nav-btn">Backlight</a>
+                <a href="#sec08-light-5" class="quick-nav-btn">Chiaroscuro</a>
+                <a href="#sec08-light-8" class="quick-nav-btn">Dark Lighting</a>
+                <a href="#sec08-light-9" class="quick-nav-btn">Deep Shadow</a>
+                <a href="#sec08-light-11" class="quick-nav-btn">Dim Lighting</a>
+                <a href="#sec08-light-19" class="quick-nav-btn">Low Key</a>
+                <a href="#sec08-light-21" class="quick-nav-btn">Midnight</a>
+                <a href="#sec08-light-24" class="quick-nav-btn">No Lighting</a>
+            </div>
+    <!-- suite des sous groupe 3 à 3 -->
+            <div class="quick-nav-subgroup">3. Studio & Éclairages Spécifiques</div>
+            <div class="quick-nav-grid">
+                <a href="#sec08-light-3" class="quick-nav-btn">Bright Lighting</a>
+                <a href="#sec08-light-4" class="quick-nav-btn">Candlelight</a>
+                <a href="#sec08-light-6" class="quick-nav-btn">Christmas Lights</a>
+                <a href="#sec08-light-7" class="quick-nav-btn">Cinematic</a>
+                <a href="#sec08-light-10" class="quick-nav-btn">Diffused</a>
+                <a href="#sec08-light-13" class="quick-nav-btn">Fluorescent</a>
+                <a href="#sec08-light-15" class="quick-nav-btn">Harsh Lighting</a>
+                <a href="#sec08-light-16" class="quick-nav-btn">High Key</a>
+                <a href="#sec08-light-17" class="quick-nav-btn">Infrared</a>
+                <a href="#sec08-light-22" class="quick-nav-btn">Natural</a>
+                <a href="#sec08-light-23" class="quick-nav-btn">Neon</a>
+                <a href="#sec08-light-26" class="quick-nav-btn">Overcast</a>
+                <a href="#sec08-light-27" class="quick-nav-btn">Rim Lighting</a>
+                <a href="#sec08-light-28" class="quick-nav-btn">Soft Lighting</a>
+                <a href="#sec08-light-29" class="quick-nav-btn">Spotlight</a>
+                <a href="#sec08-light-30" class="quick-nav-btn">Studio</a>
+                <a href="#sec08-light-34" class="quick-nav-btn">Warm Lighting</a>
+                <a href="#sec08-light-35" class="quick-nav-btn">Window Lighting</a>
+            </div>
+        </div>
+</div><!-- Balise de fermeture du modal -->             
+<!-- fin du menu rapide de la section 08 --> 
+
+<!-- ================= ================= -->
+
   <!-- Modale plein écran : Section 18 (Sec18) -->
-  <div id="modalSec18" class="modal-overlay" role="dialog" aria-modal="true">
+  <div id="modalSec18" class="modal-overlay" role="dialog" aria-modal="true" aria-label="Menu de la section 18">
     <button class="btn-close-menu">✖ Fermer le menu de la section 18</button>
 
     <div class="quick-nav-container" style="margin-top: 14px;">
-      <div class="quick-nav-title">📍 Sommaire Rapide de la Section 18 (Toucher pour accéder)</div>
+      <div class="quick-nav-title">⚡ Sommaire Rapide de la Section 18 (Toucher pour accéder)</div>
 
       <!-- Groupes de boutons de navigation Section 18 -->
       <div class="quick-nav-subgroup">1. Écosystème Logiciel & Super-Résolution</div>
@@ -434,11 +539,21 @@
 
 <!-- ================= ================= -->
 
-
-
   <button class="back-to-top" id="backToTopBtn" title="Retour en haut" aria-label="Retour en haut">↑</button>
   
   <!-- Chemin script -->
   <script src="./js/index.js"></script>
+  
+  <!-- Service Worker -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./sw.js')
+          .then(reg => console.log('Service Worker enregistré !', reg))
+          .catch(err => console.error('Erreur Service Worker :', err));
+      });
+    }
+  </script>
+
 </body>
 </html>
