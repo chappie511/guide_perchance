@@ -55,19 +55,19 @@ document.addEventListener('click', function (e) {
 // Écouteur universel pour toute la page
 document.addEventListener('click', function(event) {
   
-  // 1. OUVRIR LE MODAL DES POSES
+  // 1. OUVRIR LE MODAL DE LA 🧘 Section 6 : Répertoire des Positions & Poses
   if (event.target && event.target.id === 'btnOuvrirPoses') {
     document.getElementById('modalPoses').classList.add('active');
     document.body.style.overflow = 'hidden';
   }
 
-  // 2. OUVRIR LE MODAL DES VUES
+  // 2. OUVRIR LE MODAL DE la 📐 Section 4 : Répertoire Universel des Vues & Cadrages (Views's Perchance)
   if (event.target && event.target.id === 'btnOuvrirVues') {
     document.getElementById('modalVues').classList.add('active');
     document.body.style.overflow = 'hidden';
   }
   
-  // 3. OUVRIR LE MODAL DE LA SECTION 18
+  // 3. OUVRIR LE MODAL DE LA 🏃 Section 18 : Écosystème Logiciel Réel, Colorimétrie & Mouvement
   if (event.target && event.target.id === 'btnOuvrirSec18') {
     document.getElementById('modalSec18').classList.add('active');
     document.body.style.overflow = 'hidden';
@@ -78,8 +78,20 @@ document.addEventListener('click', function(event) {
     document.getElementById('modalStyles').classList.add('active');
     document.body.style.overflow = 'hidden';
   }
+  
+  // 5. OUVRIR LE MODAL DE LA 👁️ Section 05 : Maîtrise des Perspectives POV (Point of View)
+  if (event.target && event.target.id === 'btnOuvrirPerspectives') {
+    document.getElementById('modalPerspectives').classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+  
+  // 6. OUVRIR LE MODAL DE LA 💡 Section 8 : Maîtrise des Éclairages & Effets Lumineux
+  if (event.target && event.target.id === 'btnOuvrirÉclairages') {
+    document.getElementById('modalÉclairages').classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
 
-  // 5. FERMER LES MODALS (Bouton fermer OU clic sur un lien de navigation)
+  // 7. FERMER LES MODALS (Bouton fermer OU clic sur un lien de navigation)
   if (event.target && (event.target.classList.contains('btn-close-menu') || event.target.classList.contains('quick-nav-btn'))) {
     // La fonction closest() trouve le modal parent dans lequel on vient de cliquer
     const modalActif = event.target.closest('.modal-overlay');
