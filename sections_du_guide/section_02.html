@@ -4,12 +4,11 @@
         <summary>⚙️ Section 2 : Référence technique : Prompts, variables dynamiques et modificateurs</summary>
         <div class="section-body">
             <div class="content-p">Ce document détaille le fonctionnement interne et la logique d'assemblage des prompts au sein du générateur Perchance text-to-image. Il explique comment les directives visuelles positives et négatives sont traitées, comment les variables dynamiques s'injectent en temps réel via la syntaxe entre crochets, et de quelle manière les listes de modificateurs interagissent avec l'interface pour affiner le rendu final de l'image.</div>
-          <div class="content-h3">📝 Prompt</div>
+          <div class="content-h3">📝 1. Prompt</div>
             <div class="content-p">​L'instruction textuelle qui indique à l'IA ce que l'image doit afficher. Sur Perchance, les prompts sont généralement construits de manière dynamique à l'aide d'expressions entre crochets plutôt qu'écrits manuellement. Dans ce générateur, le prompt est assemblé au moment de la génération en concaténant l'option sélectionnée de chaque menu déroulant :</div>
             <div class="content-p">
 Pour des raisons techniques, les délimiteurs ne sont pas inscritent.                    
-<em>BRAKET​</em>input.artStyle.prompt<em>BRAKET</em>; <em>BRAKET</em>input.lighting.prompt<em>BRAKET</em>; <em>BRAKET</em>input.persona.prompt<em>BRAKET</em>; <em>BRAKET</em>input.description<em>BRAKET</em>;
-​(Voir main.pjs:78). Chaque élément de liste possède une propriété enfant prompt qui contient le fragment de texte qu'il injecte.
+<em>BRAKET​</em>input.artStyle.prompt<em>BRAKET</em>; <em>BRAKET</em>input.lighting.prompt<em>BRAKET</em>; <em>BRAKET</em>input.persona.prompt<em>BRAKET</em>; <em>BRAKET</em>input.description<em>BRAKET</em>; ​(Voir main.pjs:78). Chaque élément de liste possède une propriété enfant prompt qui contient le fragment de texte qu'il injecte.
 </div>
             <div class="content-h4">Bracket delimiters</div>
             
@@ -35,23 +34,91 @@ Pour des raisons techniques, les délimiteurs ne sont pas inscritent.
   Candlelight
     prompt = Lighting: Soft, warm light from candles...</div>
             <div class="content-p">Ainsi, input.lighting.prompt se lit : « le prompt de l'option actuellement sélectionnée dans le menu déroulant lighting ». Si l'utilisateur choisit Backlit, cette expression s'évalue en Lighting: Light source behind the subject... ; s'il choisit Candlelight, elle prend la valeur du texte associé aux bougies.</div>
-                     
-                                       
-          <div class="content-h3">⛔ Prompt négatif (negative / negativePrompt)</div>
-           <div class="content-p">​Le texte qui indique à l'IA ce que l'image doit éviter (ex. : worst quality, jpeg artifacts, watermark). Le plugin text-to-image de Perchance l'accepte soit via l'option d'image negativePrompt, soit directement dans le prompt grâce à la syntaxe (negativePrompt:::).
+            
+            <details style="margin: 8px 0; border: 1px dashed #cbd5e1; border-radius: 6px;">
+      <summary style="background-color: #f8fafc; color: #475569; font-size: 12px; padding: 8px 12px; cursor: pointer; border-radius: 6px; text-align: center;">
+        📖 <strong>Pour Aller Plus Loin :</strong><br>"Apprendre le <em>input.description</em>"
+      </summary>
+      <div class="section-body" style="padding: 8px 12px;">
+        <div class="learn-box">
+          <span class="learn-label">🔬 input.description expliqué</span>
+          <div class="content-h3">​✍️ input.description</div>
+              <div class="content-p">​Une expression de modèle Perchance entre crochets <em>input</em> est un objet généré par t2i-framework-plugin qui expose chaque saisie utilisateur issue de userInputs par son nom ; ainsi, input.description correspond à la saisie nommée "description" (la zone de texte Description).</div>
+              <div class="content-p">L'expression <em>BRAKET</em>input.description<em>BRAKET</em> injecte dynamiquement le texte saisi dans ce champ au sein de tout modèle l'utilisant lors de son évaluation (comme dans saveTitle, main.pjs:63). De manière générale, les crochets permettent d'insérer des valeurs en temps réel (entrées utilisateur, sélections de listes, fonctions) directement dans le prompt.</div>
+          </div><!-- balise de fermeture pour <div class="learn-box"> -->
+      </div><!-- balise de fermeture pour <div class="section-body" style="padding: 8px 12px;"> -->
+    </details>    
+                            
+          <div class="content-h3">⛔ 2. Prompt négatif (negative / negativePrompt)</div>
+           <div class="content-p">​Le texte qui indique à l'IA ce que l'image doit éviter (ex. : worst quality, jpeg artifacts, watermark). Le plugin text-to-image de Perchance l'accepte soit via 3 options.</div>
+            <div class="content-h4">L'option du style d'art</div>
+            <div class="content-p">Selon le style d'art sélectionné, celiu-ci injecte du texte par défaut dans la negative prompt.</div>
+             <div class="content-h4">Le menu déroulant ❌ Anti-description selective</div>
+             <div class="custom-li">C'est un thème pouvant être sélectionné où celui-ce contient un groupe de mots qui s'ajoutent également à la negative prompt.</div>
+             <div class="custom-li">Extra negative prompt.</div>          
+             <div class="content-h4">Champ réservé</div>
+             <div class="content-p">Il y a un  champ prévue pour la rédaction du texte de la negative prompt.
 </div>
                <div class="content-h4">Dans ce générateur :</div>
                <div class="content-p">negativePrompt = <em>BRAKET</em>input.artStyle.negative<em>BRAKET</em>, <em>BRAKET</em>input.extraNegative<em>BRAKET</em></div>
                <div class="content-p">​(Voir main.pjs:79). Cela constitue une liste de base que l'utilisateur peut enrichir via les champs de saisie Anti-Description.</div>
-             <div class="content-h3">​✍️ input.description</div>
-              <div class="content-p">​Une expression de modèle Perchance entre crochets. input est un objet généré par t2i-framework-plugin qui expose chaque saisie utilisateur issue de userInputs par son nom ; ainsi, input.description correspond à la saisie nommée "description" (la zone de texte Description).</div>
-              <div class="content-p">L'expression <em>BRAKET</em>input.description<em>BRAKET</em> injecte dynamiquement le texte saisi dans ce champ au sein de tout modèle l'utilisant lors de son évaluation (comme dans saveTitle, main.pjs:63). De manière générale, les crochets permettent d'insérer des valeurs en temps réel (entrées utilisateur, sélections de listes, fonctions) directement dans le prompt.
-              </div>
-             <div class="content-h3">​🎚️ Modifiers (Modificateurs)</div>
+             
+             <div class="content-h3">​🎚️ 3. Modifiers (Modificateurs)</div>
               <div class="content-p">​De courtes expressions de qualification que l'on peut ajouter à un prompt pour ajuster le style ou le contenu. Sur le framework text-to-image de Perchance, un champ de saisie de texte peut déclarer une liste modifiers ; chaque élément de cette liste devient un menu déroulant (ex. : "Add character...", "Add action...") situé au-dessus de la zone textarea. Sélectionner une option insère automatiquement son texte dans la zone.</div>
               <div class="content-h4">Dans ce générateur :</div> 
               <div class="content-p">modifiers = <em>BRAKET</em>input.artStyle?.modifiers || null<em>BRAKET</em> ​(Voir main.pjs:104). Ainsi, le style artistique choisi apporte automatiquement son propre ensemble de menus déroulants de modificateurs. De plus : modifierUpdates = "event:description.input, event:artStyle.change" ​Cette ligne réaffiche les modificateurs à chaque modification de la description ou lors d'un changement de style.
               </div>
+              
+              <div class="content-h3">4.​ ⚖️ Guidance Scale</div>
+<div class="content-p">Au-delà de votre texte, ce réglage technique influence drastiquement la génération de l'image.</div>
+
+<div class="content-p">
+  Le niveau d'obéissance : le 
+      <strong>Guidance Scale (ou CFG Scale) :</strong> Contrôle à quel point l'IA doit obéir strictement à votre texte. Une valeur basse donne plus de liberté créative à l'IA. Une valeur par défaut (souvent 7) offre le meilleur équilibre. Une valeur trop haute force l'IA mais risque de "brûler" l'image avec des défauts visuels.
+</div>
+<details style="margin: 8px 0; border: 1px dashed #cbd5e1; border-radius: 6px;">
+      <summary style="background-color: #f8fafc; color: #475569; font-size: 12px; padding: 8px 12px; cursor: pointer; border-radius: 6px; text-align: center;">
+        📖 <strong>Pour Aller Plus Loin :</strong><br> Comprendre le paramètre "Guidance Scale"
+      </summary>
+      <div class="section-body" style="padding: 8px 12px;">
+        <div class="learn-box">
+          <span class="learn-label">🔬 Guidance Scale expliqué</span>
+          <div class="content-p">C'est le bouton que tu vois sur ton écran. Il dicte à l'IA à quel point elle doit <strong>écouter ton texte</strong>.
+</div>
+          <div class="custom-li"><strong>Bas (ex: 3) :</strong> L'IA lit ton prompt, s'en inspire vaguement, et fait ce qu'elle veut. Très créatif, mais peu précis.</div>
+          <div class="custom-li"><strong>Moyen (ex: 7) :</strong> C'est le réglage par défaut (comme sur ton image). Le compromis parfait entre obéir à tes mots et garder une belle esthétique naturelle.</div>
+          <div class="custom-li"><strong>Haut (ex: 15+) :</strong> L'IA devient terrorisée et essaie de forcer absolument tous tes mots dans l'image. Le problème ? Ça crée souvent des images "brûlées", avec des couleurs saturées, des contrastes affreux et des défauts visuels (le fameux "risky" de ta capture d'écran) </div>
+          </div>
+      </div>
+    </details>
+    
+    <div class="content-h3">5. Seed</div>
+    <div class="content-p">L'ADN de l'image, le 
+      <strong>Seed (Graine) :</strong> Un numéro unique (ex: 429183) qui sert de point de départ au "bruit" visuel de l'IA. Utiliser le même Seed avec le même prompt générera exactement la même image. C'est l'outil parfait pour modifier un petit détail du prompt sans changer complètement la composition !
+</div>
+        
+       <div class="content-h3">6. ⚙️ Les Menus Déroulants (Injection Automatique)</div>
+<div class="content-p">
+  Pour vous simplifier la vie et garder votre zone de texte propre, le générateur intègre des menus déroulants comme <strong>❓ Add realism?</strong>. Lorsque vous sélectionnez une option, le système injecte automatiquement les 
+  <span class="code-word tooltip" tabindex="0">tokens<span class="tooltip-texte"><strong>Token :</strong> Unité de base lue par l'IA. Désigne un mot-clé précis utilisé pour déclencher un effet visuel.</span></span>
+  techniques parfaits à la toute fin de votre prompt, sans que vous n'ayez à les taper.
+</div>
+
+<div class="content-p">Par exemple, sélectionner <strong>Quality</strong> ajoutera invisiblement ceci à votre image :</div>
+
+<!-- Ta fameuse boîte d'injection ! -->
+<div class="injected-box" translate="no">
+  <span class="injected-label">Injection "Quality" :</span>
+  ultra-high definition texture, restored clarity, 8k crisp resolution, photorealistic micro-details
+</div>
+
+<div class="content-p">Sélectionner <strong>Hasselblad</strong> injectera une colorimétrie de studio professionnel :</div>
+
+<div class="injected-box" translate="no">
+  <span class="injected-label">Injection "Hasselblad" :</span>
+  Hasselblad Natural Colour Solution (HNCS), Medium Format Camera With End-to-End, True-to-Life Dynamic Range, 5-Axis, 10-Stop In-Body Image Stabilisation
+</div>
+ 
                 
         </div>
       </details>
