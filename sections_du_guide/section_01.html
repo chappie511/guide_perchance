@@ -7,7 +7,12 @@
 
     
     <div class="content-h3">1. L'Ordre de Priorité (De gauche à droite)</div>
-    <div class="content-p">Les modèles de diffusion accordent une importance décroissante aux tokens : le texte placé au début du prompt capte l'attention algorithmique maximale. Place systématiquement ton sujet principal en tête de phrase.</div>
+    <div class="content-p">Les modèles de diffusion accordent une importance décroissante aux tokens <span class="tooltip">ℹ️
+  <span class="tooltip-texte">
+    <strong>Token :</strong> Unité de base (un mot ou une syllabe) lue par l'IA. Dans ce guide, un "token" désigne un mot-clé précis (ex: <em>cinematic</em>, <em>35mm</em>) utilisé pour déclencher un style ou un effet visuel spécifique lors de la génération.
+  </span>
+</span>
+ : le texte placé au début du prompt capte l'attention algorithmique maximale. Place systématiquement ton sujet principal en tête de phrase.</div>
 
     <div class="content-h3">2. La Règle de Pondération (Weighting)</div>
     <div class="content-p">Pour forcer l'IA à respecter un détail complexe ou au contraire pour atténuer un effet indésirable, utilise les marqueurs de poids :</div>
@@ -19,8 +24,10 @@
     <div class='tip-title'>Conseil pratique : Rédiger exclusivement en anglais</div>
     <div class='tip-text'>Bien que l'interface et les options du générateur puissent être en français, les fragments de texte injectés dans le prompt final doivent toujours être en anglais. Les encodeurs de texte des modèles d'image y reconnaissent les nuances photographiques et artistiques avec une fidélité bien plus élevée.               
     </div>
-    <div class="content-p">Voici in exemple de prompt qui sera décortiqué :</div>
-    <div class="good-example-box">Waist-up editorial studio portrait of a young girl with straight light-brown hair in a crouched fashion pose, elbow on knee, looking at camera with a playful expression, wearing a pastel pink ruffled swimsuit with unicorn print and matching bow headband, seamless pure white backdrop, professional high-key studio lighting, shot on 50mm lens at f/4.0, deep depth of field, natural skin texture, subsurface scattering, ACES color grading, commercial catalog photography --ar 4:5 --q 2</div>
+    <div class="content-p">Voici un exemple de prompt qui sera décortiqué :</div>
+    <div class="good-example-box">Waist-up editorial studio portrait of a young girl with straight light-brown hair in a crouched fashion pose, elbow on knee, looking at camera with a playful expression, wearing a pastel pink ruffled swimsuit with unicorn print and matching bow headband, seamless pure white backdrop, professional high-key studio lighting, shot on 50mm lens at f/4.0, deep depth of field, natural skin texture, subsurface scattering, ACES color grading, commercial catalog photography.
+    </div>
+    <div class=content-p>(Appuyez sur les termes surlignés en rouge pour afficher la définition)</div>
     <div class="content-h4">Pilier 1 : Cadrage & Genre :</div> 
     <div class="content-p">Waist-up editorial studio portrait → Impose immédiatement la distance de la caméra et le type de production.</div>
     
@@ -37,7 +44,7 @@
     <div class="content-p">shot on 50mm lens at f/4.0, deep depth of field → Dicte la perspective et le niveau de netteté.</div>
     
     <div class="content-h4">Pilier 6 : Style & Paramètres moteurs :</div> 
-    <div class="content-p">commercial catalog photography --ar 4:5 --q 2 → Définit l'esthétique globale et les drapeaux techniques.</div>
+    <div class="content-p">commercial catalog photography → Définit l'esthétique globale et les drapeaux techniques.</div>
     
     <div class="good-example-box">
       <strong>Exemple de Prompt Final Optimisé :</strong><br>
@@ -46,10 +53,11 @@
 
     <div class="content-h3">4. Le Negative Prompt de Sécurité (L'Anti-Description)</div>
     <div class="content-p">À copier-coller dans la zone <em>Negative Prompt</em> pour garantir la propreté et la structure de l'image :</div>
-    <div class="negative-box">(distorted lens geometry:1.2), worst quality, low-resolution, jpeg artifacts, watermark, low-quality optics, normal quality, over-sharpened, harsh micro-contrast, crunchy details, image noise, restoration artifacts</div>
+    <div class="negative-box">
+                <span class="negative-label">🚫 Negative Prompt recommandé :</span>(distorted lens geometry:1.2), worst quality, low-resolution, jpeg artifacts, watermark, low-quality optics, normal quality, over-sharpened, harsh micro-contrast, crunchy details, image noise, restoration artifacts</div>
 
-    <div class="content-h3">5. Astuce : Le Séparateur « BREAK »</div>
-    <div class="content-p">Si des caractéristiques bavent d'un sujet sur l'autre (par exemple si les vêtements fusionnent avec l'arrière-plan), insère le mot-clé <span class="code-word">BREAK</span> en majuscules entre deux piliers. Cette commande réinitialise le vecteur d'attention du modèle de diffusion pour traiter chaque bloc de façon indépendante.</div>
+    <div class="tip-title">5. Astuce : Le Séparateur « BREAK »</div>
+    <div class="tip-text">Si des caractéristiques bavent d'un sujet sur l'autre (par exemple si les vêtements fusionnent avec l'arrière-plan), insère le mot-clé <span class="code-word">BREAK</span> en majuscules entre deux piliers. Cette commande réinitialise le vecteur d'attention du modèle de diffusion pour traiter chaque bloc de façon indépendante.</div>
 
   </div>
 </details>
