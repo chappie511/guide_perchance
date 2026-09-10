@@ -22,20 +22,24 @@
           
           <div class="content-h3">1. Éliminer le Syndrome Plastique (Anti-Lissage)</div>
           <div class="content-p">Par défaut, les modèles d'IA ont été entraînés sur d'immenses bases d'images publicitaires retouchées. Pour préserver ton style "Casual Photo" et les textures de peau générées par SUPIR, tu dois explicitement interdire le lissage esthétique.</div>
-          <div class="negative-box"><strong>Mots-clés négatifs :</strong> airbrushed, plastic skin, CGI, 3D render, digital illustration, smooth skin filter, glamour photography retouching, airbrush, doll-like skin, wax texture.</div>
+          <div class="negative-box">
+                <span class="negative-label">🚫 Negative Prompt recommandé :</span>airbrushed, plastic skin, CGI, 3D render, digital illustration, smooth skin filter, glamour photography retouching, airbrush, doll-like skin, wax texture.</div>
           <div class="content-p" style="font-style: italic; margin-top: 5px;">Pourquoi ça marche : En excluant "airbrushed" et "CGI", tu indiques à la matrice que les aplats de textures sans relief sont interdits, ce qui la pousse à préserver le grain numérique et les pores de la peau.</div>
 
           <div class="content-h3">2. Verrouiller la Structure Optique (Anti-Flou Aléatoire)</div>
           <div class="content-p">Si tu demandes une netteté globale infinie (hyperfocale) ou un diaphragme fermé à f/8, l'IA peut parfois appliquer un flou artistique par habitude. Tu dois nettoyer le prompt négatif pour sécuriser ta géométrie optique.</div>
-          <div class="negative-box"><strong>Mots-clés négatifs :</strong> accidental blur, unfocused background (uniquement pour le grand-angle), chromatic smudge, distorted lens geometry, smudged edges, low-quality optics.</div>
+          <div class="negative-box">
+                <span class="negative-label">🚫 Negative Prompt recommandé :</span>accidental blur, unfocused background (uniquement pour le grand-angle), chromatic smudge, distorted lens geometry, smudged edges, low-quality optics.</div>
 
           <div class="content-h3">3. Corriger les Postures de Mannequin (Anti-Pose)</div>
           <div class="content-p">Pour garantir l'effet d'un instantané pris sur le vif (candid snapshot), il faut bloquer les tics de positionnement des banques d'images de mode rigides.</div>
-          <div class="negative-box"><strong>Mots-clés négatifs :</strong> studio pose, runway model posture, mannequin, over-posed, staring blankly, fake smile, studio photography staging, commercial catalog look.</div>
+          <div class="negative-box">
+                <span class="negative-label">🚫 Negative Prompt recommandé :</span>studio pose, runway model posture, mannequin, over-posed, staring blankly, fake smile, studio photography staging, commercial catalog look.</div>
 
           <div class="content-h3">4. Bloquer les Bavements de Lumière (Light Bleeding)</div>
           <div class="content-p">Quand une source lumineuse frappe l'arrière d'un sujet, l'IA a tendance à faire "baver" la lumière sur les contours du visage (effet appelé <em>light bleeding</em> ou <em>blooming</em>), ce qui détruit la netteté des yeux de profil. Ajoute ces tokens spécifiques à ton négatif pour dresser une barrière :</div>
-          <div class="negative-box"><strong>Mots-clés négatifs :</strong> light bleeding on face, lens blooming, flared facial features, halo smudging on eyes, overexposed iris contour.</div>
+          <div class="negative-box">
+                <span class="negative-label">🚫 Negative Prompt recommandé :</span>light bleeding on face, lens blooming, flared facial features, halo smudging on eyes, overexposed iris contour.</div>
 
           <div class="content-h3">5. Le Bloc "Realism" Optimisé & Negative Prompt Universel</div>
           <div class="content-p">Pour obtenir un rendu photographique de haute fidélité sans lourdeur de calcul ni artefacts visuels, couple un bloc positif de texture cutanée à un Negative Prompt universel équilibré.</div>
@@ -51,7 +55,8 @@
           </div>
 
           <div class="content-h4">Negative Prompt Universel Essentiel (Pondéré à :1.3) :</div>
-          <div class="negative-box">(bad anatomy:1.3), (deformed hands:1.3), (plastic skin:1.3), (distorted face:1.3), 3D render, CGI, cartoon, illustration, drawing, painting, airbrushed, smooth skin filter, glamour retouching, wax texture, overexposed skin, generic model, stock photo face, worst quality, lowres, jpeg artifacts</div>
+          <div class="negative-box">
+                <span class="negative-label">🚫 Negative Prompt recommandé :</span>(bad anatomy:1.3), (deformed hands:1.3), (plastic skin:1.3), (distorted face:1.3), 3D render, CGI, cartoon, illustration, drawing, painting, airbrushed, smooth skin filter, glamour retouching, wax texture, overexposed skin, generic model, stock photo face, worst quality, lowres, jpeg artifacts</div>
 
           <div class="negative-box" style="margin-top: 8px;">
             <strong>Tokens Négatifs Spécifiques aux Styles Intimes / Volés :</strong><br>
