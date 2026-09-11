@@ -167,7 +167,7 @@ if ('serviceWorker' in navigator) {
 // ==========================================
 
 if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('./sw.js').then((registration) => {
+  navigator.serviceWorker.register('./sw.js?guide-perchance-v25').then((registration) => {
 
     // 1. Si une mise à jour attend déjà en arrière-plan
     if (registration.waiting) {
