@@ -1,4 +1,4 @@
-// Fonction pour charger et injecter du HTML
+// Fonction pour charger et injecter du HTML de manière dynamique
 function chargerSection(idDeLaBoite, cheminDuFichier) {
     fetch(cheminDuFichier)
         .then(reponse => {
@@ -16,11 +16,10 @@ function chargerSection(idDeLaBoite, cheminDuFichier) {
 // Charge automatiquement les 24 sections depuis le dossier sections_du_guide
 for (let i = 1; i <= 24; i++) {
     const num = String(i).padStart(2, '0');
-    // Le chemin pointe maintenant correctement vers ton nouveau dossier !
     chargerSection(`conteneur-section-${i}`, `./sections_du_guide/section_${num}.html`);
 }
 
-// Script sélectionné/copié (Délégation d'événements)
+// Copie des prompts dans le presse-papiers
 document.addEventListener('click', function (e) {
   let boite = e.target.closest('.prompt-box');
   
@@ -37,7 +36,7 @@ document.addEventListener('click', function (e) {
   }
 });
 
-// Script retour vers le haut
+// Bouton retour vers le haut
 (function () {
   var btn = document.getElementById('backToTopBtn');
   function onScroll() {
@@ -51,110 +50,102 @@ document.addEventListener('click', function (e) {
   onScroll();
 })();
 
-
-// Écouteur universel pour toute la page
+// Gestionnaires d'événements pour l'ouverture et la fermeture des modales
 document.addEventListener('click', function(event) {
   
-  // 1. OUVRIR LE MODAL DE LA 🧘 Section 6 : Répertoire des Positions & Poses
   if (event.target && event.target.id === 'btnOuvrirPoses') {
     document.getElementById('modalPoses').classList.add('active');
     document.body.style.overflow = 'hidden';
   }
 
-  // 2. OUVRIR LE MODAL DE la 📐 Section 4 : Répertoire Universel des Vues & Cadrages (Views's Perchance)
   if (event.target && event.target.id === 'btnOuvrirVues') {
     document.getElementById('modalVues').classList.add('active');
     document.body.style.overflow = 'hidden';
   }
   
-  // 3. OUVRIR LE MODAL DE LA 🏃 Section 18 : Écosystème Logiciel Réel, Colorimétrie & Mouvement
   if (event.target && event.target.id === 'btnOuvrirSec18') {
     document.getElementById('modalSec18').classList.add('active');
     document.body.style.overflow = 'hidden';
   }
   
-  // 4. OUVRIR LE MODAL DE LA 🎭 Section 03 : Répertoire des Styles & Paramètres (Perchance)
   if (event.target && event.target.id === 'btnOuvrirStyles') {
     document.getElementById('modalStyles').classList.add('active');
     document.body.style.overflow = 'hidden';
   }
   
-  // 5. OUVRIR LE MODAL DE LA 👁️ Section 05 : Maîtrise des Perspectives POV (Point of View)
   if (event.target && event.target.id === 'btnOuvrirPerspectives') {
     document.getElementById('modalPerspectives').classList.add('active');
     document.body.style.overflow = 'hidden';
   }
   
-  // 6. OUVRIR LE MODAL DE LA 💡 Section 8 : Maîtrise des Éclairages & Effets Lumineux
   if (event.target && event.target.id === 'btnOuvrirÉclairages') {
     document.getElementById('modalÉclairages').classList.add('active');
     document.body.style.overflow = 'hidden';
   }
 
-  // 7. FERMER LES MODALS (Bouton fermer OU clic sur un lien de navigation)
+  // Fermeture des modales
   if (event.target && (event.target.classList.contains('btn-close-menu') || event.target.classList.contains('quick-nav-btn'))) {
-    // La fonction closest() trouve le modal parent dans lequel on vient de cliquer
     const modalActif = event.target.closest('.modal-overlay');
     if (modalActif) {
       modalActif.classList.remove('active');
       document.body.style.overflow = ''; 
     }
   }
-  
 });
 
-// Écoute les messages envoyés par le Service Worker
-if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.addEventListener('message', (event) => {
-    if (event.data && event.data.type === 'NEW_CONTENT_AVAILABLE') {
-      const toast = document.getElementById('update-toast');
-      if (toast) {
-        toast.classList.add('visible');
-      }
-    }
-  });
-}
+// ==========================================
+// Enregistrement du Service Worker & Notifications
+// ==========================================
 
-// Fonction déclenchée lors du clic sur le bouton Rafraîchir
-function dismissAndReload() {
+const estServeurLocal = location.hostname === 'localhost' || 
+                       location.hostname === '127.0.0.1' || 
+                       location.hostname.startsWith('192.168.') || 
+                       location.hostname.startsWith('10.');
+
+function afficherNotificationMAJ(worker) {
   const toast = document.getElementById('update-toast');
+  const btnRecharger = document.getElementById('reload-btn');
+
   if (toast) {
-    toast.classList.remove('visible');
+    toast.classList.remove('hidden');
+    toast.classList.add('visible');
   }
-  
-  // Demande au nouveau Service Worker de prendre le contrôle immédiatement
-  if (navigator.serviceWorker.controller) {
-    navigator.serviceWorker.getRegistration().then((reg) => {
-      if (reg && reg.waiting) {
-        reg.waiting.postMessage({ type: 'SKIP_WAITING' });
-      } else {
-        window.location.reload();
+
+  if (btnRecharger && worker) {
+    btnRecharger.onclick = () => {
+      if (toast) {
+        toast.classList.remove('visible');
+        toast.classList.add('hidden');
       }
-    });
-  } else {
-    window.location.reload();
+      worker.postMessage({ type: 'SKIP_WAITING' });
+    };
   }
 }
 
-// Recharche la page automatiquement quand le nouveau Service Worker prend la main
+// Dans index.js (Correct)
 if ('serviceWorker' in navigator) {
-  let refreshing = false;
-  navigator.serviceWorker.addEventListener('controllerchange', () => {
-    if (!refreshing) {
-      refreshing = true;
-      window.location.reload();
+  navigator.serviceWorker.register('./sw.js').then((registration) => {
+    // Si un nouveau Service Worker attend d'être activé
+    if (registration.waiting) {
+      registration.waiting.postMessage({ type: 'SKIP_WAITING' });
     }
+
+    // Détecte lorsqu'un nouveau Service Worker est en cours d'installation
+    registration.addEventListener('updatefound', () => {
+      const newWorker = registration.installing;
+      if (newWorker) {
+        newWorker.addEventListener('statechange', () => {
+          if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+            // Envoie le signal pour forcer la mise à jour immédiate
+            newWorker.postMessage({ type: 'SKIP_WAITING' });
+          }
+        });
+      }
+    });
   });
 
-  navigator.serviceWorker.register('./sw.js').then((reg) => {
-    reg.addEventListener('updatefound', () => {
-      const newWorker = reg.installing;
-      newWorker.addEventListener('statechange', () => {
-        if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
-          const toast = document.getElementById('update-toast');
-          if (toast) toast.classList.add('visible');
-        }
-      });
-    });
+  // Recharge la page automatiquement dès que le nouveau Service Worker prend le contrôle
+  navigator.serviceWorker.addEventListener('controllerchange', () => {
+    window.location.reload();
   });
 }
