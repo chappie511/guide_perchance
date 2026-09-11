@@ -1,4 +1,4 @@
-const CACHE_NAME = 'perchance-guide-v4';
+const CACHE_NAME = 'guide-perchance-v20'; // Change la version
 
 const BASE_ASSETS = [
   './',
@@ -31,7 +31,7 @@ self.addEventListener('activate', (event) => {
       return Promise.all(
         keys.map((key) => {
           if (key !== CACHE_NAME) {
-            return caches.delete(key);
+            return caches.delete(key); // Supprime l'ancien cache v4
           }
         })
       );
@@ -39,21 +39,30 @@ self.addEventListener('activate', (event) => {
   );
 });
 
-// Service des ressources : Réseau d'abord, secours sur le cache si hors-ligne
+
+// Service des ressources : Réseau d'abord avec secours sur le cache
 self.addEventListener('fetch', (event) => {
+  // On ne traite que les requêtes GET
+  if (event.request.method !== 'GET') return;
+
   event.respondWith(
     fetch(event.request)
       .then((networkResponse) => {
-        if (networkResponse && networkResponse.status === 200) {
+        // Accepte le statut 200 (OK) ainsi que 304 / 0 (opaque)
+        if (networkResponse && (networkResponse.status === 200 || networkResponse.status === 0)) {
           const responseToCache = networkResponse.clone();
           caches.open(CACHE_NAME).then((cache) => cache.put(event.request, responseToCache));
         }
         return networkResponse;
       })
-      .catch(() => caches.match(event.request))
+      .catch(() => {
+        // En cas de panne réseau ou hors-ligne, récupérer dans le cache
+        return caches.match(event.request);
+      })
   );
 });
 
+// Écoute du message envoyé depuis index.js lors du clic sur "Rafraîchir"
 self.addEventListener('message', (event) => {
   if (event.data && event.data.type === 'SKIP_WAITING') {
     self.skipWaiting();
