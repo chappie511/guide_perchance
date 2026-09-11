@@ -1,6 +1,6 @@
-const CACHE_NAME = 'perchance-guide-v2';
+const CACHE_NAME = 'perchance-guide-dynamic';
 
-// 1. Liste des ressources de base de l'interface
+// 1. Liste des ressources de base
 const BASE_ASSETS = [
   './',
   './index.html',
@@ -10,57 +10,45 @@ const BASE_ASSETS = [
   'https://cdn.jsdelivr.net/gh/chappie511/Icon@main/golden_star_v3.png?v=1000'
 ];
 
-// 2. Génération automatique des chemins vers les 24 sections
+// 2. Génération automatique des 24 sections
 const SECTION_ASSETS = Array.from({ length: 24 }, (_, i) => {
   const num = String(i + 1).padStart(2, '0');
   return `./sections_du_guide/section_${num}.html`;
 });
 
-// 3. Fusion de toutes les ressources à mettre en cache
 const ASSETS_TO_CACHE = [...BASE_ASSETS, ...SECTION_ASSETS];
 
-// Installation : Pré-chargement global de tous les fichiers
+// Installation : mise en cache initiale
 self.addEventListener('install', (event) => {
   event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => {
-      return cache.addAll(ASSETS_TO_CACHE);
-    })
+    caches.open(CACHE_NAME).then((cache) => cache.addAll(ASSETS_TO_CACHE))
   );
   self.skipWaiting();
 });
 
-// Activation : Nettoyage des anciennes versions de cache
+// Activation
 self.addEventListener('activate', (event) => {
-  event.waitUntil(
-    caches.keys().then((keys) => {
-      return Promise.all(
-        keys.map((key) => {
-          if (key !== CACHE_NAME) {
-            return caches.delete(key);
-          }
-        })
-      );
-    }).then(() => self.clients.claim())
-  );
+  event.waitUntil(self.clients.claim());
 });
 
-// Interception des requêtes : Réseau en priorité, puis Cache de secours
+// Interception des requêtes : Stratégie Stale-While-Revalidate
 self.addEventListener('fetch', (event) => {
   event.respondWith(
-    fetch(event.request)
-      .then((networkResponse) => {
-        // Si la connexion fonctionne, on met à jour le cache au passage
-        if (networkResponse && networkResponse.status === 200) {
-          const responseToCache = networkResponse.clone();
-          caches.open(CACHE_NAME).then((cache) => {
-            cache.put(event.request, responseToCache);
-          });
-        }
-        return networkResponse;
-      })
-      .catch(() => {
-        // En cas de perte de réseau (hors-ligne), on utilise le cache local
-        return caches.match(event.request);
-      })
+    caches.open(CACHE_NAME).then((cache) => {
+      return cache.match(event.request).then((cachedResponse) => {
+        // Lancement du téléchargement en arrière-plan pour la prochaine fois
+        const fetchPromise = fetch(event.request)
+          .then((networkResponse) => {
+            if (networkResponse && networkResponse.status === 200) {
+              cache.put(event.request, networkResponse.clone());
+            }
+            return networkResponse;
+          })
+          .catch(() => cachedResponse); // En mode avion, ignore l'erreur réseau
+
+        // Retourne la version en cache immédiatement si elle existe, sinon attend le réseau
+        return cachedResponse || fetchPromise;
+      });
+    })
   );
 });
