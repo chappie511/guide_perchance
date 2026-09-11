@@ -669,41 +669,64 @@
     display: flex; opacity: 1; 
   }
   
-  .update-toast {
-    position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%) translateY(100px);
-    background-color: #0f172a;
-    color: #ffffff;
-    padding: 12px 18px;
-    border-radius: 30px;
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    font-size: 13px;
-    z-index: 999999;
-    transition: transform 0.4s ease-in-out;
-  }
+/* Style du bandeau de mise à jour */
+#update-toast {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  left: 20px;
+  max-width: 400px;
+  margin: 0 auto;
+  background-color: #1e293b;
+  color: #ffffff;
+  padding: 12px 16px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 100000;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
 
-  .update-toast.visible {
-    transform: translateX(-50%) translateY(0);
-  }
+#update-toast.hidden {
+  display: none !important;
+}
 
-  .update-toast button {
-    background-color: #2563eb;
-    color: #ffffff;
-    border: none;
-    padding: 6px 12px;
-    border-radius: 20px;
-    font-weight: bold;
-    font-size: 12px;
-    cursor: pointer;
-  }
+#update-toast.visible {
+  display: flex !important;
+  opacity: 1;
+  transform: translateY(0);
+}
 
-  .update-toast button:active {
-    background-color: #1d4ed8;
-  }
+.toast-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+#reload-btn {
+  background-color: #2563eb;
+  color: #ffffff;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+#reload-btn:active {
+  background-color: #1d4ed8;
+}
+
+#btn-close {
+  background: transparent;
+  border: none;
+  color: #94a3b8;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 0 4px;
+}
 
 </style>
