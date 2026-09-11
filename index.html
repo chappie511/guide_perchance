@@ -541,24 +541,16 @@
 
   <button class="back-to-top" id="backToTopBtn" title="Retour en haut" aria-label="Retour en haut">↑</button>
   
-  <!-- Chemin script -->
-  <script src="./js/index.js"></script>
-  
-  <!-- Service Worker -->
-  <script>
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('./sw.js')
-          .then(reg => console.log('Service Worker enregistré !', reg))
-          .catch(err => console.error('Erreur Service Worker :', err));
-      });
-    }
-  </script>
+     <!-- Chargement du script principal JavaScript avec defer -->
+  <script src="./js/index.js" defer></script>
 
-<!-- Bandeau de notification de mise à jour -->
-<<div id="update-toast" class="update-toast">
-  <span>✨ Nouvelle mise à jour disponible !</span>
-  <button id="btn-refresh" onclick="dismissAndReload()">Rafraîchir</button>
+<!-- Bannière de mise à jour Toast -->
+<div id="update-toast" class="update-toast hidden">
+  <span>✨ Une nouvelle version est disponible !</span>
+  <div class="toast-actions">
+    <button id="reload-btn" type="button">Rafraîchir</button>
+    <button id="btn-close" type="button" onclick="document.getElementById('update-toast').classList.remove('visible');" aria-label="Fermer">✕</button>
+  </div>
 </div>
 
 </body>
