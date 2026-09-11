@@ -1,4 +1,4 @@
-const CACHE_NAME = 'guide-perchance-v20'; // Change la version
+const CACHE_NAME = 'guide-perchance-v21'; // Change la version
 
 const BASE_ASSETS = [
   './',
