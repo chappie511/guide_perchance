@@ -1,3 +1,8 @@
+// Numéro de version unique pour votre projet
+const APP_VERSION = 'guide-perchance-v25';
+
+
+
 // Fonction pour charger et injecter du HTML de manière dynamique
 function chargerSection(idDeLaBoite, cheminDuFichier) {
     fetch(cheminDuFichier)
@@ -188,3 +193,27 @@ if ('serviceWorker' in navigator) {
     window.location.reload();
   });
 }
+
+// Affichage de la version dans l'interface
+document.addEventListener('DOMContentLoaded', () => {
+  const versionSpan = document.getElementById('app-version');
+  if (versionSpan) {
+    // Si le Service Worker est actif, on récupère sa version ou on indique le mode local
+    if (location.hostname === 'localhost' || location.hostname === '127.0.0.1' || location.hostname.startsWith('192.168.') || location.hostname.startsWith('10.')) {
+      versionSpan.textContent = 'Mode Local (TrebEdit)';
+    } else {
+      versionSpan.textContent = 'guide-perchance-v25'; // Mettez la même version qu'dans sw.js
+    }
+  }
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  const versionSpan = document.getElementById('app-version');
+  if (versionSpan) {
+    if (estServeurLocal) {
+      versionSpan.textContent = `${APP_VERSION} (Mode Local - TrebEdit)`;
+    } else {
+      versionSpan.textContent = APP_VERSION;
+    }
+  }
+});
