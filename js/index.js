@@ -122,29 +122,68 @@ function afficherNotificationMAJ(worker) {
   }
 }
 
-// Dans index.js (Correct)
+if ('serviceWorker' in navigator) {
+  if (estServeurLocal) {
+    // EN LOCAL : On désactive le Service Worker et on nettoie les anciens s'il y en a
+    navigator.serviceWorker.getRegistrations().then((registrations) => {
+      for (let registration of registrations) {
+        registration.unregister();
+      }
+    });
+    console.log("Mode local : Service Worker désactivé pour faciliter les tests.");
+  } else {
+    // EN LIGNE (GitHub Pages) : On active la gestion des mises à jour par Toast
+    navigator.serviceWorker.register('./sw.js').then((registration) => {
+      if (registration.waiting) {
+        afficherNotificationMAJ(registration.waiting);
+      }
+
+      registration.addEventListener('updatefound', () => {
+        const newWorker = registration.installing;
+        if (newWorker) {
+          newWorker.addEventListener('statechange', () => {
+            if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+              afficherNotificationMAJ(newWorker);
+            }
+          });
+        }
+      });
+    });
+
+    navigator.serviceWorker.addEventListener('controllerchange', () => {
+      window.location.reload();
+    });
+  }
+}
+
+
+// ==========================================
+// Enregistrement du Service Worker & Notifications
+// ==========================================
+
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('./sw.js').then((registration) => {
-    // Si un nouveau Service Worker attend d'être activé
+
+    // 1. Si une mise à jour attend déjà en arrière-plan
     if (registration.waiting) {
-      registration.waiting.postMessage({ type: 'SKIP_WAITING' });
+      afficherNotificationMAJ(registration.waiting);
     }
 
-    // Détecte lorsqu'un nouveau Service Worker est en cours d'installation
+    // 2. Si une nouvelle version est détectée pendant la session
     registration.addEventListener('updatefound', () => {
       const newWorker = registration.installing;
       if (newWorker) {
         newWorker.addEventListener('statechange', () => {
           if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
-            // Envoie le signal pour forcer la mise à jour immédiate
-            newWorker.postMessage({ type: 'SKIP_WAITING' });
+            // Affiche la bannière toast au lieu de rafraîchir d'un coup
+            afficherNotificationMAJ(newWorker);
           }
         });
       }
     });
   });
 
-  // Recharge la page automatiquement dès que le nouveau Service Worker prend le contrôle
+  // Recharche la page seulement quand l'utilisateur a cliqué sur "Rafraîchir"
   navigator.serviceWorker.addEventListener('controllerchange', () => {
     window.location.reload();
   });
