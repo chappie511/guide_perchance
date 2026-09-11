@@ -1,4 +1,4 @@
-const CACHE_NAME = 'perchance-guide-dynamic';
+const CACHE_NAME = 'perchance-guide-v3';
 
 const BASE_ASSETS = [
   './',
@@ -16,6 +16,7 @@ const SECTION_ASSETS = Array.from({ length: 24 }, (_, i) => {
 
 const ASSETS_TO_CACHE = [...BASE_ASSETS, ...SECTION_ASSETS];
 
+// Installation du nouveau cache
 self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => cache.addAll(ASSETS_TO_CACHE))
@@ -23,43 +24,32 @@ self.addEventListener('install', (event) => {
   self.skipWaiting();
 });
 
+// Nettoyage automatique des anciens caches (v1, v2...) lors de l'activation
 self.addEventListener('activate', (event) => {
-  event.waitUntil(self.clients.claim());
+  event.waitUntil(
+    caches.keys().then((keys) => {
+      return Promise.all(
+        keys.map((key) => {
+          if (key !== CACHE_NAME) {
+            return caches.delete(key);
+          }
+        })
+      );
+    }).then(() => self.clients.claim())
+  );
 });
 
+// Service des ressources : Réseau d'abord, secours sur le cache si hors-ligne
 self.addEventListener('fetch', (event) => {
   event.respondWith(
-    caches.open(CACHE_NAME).then((cache) => {
-      return cache.match(event.request).then((cachedResponse) => {
-        const fetchPromise = fetch(event.request)
-          .then(async (networkResponse) => {
-            if (networkResponse && networkResponse.status === 200) {
-              // Si nous avons une version en cache, on compare le contenu
-              if (cachedResponse) {
-                const cachedText = await cachedResponse.clone().text();
-                const networkText = await networkResponse.clone().text();
-
-                // On ne met à jour et n'alerte QUE si le contenu a changé
-                if (cachedText !== networkText) {
-                  await cache.put(event.request, networkResponse.clone());
-                  
-                  self.clients.matchAll().then((clients) => {
-                    clients.forEach((client) => {
-                      client.postMessage({ type: 'NEW_CONTENT_AVAILABLE' });
-                    });
-                  });
-                }
-              } else {
-                // Premier enregistrement dans le cache
-                await cache.put(event.request, networkResponse.clone());
-              }
-            }
-            return networkResponse;
-          })
-          .catch(() => cachedResponse);
-
-        return cachedResponse || fetchPromise;
-      });
-    })
+    fetch(event.request)
+      .then((networkResponse) => {
+        if (networkResponse && networkResponse.status === 200) {
+          const responseToCache = networkResponse.clone();
+          caches.open(CACHE_NAME).then((cache) => cache.put(event.request, responseToCache));
+        }
+        return networkResponse;
+      })
+      .catch(() => caches.match(event.request))
   );
 });
