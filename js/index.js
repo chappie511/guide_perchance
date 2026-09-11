@@ -102,3 +102,15 @@ document.addEventListener('click', function(event) {
   }
   
 });
+
+// Écoute les messages envoyés par le Service Worker
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.addEventListener('message', (event) => {
+    if (event.data && event.data.type === 'NEW_CONTENT_AVAILABLE') {
+      const toast = document.getElementById('update-toast');
+      if (toast) {
+        toast.classList.add('visible');
+      }
+    }
+  });
+}
