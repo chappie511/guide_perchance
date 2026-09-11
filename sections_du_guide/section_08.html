@@ -5,603 +5,956 @@
         <button id="btnOuvrirÉclairages" class="btn-open-menu">
   ☰ Ouvrir le sommaire des 35 types d'éclairages
 </button>
-        <div class="content-p">La direction de la lumière sculpte les volumes et définit la crédibilité physique de ta génération. Voici comment configurer tes sources lumineuses virtuelles :</div>
+        <div class="content-p">La direction et le style de la lumière sculptent les volumes et définissent l'atmosphère de tes générations. Chaque éclairage comporte ses règles d'injection, ses risques de surdose et ses leviers d'ajustement.</div>
 
         <div class="division_contenu"></div>
 
         <!-- 1. Backlit -->
         <div class="option-box" id="sec08-light-1">
             <div class="content-h3">1. Backlit</div>
+            <div class="content-p">Éclairage où la source lumineuse est placée directement derrière le sujet, créant un effet d'auréole et soulignant sa silhouette.</div>
             <div class="injected-box">
-                <span class="injected-label">TEXTE INJECTÉ PAR DÉFAUT</span>
-                Lighting  : Light source behind the subject, creating a halo effect and emphasizing the silhouette.
+                <div class="injected-label">TEXTE INJECTÉ PAR DÉFAUT</div>
+                Lighting : Light source behind the subject, creating a halo effect and emphasizing the silhouette.
             </div>
-            <div class="content-p">Source lumineuse placée directement derrière le sujet, créant un effet d'auréole lumineuse (halo) autour des contours et découpant la silhouette par rapport à l'arrière-plan.</div>
-            <div class="tip-title">Conseils d'utilisation :</div>
-            <div class="tip-text">Idéal pour les portraits dramatiques ou éthérés. À associer avec des termes comme <span class="code-word">silhouette</span>, <span class="code-word">edge kicker light</span> et <span class="code-word">lens flare</span>.</div>
+            
+            <div class="learn-box">
+                <span class="learn-label">ANALYSE & PIÈGES À ÉVITER</span>
+                Risque d'effacer les détails du premier plan ou d'obtenir un fond totalement blanc et brûlé.
+            </div>
+
+            <div class="good-example-box">
+  <span class="good-example-label">✅ Exemple de Prompt Optimisé :</span>(backlit: 1.2), light source behind subject, ethereal halo effect around edges, dramatic silhouette, subtle fill light, atmospheric dust particles, 85mm lens, moody tones, 8k resolution</div>
+
             <div class="negative-box">
-                <span class="negative-label">🚫 Negative Prompt recommandé :</span> flat front lighting, flash forward, shadowless, overexposed face
+                <span class="negative-label">🚫 Negative Prompt Suggéré :</span> front light, flat lighting, blown out white background, oversaturated, low contrast, featureless subject
             </div>
-            <div class="good-example-box">Cinematic portrait of a man, halo effect, golden rim light, sharp edge details, 85mm lens at f/2.0</div>
-            <a href="#section-8" class="back-to-sec-menu">↑ Retour au menu</a>
+
+            <div class="tip-title">Astuces d'ajustement :</div>
+            <div class="tip-text">Ajoutez <em>golden backlight</em> ou <em>sunset backlight</em> pour réchauffer la scène sans perdre la silhouette.</div>
+            
+            <a href="#section-8" class="back-to-sec-menu">⬆️ Retour au menu</a>
         </div>
 
         <!-- 2. Backlight -->
         <div class="option-box" id="sec08-light-2">
             <div class="content-h3">2. Backlight</div>
+            <div class="content-p">Éclairage sombre et mystérieux, souvent teinté de violet ou de bleu, fréquemment utilisé dans les films d'horreur et les thrillers.</div>
             <div class="injected-box">
-                <span class="injected-label">TEXTE INJECTÉ PAR DÉFAUT</span>
-                Lighting  : Dark and moody, with a purple or blue tint, often used in horror and thriller films.
+                <div class="injected-label">TEXTE INJECTÉ PAR DÉFAUT</div>
+                Lighting : Dark and moody, with a purple or blue tint, often used in horror and thriller films.
             </div>
-            <div class="content-p">Éclairage d'ambiance sombre et feutré, dominé par une lumière rasante ou arrière teintée de bleu ou de violet, évoquant l'atmosphère des films d'horreur et de suspense.</div>
-            <div class="tip-title">Conseils d'utilisation :</div>
-            <div class="tip-text">Parfait pour créer une tension dramatique ou une scène nocturne mystérieuse. Fonctionne très bien en synergie avec du brouillard ou de la fumée.</div>
+
+            <div class="learn-box">
+                <span class="learn-label">ANALYSE & PIÈGES À ÉVITER</span>
+                L'IA peut dériver vers un style cyberpunk si la teinte bleue/violette devient trop saturée.
+            </div>
+
+            <div class="good-example-box">
+  <span class="good-example-label">✅ Exemple de Prompt Optimisé :</span>(backlight:1.3), dark and moody atmosphere, deep purple and blue light tint, thriller movie aesthetic, subtle backlight glow, mysterious shadows, dramatic lighting, high detail</div>
+
             <div class="negative-box">
-                <span class="negative-label">🚫 Negative Prompt recommandé :</span> bright daylight, warm sunlight, high key, cheerful colors, pure white light
+                <span class="negative-label">🚫 Negative Prompt Suggéré :</span> bright sunlight, warm tones, high key, cheerful, front lighting, overexposed face
             </div>
-            <div class="good-example-box">Atmospheric thriller scene of a detective in an alleyway, purple and blue ambient glow, volumetric fog, sharp contrast ​Bright Lighting : Desert landscape shot, intense glaring sunlight, stark shadows, vivid punchy colors</div>
-            <a href="#section-8" class="back-to-sec-menu">↑ Retour au menu</a>
+
+            <div class="tip-title">Astuces d'ajustement :</div>
+            <div class="tip-text">Utilisez <em>cool color grade</em> pour renforcer l'ambiance horrifique sans surcharger les effets de lumière.</div>
+
+            <a href="#section-8" class="back-to-sec-menu">⬆️ Retour au menu</a>
         </div>
 
         <!-- 3. Bright Lighting -->
         <div class="option-box" id="sec08-light-3">
             <div class="content-h3">3. Bright Lighting</div>
+            <div class="content-p">Éclairage intense et direct qui atténue ou efface les détails en créant de forts contrastes.</div>
             <div class="injected-box">
-                <span class="injected-label">TEXTE INJECTÉ PAR DÉFAUT</span>
-                Lighting  : Harsh, bright light that washes out details and creates strong contrasts.
+                <div class="injected-label">TEXTE INJECTÉ PAR DÉFAUT</div>
+                Lighting : Harsh, bright light that washes out details and creates strong contrasts.
             </div>
-            <div class="content-p">Lumière intense et directe qui élimine les demi-teintes et génère des contrastes très marqués.</div>
-            <div class="tip-title">Conseils d'utilisation :</div>
-            <div class="tip-text">À employer pour traduire une sensation d'éblouissement, une chaleur écrasante ou une esthétique brute sans filtre.</div>
+
+            <div class="learn-box">
+                <span class="learn-label">ANALYSE & PIÈGES À ÉVITER</span>
+                Perte totale de texture sur la peau ou les objets due à la surexposition.
+            </div>
+
+            <div class="good-example-box">
+  <span class="good-example-label">✅ Exemple de Prompt Optimisé :</span>(bright lighting:1.2), harsh direct light, strong visual contrast, vivid colors, crisp focus, clear sharp details, outdoor sunlight, vibrant scene</div>
+
             <div class="negative-box">
-                <span class="negative-label">🚫 Negative Prompt recommandé :</span> soft diffused light, moody atmosphere, dark shadows, muted colors
+                <span class="negative-label">🚫 Negative Prompt Suggéré :</span> shadowy, dark atmosphere, dim light, low contrast, underexposed, foggy, muted colors
             </div>
-            <div class="good-example-box">Desert landscape shot, Harsh, bright light that washes out details and creates strong contrasts, intense sunlight, stark shadows, vivid colors</div>
-            <a href="#section-8" class="back-to-sec-menu">↑ Retour au menu</a>
+
+            <div class="tip-title">Astuces d'ajustement :</div>
+            <div class="tip-text">Ajoutez <em>sharp details</em> pour forcer le modèle à conserver les textures malgré la forte luminosité.</div>
+
+            <a href="#section-8" class="back-to-sec-menu">⬆️ Retour au menu</a>
         </div>
 
         <!-- 4. Candlelight -->
         <div class="option-box" id="sec08-light-4">
             <div class="content-h3">4. Candlelight</div>
+            <div class="content-p">Lumière douce et chaude émise par des bougies, créant une atmosphère intime et romantique.</div>
             <div class="injected-box">
-                <span class="injected-label">TEXTE INJECTÉ PAR DÉFAUT</span>
-                Lighting  : Soft, warm light from candles, creating a romantic and intimate atmosphere.
+                <div class="injected-label">TEXTE INJECTÉ PAR DÉFAUT</div>
+                Lighting : Soft, warm light from candles, creating a romantic and intimate atmosphere.
             </div>
-            <div class="content-p">Éclairage tamisé et très chaud émis par des bougies, instaurant une ambiance feutrée, romantique et confidentielle.</div>
-            <div class="tip-title">Conseils d'utilisation :</div>
-            <div class="tip-text">Excellent pour les scènes historiques, les dîners romantiques ou les portraits intimistes. À coupler idéalement avec une grande ouverture (<span class="code-word">f/1.4</span> à <span class="code-word">f/1.8</span>).</div>
+
+            <div class="learn-box">
+                <span class="learn-label">ANALYSE & PIÈGES À ÉVITER</span>
+                Génération de vraies bougies parasites visibles dans le cadre si vous voulez uniquement la lumière.
+            </div>
+
+            <div class="good-example-box">
+  <span class="good-example-label">✅ Exemple de Prompt Optimisé :</span>(soft candlelight:1.3), warm golden glow, intimate romantic atmosphere, flicker effect, gentle shadow falloff, cozy indoor setting, photorealistic</div>
+
             <div class="negative-box">
-                <span class="negative-label">🚫 Negative Prompt recommandé :</span> cool fluorescent light, daylight, harsh studio flash, bright white illumination
+                <span class="negative-label">🚫 Negative Prompt Suggéré :</span> harsh light, cool tones, fluorescent lighting, bright midday, cold colors, flash photography
             </div>
-            <div class="good-example-box">Intimate portrait of a couple at a dinner table, Soft, warm light from candles, creating a romantic and intimate atmosphere, flickering glow, deep warm tones, 50mm lens f/1.4</div>
-            <a href="#section-8" class="back-to-sec-menu">↑ Retour au menu</a>
+
+            <div class="tip-title">Astuces d'ajustement :</div>
+            <div class="tip-text">Spécifiez <em>off-screen candle illumination</em> si vous ne souhaitez pas voir les bougies dans l'image.</div>
+
+            <a href="#section-8" class="back-to-sec-menu">⬆️ Retour au menu</a>
         </div>
 
         <!-- 5. Chiaroscuro lighting -->
         <div class="option-box" id="sec08-light-5">
             <div class="content-h3">5. Chiaroscuro lighting</div>
+            <div class="content-p">Contraste marqué entre les zones de lumière et d'ombre, utilisé pour des scènes dramatiques et ténébreuses (style Caravage).</div>
             <div class="injected-box">
-                <span class="injected-label">TEXTE INJECTÉ PAR DÉFAUT</span>
-                Lighting  : Strong contrasts between light and dark, often used in dramatic and moody scenes.
+                <div class="injected-label">TEXTE INJECTÉ PAR DÉFAUT</div>
+                Lighting : Strong contrasts between light and dark, often used in dramatic and moody scenes.
             </div>
-            <div class="content-p">Technique du clair-obscur basée sur un contraste marqué entre zones très éclairées et ombres profondes, s'inspirant de la peinture classique (ex. Le Caravage).</div>
-            <div class="tip-title">Conseils d'utilisation :</div>
-            <div class="tip-text">Idéal pour accentuer les volumes anatomiques, le relief d'un visage ou une scène théâtrale sombre.</div>
+
+            <div class="learn-box">
+                <span class="learn-label">ANALYSE & PIÈGES À ÉVITER</span>
+                L'image peut devenir excessivement noire et perdre toute lisibilité dans les ombres.
+            </div>
+
+            <div class="good-example-box">
+  <span class="good-example-label">✅ Exemple de Prompt Optimisé :</span>(chiaroscuro lighting:1.3), strong contrast between light and dark, dramatic side lighting, deep shadows, fine art aesthetic, Rembrandt light style, cinematic</div>
+
             <div class="negative-box">
-                <span class="negative-label">🚫 Negative Prompt recommandé :</span> flat lighting, shadowless, high key, soft diffused light, low contrast
+                <span class="negative-label">🚫 Negative Prompt Suggéré :</span> flat light, soft lighting, high key, bright background, even illumination, no shadows
             </div>
-            <div class="good-example-box">Dramatic oil painting style portrait, Strong contrasts between light and dark, often used in dramatic and moody scenes, deep black shadows, stark directional light, Rembrandt lighting</div>
-            <a href="#section-8" class="back-to-sec-menu">↑ Retour au menu</a>
+
+            <div class="tip-title">Astuces d'ajustement :</div>
+            <div class="tip-text">Utilisez <em>focused light beam on face</em> pour diriger la lumière précisément sur le sujet.</div>
+
+            <a href="#section-8" class="back-to-sec-menu">⬆️ Retour au menu</a>
         </div>
 
         <!-- 6. Christmas Lights -->
         <div class="option-box" id="sec08-light-6">
             <div class="content-h3">6. Christmas Lights</div>
+            <div class="content-p">Lumières vives et colorées issues de guirlandes, créant une atmosphère festive et joyeuse.</div>
             <div class="injected-box">
-                <span class="injected-label">TEXTE INJECTÉ PAR DÉFAUT</span>
-                Lighting  : Bright, colorful light from Christmas lights, creating a festive and cheerful atmosphere.
+                <div class="injected-label">TEXTE INJECTÉ PAR DÉFAUT</div>
+                Lighting : Bright, colorful light from Christmas lights, creating a festive and cheerful atmosphere.
             </div>
-            <div class="content-p">Éclairage décoratif multicolore émanant de guirlandes lumineuses, apportant une touche joyeuse et féerique.</div>
-            <div class="tip-title">Conseils d'utilisation :</div>
-            <div class="tip-text">Utile pour créer un superbe effet bokeh de points lumineux multicolores en arrière-plan avec une faible profondeur de champ.</div>
+
+            <div class="learn-box">
+                <span class="learn-label">ANALYSE & PIÈGES À ÉVITER</span>
+                Transformation du fond en un fouillis d'éléments de Noël inutiles.
+            </div>
+
+            <div class="good-example-box">
+  <span class="good-example-label">✅ Exemple de Prompt Optimisé :</span>(bright colorful Christmas lights: 1.2), festive illumination, soft bokeh background dots, cheerful cozy glow, winter evening atmosphere, vibrant colors</div>
+
             <div class="negative-box">
-                <span class="negative-label">🚫 Negative Prompt recommandé :</span> monochrome, gloomy lighting, harsh sunlight, clinical white light
+                <span class="negative-label">🚫 Negative Prompt Suggéré :</span> gloomy, dark thriller, moody lighting, black and white, harsh shadows, flat colors
             </div>
-            <div class="good-example-box">Portrait of a girl outdoors in winter, Bright, colorful light from Christmas lights, creating a festive and cheerful atmosphere, beautiful background bokeh, warm cozy jacket</div>
-            <a href="#section-8" class="back-to-sec-menu">↑ Retour au menu</a>
+
+            <div class="tip-title">Astuces d'ajustement :</div>
+            <div class="tip-text">Ajoutez <em>shallow depth of field, background bokeh</em> pour isoler les lumières sous forme de belles bulles floues.</div>
+
+            <a href="#section-8" class="back-to-sec-menu">⬆️ Retour au menu</a>
         </div>
 
         <!-- 7. Cinematic lighting -->
         <div class="option-box" id="sec08-light-7">
             <div class="content-h3">7. Cinematic lighting</div>
+            <div class="content-p">Éclairage dramatique et expressif, riche en contrastes et ombres portées, évoquant le cinéma classique ou le film noir.</div>
             <div class="injected-box">
-                <span class="injected-label">TEXTE INJECTÉ PAR DÉFAUT</span>
-                Lighting  : Dramatic and moody, with strong contrasts and shadows, often used in film noir.
+                <div class="injected-label">TEXTE INJECTÉ PAR DÉFAUT</div>
+                Lighting : Dramatic and moody, with strong contrasts and shadows, often used in film noir.
             </div>
-            <div class="content-p">Éclairage stylisé typique des productions cinématographiques, utilisant des ombres marquées et un découpage précis pour raconter une histoire.</div>
-            <div class="tip-title">Conseils d'utilisation :</div>
-            <div class="tip-text">Un choix polyvalent pour donner immédiatement un aspect "cinéma" à vos visuels. À associer avec des termes de cadrage tels que <span class="code-word">anamorphic lens</span> ou <span class="code-word">35mm film frame</span>.</div>
+
+            <div class="learn-box">
+                <span class="learn-label">ANALYSE & PIÈGES À ÉVITER</span>
+                Résultat trop générique si le prompt manque de contexte de scène.
+            </div>
+
+            <div class="good-example-box">
+  <span class="good-example-label">✅ Exemple de Prompt Optimisé :</span>(cinematic lighting: 1.3), dramatic moody contrast, stylized shadows, film noir aesthetic, color graded, anamorphic lens flare, movie scene quality, high dynamic range</div>
+
             <div class="negative-box">
-                <span class="negative-label">🚫 Negative Prompt recommandé :</span> amateur photograph, flat smartphone flash, plain lighting, boring daylight
+                <span class="negative-label">🚫 Negative Prompt Suggéré :</span> amateur photo, flat lighting, phone camera, overexposed, plain background, plain lighting
             </div>
-            <div class="good-example-box">Film noir scene of a man in a trench coat, Dramatic and moody, with strong contrasts and shadows, often used in film noir, rain-soaked street, anamorphic lens flare</div>
-            <a href="#section-8" class="back-to-sec-menu">↑ Retour au menu</a>
+
+            <div class="tip-title">Astuces d'ajustement :</div>
+            <div class="tip-text">Combinez avec une focale précise comme <em>35mm lens shot</em> ou <em>anamorphic ratio</em>.</div>
+
+            <a href="#section-8" class="back-to-sec-menu">⬆️ Retour au menu</a>
         </div>
 
         <!-- 8. Dark lighting -->
         <div class="option-box" id="sec08-light-8">
             <div class="content-h3">8. Dark lighting</div>
+            <div class="content-p">Faible niveau d'éclairement instaurant une ambiance sombre, ténébreuse et mystérieuse.</div>
             <div class="injected-box">
-                <span class="injected-label">TEXTE INJECTÉ PAR DÉFAUT</span>
-                Lighting  : Low light levels, creating a moody and mysterious atmosphere.
+                <div class="injected-label">TEXTE INJECTÉ PAR DÉFAUT</div>
+                Lighting : Low light levels, creating a moody and mysterious atmosphere.
             </div>
-            <div class="content-p">Niveau d'éclairement minimal où le sujet se fond dans la pénombre, suscitant le mystère ou la tension.</div>
-            <div class="tip-title">Conseils d'utilisation :</div>
-            <div class="tip-text">À réserver pour les ambiances secrètes, mystiques ou nocturnes. Nécessite une attention particulière sur la lisibilité des contours du sujet.</div>
+
+            <div class="learn-box">
+                <span class="learn-label">ANALYSE & PIÈGES À ÉVITER</span>
+                Obtenir un écran entièrement noir sans forme distinguable.
+            </div>
+
+            <div class="good-example-box">
+  <span class="good-example-label">✅ Exemple de Prompt Optimisé :</span>(dark lighting: 1.3), low light levels, moody mysterious atmosphere, faint ambient glow, deep dark tones, subtle highlights, highly detailed shadows</div>
+
             <div class="negative-box">
-                <span class="negative-label">🚫 Negative Prompt recommandé :</span> overexposed, bright high key, daylight, stark white background
+                <span class="negative-label">🚫 Negative Prompt Suggéré :</span> overexposed, bright sunny day, vivid lighting, high key, washed out, direct sunlight
             </div>
-            <div class="good-example-box">Mysterious figure in a dark corridor, Low light levels, creating a moody and mysterious atmosphere, subtle silhouettes, deep blacks, high detail</div>
-            <a href="#section-8" class="back-to-sec-menu">↑ Retour au menu</a>
+
+            <div class="tip-title">Astuces d'ajustement :</div>
+            <div class="tip-text">Conservez un léger relief avec le terme <em>subtle rim highlights</em>.</div>
+
+            <a href="#section-8" class="back-to-sec-menu">⬆️ Retour au menu</a>
         </div>
 
-        <!-- 9. Deep shadow lighting -->
+        <!-- 9. Deep shadow Lighting -->
         <div class="option-box" id="sec08-light-9">
-            <div class="content-h3">9. Deep shadow lighting</div>
+            <div class="content-h3">9. Deep shadow Lighting</div>
+            <div class="content-p">Ambiance sombre marquée par des ombres profondes et une source lumineuse minimale, typique des thrillers et films d'horreur.</div>
             <div class="injected-box">
-                <span class="injected-label">TEXTE INJECTÉ PAR DÉFAUT</span>
-                Lighting  : Dark and moody, with deep shadows and minimal light sources, often used in horror and thriller films.
+                <div class="injected-label">TEXTE INJECTÉ PAR DÉFAUT</div>
+                Dark and moody, with deep shadows and minimal light sources, often used in horror and thriller films.
             </div>
-            <div class="content-p">Configuration extrême où les ombres envahissent la majeure partie de la composition, la lumière étant réduite à de rares faisceaux restreints.</div>
-            <div class="tip-title">Conseils d'utilisation :</div>
-            <div class="tip-text">Parfait pour créer une atmosphère d'angoisse ou de suspense, ou pour masquer volontairement une partie du visage ou du décor.</div>
+
+            <div class="learn-box">
+                <span class="learn-label">ANALYSE & PIÈGES À ÉVITER</span>
+                Artefacts de compression dans les zones sombres.
+            </div>
+
+            <div class="good-example-box">
+  <span class="good-example-label">✅ Exemple de Prompt Optimisé :</span>(deep shadow lighting:1.3), pitch dark areas, minimal light source, heavy shadow cast, horror movie tone, sharp edge shadows, dramatic atmosphere</div>
+
             <div class="negative-box">
-                <span class="negative-label">🚫 Negative Prompt recommandé :</span> even exposure, high key studio, bright overcast, soft filling light
+                <span class="negative-label">🚫 Negative Prompt Suggéré :</span> bright even light, soft lighting, sunny, no shadows, high key, pastel colors
             </div>
-            <div class="good-example-box">Horror movie close-up shot, Dark and moody, with deep shadows and minimal light sources, often used in horror and thriller films, intense gaze emerging from darkness</div>
-            <a href="#section-8" class="back-to-sec-menu">↑ Retour au menu</a>
+
+            <div class="tip-title">Astuces d'ajustement :</div>
+            <div class="tip-text">Associez le terme à <em>high contrast sharp shadows</em> pour garder des bords d'ombre nets.</div>
+
+            <a href="#section-8" class="back-to-sec-menu">⬆️ Retour au menu</a>
         </div>
 
         <!-- 10. Diffused Lighting -->
         <div class="option-box" id="sec08-light-10">
             <div class="content-h3">10. Diffused Lighting</div>
+            <div class="content-p">Lumière douce et homogène sans ombres marquées, semblable à celle produite par un diffuseur ou un ciel couvert.</div>
             <div class="injected-box">
-                <span class="injected-label">TEXTE INJECTÉ PAR DÉFAUT</span>
-                Lighting  : Soft and even, with no harsh shadows, often achieved with a diffuser or overcast sky.
+                <div class="injected-label">TEXTE INJECTÉ PAR DÉFAUT</div>
+                Lighting : Soft and even, with no harsh shadows, often achieved with a diffuser or overcast sky.
             </div>
-            <div class="content-p">Éclairage adouci par un filtre (diffuseur, boîte à lumière) ou par un ciel couvert, éliminant les ombres nettes et les zones de surbrillance.</div>
-            <div class="tip-title">Conseils d'utilisation :</div>
-            <div class="tip-text">Idéal pour adoucir les imperfections de la peau ou obtenir un rendu très propre et naturel sur un portrait.</div>
+
+            <div class="learn-box">
+                <span class="learn-label">ANALYSE & PIÈGES À ÉVITER</span>
+                Image plate qui manque de relief ou de profondeur.
+            </div>
+
+            <div class="good-example-box">
+  <span class="good-example-label">✅ Exemple de Prompt Optimisé :</span>(diffused lighting:1.2), soft even illumination, no harsh shadows, ambient lighting, smooth tonal transitions, gentle light falloff, studio softbox effect</div>
+
             <div class="negative-box">
-                <span class="negative-label">🚫 Negative Prompt recommandé :</span> harsh direct sun, stark shadows, high contrast, specular highlights
+                <span class="negative-label">🚫 Negative Prompt Suggéré :</span> hard direct light, harsh shadows, chiaroscuro, high contrast, spotlight, blinding sun
             </div>
-            <div class="good-example-box">Soft beauty portrait of a woman, Soft and even, with no harsh shadows, often achieved with a diffuser or overcast sky, smooth skin tones, neutral colors</div>
-            <a href="#section-8" class="back-to-sec-menu">↑ Retour au menu</a>
+
+            <div class="tip-title">Astuces d'ajustement :</div>
+            <div class="tip-text">Combinez avec <em>subtle depth of field</em> pour recréer du relief visuel.</div>
+
+            <a href="#section-8" class="back-to-sec-menu">⬆️ Retour au menu</a>
         </div>
 
         <!-- 11. Dim Lighting -->
         <div class="option-box" id="sec08-light-11">
             <div class="content-h3">11. Dim Lighting</div>
+            <div class="content-p">Éclairage de très faible intensité créant une ambiance feutrée, intime et ténébreuse.</div>
             <div class="injected-box">
-                <span class="injected-label">TEXTE INJECTÉ PAR DÉFAUT</span>
-                Lighting  : Low light levels, creating a moody and intimate atmosphere.
+                <div class="injected-label">TEXTE INJECTÉ PAR DÉFAUT</div>
+                Lighting : Low light levels, creating a moody and intimate atmosphere.
             </div>
-            <div class="content-p">Éclairage de faible intensité instaurant une ambiance feutrée, calme et intime.</div>
-            <div class="tip-title">Conseils d'utilisation :</div>
-            <div class="tip-text">Idéal pour les scènes d'intérieur en fin de soirée, les bars ou les pièces éclairées par une unique source lumineuse d'appoint.</div>
+
+            <div class="learn-box">
+                <span class="learn-label">ANALYSE & PIÈGES À ÉVITER</span>
+                Bruit visuel ou flou indésirable généré par l'IA.
+            </div>
+
+            <div class="good-example-box">
+  <span class="good-example-label">✅ Exemple de Prompt Optimisé :</span>(dim lighting: 1.2), low ambient light, cozy intimate mood, soft muted highlights, dark warm interior, quiet atmosphere</div>
+
             <div class="negative-box">
-                <span class="negative-label">🚫 Negative Prompt recommandé :</span> harsh daylight, bright studio flash, neon glow, high key
+                <span class="negative-label">🚫 Negative Prompt Suggéré :</span> bright daylight, harsh sun, flash light, vibrant bright colors, overexposed
             </div>
-            <div class="good-example-box">A cozy reading nook in a wooden cabin, Low light levels, creating a moody and intimate atmosphere, subtle lamp illumination, warm tones</div>
-            <a href="#section-8" class="back-to-sec-menu">↑ Retour au menu</a>
+
+            <div class="tip-title">Astuces d'ajustement :</div>
+            <div class="tip-text">Précisez la source ambiante comme <em>faint lamp glow</em>.</div>
+
+            <a href="#section-8" class="back-to-sec-menu">⬆️ Retour au menu</a>
         </div>
 
         <!-- 12. Early morning Lighting -->
         <div class="option-box" id="sec08-light-12">
             <div class="content-h3">12. Early morning Lighting</div>
+            <div class="content-p">Lumière douce et diffusée du petit matin, insufflant une atmosphère paisible et sereine.</div>
             <div class="injected-box">
-                <span class="injected-label">TEXTE INJECTÉ PAR DÉFAUT</span>
-                Lighting  : Soft, diffused light during early morning, creating a peaceful and serene atmosphere.
+                <div class="injected-label">TEXTE INJECTÉ PAR DÉFAUT</div>
+                Lighting : Soft, diffused light during early morning, creating a peaceful and serene atmosphere.
             </div>
-            <div class="content-p">Lumière douce et légèrement fraîche ou rosée caractérisant le lever du jour.</div>
-            <div class="tip-title">Conseils d'utilisation :</div>
-            <div class="tip-text">Magnifique pour les paysages naturels, la brume matinale ou les réveils calmes en intérieur.</div>
+
+            <div class="learn-box">
+                <span class="learn-label">ANALYSE & PIÈGES À ÉVITER</span>
+                Confusion par l'IA avec le coucher de soleil (teintes trop orange).
+            </div>
+
+            <div class="good-example-box">
+  <span class="good-example-label">✅ Exemple de Prompt Optimisé :</span>(early morning lighting: 1.2), soft diffused dawn light, peaceful serene atmosphere, gentle sunbeams through mist, cool blue and soft pink tones</div>
+
             <div class="negative-box">
-                <span class="negative-label">🚫 Negative Prompt recommandé :</span> harsh midday sun, dark midnight, neon lighting, dramatic contrast
+                <span class="negative-label">🚫 Negative Prompt Suggéré :</span> midday sun, harsh shadows, dark midnight, neon lights, hot orange sunset
             </div>
-            <div class="good-example-box">Serene forest lake, Soft, diffused light during early morning, creating a peaceful and serene atmosphere, morning mist, subtle pastel colors</div>
-            <a href="#section-8" class="back-to-sec-menu">↑ Retour au menu</a>
+
+            <div class="tip-title">Astuces d'ajustement :</div>
+            <div class="tip-text">Intégrez les termes <em>morning mist</em> ou <em>fog</em> pour étaler la lumière.</div>
+
+            <a href="#section-8" class="back-to-sec-menu">⬆️ Retour au menu</a>
         </div>
 
         <!-- 13. Fluorescent Lighting -->
         <div class="option-box" id="sec08-light-13">
             <div class="content-h3">13. Fluorescent Lighting</div>
+            <div class="content-p">Lumière crue et froide émanant de tubes fluorescents, propre aux bureaux et espaces publics.</div>
             <div class="injected-box">
-                <span class="injected-label">TEXTE INJECTÉ PAR DÉFAUT</span>
-                Lighting  : Harsh, cool light from fluorescent bulbs, often used in offices and public spaces.
+                <div class="injected-label">TEXTE INJECTÉ PAR DÉFAUT</div>
+                Lighting : Harsh, cool light from fluorescent bulbs, often used in offices and public spaces.
             </div>
-            <div class="content-p">Éclairage artificiel froid, légèrement verdâtre ou bleuté, typique des néons industriels et des espaces administratifs.</div>
-            <div class="tip-title">Conseils d'utilisation :</div>
-            <div class="tip-text">Utile pour insuffler une sensation de réalisme brut, d'aliénation urbaine ou une atmosphère hospitalière et cinématographique (style Matrix).</div>
+
+            <div class="learn-box">
+                <span class="learn-label">ANALYSE & PIÈGES À ÉVITER</span>
+                Rendu esthétique plat ou teintes vertes indésirables sur la peau.
+            </div>
+
+            <div class="good-example-box">
+  <span class="good-example-label">✅ Exemple de Prompt Optimisé :</span>(fluorescent lighting:1.2), harsh cool tones, overhead tube lights, sterile environment, realistic interior light, clinical atmosphere</div>
+
             <div class="negative-box">
-                <span class="negative-label">🚫 Negative Prompt recommandé :</span> warm golden glow, candlelight, sunset colors, soft romantic light
+                <span class="negative-label">🚫 Negative Prompt Suggéré :</span> warm golden light, romantic candlelight, cozy glow, natural sunlight, sunset
             </div>
-            <div class="good-example-box">A lone worker in a late-night office, Harsh, cool light from fluorescent bulbs, often used in offices and public spaces, sterile atmosphere, cool color grading</div>
-            <a href="#section-8" class="back-to-sec-menu">↑ Retour au menu</a>
+
+            <div class="tip-title">Astuces d'ajustement :</div>
+            <div class="tip-text">Ajoutez <em>cool white color temperature</em> pour affiner le ton clinique.</div>
+
+            <a href="#section-8" class="back-to-sec-menu">⬆️ Retour au menu</a>
         </div>
 
         <!-- 14. Golden hour lighting -->
         <div class="option-box" id="sec08-light-14">
             <div class="content-h3">14. Golden hour lighting</div>
+            <div class="content-p">Lumière chaude et dorée caractéristique de l'heure qui suit le lever ou précède le coucher du soleil.</div>
             <div class="injected-box">
-                <span class="injected-label">TEXTE INJECTÉ PAR DÉFAUT</span>
-                Lighting  : Warm, soft light during the hour after sunrise or before sunset, creating a golden glow.
+                <div class="injected-label">TEXTE INJECTÉ PAR DÉFAUT</div>
+                Lighting : Warm, soft light during the hour after sunrise or before sunset, creating a golden glow.
             </div>
-            <div class="content-p">Lumière rasante aux teintes dorées et chaleureuses survenant juste après le lever ou avant le coucher du soleil.</div>
-            <div class="tip-title">Conseils d'utilisation :</div>
-            <div class="tip-text">L'une des options les plus prisées pour la photographie portrait, lifestyle, les mariages et la mode en extérieur.</div>
+
+            <div class="learn-box">
+                <span class="learn-label">ANALYSE & PIÈGES À ÉVITER</span>
+                Saturation excessive tournant au jaune/orange synthétique.
+            </div>
+
+            <div class="good-example-box">
+  <span class="good-example-label">✅ Exemple de Prompt Optimisé :</span>(golden hour lighting: 1.3), warm soft golden glow, low sun angle, radiant natural light, long gentle shadows, rich warm hues, photographic</div>
+
             <div class="negative-box">
-                <span class="negative-label">🚫 Negative Prompt recommandé :</span> cool blue night, sterile fluorescent light, harsh midday shadows, desaturated colors
+                <span class="negative-label">🚫 Negative Prompt Suggéré :</span> cool blue light, harsh noon sun, fluorescent illumination, midnight dark, neon colors
             </div>
-            <div class="good-example-box">Outdoor fashion portrait in a wheat field, Warm, soft light during the hour after sunrise or before sunset, creating a golden glow, long warm shadows, backlit hair</div>
-            <a href="#section-8" class="back-to-sec-menu">↑ Retour au menu</a>
+
+            <div class="tip-title">Astuces d'ajustement :</div>
+            <div class="tip-text">Associez avec <em>warm lens flare</em> pour accentuer l'immersion.</div>
+
+            <a href="#section-8" class="back-to-sec-menu">⬆️ Retour au menu</a>
         </div>
 
         <!-- 15. Harsh Lighting -->
         <div class="option-box" id="sec08-light-15">
             <div class="content-h3">15. Harsh Lighting</div>
+            <div class="content-p">Lumière directe et vive générant des ombres franches et un contraste élevé.</div>
             <div class="injected-box">
-                <span class="injected-label">TEXTE INJECTÉ PAR DÉFAUT</span>
-                Lighting  : Strong, direct light that creates deep shadows and high contrast.
+                <div class="injected-label">TEXTE INJECTÉ PAR DÉFAUT</div>
+                Lighting : Strong, direct light that creates deep shadows and high contrast.
             </div>
-            <div class="content-p">Lumière crue, sans diffusion, créant un découpage net entre les zones éclairées et les zones d'ombre.</div>
-            <div class="tip-title">Conseils d'utilisation :</div>
-            <div class="tip-text">À employer pour donner un aspect dramatique, dynamique ou brut à la scène (ex. soleil de plomb, projecteur de scène).</div>
+
+            <div class="learn-box">
+                <span class="learn-label">ANALYSE & PIÈGES À ÉVITER</span>
+                Aspect surexposé non esthétique.
+            </div>
+
+            <div class="good-example-box">
+  <span class="good-example-label">✅ Exemple de Prompt Optimisé :</span>(harsh lighting:1.3), strong direct light source, deep hard shadows, high dynamic contrast, crisp details, intense sunlight effect</div>
+
             <div class="negative-box">
-                <span class="negative-label">🚫 Negative Prompt recommandé :</span> soft glow, diffused lighting, foggy, overcast sky, seamless shadows
+                <span class="negative-label">🚫 Negative Prompt Suggéré :</span> soft lighting, diffused glow, dim atmospheric light, overcast sky, gentle illumination
             </div>
-            <div class="good-example-box">Street style photograph of a model, Strong, direct light that creates deep shadows and high contrast, sharp geometric shadows, punchy colors</div>
-            <a href="#section-8" class="back-to-sec-menu">↑ Retour au menu</a>
+
+            <div class="tip-title">Astuces d'ajustement :</div>
+            <div class="tip-text">Utilisez <em>sharp geometric shadows</em> pour valoriser l'effet recherché.</div>
+
+            <a href="#section-8" class="back-to-sec-menu">⬆️ Retour au menu</a>
         </div>
 
         <!-- 16. High key Lighting -->
         <div class="option-box" id="sec08-light-16">
             <div class="content-h3">16. High key Lighting</div>
+            <div class="content-p">Éclairage très lumineux et uniforme aux ombres réduites au minimum, prisé en comédie et comédie musicale.</div>
             <div class="injected-box">
-                <span class="injected-label">TEXTE INJECTÉ PAR DÉFAUT</span>
-                Lighting  : Bright and even, with minimal shadows, often used in comedies and musicals.
+                <div class="injected-label">TEXTE INJECTÉ PAR DÉFAUT</div>
+                Lighting : Bright and even, with minimal shadows, often used in comedies and musicals.
             </div>
-            <div class="content-p">Style d'éclairage très lumineux dominé par des valeurs claires et une quasi-absence d'ombres marquées.</div>
-            <div class="tip-title">Conseils d'utilisation :</div>
-            <div class="tip-text">Parfait pour les visuels publicitaires, les portraits beauté sur fond blanc, la mode ou les atmosphères optimistes et épurées.</div>
+
+            <div class="learn-box">
+                <span class="learn-label">ANALYSE & PIÈGES À ÉVITER</span>
+                Visage lavé sans aucun relief ni contour.
+            </div>
+
+            <div class="good-example-box">
+  <span class="good-example-label">✅ Exemple de Prompt Optimisé :</span>(high key lighting: 1.3), bright even illumination, minimal shadows, airy clean aesthetic, soft highlights, cheerful tone, professional studio shot</div>
+
             <div class="negative-box">
-                <span class="negative-label">🚫 Negative Prompt recommandé :</span> dark shadows, low key, moody black background, deep contrast, dramatic chiaroscuro
+                <span class="negative-label">🚫 Negative Prompt Suggéré :</span> dark shadows, chiaroscuro, moody lighting, low key, horror, deep blacks
             </div>
-            <div class="good-example-box">Clean beauty commercial shot, Bright and even, with minimal shadows, often used in comedies and musicals, pure white backdrop, luminous skin</div>
-            <a href="#section-8" class="back-to-sec-menu">↑ Retour au menu</a>
+
+            <div class="tip-title">Astuces d'ajustement :</div>
+            <div class="tip-text">Ajoutez <em>subtle contrast on facial features</em> pour préserver les traits.</div>
+
+            <a href="#section-8" class="back-to-sec-menu">⬆️ Retour au menu</a>
         </div>
 
         <!-- 17. Infrared Lighting -->
         <div class="option-box" id="sec08-light-17">
             <div class="content-h3">17. Infrared Lighting</div>
+            <div class="content-p">Rendu sombre et singulier teinté de rouge ou de violet, évocateur des caméras thermiques ou du cinéma d'horreur.</div>
             <div class="injected-box">
-                <span class="injected-label">TEXTE INJECTÉ PAR DÉFAUT</span>
-                Lighting  : Dark and moody, with a red or purple tint, often used in horror and thriller films.
+                <div class="injected-label">TEXTE INJECTÉ PAR DÉFAUT</div>
+                Lighting : Dark and moody, with a red or purple tint, often used in horror and thriller films.
             </div>
-            <div class="content-p">Simulation d'éclairage infrarouge ou de caméra thermique, teintant la scène de nuances rouges, magenta et violacées.</div>
-            <div class="tip-title">Conseils d'utilisation :</div>
-            <div class="tip-text">Idéal pour le style cyberpunk, les scènes de vision nocturne, la surveillance militaire ou la science-fiction.</div>
+
+            <div class="learn-box">
+                <span class="learn-label">ANALYSE & PIÈGES À ÉVITER</span>
+                L'IA mélange l'infrarouge avec un simple filtre rouge de mauvaise qualité.
+            </div>
+
+            <div class="good-example-box">
+  <span class="good-example-label">✅ Exemple de Prompt Optimisé :</span>(infrared lighting:1.3), dark moody atmosphere, distinct purple and red tint spectrum, surreal thermal look, night vision aesthetic, eerie glowing foliage</div>
+
             <div class="negative-box">
-                <span class="negative-label">🚫 Negative Prompt recommandé :</span> natural sunlight, true-to-life colors, green foliage, neutral white balance
+                <span class="negative-label">🚫 Negative Prompt Suggéré :</span> natural colors, realistic daylight, warm sun, simple black and white, standard lighting
             </div>
-            <div class="good-example-box">Surveillance camera POV of an alleyway, Dark and moody, with a red or purple tint, often used in horror and thriller films, infrared thermal aesthetic</div>
-            <a href="#section-8" class="back-to-sec-menu">↑ Retour au menu</a>
+
+            <div class="tip-title">Astuces d'ajustement :</div>
+            <div class="tip-text">Spécifiez <em>surreal color shift</em> pour obtenir des feuillages blancs/rouges typiques de l'infrarouge.</div>
+
+            <a href="#section-8" class="back-to-sec-menu">⬆️ Retour au menu</a>
         </div>
 
         <!-- 18. Late afternoon Lighting -->
         <div class="option-box" id="sec08-light-18">
             <div class="content-h3">18. Late afternoon Lighting</div>
+            <div class="content-p">Lumière tiède et adoucie de la fin d'après-midi, projetant une douce clarté dorée.</div>
             <div class="injected-box">
-                <span class="injected-label">TEXTE INJECTÉ PAR DÉFAUT</span>
-                Lighting  : Warm, soft light during late afternoon, creating a golden glow.
+                <div class="injected-label">TEXTE INJECTÉ PAR DÉFAUT</div>
+                Lighting : Warm, soft light during late afternoon, creating a golden glow.
             </div>
-            <div class="content-p">Lumière dorée et rasante de fin d'après-midi, plus douce que le soleil de milieu de journée mais moins rouge que celle du coucher de soleil.</div>
-            <div class="tip-title">Conseils d'utilisation :</div>
-            <div class="tip-text">Idéal pour les scènes de voyage, les paysages urbains ou les promenades en extérieur.</div>
+
+            <div class="learn-box">
+                <span class="learn-label">ANALYSE & PIÈGES À ÉVITER</span>
+                Confusion fréquente avec le coucher de soleil complet.
+            </div>
+
+            <div class="good-example-box">
+  <span class="good-example-label">✅ Exemple de Prompt Optimisé :</span>(late afternoon lighting:1.2), soft warm sun rays, relaxing ambient glow, angled shadows, realistic outdoor lighting, natural warmth</div>
+
             <div class="negative-box">
-                <span class="negative-label">🚫 Negative Prompt recommandé :</span> harsh noon light, dark night, cool blue tones, fluorescent lighting
+                <span class="negative-label">🚫 Negative Prompt Suggéré :</span> harsh midday sun, cold dawn light, dark midnight, blue hour, neon light
             </div>
-            <div class="good-example-box">Street photography in Paris, Warm, soft light during late afternoon, creating a golden glow, elongated shadows on cobblestones</div>
-            <a href="#section-8" class="back-to-sec-menu">↑ Retour au menu</a>
+
+            <div class="tip-title">Astuces d'ajustement :</div>
+            <div class="tip-text">Précisez <em>angled sunlight</em> pour indiquer une position du soleil encore au-dessus de l'horizon.</div>
+
+            <a href="#section-8" class="back-to-sec-menu">⬆️ Retour au menu</a>
         </div>
 
         <!-- 19. Low key Lighting -->
         <div class="option-box" id="sec08-light-19">
             <div class="content-h3">19. Low key Lighting</div>
+            <div class="content-p">Éclairage sombre et dramatique fondé sur des contrastes marqués et des ombres épaisses, employé dans le thriller ou le fantastique.</div>
             <div class="injected-box">
-                <span class="injected-label">TEXTE INJECTÉ PAR DÉFAUT</span>
-                Lighting  : Dark and moody, with strong contrasts and deep shadows, often used in horror and thriller films.
+                <div class="injected-label">TEXTE INJECTÉ PAR DÉFAUT</div>
+                Lighting : Dark and moody, with strong contrasts and deep shadows, often used in horror and thriller films.
             </div>
-            <div class="content-p">Style d'éclairage à dominante sombre où seules quelques zones du sujet sont isolées et mises en valeur par la lumière.</div>
-            <div class="tip-title">Conseils d'utilisation :</div>
-            <div class="tip-text">Excellent pour la photographie sportive, les portraits sculptés ou les scènes dramatiques et intenses.</div>
+
+            <div class="learn-box">
+                <span class="learn-label">ANALYSE & PIÈGES À ÉVITER</span>
+                Masquage total du sujet dans les aplats noirs.
+            </div>
+
+            <div class="good-example-box">
+  <span class="good-example-label">✅ Exemple de Prompt Optimisé :</span>(low key lighting:1.3), dark moody scene, deep shadows, selective light highlights, high contrast, dramatic tension, fine art photo</div>
+
             <div class="negative-box">
-                <span class="negative-label">🚫 Negative Prompt recommandé :</span> bright white background, high key, evenly lit, overexposed, soft pastels
+                <span class="negative-label">🚫 Negative Prompt Suggéré :</span> high key, bright light, soft even light, daylight, white background, flat profile
             </div>
-            <div class="good-example-box">Athletic portrait of a boxer, Dark and moody, with strong contrasts and deep shadows, often used in horror and thriller films, dramatic side light</div>
-            <a href="#section-8" class="back-to-sec-menu">↑ Retour au menu</a>
+
+            <div class="tip-title">Astuces d'ajustement :</div>
+            <div class="tip-text">Ajoutez <em>precise key light on subject</em> pour faire ressortir une zone précise.</div>
+
+            <a href="#section-8" class="back-to-sec-menu">⬆️ Retour au menu</a>
         </div>
 
-        <!-- 20. Midday Lighting -->
+        <!-- 20. Mid day Lighting -->
         <div class="option-box" id="sec08-light-20">
-            <div class="content-h3">20. Midday Lighting</div>
+            <div class="content-h3">20. Mid day Lighting</div>
+            <div class="content-p">Scène éclairée par le soleil zénithal de milieu de journée, franc et intense.</div>
             <div class="injected-box">
-                <span class="injected-label">TEXTE INJECTÉ PAR DÉFAUT</span>
+                <div class="injected-label">TEXTE INJECTÉ PAR DÉFAUT</div>
                 The subject is lit by bright mid day sunlight.
             </div>
-            <div class="content-p">Lumière du soleil au plus haut dans le ciel, projetant une clarté maximale et des ombres courtes sous les reliefs.</div>
-            <div class="tip-title">Conseils d'utilisation :</div>
-            <div class="tip-text">Pour les scènes estivales, les ambiances de plage ou pour accentuer le réalisme d'une scène d'extérieur en plein jour.</div>
-            <div class="negative-box">
-                <span class="negative-label">🚫 Negative Prompt recommandé :</span> sunset glow, golden hour, night time, soft indoor lighting, long shadows
+
+            <div class="learn-box">
+                <span class="learn-label">ANALYSE & PIÈGES À ÉVITER</span>
+                Ombres désagréables sous les yeux du sujet (panda eyes).
             </div>
-            <div class="good-example-box">Beach resort scene, The subject is lit by bright mid day sunlight, vibrant blue water, crisp sharp details, bright exposure</div>
-            <a href="#section-8" class="back-to-sec-menu">↑ Retour au menu</a>
+
+            <div class="good-example-box">
+  <span class="good-example-label">✅ Exemple de Prompt Optimisé :</span>(bright mid day lighting: 1.2), direct overhead sunlight, vivid clear details, sharp natural shadows, bright environment, full illumination</div>
+
+            <div class="negative-box">
+                <span class="negative-label">🚫 Negative Prompt Suggéré :</span> sunset, golden hour, dark moody lights, long shadows, candlelight, nighttime
+            </div>
+
+            <div class="tip-title">Astuces d'ajustement :</div>
+            <div class="tip-text">Utilisez <em>fill light</em> si le soleil vertical crée des ombres trop dures sur les visages.</div>
+
+            <a href="#section-8" class="back-to-sec-menu">⬆️ Retour au menu</a>
         </div>
 
         <!-- 21. Midnight Lighting -->
         <div class="option-box" id="sec08-light-21">
             <div class="content-h3">21. Midnight Lighting</div>
+            <div class="content-p">Ambiance obscure et mystérieuse aux sources de lumière très restreintes (lune, lampadaire distant).</div>
             <div class="injected-box">
-                <span class="injected-label">TEXTE INJECTÉ PAR DÉFAUT</span>
-                Lighting  : Dark and moody, with minimal light sources, often used in horror and thriller films.
+                <div class="injected-label">TEXTE INJECTÉ PAR DÉFAUT</div>
+                Lighting : Dark and moody, with minimal light sources, often used in horror and thriller films.
             </div>
-            <div class="content-p">Ambiance nocturne profonde où la scène est très peu éclairée, dépendante uniquement de la lune ou de sources urbaines lointaines.</div>
-            <div class="tip-title">Conseils d'utilisation :</div>
-            <div class="tip-text">À employer pour les scènes d'infiltration, les virées nocturnes ou pour installer une tension en pleine nuit.</div>
+
+            <div class="learn-box">
+                <span class="learn-label">ANALYSE & PIÈGES À ÉVITER</span>
+                Obtenir un bleu nuit trop artificiel ou une image illisible.
+            </div>
+
+            <div class="good-example-box">
+  <span class="good-example-label">✅ Exemple de Prompt Optimisé :</span>(midnight lighting:1.3), deep night darkness, minimal ambient light sources, subtle moonlight highlights, moody dark colors, quiet mystery</div>
+
             <div class="negative-box">
-                <span class="negative-label">🚫 Negative Prompt recommandé :</span> bright daylight, afternoon sun, high key background, clear visibility
+                <span class="negative-label">🚫 Negative Prompt Suggéré :</span> bright sunlight, daylight, morning light, high key, clear bright illumination
             </div>
-            <div class="good-example-box">Gothic castle under the stars, Dark and moody, with minimal light sources, often used in horror and thriller films, faint moonlight, deep shadows</div>
-            <a href="#section-8" class="back-to-sec-menu">↑ Retour au menu</a>
+
+            <div class="tip-title">Astuces d'ajustement :</div>
+            <div class="tip-text">Ajoutez <em>cool moonlit reflections</em> pour distinguer le sol et les surfaces.</div>
+
+            <a href="#section-8" class="back-to-sec-menu">⬆️ Retour au menu</a>
         </div>
 
         <!-- 22. Natural lighting -->
         <div class="option-box" id="sec08-light-22">
             <div class="content-h3">22. Natural lighting</div>
+            <div class="content-p">Lumière du jour douce et harmonieuse en provenance directe du soleil, idéale pour des vues extérieures naturelles.</div>
             <div class="injected-box">
-                <span class="injected-label">TEXTE INJECTÉ PAR DÉFAUT</span>
-                Lighting  : Soft, even light from the sun, often used in outdoor scenes.
+                <div class="injected-label">TEXTE INJECTÉ PAR DÉFAUT</div>
+                Lighting : Soft, even light from the sun, often used in outdoor scenes.
             </div>
-            <div class="content-p">Lumière du jour brute, offrant un rendu authentique, sans éclairage de studio.</div>
-            <div class="tip-title">Conseils d'utilisation :</div>
-            <div class="tip-text">Idéal pour les visuels de la vie quotidienne, la photographie documentaire ou le style "lifestyle".</div>
+
+            <div class="learn-box">
+                <span class="learn-label">ANALYSE & PIÈGES À ÉVITER</span>
+                Rendu trop neutre ou manque de style photographique.
+            </div>
+
+            <div class="good-example-box">
+  <span class="good-example-label">✅ Exemple de Prompt Optimisé :</span>(natural lighting:1.2), soft realistic daylight, unprocessed light feel, authentic color rendition, gentle outdoor sun, true to life</div>
+
             <div class="negative-box">
-                <span class="negative-label">🚫 Negative Prompt recommandé :</span> studio flash, artificial neon, stage spotlight, heavy color filters
+                <span class="negative-label">🚫 Negative Prompt Suggéré :</span> studio flash, harsh spotlights, artificial neon, intense chiaroscuro, stylized color filters
             </div>
-            <div class="good-example-box">Documentary style portrait of a craftsman, Soft, even light from the sun, often used in outdoor scenes, authentic details, organic environment</div>
-            <a href="#section-8" class="back-to-sec-menu">↑ Retour au menu</a>
+
+            <div class="tip-title">Astuces d'ajustement :</div>
+            <div class="tip-text">Combinez avec <em>photorealistic details</em> pour renforcer l'authenticité.</div>
+
+            <a href="#section-8" class="back-to-sec-menu">⬆️ Retour au menu</a>
         </div>
 
         <!-- 23. Neon Lighting -->
         <div class="option-box" id="sec08-light-23">
             <div class="content-h3">23. Neon Lighting</div>
+            <div class="content-p">Lumières vives, saturées et colorées diffusées par des enseignes au néon, créant un cadre dynamique et énergique.</div>
             <div class="injected-box">
-                <span class="injected-label">TEXTE INJECTÉ PAR DÉFAUT</span>
-                Lighting  : Bright, colorful light from neon signs, creating a vibrant and energetic atmosphere.
+                <div class="injected-label">TEXTE INJECTÉ PAR DÉFAUT</div>
+                Lighting : Bright, colorful light from neon signs, creating a vibrant and energetic atmosphere.
             </div>
-            <div class="content-p">Lumière artificielle vive et fortement saturée produite par des tubes au néon (souvent cyan, magenta ou vert).</div>
-            <div class="tip-title">Conseils d'utilisation :</div>
-            <div class="tip-text">Incontournable pour les thèmes Cyberpunk, Synthwave, la vie nocturne à Tokyo ou les bars rétro.</div>
+
+            <div class="learn-box">
+                <span class="learn-label">ANALYSE & PIÈGES À ÉVITER</span>
+                Surcharger le sujet sous des halos de couleur au détriment de l'anatomie.
+            </div>
+
+            <div class="good-example-box">
+  <span class="good-example-label">✅ Exemple de Prompt Optimisé :</span>(vibrant neon lighting: 1.3), glowing colorful neon signs, bright pink and cyan highlights, energetic atmosphere, night city reflections, wet pavement glow</div>
+
             <div class="negative-box">
-                <span class="negative-label">🚫 Negative Prompt recommandé :</span> natural sunlight, warm golden hour, muted tones, black and white
+                <span class="negative-label">🚫 Negative Prompt Suggéré :</span> natural sunlight, dull flat lighting, black and white, monochrome, pastel colors
             </div>
-            <div class="good-example-box">Cyberpunk street scene at night, Bright, colorful light from neon signs, creating a vibrant and energetic atmosphere, magenta and cyan reflections</div>
-            <a href="#section-8" class="back-to-sec-menu">↑ Retour au menu</a>
+
+            <div class="tip-title">Astuces d'ajustement :</div>
+            <div class="tip-text">Équilibrez les couleurs avec <em>dual tone neon illumination (pink and teal)</em>.</div>
+
+            <a href="#section-8" class="back-to-sec-menu">⬆️ Retour au menu</a>
         </div>
 
         <!-- 24. No Lighting -->
         <div class="option-box" id="sec08-light-24">
             <div class="content-h3">24. No Lighting</div>
+            <div class="content-p">Obscurité totale sans aucune source lumineuse visible.</div>
             <div class="injected-box">
-                <span class="injected-label">TEXTE INJECTÉ PAR DÉFAUT</span>
-                Lighting  : Complete darkness, with no visible light source.
+                <div class="injected-label">TEXTE INJECTÉ PAR DÉFAUT</div>
+                Lighting : Complete darkness, with no visible light source.
             </div>
-            <div class="content-p">Obscurité totale ou quasi totale. Dans un contexte de génération d'images, cette instruction oriente le modèle vers un noir profond ou des silhouettes imperceptibles.</div>
-            <div class="tip-title">Conseils d'utilisation :</div>
-            <div class="tip-text">À utiliser avec précaution, souvent combiné avec de l'infrarouge, des contours légers ou de la vision nocturne pour maintenir le sujet décelable.</div>
+
+            <div class="learn-box">
+                <span class="learn-label">ANALYSE & PIÈGES À ÉVITER</span>
+                L'IA refusera souvent d'afficher du pur noir et générera des formes au hasard.
+            </div>
+
+            <div class="good-example-box">
+  <span class="good-example-label">✅ Exemple de Prompt Optimisé :</span>(no lighting:1.3), complete darkness, total absence of visible light, pitch black background, near-invisible outlines, deep obscurity</div>
+
             <div class="negative-box">
-                <span class="negative-label">🚫 Negative Prompt recommandé :</span> bright lights, direct sunlight, studio flash, high key
+                <span class="negative-label">🚫 Negative Prompt Suggéré :</span> bright, lit room, light source, spotlight, sunny, glowing, highlights
             </div>
-            <div class="good-example-box">Deep underground cave exploration, Complete darkness, with no visible light source, faint silhouette edge, pitch black atmosphere</div>
-            <a href="#section-8" class="back-to-sec-menu">↑ Retour au menu</a>
+
+            <div class="tip-title">Astuces d'ajustement :</div>
+            <div class="tip-text">Indiquez <em>faint dark silhouettes</em> pour que le générateur produise quand même un contenu discernable.</div>
+
+            <a href="#section-8" class="back-to-sec-menu">⬆️ Retour au menu</a>
         </div>
 
         <!-- 25. Noon Lighting -->
         <div class="option-box" id="sec08-light-25">
             <div class="content-h3">25. Noon Lighting</div>
+            <div class="content-p">Lumière zénithale d'aplomb, dure et directe, produisant un fort contraste et des ombres très courtes.</div>
             <div class="injected-box">
-                <span class="injected-label">TEXTE INJECTÉ PAR DÉFAUT</span>
-                Lighting  : Harsh, direct light from the sun at midday, creating strong shadows and high contrast.
+                <div class="injected-label">TEXTE INJECTÉ PAR DÉFAUT</div>
+                Lighting : Harsh, direct light from the sun at midday, creating strong shadows and high contrast.
             </div>
-            <div class="content-p">Éclairage vertical tombant du soleil à son zénith, créant des ombres marquées directement sous les reliefs (yeux, nez).</div>
-            <div class="tip-title">Conseils d'utilisation :</div>
-            <div class="tip-text">Utile pour exprimer la dureté d'un climat, magnifier les paysages désertiques ou adopter un style photojournalistique estival.</div>
+
+            <div class="learn-box">
+                <span class="learn-label">ANALYSE & PIÈGES À ÉVITER</span>
+                Écrasement visuel des textures dû à l'angle vertical de la lumière.
+            </div>
+
+            <div class="good-example-box">
+  <span class="good-example-label">✅ Exemple de Prompt Optimisé :</span>(harsh noon lighting:1.2), direct zenith sunlight, strong highlights, short dark shadows, high contrast, crisp vivid environment</div>
+
             <div class="negative-box">
-                <span class="negative-label">🚫 Negative Prompt recommandé :</span> golden hour, soft rim light, twilight, diffuse indoor light
+                <span class="negative-label">🚫 Negative Prompt Suggéré :</span> soft morning glow, sunset colors, long shadows, moody candle light, twilight
             </div>
-            <div class="good-example-box">Architectural shot of a modern building, Harsh, direct light from the sun at midday, creating strong shadows and high contrast, sharp geometric lines</div>
-            <a href="#section-8" class="back-to-sec-menu">↑ Retour au menu</a>
+
+            <div class="tip-title">Astuces d'ajustement :</div>
+            <div class="tip-text">Ajoutez <em>heat haze effect</em> pour renforcer l'ambiance de chaleur.</div>
+
+            <a href="#section-8" class="back-to-sec-menu">⬆️ Retour au menu</a>
         </div>
 
         <!-- 26. Overcast Lighting -->
         <div class="option-box" id="sec08-light-26">
             <div class="content-h3">26. Overcast Lighting</div>
+            <div class="content-p">Lumière diffuse et adoucie filtrée par un ciel nuageux, donnant un éclairage plat, égal et sans ombre marquée.</div>
             <div class="injected-box">
-                <span class="injected-label">TEXTE INJECTÉ PAR DÉFAUT</span>
-                Lighting  : Soft, diffused light from an overcast sky, creating a flat and even light.
+                <div class="injected-label">TEXTE INJECTÉ PAR DÉFAUT</div>
+                Lighting : Soft, diffused light from an overcast sky, creating a flat and even light.
             </div>
-            <div class="content-p">Éclairage produit par un ciel nuageux qui agit comme un immense diffuseur naturel, éliminant les ombres dures.</div>
-            <div class="tip-title">Conseils d'utilisation :</div>
-            <div class="tip-text">Excellent pour la photographie de paysage scandinave, les ambiances mélancoliques ou pour préserver des couleurs très fidèles sans reflets intempestifs.</div>
+
+            <div class="learn-box">
+                <span class="learn-label">ANALYSE & PIÈGES À ÉVITER</span>
+                Image terne sans aucun relief.
+            </div>
+
+            <div class="good-example-box">
+  <span class="good-example-label">✅ Exemple de Prompt Optimisé :</span>(overcast lighting:1.2), soft diffused light from cloudy sky, flat even lighting, subtle tone shifts, no hard shadows, melancholic mood</div>
+
             <div class="negative-box">
-                <span class="negative-label">🚫 Negative Prompt recommandé :</span> bright sunny sky, direct sunlight, sharp shadows, lens flare
+                <span class="negative-label">🚫 Negative Prompt Suggéré :</span> direct bright sun, harsh shadows, neon glow, spotlight, high contrast sunset
             </div>
-            <div class="good-example-box">Cinematic landscape of Scottish highlands, Soft, diffused light from an overcast sky, creating a flat and even light, rich green hues, moody atmosphere</div>
-            <a href="#section-8" class="back-to-sec-menu">↑ Retour au menu</a>
+
+            <div class="tip-title">Astuces d'ajustement :</div>
+            <div class="tip-text">Jouez sur la saturation avec <em>rich desaturated colors</em> pour donner du style à la scène.</div>
+
+            <a href="#section-8" class="back-to-sec-menu">⬆️ Retour au menu</a>
         </div>
 
         <!-- 27. Rim lighting -->
         <div class="option-box" id="sec08-light-27">
             <div class="content-h3">27. Rim lighting</div>
+            <div class="content-p">Le rim lighting (ou éclairage de contour) consiste à placer une source lumineuse puissante derrière le sujet pour détacher sa silhouette du fond par une ligne de lumière brillante sur les contours (cheveux, épaules, profil).</div>
             <div class="injected-box">
-                <span class="injected-label">TEXTE INJECTÉ PAR DÉFAUT</span>
-                Lighting  : Light source behind the subject, creating a rim of light around the edges of the subject.
+                <div class="injected-label">TEXTE INJECTÉ PAR DÉFAUT</div>
+                Lighting : Light source behind the subject, creating a rim of light around the edges of the subject.
             </div>
-            <div class="content-p">Éclairage de découpe créant un fin liseré lumineux tout autour des contours du sujet pour le détacher nettement du fond.</div>
-            <div class="tip-title">Conseils d'utilisation :</div>
-            <div class="tip-text">Parfait pour la photographie sportive, les visuels de musculation ou les portraits sur fond sombre.</div>
+
+            <div class="learn-box">
+                <span class="learn-label">ANALYSE & PIÈGES À ÉVITER</span>
+                <div class="custom-li"><strong>Blinding Background / Overexposure :</strong> En demandant une forte lumière dorsale, le modèle efface souvent le décor au profit d'un halo blanc.</div>
+                <div class="custom-li"><strong>Color Bleed :</strong> Si vous spécifiez une couleur pour la lumière de contour et une autre pour les vêtements, la teinte lumineuse risque d'envahir tout le sujet.</div>
+                <div class="custom-li"><strong>Loss of Facial Detail :</strong> Une source arrière intense pousse le modèle à mettre le visage entièrement dans l'ombre.</div>
+            </div>
+
+            <div class="good-example-box">
+  <span class="good-example-label">✅ Exemple de Prompt Optimisé :</span>(dramatic rim lighting:1.3), edge lighting highlighting silhouette, strong backlight, medium shot of a woman, intricate hair glow, illuminated outlines, subtle fill light on face, dark moody atmosphere, highly detailed, 85mm lens, f/1.8, cinematic depth of field, 8k resolution</div>
+
             <div class="negative-box">
-                <span class="negative-label">🚫 Negative Prompt recommandé :</span> flat lighting, shadowless, bright background, low contrast
+                <span class="negative-label">🚫 Negative Prompt Suggéré :</span> overexposed, blown out highlights, bright white background, direct frontal light, flat lighting, dark silhouette, featureless face, low contrast, blurry, low quality, bad anatomy
             </div>
-            <div class="good-example-box">Studio portrait of an athlete, Light source behind the subject, creating a rim of light around the edges of the subject, sharp muscle definition, dark background</div>
-            <a href="#section-8" class="back-to-sec-menu">↑ Retour au menu</a>
+
+            <div class="tip-title">Astuces d'ajustement :</div>
+            <div class="tip-text">Garder les détails du visage : Si le visage est trop sombre, ajoutez <em>subtle front fill light</em> ou <em>soft ambient reflection on face</em> au début du prompt.<br>
+            Créer du contraste de couleur : Associez un fond sombre à une couleur de lumière précise : <em>(neon blue rim light on dark hair:1.2), ambient dark background</em>.</div>
+
+            <a href="#section-8" class="back-to-sec-menu">⬆️ Retour au menu</a>
         </div>
 
         <!-- 28. Soft lighting -->
         <div class="option-box" id="sec08-light-28">
             <div class="content-h3">28. Soft lighting</div>
+            <div class="content-p">Éclairage délicat et légèrement diffusé produisant des ombres douces, prisé pour les ambiances poétiques et intimes.</div>
             <div class="injected-box">
-                <span class="injected-label">TEXTE INJECTÉ PAR DÉFAUT</span>
-                Lighting  : Gentle and diffused, with soft shadows, often used in romantic and intimate scenes.
+                <div class="injected-label">TEXTE INJECTÉ PAR DÉFAUT</div>
+                Lighting : Gentle and diffused, with soft shadows, often used in romantic and intimate scenes.
             </div>
-            <div class="content-p">Lumière douce aux transitions progressives entre les zones éclairées et les zones d'ombre.</div>
-            <div class="tip-title">Conseils d'utilisation :</div>
-            <div class="tip-text">Recommandé pour les portraits adoucis, les univers d'enfance, les produits cosmétiques et la poésie visuelle.</div>
+
+            <div class="learn-box">
+                <span class="learn-label">ANALYSE & PIÈGES À ÉVITER</span>
+                Rendu manquant parfois de piqué ou de définition.
+            </div>
+
+            <div class="good-example-box">
+  <span class="good-example-label">✅ Exemple de Prompt Optimisé :</span>(soft lighting: 1.3), gentle diffused glow, tender shadows, smooth skin tones, intimate cozy mood, warm aesthetic, high quality</div>
+
             <div class="negative-box">
-                <span class="negative-label">🚫 Negative Prompt recommandé :</span> harsh direct sun, stark shadows, high contrast, specular highlights
+                <span class="negative-label">🚫 Negative Prompt Suggéré :</span> harsh light, direct sun, deep shadows, neon, flash photo, high contrast chiaroscuro
             </div>
-            <div class="good-example-box">Poetic portrait of a woman indoors, Gentle and diffused, with soft shadows, often used in romantic and intimate scenes, natural window diffusion</div>
-            <a href="#section-8" class="back-to-sec-menu">↑ Retour au menu</a>
+
+            <div class="tip-title">Astuces d'ajustement :</div>
+            <div class="tip-text">Ajoutez <em>studio softbox light</em> pour un contrôle optimal en portrait.</div>
+
+            <a href="#section-8" class="back-to-sec-menu">⬆️ Retour au menu</a>
         </div>
 
         <!-- 29. Spotlight -->
         <div class="option-box" id="sec08-light-29">
             <div class="content-h3">29. Spotlight</div>
+            <div class="content-p">Faisceau lumineux unique et concentré isolant et mettant en valeur un élément précis de la scène.</div>
             <div class="injected-box">
-                <span class="injected-label">TEXTE INJECTÉ PAR DÉFAUT</span>
-                Lighting  : A single, focused beam of light, often used to highlight a specific subject or area.
+                <div class="injected-label">TEXTE INJECTÉ PAR DÉFAUT</div>
+                Lighting : A single, focused beam of light, often used to highlight a specific subject or area.
             </div>
-            <div class="content-p">Faisceau lumineux concentré et directionnel (type projecteur de théâtre), isolant le sujet du reste du décor.</div>
-            <div class="tip-title">Conseils d'utilisation :</div>
-            <div class="tip-text">Idéal pour les scènes de concert, le théâtre ou pour attirer l'attention sur un détail précis de la composition.</div>
+
+            <div class="learn-box">
+                <span class="learn-label">ANALYSE & PIÈGES À ÉVITER</span>
+                Halo trop découpé ou bord de faisceau mal intégré.
+            </div>
+
+            <div class="good-example-box">
+  <span class="good-example-label">✅ Exemple de Prompt Optimisé :</span>(dramatic spotlight: 1.3), single focused light beam, dust motes visible in light cone, subject highlighted, dark surrounding stage, intense focus</div>
+
             <div class="negative-box">
-                <span class="negative-label">🚫 Negative Prompt recommandé :</span> even daylight, high key studio, floodlight, shadowless background
+                <span class="negative-label">🚫 Negative Prompt Suggéré :</span> even ambient light, daylight, bright background, diffused illumination, multiple lights
             </div>
-            <div class="good-example-box">Singer on a dark stage, A single, focused beam of light, often used to highlight a specific subject or area, atmospheric dust particles in light beam</div>
-            <a href="#section-8" class="back-to-sec-menu">↑ Retour au menu</a>
+
+            <div class="tip-title">Astuces d'ajustement :</div>
+            <div class="tip-text">Intégrez <em>dust particles in light beam</em> pour matérialiser visuellement le rayon.</div>
+
+            <a href="#section-8" class="back-to-sec-menu">⬆️ Retour au menu</a>
         </div>
 
         <!-- 30. Studio lighting -->
         <div class="option-box" id="sec08-light-30">
             <div class="content-h3">30. Studio lighting</div>
+            <div class="content-p">Éclairage entièrement maîtrisé et équilibré, caractéristique de la photographie de mode ou de produit en studio.</div>
             <div class="injected-box">
-                <span class="injected-label">TEXTE INJECTÉ PAR DÉFAUT</span>
-                Lighting  : Controlled and even, often used in professional photography and film.
+                <div class="injected-label">TEXTE INJECTÉ PAR DÉFAUT</div>
+                Lighting : Controlled and even, often used in professional photography and film.
             </div>
-            <div class="content-p">Éclairage artificiel entièrement contrôlé (softbox, flash) garantissant une exposition homogène et maîtrisée.</div>
-            <div class="tip-title">Conseils d'utilisation :</div>
-            <div class="tip-text">Le standard pour les séances photo de mode, les portraits professionnels et le e-commerce.</div>
+
+            <div class="learn-box">
+                <span class="learn-label">ANALYSE & PIÈGES À ÉVITER</span>
+                Image trop "catalogue" ou dénuée de personnalité.
+            </div>
+
+            <div class="good-example-box">
+  <span class="good-example-label">✅ Exemple de Prompt Optimisé :</span>(professional studio lighting:1.3), balanced three-point lighting, soft key light, fill light, crisp details, professional color grading, magazine cover quality</div>
+
             <div class="negative-box">
-                <span class="negative-label">🚫 Negative Prompt recommandé :</span> uncontrolled sunlight, harsh outdoor shadows, dim ambient light, amateur flash
+                <span class="negative-label">🚫 Negative Prompt Suggéré :</span> natural outdoor sun, chaotic shadows, grainy light, harsh sunlight, dark room
             </div>
-            <div class="good-example-box">Editorial studio photography of a fashion model, Controlled and even, often used in professional photography and film, softboxes setup, sharp details</div>
-            <a href="#section-8" class="back-to-sec-menu">↑ Retour au menu</a>
+
+            <div class="tip-title">Astuces d'ajustement :</div>
+            <div class="tip-text">Précisez la configuration <em>key light, fill light, rim light setup</em>.</div>
+
+            <a href="#section-8" class="back-to-sec-menu">⬆️ Retour au menu</a>
         </div>
 
         <!-- 31. Sunrise Lighting -->
         <div class="option-box" id="sec08-light-31">
             <div class="content-h3">31. Sunrise Lighting</div>
+            <div class="content-p">Lumière tiède et tamisée marquant l'aube, instaurant un sentiment d'apaisement et de sérénité.</div>
             <div class="injected-box">
-                <span class="injected-label">TEXTE INJECTÉ PAR DÉFAUT</span>
-                Lighting  : Soft, warm light during sunrise, creating a peaceful and serene atmosphere.
+                <div class="injected-label">TEXTE INJECTÉ PAR DÉFAUT</div>
+                Lighting : Soft, warm light during sunrise, creating a peaceful and serene atmosphere.
             </div>
-            <div class="content-p">Lumière naissante aux teintes roses, orangées et légèrement fraîches qui accompagne le lever du soleil.</div>
-            <div class="tip-title">Conseils d'utilisation :</div>
-            <div class="tip-text">Parfait pour symboliser l'espoir, les nouveaux départs ou une nature au réveil.</div>
+
+            <div class="learn-box">
+                <span class="learn-label">ANALYSE & PIÈGES À ÉVITER</span>
+                Similitude fréquente avec le coucher de soleil.
+            </div>
+
+            <div class="good-example-box">
+  <span class="good-example-label">✅ Exemple de Prompt Optimisé :</span>(sunrise lighting:1.2), soft morning warmth, gentle dawn sky glow, fresh light rays, serene mood, pale orange and pink tones</div>
+
             <div class="negative-box">
-                <span class="negative-label">🚫 Negative Prompt recommandé :</span> dark midnight, harsh noon light, neon lighting, gloomy grey cloud
+                <span class="negative-label">🚫 Negative Prompt Suggéré :</span> midday sun, dark midnight, harsh fluorescent, neon light, deep night
             </div>
-            <div class="good-example-box">Mountain peak landscape, Soft, warm light during sunrise, creating a peaceful and serene atmosphere, soft pink clouds, clear horizon</div>
-            <a href="#section-8" class="back-to-sec-menu">↑ Retour au menu</a>
+
+            <div class="tip-title">Astuces d'ajustement :</div>
+            <div class="tip-text">Mettez en avant l'ambiance matinale avec <em>fresh morning dew</em>, <em>dawn haze</em>.</div>
+
+            <a href="#section-8" class="back-to-sec-menu">⬆️ Retour au menu</a>
         </div>
 
         <!-- 32. Sunset Lighting -->
         <div class="option-box" id="sec08-light-32">
             <div class="content-h3">32. Sunset Lighting</div>
+            <div class="content-p">Éclairage doré et chaleureux du soleil couchant, générateur d'ambiances dramatiques et romantiques.</div>
             <div class="injected-box">
-                <span class="injected-label">TEXTE INJECTÉ PAR DÉFAUT</span>
-                Lighting  : Warm, golden light during sunset, creating a romantic and dramatic atmosphere.
+                <div class="injected-label">TEXTE INJECTÉ PAR DÉFAUT</div>
+                Lighting : Warm, golden light during sunset, creating a romantic and dramatic atmosphere.
             </div>
-            <div class="content-p">Éclairage chaud, rougeoyant et dramatique produit par le soleil s'abaissant vers l'horizon.</div>
-            <div class="tip-title">Conseils d'utilisation :</div>
-            <div class="tip-text">Très esthétique pour accentuer les silhouettes, les scènes en bord de mer, les portraits ou les paysages majestueux.</div>
+
+            <div class="learn-box">
+                <span class="learn-label">ANALYSE & PIÈGES À ÉVITER</span>
+                Ciel trop saturé tombant dans le kitsch.
+            </div>
+
+            <div class="good-example-box">
+  <span class="good-example-label">✅ Exemple de Prompt Optimisé :</span>(vibrant sunset lighting:1.3), warm golden and crimson glow, low sun illumination, dramatic sky colors, romantic atmosphere, rich reflections</div>
+
             <div class="negative-box">
-                <span class="negative-label">🚫 Negative Prompt recommandé :</span> cool blue morning, sterile fluorescent, bright noon sun, desaturated
+                <span class="negative-label">🚫 Negative Prompt Suggéré :</span> cold noon sun, cool fluorescent, overcast grey, harsh daylight, midnight dark
             </div>
-            <div class="good-example-box">Silhouette of a person by the ocean, Warm, golden light during sunset, creating a romantic and dramatic atmosphere, deep orange sky</div>
-            <a href="#section-8" class="back-to-sec-menu">↑ Retour au menu</a>
+
+            <div class="tip-title">Astuces d'ajustement :</div>
+            <div class="tip-text">Ajoutez <em>water reflections</em> en bord de mer pour démultiplier l'effet de la lumière.</div>
+
+            <a href="#section-8" class="back-to-sec-menu">⬆️ Retour au menu</a>
         </div>
 
         <!-- 33. Twilight Lighting -->
         <div class="option-box" id="sec08-light-33">
             <div class="content-h3">33. Twilight Lighting</div>
+            <div class="content-p">Lumière diffusée du crépuscule (blue hour), propre aux ambiances calmes, mélancoliques ou mystérieuses.</div>
             <div class="injected-box">
-                <span class="injected-label">TEXTE INJECTÉ PAR DÉFAUT</span>
-                Lighting  : Soft, diffused light during twilight, creating a peaceful and serene atmosphere.
+                <div class="injected-label">TEXTE INJECTÉ PAR DÉFAUT</div>
+                Lighting : Soft, diffused light during twilight, creating a peaceful and serene atmosphere.
             </div>
-            <div class="content-p">Lumière bleutée et douce produite juste après le coucher du soleil ou avant son lever (l'heure bleue).</div>
-            <div class="tip-title">Conseils d'utilisation :</div>
-            <div class="tip-text">Particulièrement adapté aux scènes urbaines lorsque les lumières de la ville s'allument, ou aux paysages paisibles.</div>
+
+            <div class="learn-box">
+                <span class="learn-label">ANALYSE & PIÈGES À ÉVITER</span>
+                Dérive vers une scène de nuit noire classique.
+            </div>
+
+            <div class="good-example-box">
+  <span class="good-example-label">✅ Exemple de Prompt Optimisé :</span>(twilight lighting:1.2), dusk blue hour glow, soft ambient light, calm serene atmosphere, deep indigo sky, subtle artificial warm lights turning on</div>
+
             <div class="negative-box">
-                <span class="negative-label">🚫 Negative Prompt recommandé :</span> harsh midday sunlight, golden hour glow, bright flash, high contrast
+                <span class="negative-label">🚫 Negative Prompt Suggéré :</span> bright midday sun, golden hour warmth, harsh direct light, blinding white light
             </div>
-            <div class="good-example-box">City skyline across the river, Soft, diffused light during twilight, creating a peaceful and serene atmosphere, blue hour tones, glowing city lights</div>
-            <a href="#section-8" class="back-to-sec-menu">↑ Retour au menu</a>
+
+            <div class="tip-title">Astuces d'ajustement :</div>
+            <div class="tip-text">Pour un beau contraste, ajoutez <em>warm indoor window light glowing in twilight</em>.</div>
+
+            <a href="#section-8" class="back-to-sec-menu">⬆️ Retour au menu</a>
         </div>
 
         <!-- 34. Warm lighting -->
         <div class="option-box" id="sec08-light-34">
             <div class="content-h3">34. Warm lighting</div>
+            <div class="content-p">Éclairage doux aux teintes dominantes chaudes (jaune, ambre), idéal pour créer un cadre intimiste et confortable.</div>
             <div class="injected-box">
-                <span class="injected-label">TEXTE INJECTÉ PAR DÉFAUT</span>
-                Lighting  : Soft, warm light, often used in romantic and intimate scenes.
+                <div class="injected-label">TEXTE INJECTÉ PAR DÉFAUT</div>
+                Lighting : Soft, warm light, often used in romantic and intimate scenes.
             </div>
-            <div class="content-p">Lumière aux dominantes ambrées, jaunes ou orangées instaurant une sensation de confort et de bien-être.</div>
-            <div class="tip-title">Conseils d'utilisation :</div>
-            <div class="tip-text">Idéal pour les scènes d'intérieur résidentielles, les éclairages de cheminée ou l'ambiance des cafés accueillants.</div>
+
+            <div class="learn-box">
+                <span class="learn-label">ANALYSE & PIÈGES À ÉVITER</span>
+                Virage au jaune uniforme sur l'ensemble de l'image (balance des blancs faussée).
+            </div>
+
+            <div class="good-example-box">
+  <span class="good-example-label">✅ Exemple de Prompt Optimisé :</span>(warm lighting:1.3), amber and golden tones, cozy welcoming atmosphere, soft illumination, gentle highlights, relaxed mood</div>
+
             <div class="negative-box">
-                <span class="negative-label">🚫 Negative Prompt recommandé :</span> cool blue light, sterile white, fluorescent bulb, cold atmospheric tones
+                <span class="negative-label">🚫 Negative Prompt Suggéré :</span> cold blue light, sterile fluorescent, harsh daylight, icy background, stark shadows
             </div>
-            <div class="good-example-box">Cozy coffee shop interior, Soft, warm light, often used in romantic and intimate scenes, wooden furniture, welcoming atmosphere</div>
-            <a href="#section-8" class="back-to-sec-menu">↑ Retour au menu</a>
+
+            <div class="tip-title">Astuces d'ajustement :</div>
+            <div class="tip-text">Équilibrez le prompt avec <em>cozy indoor atmosphere</em> pour justifier la dominante chaude.</div>
+
+            <a href="#section-8" class="back-to-sec-menu">⬆️ Retour au menu</a>
         </div>
 
         <!-- 35. Window Lighting -->
         <div class="option-box" id="sec08-light-35">
             <div class="content-h3">35. Window Lighting</div>
+            <div class="content-p">Lumière naturelle et adoucie provenant d'une fenêtre, parfaitement adaptée aux cadrages d'intérieur.</div>
             <div class="injected-box">
-                <span class="injected-label">TEXTE INJECTÉ PAR DÉFAUT</span>
-                Lighting  : Soft, natural light from a window, often used in indoor scenes.
+                <div class="injected-label">TEXTE INJECTÉ PAR DÉFAUT</div>
+                Lighting : Soft, natural light from a window, often used in indoor scenes.
             </div>
-            <div class="content-p">Éclairage latéral naturel provenant d'une fenêtre, offrant une transition douce entre ombre et lumière sur le sujet.</div>
-            <div class="tip-title">Conseils d'utilisation :</div>
-            <div class="tip-text">Une valeur sûre pour le portrait d'intérieur, la photographie culinaire ou les compositions d'inspiration classique (style Vermeer).</div>
+
+            <div class="learn-box">
+                <span class="learn-label">ANALYSE & PIÈGES À ÉVITER</span>
+                Fenêtre surexposée créant une zone de blanc pur sans détails.
+            </div>
+
+            <div class="good-example-box">
+  <span class="good-example-label">✅ Exemple de Prompt Optimisé :</span>(window lighting: 1.3), directional natural light from a window, soft side illumination, subtle shadows, indoor portrait depth, gentle light falloff</div>
+
             <div class="negative-box">
-                <span class="negative-label">🚫 Negative Prompt recommandé :</span> harsh studio flash, neon light, pitch black room, outdoor direct sun
+                <span class="negative-label">🚫 Negative Prompt Suggéré :</span> direct outdoor daylight, artificial studio flash, neon lights, complete darkness, ceiling light
             </div>
-            <div class="good-example-box">Portrait of a person sitting indoors near a glass pane, Soft, natural light from a window, often used in indoor scenes, gentle directional shadows, 50mm lens</div>
-            <a href="#section-8" class="back-to-sec-menu">↑ Retour au menu</a>
+
+            <div class="tip-title">Astuces d'ajustement :</div>
+            <div class="tip-text">Spécifiez <em>curtain-filtered window light</em> pour étaler encore plus la lumière sur le visage.</div>
+
+            <a href="#section-8" class="back-to-sec-menu">⬆️ Retour au menu</a>
         </div>
 
     </div>
