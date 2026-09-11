@@ -32,17 +32,27 @@ self.addEventListener('fetch', (event) => {
     caches.open(CACHE_NAME).then((cache) => {
       return cache.match(event.request).then((cachedResponse) => {
         const fetchPromise = fetch(event.request)
-          .then((networkResponse) => {
+          .then(async (networkResponse) => {
             if (networkResponse && networkResponse.status === 200) {
-              // Vérifie si la réponse réseau est différente pour détecter un changement
-              cache.put(event.request, networkResponse.clone());
-              
-              // Prévient l'application qu'un contenu à jour a été téléchargé
-              self.clients.matchAll().then((clients) => {
-                clients.forEach((client) => {
-                  client.postMessage({ type: 'NEW_CONTENT_AVAILABLE' });
-                });
-              });
+              // Si nous avons une version en cache, on compare le contenu
+              if (cachedResponse) {
+                const cachedText = await cachedResponse.clone().text();
+                const networkText = await networkResponse.clone().text();
+
+                // On ne met à jour et n'alerte QUE si le contenu a changé
+                if (cachedText !== networkText) {
+                  await cache.put(event.request, networkResponse.clone());
+                  
+                  self.clients.matchAll().then((clients) => {
+                    clients.forEach((client) => {
+                      client.postMessage({ type: 'NEW_CONTENT_AVAILABLE' });
+                    });
+                  });
+                }
+              } else {
+                // Premier enregistrement dans le cache
+                await cache.put(event.request, networkResponse.clone());
+              }
             }
             return networkResponse;
           })
