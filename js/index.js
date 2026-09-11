@@ -114,3 +114,47 @@ if ('serviceWorker' in navigator) {
     }
   });
 }
+
+// Fonction déclenchée lors du clic sur le bouton Rafraîchir
+function dismissAndReload() {
+  const toast = document.getElementById('update-toast');
+  if (toast) {
+    toast.classList.remove('visible');
+  }
+  
+  // Demande au nouveau Service Worker de prendre le contrôle immédiatement
+  if (navigator.serviceWorker.controller) {
+    navigator.serviceWorker.getRegistration().then((reg) => {
+      if (reg && reg.waiting) {
+        reg.waiting.postMessage({ type: 'SKIP_WAITING' });
+      } else {
+        window.location.reload();
+      }
+    });
+  } else {
+    window.location.reload();
+  }
+}
+
+// Recharche la page automatiquement quand le nouveau Service Worker prend la main
+if ('serviceWorker' in navigator) {
+  let refreshing = false;
+  navigator.serviceWorker.addEventListener('controllerchange', () => {
+    if (!refreshing) {
+      refreshing = true;
+      window.location.reload();
+    }
+  });
+
+  navigator.serviceWorker.register('./sw.js').then((reg) => {
+    reg.addEventListener('updatefound', () => {
+      const newWorker = reg.installing;
+      newWorker.addEventListener('statechange', () => {
+        if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+          const toast = document.getElementById('update-toast');
+          if (toast) toast.classList.add('visible');
+        }
+      });
+    });
+  });
+}
