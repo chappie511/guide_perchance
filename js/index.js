@@ -2,7 +2,6 @@
 const APP_VERSION = 'guide-perchance-v25';
 
 
-
 // Fonction pour charger et injecter du HTML de manière dynamique
 function chargerSection(idDeLaBoite, cheminDuFichier) {
     fetch(cheminDuFichier)
@@ -129,20 +128,22 @@ function afficherNotificationMAJ(worker) {
 
 if ('serviceWorker' in navigator) {
   if (estServeurLocal) {
-    // EN LOCAL : On désactive le Service Worker et on nettoie les anciens s'il y en a
+    // EN LOCAL : On désactive le Service Worker pour coder tranquillement
     navigator.serviceWorker.getRegistrations().then((registrations) => {
       for (let registration of registrations) {
         registration.unregister();
       }
     });
-    console.log("Mode local : Service Worker désactivé pour faciliter les tests.");
   } else {
-    // EN LIGNE (GitHub Pages) : On active la gestion des mises à jour par Toast
+    // EN LIGNE (GitHub Pages) : Gestion propre par Toast
     navigator.serviceWorker.register('./sw.js').then((registration) => {
+      
+      // Si une mise à jour est déjà en attente
       if (registration.waiting) {
         afficherNotificationMAJ(registration.waiting);
       }
 
+      // Si une mise à jour est trouvée pendant que la page est ouverte
       registration.addEventListener('updatefound', () => {
         const newWorker = registration.installing;
         if (newWorker) {
@@ -155,58 +156,18 @@ if ('serviceWorker' in navigator) {
       });
     });
 
+    // Recharge la page une seule fois quand le nouveau SW prend le contrôle
+    let refreshing = false;
     navigator.serviceWorker.addEventListener('controllerchange', () => {
-      window.location.reload();
-    });
-  }
-}
-
-
-// ==========================================
-// Enregistrement du Service Worker & Notifications
-// ==========================================
-
-if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('./sw.js?guide-perchance-v25').then((registration) => {
-
-    // 1. Si une mise à jour attend déjà en arrière-plan
-    if (registration.waiting) {
-      afficherNotificationMAJ(registration.waiting);
-    }
-
-    // 2. Si une nouvelle version est détectée pendant la session
-    registration.addEventListener('updatefound', () => {
-      const newWorker = registration.installing;
-      if (newWorker) {
-        newWorker.addEventListener('statechange', () => {
-          if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
-            // Affiche la bannière toast au lieu de rafraîchir d'un coup
-            afficherNotificationMAJ(newWorker);
-          }
-        });
+      if (!refreshing) {
+        refreshing = true;
+        window.location.reload();
       }
     });
-  });
-
-  // Recharche la page seulement quand l'utilisateur a cliqué sur "Rafraîchir"
-  navigator.serviceWorker.addEventListener('controllerchange', () => {
-    window.location.reload();
-  });
+  }
 }
 
-// Affichage de la version dans l'interface
-document.addEventListener('DOMContentLoaded', () => {
-  const versionSpan = document.getElementById('app-version');
-  if (versionSpan) {
-    // Si le Service Worker est actif, on récupère sa version ou on indique le mode local
-    if (location.hostname === 'localhost' || location.hostname === '127.0.0.1' || location.hostname.startsWith('192.168.') || location.hostname.startsWith('10.')) {
-      versionSpan.textContent = 'Mode Local (TrebEdit)';
-    } else {
-      versionSpan.textContent = 'guide-perchance-v25'; // Mettez la même version qu'dans sw.js
-    }
-  }
-});
-
+// Affichage dynamique de la version dans l'interface
 document.addEventListener('DOMContentLoaded', () => {
   const versionSpan = document.getElementById('app-version');
   if (versionSpan) {
