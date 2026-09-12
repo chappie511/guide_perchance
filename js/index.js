@@ -1,5 +1,5 @@
 // Numéro de version unique pour votre projet
-const APP_VERSION = 'guide-perchance-v1.1';
+const APP_VERSION = 'guide-perchance-v1.3';
 
 // Fonction pour charger et injecter du HTML de manière dynamique
 function chargerSection(idDeLaBoite, cheminDuFichier) {
@@ -124,6 +124,7 @@ function afficherNotificationMAJ(worker) {
     };
   }
 }
+   
 
 if ('serviceWorker' in navigator) {
   if (estServeurLocal) {
@@ -177,3 +178,4 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 });
+
