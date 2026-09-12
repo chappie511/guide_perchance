@@ -111,57 +111,66 @@ const estServeurLocal = location.hostname === 'localhost' ||
                        location.hostname.startsWith('192.168.') || 
                        location.hostname.startsWith('10.');
 
+let newWorker;
+
 function afficherNotificationMAJ(worker) {
+  newWorker = worker;
   const toast = document.getElementById('update-toast');
-  const btnRecharger = document.getElementById('reload-btn');
 
   if (toast) {
     toast.classList.remove('hidden');
     toast.classList.add('visible');
   }
-
-  if (btnRecharger && worker) {
-    btnRecharger.onclick = () => {
-      if (toast) {
-        toast.classList.remove('visible');
-        toast.classList.add('hidden');
-      }
-      worker.postMessage({ type: 'SKIP_WAITING' });
-    };
-  }
 }
-   
+
+// Clic sur le bouton "Rafraîchir" du Toast
+const btnRecharger = document.getElementById('reload-btn');
+if (btnRecharger) {
+  btnRecharger.onclick = () => {
+    const toast = document.getElementById('update-toast');
+    if (toast) {
+      toast.classList.remove('visible');
+      toast.classList.add('hidden');
+    }
+    if (newWorker) {
+      newWorker.postMessage({ type: 'SKIP_WAITING' });
+    } else {
+      window.location.reload();
+    }
+  };
+}
+
 if ('serviceWorker' in navigator) {
   if (estServeurLocal) {
-    // EN LOCAL : On désactive le Service Worker pour coder tranquillement
+    // EN LOCAL : Désactivation pour le développement dans TrebEdit
     navigator.serviceWorker.getRegistrations().then((registrations) => {
       for (let registration of registrations) {
         registration.unregister();
       }
     });
   } else {
-    // EN LIGNE (GitHub Pages) : Gestion propre par Toast
+    // EN LIGNE (GitHub Pages) : Gestion PWA
     navigator.serviceWorker.register('./sw.js').then((registration) => {
       
-      // Si une mise à jour est déjà en attente
+      // Si une mise à jour est déjà en attente au chargement
       if (registration.waiting) {
         afficherNotificationMAJ(registration.waiting);
       }
 
-      // Si une mise à jour est trouvée pendant que la page est ouverte
+      // Si une mise à jour est détectée pendant l'utilisation
       registration.addEventListener('updatefound', () => {
-        const newWorker = registration.installing;
-        if (newWorker) {
-          newWorker.addEventListener('statechange', () => {
-            if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
-              afficherNotificationMAJ(newWorker);
+        const installingWorker = registration.installing;
+        if (installingWorker) {
+          installingWorker.addEventListener('statechange', () => {
+            if (installingWorker.state === 'installed' && navigator.serviceWorker.controller) {
+              afficherNotificationMAJ(installingWorker);
             }
           });
         }
       });
     });
 
-    // Recharge la page une seule fois quand le nouveau SW prend le contrôle
+    // Rechargement automatique déclenché par l'activation du nouveau SW
     let refreshing = false;
     navigator.serviceWorker.addEventListener('controllerchange', () => {
       if (!refreshing) {
