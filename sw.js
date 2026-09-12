@@ -1,4 +1,4 @@
-const CACHE_NAME = 'guide-perchance-v1.1'; // Change la version
+const CACHE_NAME = 'guide-perchance-v1.3'; // Change la version
 
 const BASE_ASSETS = [
   './',
@@ -63,8 +63,31 @@ self.addEventListener('fetch', (event) => {
 });
 
 // Écoute du message envoyé depuis index.js lors du clic sur "Rafraîchir"
+self.addEventListener('install', (event) => {
+  // On NE met PAS self.skipWaiting() ici, pour qu'il reste en attente (waiting)
+  // ... ton code de mise en cache habituel ...
+});
+
+// C'est uniquement ici, lorsqu'on reçoit le message du clic sur le toast, qu'on force l'activation
 self.addEventListener('message', (event) => {
   if (event.data && event.data.type === 'SKIP_WAITING') {
     self.skipWaiting();
   }
+});
+
+self.addEventListener('activate', (event) => {
+  event.waitUntil(
+    caches.keys().then((cacheNames) => {
+      return Promise.all(
+        cacheNames.map((cache) => {
+          if (cache !== CACHE_NAME) {
+            console.log('Suppression de l\'ancien cache :', cache);
+            return caches.delete(cache);
+          }
+        })
+      );
+    }).then(() => {
+      return self.clients.claim();
+    })
+  );
 });
