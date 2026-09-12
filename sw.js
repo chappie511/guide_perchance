@@ -1,11 +1,6 @@
 importScripts('./version.js'); // Importe la variable APP_VERSION
 
-const CACHE_NAME = APP_VERSION; // Utilise la version définie dans version.js
-
-// sw.js
-importScripts('./version.js'); // Importe la variable APP_VERSION
-
-const CACHE_NAME = APP_VERSION; // Définit le nom du cache sur la nouvelle version
+const CACHE_NAME = APP_VERSION; // Utilise directement la variable unique
 
 const BASE_ASSETS = [
   './',
@@ -14,9 +9,7 @@ const BASE_ASSETS = [
   './js/index.js',
   './manifest.json',
   'https://cdn.jsdelivr.net/gh/chappie511/Icon@main/golden_star_v3.png?v=1000'
-  // Remarque : version.js n'est plus dans BASE_ASSETS pour éviter son verrouillage en cache
 ];
-
 
 const SECTION_ASSETS = Array.from({ length: 24 }, (_, i) => {
   const num = String(i + 1).padStart(2, '0');
@@ -25,7 +18,7 @@ const SECTION_ASSETS = Array.from({ length: 24 }, (_, i) => {
 
 const ASSETS_TO_CACHE = [...BASE_ASSETS, ...SECTION_ASSETS];
 
-// 1. Installation du Service Worker sans forcer le skipWaiting immédiat
+// Installation tolérante aux erreurs (ne bloque pas si une section est manquante)
 self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME).then(async (cache) => {
@@ -38,10 +31,9 @@ self.addEventListener('install', (event) => {
       }
     })
   );
-  // Note : On retire self.skipWaiting() d'ici pour éviter de remplacer l'ancien cache pendant l'exécution
 });
 
-// 2. Nettoyage atomique des anciens caches lors de l'activation
+// Nettoyage automatique des anciens caches et prise de contrôle immédiate
 self.addEventListener('activate', (event) => {
   event.waitUntil(
     caches.keys().then((keys) => {
@@ -57,25 +49,19 @@ self.addEventListener('activate', (event) => {
   );
 });
 
-// 3. Gestion des requêtes réseau
+// Service des ressources avec optimisation pour les CDNs externes
 self.addEventListener('fetch', (event) => {
   if (event.request.method !== 'GET') return;
 
   const url = new URL(event.request.url);
 
-  // Exclure toujours version.js du cache pour vérifier les mises à jour en direct
-  if (url.pathname.endsWith('version.js')) {
-    event.respondWith(
-      fetch(event.request).catch(() => caches.match(event.request))
-    );
-    return;
-  }
-
-  // Cache First pour les CDN externes
+  // 1. Cache First pour les icônes et fichiers distants (GitHub / jsDelivr)
   if (url.origin.includes('cdn.jsdelivr.net') || url.origin.includes('github.io')) {
     event.respondWith(
       caches.match(event.request).then((cachedResponse) => {
-        if (cachedResponse) return cachedResponse;
+        if (cachedResponse) {
+          return cachedResponse;
+        }
         return fetch(event.request).then((networkResponse) => {
           if (networkResponse && (networkResponse.status === 200 || networkResponse.status === 0)) {
             const responseToCache = networkResponse.clone();
@@ -88,7 +74,7 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  // Network First avec secours sur le cache local
+  // 2. Network First avec secours sur le cache pour le reste de l'application
   event.respondWith(
     fetch(event.request)
       .then((networkResponse) => {
@@ -98,11 +84,13 @@ self.addEventListener('fetch', (event) => {
         }
         return networkResponse;
       })
-      .catch(() => caches.match(event.request))
+      .catch(() => {
+        return caches.match(event.request);
+      })
   );
 });
 
-// 4. Activation déclenchée uniquement sur demande explicite (ex: bouton Toast)
+// Activation forcée reçue lors du clic sur le bouton "Rafraîchir" du Toast
 self.addEventListener('message', (event) => {
   if (event.data && event.data.type === 'SKIP_WAITING') {
     self.skipWaiting();
