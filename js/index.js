@@ -43,7 +43,6 @@ document.addEventListener('click', function (e) {
     function animationSucces() {
       boite.style.outline = "2px solid #22c55e";
       
-      // Amélioration : Petit indicateur temporaire
       const ancienTitre = boite.getAttribute('title');
       boite.setAttribute('title', 'Copié dans le presse-papiers !');
 
@@ -68,7 +67,7 @@ document.addEventListener('click', function (e) {
     function copierSecours(textToCopy) {
       const textarea = document.createElement('textarea');
       textarea.value = textToCopy;
-      textarea.style.position = 'fixed'; // Évite de scroller la page sur mobile
+      textarea.style.position = 'fixed';
       textarea.style.opacity = '0';
       document.body.appendChild(textarea);
       textarea.focus();
@@ -104,17 +103,14 @@ document.addEventListener('click', function (e) {
 // 3. Gestion des Modales & Navigation Ancre
 // ==========================================
 
-// Fonction utilitaire pour fermer toutes les modales
 function fermerModales() {
   const modalesActives = document.querySelectorAll('.modal-overlay.active');
   modalesActives.forEach(modal => modal.classList.remove('active'));
   document.body.style.overflow = '';
 }
 
-// Écouteur global des clics
 document.addEventListener('click', function(event) {
   
-  // Ouverture des modales
   if (event.target && event.target.id === 'btnOuvrirPoses') {
     document.getElementById('modalPoses').classList.add('active');
     document.body.style.overflow = 'hidden';
@@ -140,28 +136,22 @@ document.addEventListener('click', function(event) {
     document.body.style.overflow = 'hidden';
   }
 
-  // Fermeture explicite via le bouton "Fermer le menu"
   if (event.target && event.target.classList.contains('btn-close-menu')) {
     fermerModales();
   }
 
-  // Fermeture en cliquant sur le fond de la modale (hors du contenu inner)
   if (event.target && event.target.classList.contains('modal-overlay')) {
     fermerModales();
   }
 
-  // Clic sur un lien de navigation rapide (ex. <a href="#style-casual">)
   const lienAncre = event.target.closest('a[href^="#"]');
   if (lienAncre) {
     const targetId = lienAncre.getAttribute('href');
 
     if (targetId && targetId !== '#') {
       event.preventDefault();
-
-      // Fermer les modales et débloquer le scroll
       fermerModales();
 
-      // Attendre 50ms pour laisser la modale se masquer puis scroller vers la cible
       setTimeout(function () {
         const targetElement = document.querySelector(targetId);
         if (targetElement) {
@@ -177,7 +167,6 @@ document.addEventListener('click', function(event) {
   }
 });
 
-// Écouteur pour fermer la modale avec la touche 'Échap' (Escape)
 document.addEventListener('keydown', function(event) {
   if (event.key === 'Escape') {
     fermerModales();
@@ -215,6 +204,7 @@ if (btnRecharger) {
       toast.classList.add('hidden');
     }
     if (newWorker) {
+      // Demande au nouveau Service Worker d'activer immédiatement le nouveau cache
       newWorker.postMessage({ type: 'SKIP_WAITING' });
     } else {
       window.location.reload();
@@ -224,20 +214,22 @@ if (btnRecharger) {
 
 if ('serviceWorker' in navigator) {
   if (estServeurLocal) {
-    // EN LOCAL : Désactivation pour le développement dans TrebEdit
+    // EN LOCAL : Désactivation pour les tests dans TrebEdit
     navigator.serviceWorker.getRegistrations().then((registrations) => {
       for (let registration of registrations) {
         registration.unregister();
       }
     });
   } else {
-    // EN LIGNE (GitHub Pages) : Gestion PWA
+    // EN LIGNE : Enregistrement et écoute des mises à jour
     navigator.serviceWorker.register('./sw.js').then((registration) => {
       
+      // Cas 1 : Un nouveau worker attend déjà la validation
       if (registration.waiting) {
         afficherNotificationMAJ(registration.waiting);
       }
 
+      // Cas 2 : Un nouveau worker est en train d'être téléchargé/installé
       registration.addEventListener('updatefound', () => {
         const installingWorker = registration.installing;
         if (installingWorker) {
@@ -250,24 +242,14 @@ if ('serviceWorker' in navigator) {
       });
     });
 
+    // Écoute le changement de contrôle (quand SKIP_WAITING a été activé)
     let refreshing = false;
     navigator.serviceWorker.addEventListener('controllerchange', () => {
       if (!refreshing) {
         refreshing = true;
+        // Recharge la page entière pour appliquer la nouvelle version en une seule fois
         window.location.reload();
       }
     });
   }
 }
-
-// Affichage dynamique de la version dans l'interface
-document.addEventListener('DOMContentLoaded', () => {
-  const versionSpan = document.getElementById('app-version');
-  if (versionSpan) {
-    if (estServeurLocal) {
-      versionSpan.textContent = `${typeof APP_VERSION !== 'undefined' ? APP_VERSION : 'v1.0'} (Mode Local - TrebEdit)`;
-    } else {
-      versionSpan.textContent = typeof APP_VERSION !== 'undefined' ? APP_VERSION : 'v1.0';
-    }
-  }
-});
