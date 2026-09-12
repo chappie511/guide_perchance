@@ -1,3 +1,7 @@
+// ==========================================
+// 1. Chargement dynamique des sections
+// ==========================================
+
 // Fonction pour charger et injecter du HTML de manière dynamique
 function chargerSection(idDeLaBoite, cheminDuFichier) {
     fetch(cheminDuFichier)
@@ -25,6 +29,10 @@ for (let i = 1; i <= 24; i++) {
     const num = String(i).padStart(2, '0');
     chargerSection(`conteneur-section-${i}`, `./sections_du_guide/section_${num}.html`);
 }
+
+// ==========================================
+// 2. Presse-papiers & Bouton Retour en haut
+// ==========================================
 
 // Copie des prompts dans le presse-papiers avec secours pour mobile
 document.addEventListener('click', function (e) {
@@ -70,20 +78,26 @@ document.addEventListener('click', function (e) {
 // Bouton retour vers le haut
 (function () {
   var btn = document.getElementById('backToTopBtn');
-  function onScroll() {
-    if (window.scrollY > 1900) btn.classList.add('visible');
-    else btn.classList.remove('visible');
+  if (btn) {
+    function onScroll() {
+      if (window.scrollY > 1900) btn.classList.add('visible');
+      else btn.classList.remove('visible');
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    btn.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+    onScroll();
   }
-  window.addEventListener('scroll', onScroll, { passive: true });
-  btn.addEventListener('click', function () {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
-  onScroll();
 })();
 
-// Gestionnaires d'événements pour l'ouverture et la fermeture des modales
+// ==========================================
+// 3. Gestion des Modales & Navigation Ancre
+// ==========================================
+
 document.addEventListener('click', function(event) {
   
+  // Ouverture des modales selon l'ID du bouton cliqué
   if (event.target && event.target.id === 'btnOuvrirPoses') {
     document.getElementById('modalPoses').classList.add('active');
     document.body.style.overflow = 'hidden';
@@ -114,18 +128,50 @@ document.addEventListener('click', function(event) {
     document.body.style.overflow = 'hidden';
   }
 
-  // Fermeture des modales
-  if (event.target && (event.target.classList.contains('btn-close-menu') || event.target.classList.contains('quick-nav-btn'))) {
+  // Fermeture explicite via le bouton "Fermer le menu"
+  if (event.target && event.target.classList.contains('btn-close-menu')) {
     const modalActif = event.target.closest('.modal-overlay');
     if (modalActif) {
       modalActif.classList.remove('active');
       document.body.style.overflow = ''; 
     }
   }
+
+  // Clic sur un lien de navigation rapide (ex. <a href="#style-casual">)
+  const lienAncre = event.target.closest('a[href^="#"]');
+  if (lienAncre) {
+    const targetId = lienAncre.getAttribute('href');
+
+    if (targetId && targetId !== '#') {
+      event.preventDefault();
+
+      // 1. Fermer la modale si le lien se trouve à l'intérieur d'une modale
+      const modalParent = lienAncre.closest('.modal-overlay');
+      if (modalParent) {
+        modalParent.classList.remove('active');
+      }
+
+      // 2. Débloquer le défilement de la page
+      document.body.style.overflow = '';
+
+      // 3. Attendre 50ms pour laisser la modale se masquer puis scroller vers la cible
+      setTimeout(function () {
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          targetElement.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        } else {
+          console.warn("Élément cible non trouvé : " + targetId);
+        }
+      }, 50);
+    }
+  }
 });
 
 // ==========================================
-// Enregistrement du Service Worker & Notifications
+// 4. Enregistrement du Service Worker & PWA
 // ==========================================
 
 const estServeurLocal = location.hostname === 'localhost' || 
@@ -205,9 +251,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const versionSpan = document.getElementById('app-version');
   if (versionSpan) {
     if (estServeurLocal) {
-      versionSpan.textContent = `${APP_VERSION} (Mode Local - TrebEdit)`;
+      versionSpan.textContent = `${typeof APP_VERSION !== 'undefined' ? APP_VERSION : 'v1.0'} (Mode Local - TrebEdit)`;
     } else {
-      versionSpan.textContent = APP_VERSION;
+      versionSpan.textContent = typeof APP_VERSION !== 'undefined' ? APP_VERSION : 'v1.0';
     }
   }
 });
