@@ -18,10 +18,18 @@ const SECTION_ASSETS = Array.from({ length: 24 }, (_, i) => {
 
 const ASSETS_TO_CACHE = [...BASE_ASSETS, ...SECTION_ASSETS];
 
-// Installation du nouveau cache (sans skipWaiting automatique pour laisser le Toast agir)
+// Installation tolérante aux erreurs (ne bloque pas si une section est manquante)
 self.addEventListener('install', (event) => {
   event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => cache.addAll(ASSETS_TO_CACHE))
+    caches.open(CACHE_NAME).then(async (cache) => {
+      for (const asset of ASSETS_TO_CACHE) {
+        try {
+          await cache.add(asset);
+        } catch (err) {
+          console.warn('Impossible de mettre en cache la ressource :', asset, err);
+        }
+      }
+    })
   );
 });
 
@@ -41,11 +49,32 @@ self.addEventListener('activate', (event) => {
   );
 });
 
-// Service des ressources : Réseau d'abord avec secours sur le cache
+// Service des ressources avec optimisation pour les CDNs externes
 self.addEventListener('fetch', (event) => {
-  // On ne traite que les requêtes GET
   if (event.request.method !== 'GET') return;
 
+  const url = new URL(event.request.url);
+
+  // 1. Cache First pour les icônes et fichiers distants (GitHub / jsDelivr)
+  if (url.origin.includes('cdn.jsdelivr.net') || url.origin.includes('github.io')) {
+    event.respondWith(
+      caches.match(event.request).then((cachedResponse) => {
+        if (cachedResponse) {
+          return cachedResponse;
+        }
+        return fetch(event.request).then((networkResponse) => {
+          if (networkResponse && (networkResponse.status === 200 || networkResponse.status === 0)) {
+            const responseToCache = networkResponse.clone();
+            caches.open(CACHE_NAME).then((cache) => cache.put(event.request, responseToCache));
+          }
+          return networkResponse;
+        });
+      })
+    );
+    return;
+  }
+
+  // 2. Network First avec secours sur le cache pour le reste de l'application
   event.respondWith(
     fetch(event.request)
       .then((networkResponse) => {
