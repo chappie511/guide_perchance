@@ -1,961 +1,565 @@
-<!-- Section 08 : Éclairages Lumineux -->
-<details name="groupe-sections" class="section-accordion" id="section-8">
-    <summary>💡 Section 8 : Maîtrise des Éclairages & Effets Lumineux</summary>
-    <div class="section-body">
-        <button id="btnOuvrirÉclairages" class="btn-open-menu">
-  ☰ Ouvrir le sommaire des 35 types d'éclairages
-</button>
-        <div class="content-p">La direction et le style de la lumière sculptent les volumes et définissent l'atmosphère de tes générations. Chaque éclairage comporte ses règles d'injection, ses risques de surdose et ses leviers d'ajustement.</div>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guide de Prompt Engineering Perchance</title>
+  
+  <!-- Icon du guide -->
+  <link rel="icon" type="image/jpeg" href="https://cdn.jsdelivr.net/gh/chappie511/Icon@main/golden_star_v3.png?v=1000">  
 
-        <div class="division_contenu"></div>
+    <!-- Chemin CSS -->
+  <link rel="stylesheet" href="./css/index.css">
+  
+    <!-- Lien vers le fichier manifest.json -->
+  <link rel="manifest" href="./manifest.json">
+  <meta name="theme-color" content="#2563eb">
 
-        <!-- 1. Backlit -->
-        <div class="option-box" id="sec08-light-1">
-            <div class="content-h3">1. Backlit</div>
-            <div class="content-p">Éclairage où la source lumineuse est placée directement derrière le sujet, créant un effet d'auréole et soulignant sa silhouette.</div>
-            <div class="injected-box">
-                <div class="injected-label">TEXTE INJECTÉ PAR DÉFAUT</div>
-                Lighting : Light source behind the subject, creating a halo effect and emphasizing the silhouette.
+</head>
+<body>
+    
+    ​<!-- Footer : Indicateur de version PWA -->
+<footer><p>Version actuelle : <span id="app-version">Chargement...</span></p>
+</footer>
+
+  <div class="perchance-guide-container">
+  <div class="guide-header">
+    <div class="main-title">Guide de Prompt Engineering Perchance</div>
+    <div class="subtitle">Styles, Effets Visuels et Répertoire Algorithmique par IA — Référence Mobile</div>
+  </div>
+
+    <details class="main-accordion" open>
+      <summary class="main-summary">📖 CONSULTER LE GUIDE COMPLET (Toucher pour réduire/ouvrir)</summary>
+      
+      <div class="guide-content">
+        <!-- Conteneurs dynamiques -->
+        <div id="conteneur-section-1"></div>
+        <div id="conteneur-section-2"></div>
+        <div id="conteneur-section-3"></div>
+        <div id="conteneur-section-4"></div>
+        <div id="conteneur-section-5"></div>
+        <div id="conteneur-section-6"></div>
+        <div id="conteneur-section-7"></div>
+        <div id="conteneur-section-8"></div>
+        <div id="conteneur-section-9"></div>
+        <div id="conteneur-section-10"></div>
+        <div id="conteneur-section-11"></div>
+        <div id="conteneur-section-12"></div>
+        <div id="conteneur-section-13"></div>
+        <div id="conteneur-section-14"></div>
+        <div id="conteneur-section-15"></div>
+        <div id="conteneur-section-16"></div>
+        <div id="conteneur-section-17"></div>
+        <div id="conteneur-section-18"></div>
+        <div id="conteneur-section-19"></div>
+        <div id="conteneur-section-20"></div>
+        <div id="conteneur-section-21"></div>
+        <div id="conteneur-section-22"></div>
+        <div id="conteneur-section-23"></div>
+        <div id="conteneur-section-24"></div>
+      </div>
+    </details>
+  </div>
+  
+
+<!-- Modale plein écran : Section 03 (Styles) -->
+  <div id="modalStyles" class="modal-overlay" role="dialog" aria-modal="true" aria-label="Menu des styles d'art">
+    <button class="btn-close-menu" type="button">✖ Fermer le menu des styles d'art</button>    
+      <div class="quick-nav-container" style="margin-top: 14px;">
+            <div class="quick-nav-title">⚡ Sommaire Rapide des Styles (Toucher pour accéder)</div>
+ 
+    <!-- Groupes de boutons de navigation Section 3 -->        
+            <div class="quick-nav-subgroup">1. Styles Réalistes & Humains</div>
+            <div class="quick-nav-grid">
+              <a href="#style-casual" class="quick-nav-btn">Casual Photo</a>
+              <a href="#style-realphoto" class="quick-nav-btn">Real Photo</a>
+              <a href="#style-realistic" class="quick-nav-btn">Realistic</a>
+              <a href="#style-luxury" class="quick-nav-btn">Luxury</a>
+              <a href="#style-generator" class="quick-nav-btn">Realistic Human Generator</a>
+              <a href="#style-realimages" class="quick-nav-btn">Realistic Images</a>
+              <a href="#style-realhumans" class="quick-nav-btn">Realistic Humans</a>
             </div>
+    <!-- suite des sous groupe 2 à 10 -->
+            <div class="quick-nav-subgroup">2. Effets Spéciaux & Réseaux Sociaux</div>
+            <div class="quick-nav-grid">
+              <a href="#style-polaroid" class="quick-nav-btn">Polaroid</a>
+              <a href="#style-snapchat" class="quick-nav-btn">Snapchat</a>
+              <a href="#style-instagram" class="quick-nav-btn">Instagram</a>
+              <a href="#style-pixar" class="quick-nav-btn">Pixar Character</a>
+              <a href="#style-nostyle" class="quick-nav-btn">No Style</a>
+            </div>
+    <!-- suite des sous groupe 3 à 10 -->
+            <div class="quick-nav-subgroup">3. Styles Cinématographiques & Concept Art</div>
+            <div class="quick-nav-grid">
+              <a href="#style-cinematic" class="quick-nav-btn">Cinematic</a>
+              <a href="#style-conceptart" class="quick-nav-btn">Concept Art</a>
+              <a href="#style-conceptsketch" class="quick-nav-btn">Concept Sketch</a>
+            </div>
+    <!-- suite des sous groupe 4 à 10 -->
+            <div class="quick-nav-subgroup">4. Styles Peintures (Digital & Huile)</div>
+            <div class="quick-nav-grid">
+              <a href="#style-digitalpainting" class="quick-nav-btn">Digital Painting</a>
+              <a href="#style-painterly" class="quick-nav-btn">Painterly</a>
+              <a href="#style-oilpainting" class="quick-nav-btn">Oil Painting</a>
+              <a href="#style-oilrealism" class="quick-nav-btn">Oil Painting - Realism</a>
+              <a href="#style-oilold" class="quick-nav-btn">Oil Painting - Old</a>
+              <a href="#style-oil70spulp" class="quick-nav-btn">Oil Painting - 70s Pulp</a>
+              <a href="#style-watercolor" class="quick-nav-btn">Watercolor</a>
+            </div>
+    <!-- suite des sous groupe 5 à 10 -->
+            <div class="quick-nav-subgroup">5. Styles Animés & Mangas</div>
+            <div class="quick-nav-grid">
+              <a href="#style-paintedanime" class="quick-nav-btn">Painted Anime</a>
+              <a href="#style-anime" class="quick-nav-btn">Anime</a>
+              <a href="#style-drawnanime" class="quick-nav-btn">Drawn Anime</a>
+              <a href="#style-animescreencap" class="quick-nav-btn">Anime Screencap</a>
+              <a href="#style-cuteanime" class="quick-nav-btn">Cute Anime</a>
+              <a href="#style-softanime" class="quick-nav-btn">Soft Anime</a>
+              <a href="#style-vintageanime" class="quick-nav-btn">Vintage Anime</a>
+              <a href="#style-neonvintageanime" class="quick-nav-btn">Neon Vintage Anime</a>
+              <a href="#style-manga" class="quick-nav-btn">Manga</a>
+              <a href="#style-waifu" class="quick-nav-btn">Waifu</a>
+            </div>
+    <!-- suite des sous groupe 6 à 10 -->
+            <div class="quick-nav-subgroup">6. Mondes Fantastiques & Cartographie</div>
+            <div class="quick-nav-grid">
+              <a href="#style-fantasypainting" class="quick-nav-btn">Fantasy Painting</a>
+              <a href="#style-fantasylandscape" class="quick-nav-btn">Fantasy Landscape</a>
+              <a href="#style-fantasyportrait" class="quick-nav-btn">Fantasy Portrait</a>
+              <a href="#style-fantasyworldmap" class="quick-nav-btn">Fantasy World Map</a>
+              <a href="#style-fantasycitymap" class="quick-nav-btn">Fantasy City Map</a>
+              <a href="#style-oldworldmap" class="quick-nav-btn">Old World Map</a>
+            </div>
+<!-- suite des sous groupe 7 à 10 -->
+            <div class="quick-nav-subgroup">7. UI, Icônes & Logos</div>
+            <div class="quick-nav-grid">
+              <a href="#style-3disoicon" class="quick-nav-btn">3D Isometric Icon</a>
+              <a href="#style-flatstyleicon" class="quick-nav-btn">Flat Style Icon</a>
+              <a href="#style-flatstylelogo" class="quick-nav-btn">Flat Style Logo</a>
+              <a href="#style-gamearticon" class="quick-nav-btn">Game Art Icon</a>
+              <a href="#style-digitalpaintingicon" class="quick-nav-btn">Digital Painting Icon</a>
+              <a href="#style-conceptarticon" class="quick-nav-btn">Concept Art Icon</a>
+              <a href="#style-cute3dicon" class="quick-nav-btn">Cute 3D Icon</a>
+              <a href="#style-cute3diconset" class="quick-nav-btn">Cute 3D Icon Set</a>
+            </div>
+    <!-- suite des sous groupe 8 à 10 -->
+            <div class="quick-nav-subgroup">8. Photographie Rétro, Décennies & Vintage</div>
+            <div class="quick-nav-grid">
+              <a href="#style-profphoto" class="quick-nav-btn">Professional Photo</a>
+              <a href="#style-1990sphoto" class="quick-nav-btn">1990s Photo</a>
+              <a href="#style-1980sphoto" class="quick-nav-btn">1980s Photo</a>
+              <a href="#style-1970sphoto" class="quick-nav-btn">1970s Photo</a>
+              <a href="#style-1960sphoto" class="quick-nav-btn">1960s Photo</a>
+              <a href="#style-1950sphoto" class="quick-nav-btn">1950s Photo</a>
+              <a href="#style-1940sphoto" class="quick-nav-btn">1940s Photo</a>
+              <a href="#style-1930sphoto" class="quick-nav-btn">1930s Photo</a>
+              <a href="#style-1920sphoto" class="quick-nav-btn">1920s Photo</a>
+              <a href="#style-vintagepulpart" class="quick-nav-btn">Vintage Pulp Art</a>
+              <a href="#style-50senamelsign" class="quick-nav-btn">50s Enamel Sign</a>
+              <a href="#style-vintagecomic" class="quick-nav-btn">Vintage Comic</a>
+            </div>
+    <!-- suite des sous groupe 9 à 10 -->
+            <div class="quick-nav-subgroup">9. Esthétiques Alternatives & Spécifiques</div>
+            <div class="quick-nav-grid">
+              <a href="#style-3ddisney" class="quick-nav-btn">3D Disney Character</a>
+              <a href="#style-2ddisney" class="quick-nav-btn">2D Disney Character</a>
+              <a href="#style-disneysketch" class="quick-nav-btn">Disney Sketch</a>
+              <a href="#style-studioghibli" class="quick-nav-btn">Studio Ghibli</a>
+              <a href="#style-francobelgian" class="quick-nav-btn">Franco-Belgian Comic</a>
+              <a href="#style-tintin" class="quick-nav-btn">Tintin Comic</a>
+              <a href="#style-medieval" class="quick-nav-btn">Medieval</a>
+              <a href="#style-pixelart" class="quick-nav-btn">Pixel Art</a>
+              <a href="#style-furryoil" class="quick-nav-btn">Furry - Oil</a>
+              <a href="#style-furrycinematic" class="quick-nav-btn">Furry - Cinematic</a>
+              <a href="#style-furrypainted" class="quick-nav-btn">Furry - Painted</a>
+              <a href="#style-furrydrawn" class="quick-nav-btn">Furry - Drawn</a>
+              <a href="#style-cutefigurine" class="quick-nav-btn">Cute Figurine</a>
+              <a href="#style-3demoji" class="quick-nav-btn">3D Emoji</a>
+              <a href="#style-illustration" class="quick-nav-btn">Illustration</a>
+              <a href="#style-cuteillustration" class="quick-nav-btn">Cute Illustration</a>
+              <a href="#style-flatillustration" class="quick-nav-btn">Flat Illustration</a>
+              <a href="#style-3dpokemon" class="quick-nav-btn">3D Pokemon</a>
+              <a href="#style-paintedpokemon" class="quick-nav-btn">Painted Pokemon</a>
+              <a href="#style-2dpokemon" class="quick-nav-btn">2D Pokemon</a>
+              <a href="#style-crayondrawing" class="quick-nav-btn">Crayon Drawing</a>
+              <a href="#style-pencil" class="quick-nav-btn">Pencil</a>
+              <a href="#style-tattoodesign" class="quick-nav-btn">Tattoo Design</a>
+              <a href="#style-yugiohart" class="quick-nav-btn">YuGiOh Art</a>
+              <a href="#style-traditionaljapanese" class="quick-nav-btn">Traditional Japanese</a>
+              <a href="#style-nihongapainting" class="quick-nav-btn">Nihonga Painting</a>
+              <a href="#style-claymation" class="quick-nav-btn">Claymation</a>
+              <a href="#style-cartoon" class="quick-nav-btn">Cartoon</a>
+              <a href="#style-cursedphoto" class="quick-nav-btn">Cursed Photo</a>
+            </div>
+    <!-- suite des sous groupe 10 à 10 -->          
+            <div class="quick-nav-subgroup">10. 🔞 Adultes</div>
+            <div class="quick-nav-grid">
+              <a href="#style-NSFW" class="quick-nav-btn">NSFW</a>
+             <a href="#style-Camgirl" class="quick-nav-btn">Camgirl</a>            
+            </div>
+    <!-- suite des sous groupe de la section 18 -->            
+            <div class="quick-nav-subgroup">11. Modificateurs Photographiques & Spécifiques</div>
+            <div class="quick-nav-grid">
+              <a href="#mod-shot" class="quick-nav-btn">Cadrages (Shots)</a>
+              <a href="#mod-color" class="quick-nav-btn">Couleurs (Color)</a>
+              <a href="#mod-effect" class="quick-nav-btn">Effets (Effect)</a>
+              <a href="#mod-genre" class="quick-nav-btn">Cinematic Genres</a>
+              <a href="#mod-comic" class="quick-nav-btn">Comic & Pulp Modifiers</a>
+              <a href="#mod-cursed" class="quick-nav-btn">Cursed Modifiers</a>
+              <a href="#mod-animemods" class="quick-nav-btn">Anime Modifiers</a>
+              <a href="#mod-furrymods" class="quick-nav-btn">Furry Modifiers</a>
+              <a href="#mod-landscapemods" class="quick-nav-btn">Landscape Modifiers</a>
+            </div>
+          </div>
+</div><!-- Balise de fermeture du modal --> 
+<!-- fin du menu rapide de la section 3 -->
+
+<!-- ================= ================= -->
+
+    <!-- Modale plein écran : Section 04 (Vues) -->
+  <div id="modalVues" class="modal-overlay" role="dialog" aria-modal="true" aria-label="Menu des types de vue">
+    <button class="btn-close-menu" type="button">✖ Fermer le menu des vues</button>
+          
+    <div class="quick-nav-container" >
+      <div class="quick-nav-title">⚡ Sommaire Rapide des 40 Vues (Toucher pour accéder)</div>
+
+      <!-- Groupes de boutons de navigation Section 4 -->                      
+            <div class="quick-nav-subgroup">Lot 1 : Plans Larges & Distants</div>
+            <div class="quick-nav-grid">
+              <a href="#vue-afar" class="quick-nav-btn">1. Afar</a>
+              <a href="#vue-distant" class="quick-nav-btn">2. Distant shot</a>
+              <a href="#vue-longshot" class="quick-nav-btn">3. Long shot</a>
+              <a href="#vue-fullbody" class="quick-nav-btn">4. Full body</a>
+              <a href="#vue-standing" class="quick-nav-btn">5. Standing</a>
+              <a href="#vue-sitting" class="quick-nav-btn">6. Sitting</a>
+              <a href="#vue-fulllength" class="quick-nav-btn">7. Full length</a>
+              <a href="#vue-headtoes" class="quick-nav-btn">8. Head to toes</a>
+            </div>
+    <!-- suite des sous groupe 2 à 5 -->
+            <div class="quick-nav-subgroup">Lot 2 : Plans Rapprochés & Portraits</div>
+            <div class="quick-nav-grid">
+              <a href="#vue-bust" class="quick-nav-btn">9. Bust shot</a>
+              <a href="#vue-chest" class="quick-nav-btn">10. Chest-focused</a>
+              <a href="#vue-closeup" class="quick-nav-btn">11. Close-up</a>
+              <a href="#vue-closeupportrait" class="quick-nav-btn">12. Close-up portrait</a>
+              <a href="#vue-extremecloseup" class="quick-nav-btn">13. Extreme close-up</a>
+              <a href="#vue-facefocused" class="quick-nav-btn">14. Face-focused</a>
+              <a href="#vue-headshot" class="quick-nav-btn">15. Head shot</a>
+              <a href="#vue-portrait" class="quick-nav-btn">16. Portrait</a>
+              <a href="#vue-mediumshot" class="quick-nav-btn">17. Medium shot</a>
+              <a href="#vue-waistup" class="quick-nav-btn">18. Waist up</a>
+              <a href="#vue-kneesup" class="quick-nav-btn">19. Knees-up shot</a>
+            </div>
+    <!-- suite des sous groupe 3 à 5 -->
+            <div class="quick-nav-subgroup">Lot 3 : Angles & Perspectives Dynamiques</div>
+            <div class="quick-nav-grid">
+              <a href="#vue-birdseye" class="quick-nav-btn">20. Bird's eye view</a>
+              <a href="#vue-topdown" class="quick-nav-btn">21. Top-down view</a>
+              <a href="#vue-bottomup" class="quick-nav-btn">22. Bottom-up view</a>
+              <a href="#vue-frombelow" class="quick-nav-btn">23. From below</a>
+              <a href="#vue-wormseye" class="quick-nav-btn">24. Worm's eye view</a>
+              <a href="#vue-dynamichigh" class="quick-nav-btn">25. Dynamic high angle</a>
+              <a href="#vue-dynamiclow" class="quick-nav-btn">26. Dynamic low angle</a>
+              <a href="#vue-firstperson" class="quick-nav-btn">27. First-person / POV</a>
+            </div>
+    <!-- suite des sous groupe 4 à 5 -->
+            <div class="quick-nav-subgroup">Lot 4 : Orientations, Profils & Compositions Spéciales</div>
+            <div class="quick-nav-grid">
+              <a href="#vue-front" class="quick-nav-btn">28. Front</a>
+              <a href="#vue-side" class="quick-nav-btn">29. Side</a>
+              <a href="#vue-sideprofile" class="quick-nav-btn">30. Side profile</a>
+              <a href="#vue-back" class="quick-nav-btn">31. Back</a>
+              <a href="#vue-threequarter" class="quick-nav-btn">32. Three-Quarter</a>
+              <a href="#vue-overtheshoulder" class="quick-nav-btn">33. Over the shoulder</a>
+              <a href="#vue-mirror" class="quick-nav-btn">34. Mirror reflection</a>
+              <a href="#vue-shoes" class="quick-nav-btn">35. Shoes-focused</a>
+              <a href="#vue-candid" class="quick-nav-btn">36. Candid view</a>
+            </div>
+    <!-- suite des sous groupe 5 à 5 -->
+            <div class="quick-nav-subgroup">Lot 5 : Mises en page Diptyques & Contenus Spécifiques</div>
+            <div class="quick-nav-grid">
+              <a href="#vue-clothednude" class="quick-nav-btn">37. Clothed and nude</a>
+              <a href="#vue-frontback" class="quick-nav-btn">38. Front and back</a>
+              <a href="#vue-blowjob" class="quick-nav-btn">39. Blowjob POV</a>
+              <a href="#vue-handjob" class="quick-nav-btn">40. Handjob POV</a>
+        </div>
+    </div>            
+</div><!-- Balise de fermeture du modal --> 
+<!-- fin du menu rapide de la section 04 -->
+
+<!-- ================= ================= -->
+
+  <!-- Modale plein écran : Section 05 (Perspectives) -->
+  <div id="modalPerspectives" class="modal-overlay" role="dialog" aria-modal="true" aria-label="Menu des perspectives">
+    <button class="btn-close-menu" type="button">✖ Fermer le menu des perspectives</button>
+        <div class="quick-nav-container" id="sec05-quick-nav">
+            <div class="quick-nav-title">⚡ Navigation Rapide des Perspectives (Toucher pour accéder)</div>
             
-            <div class="learn-box">
-                <span class="learn-label">ANALYSE & PIÈGES À ÉVITER</span>
-                Risque d'effacer les détails du premier plan ou d'obtenir un fond totalement blanc et brûlé.
+        <!-- Groupes de boutons de navigation Section 05 -->
+            <div class="quick-nav-subgroup">1. Fondations Théoriques</div>
+            <div class="quick-nav-grid">
+                <a href="#sec05-theorie" class="quick-nav-btn">Angle vs Perspective</a>
+                <a href="#sec05-synthese" class="quick-nav-btn">Synthèse Rédaction</a>
             </div>
-
-            <div class="good-example-box">
-  <span class="good-example-label">✅ Exemple de Prompt Optimisé :</span>(backlit: 1.2), light source behind subject, ethereal halo effect around edges, dramatic silhouette, subtle fill light, atmospheric dust particles, 85mm lens, moody tones, 8k resolution</div>
-
-            <div class="negative-box">
-                <span class="negative-label">🚫 Negative Prompt Suggéré :</span> front light, flat lighting, blown out white background, oversaturated, low contrast, featureless subject
+   <!-- suite des sous groupe 2 à 3 -->
+            <div class="quick-nav-subgroup">2. Perspectives Humaines & Immersion</div>
+            <div class="quick-nav-grid">
+                <a href="#sec05-pov-1" class="quick-nav-btn">1. Personal POV</a>
+                <a href="#sec05-pov-2" class="quick-nav-btn">2. Over-the-shoulder</a>
+                <a href="#sec05-pov-3" class="quick-nav-btn">3. Voyeuristic POV</a>
+                <a href="#sec05-pov-4" class="quick-nav-btn">4. Low-angle POV</a>
+                <a href="#sec05-pov-5" class="quick-nav-btn">5. High-Angle POV</a>
+                <a href="#sec05-pov-6" class="quick-nav-btn">6. Second-Person POV</a>
+                <a href="#sec05-pov-7" class="quick-nav-btn">7. SnorriCam</a>
+                <a href="#sec05-pov-8" class="quick-nav-btn">8. Passerby POV</a>
             </div>
+    <!-- suite des sous groupe 3 à 3 -->
+            <div class="quick-nav-subgroup">3. Perspectives Spéciales & Expérimentales</div>
+            <div class="quick-nav-grid">
+                <a href="#sec05-pov-9" class="quick-nav-btn">9. Framed POV</a>
+                <a href="#sec05-pov-10" class="quick-nav-btn">10. Ground-Level POV</a>
+                <a href="#sec05-pov-11" class="quick-nav-btn">11. God's-Eye Aerial</a>
+                <a href="#sec05-pov-12" class="quick-nav-btn">12. Creature POV</a>
+            </div>
+        </div>
+</div><!-- Balise de fermeture du modal -->             
+<!-- fin du menu rapide de la section 06 --> 
 
-            <div class="tip-title">Astuces d'ajustement :</div>
-            <div class="tip-text">Ajoutez <em>golden backlight</em> ou <em>sunset backlight</em> pour réchauffer la scène sans perdre la silhouette.</div>
+<!-- ================= ================= -->  
+  
+  <!-- Modale plein écran : Section 06 (Poses) -->
+  <div id="modalPoses" class="modal-overlay" role="dialog" aria-modal="true" aria-label="Menu des Poses">
+    <button class="btn-close-menu" type="button">✖ Fermer le menu des poses</button>
+
+    <div class="quick-nav-container" style="margin-top: 14px;">
+      <div class="quick-nav-title">⚡ Sommaire Rapide des Poses (Toucher pour accéder)</div>
+      
+      <!-- Groupes de boutons de navigation Section 06 -->
+      <div class="quick-nav-subgroup">1. Positions Debout (Standing Poses)</div>
+      <div class="quick-nav-grid">
+        <a href="#pose-standing" class="quick-nav-btn">Standing</a>
+        <a href="#pose-armsfolded" class="quick-nav-btn">Arms folded</a>
+        <a href="#pose-behindback" class="quick-nav-btn">Hands behind back</a>
+        <a href="#pose-behindhead" class="quick-nav-btn">Hands behind head</a>
+        <a href="#pose-onhips" class="quick-nav-btn">Hands on hips</a>
+        <a href="#pose-inpocket" class="quick-nav-btn">Hand in pocket</a>
+        <a href="#pose-legup" class="quick-nav-btn">One leg up</a>
+        <a href="#pose-leaningwall" class="quick-nav-btn">Leaning against wall</a>
+        <a href="#pose-leaningforward" class="quick-nav-btn">Leaning forward</a>
+        <a href="#pose-bentover" class="quick-nav-btn">Bent over</a>
+        <a href="#pose-bentoverknees" class="quick-nav-btn">Bent over (knees)</a>
+        <a href="#pose-bentoverwall" class="quick-nav-btn">Bent over (wall)</a>
+        <a href="#pose-touchingtoes" class="quick-nav-btn">Touching toes</a>
+        <a href="#pose-archedbackstanding" class="quick-nav-btn">Arched back</a>
+      </div>
+    <!-- suite des sous groupe 2 à 7 -->
+            <div class="quick-nav-subgroup">2. Positions Assises (Seated Poses)</div>
+            <div class="quick-nav-grid">
+              <a href="#pose-sitting" class="quick-nav-btn">Sitting</a>
+              <a href="#pose-crosslegged" class="quick-nav-btn">Sitting cross-legged</a>
+              <a href="#pose-onelegcrossed" class="quick-nav-btn">One leg crossed</a>
+              <a href="#pose-sittingsideways" class="quick-nav-btn">Sitting sideways</a>
+              <a href="#pose-huggingknees" class="quick-nav-btn">Hugging knees</a>
+              <a href="#pose-legsspread" class="quick-nav-btn">Legs spread</a>
+              <a href="#pose-elbowsonknees" class="quick-nav-btn">Elbows on knees</a>
+              <a href="#pose-proppinghead" class="quick-nav-btn">Propping head</a>
+            </div>
+    <!-- suite des sous groupe 3 à 7 -->
+            <div class="quick-nav-subgroup">3. Positions à Genoux & au Sol</div>
+            <div class="quick-nav-grid">
+              <a href="#pose-kneeling" class="quick-nav-btn">Kneeling</a>
+              <a href="#pose-kneelingupright" class="quick-nav-btn">Kneeling upright</a>
+              <a href="#pose-kneelinglookingup" class="quick-nav-btn">Kneeling looking up</a>
+              <a href="#pose-kneelingheaddown" class="quick-nav-btn">Kneeling head down</a>
+              <a href="#pose-sittingonknees" class="quick-nav-btn">Sitting on knees</a>
+              <a href="#pose-squatting" class="quick-nav-btn">Squatting</a>
+              <a href="#pose-allfours" class="quick-nav-btn">All fours</a>
+              <a href="#pose-crawling" class="quick-nav-btn">Crawling</a>
+              <a href="#pose-pushup" class="quick-nav-btn">Push-up position</a>
+            </div>
+    <!-- suite des sous groupe 4 à 7 -->    
+            <div class="quick-nav-subgroup">4. Positions Allongées & Repos</div>
+            <div class="quick-nav-grid">
+              <a href="#pose-lyingfront" class="quick-nav-btn">Lying (front / stomach)</a>
+              <a href="#pose-lyingbackbed" class="quick-nav-btn">Lying (back, on bed)</a>
+              <a href="#pose-lyingbackfloor" class="quick-nav-btn">Lying (back, on floor)</a>
+              <a href="#pose-lyingside" class="quick-nav-btn">Lying on side</a>
+              <a href="#pose-restingsidehead" class="quick-nav-btn">Resting on side</a>
+              <a href="#pose-archedbacklying" class="quick-nav-btn">Arched back (lying)</a>
+              <a href="#pose-fetal" class="quick-nav-btn">Fetal position</a>
+              <a href="#pose-recliningarms" class="quick-nav-btn">Reclining (arms)</a>
+              <a href="#pose-reclininglegs" class="quick-nav-btn">Reclining (legs)</a>
+              <a href="#pose-sleeping" class="quick-nav-btn">Sleeping</a>
+              <a href="#pose-sunbathing" class="quick-nav-btn">Sunbathing</a>
+            </div>
+    <!-- suite des sous groupe 5 à 7 -->
+            <div class="quick-nav-subgroup">5. Poses Modèle & Stylisées</div>
+            <div class="quick-nav-grid">
+              <a href="#pose-modelarch" class="quick-nav-btn">Model arch pose</a>
+              <a href="#pose-modelleanforward" class="quick-nav-btn">Model lean forward</a>
+              <a href="#pose-modelleanback" class="quick-nav-btn">Model lean back</a>
+              <a href="#pose-modelsitside" class="quick-nav-btn">Model sit side</a>
+              <a href="#pose-modelsquat" class="quick-nav-btn">Model squat</a>
+            </div>
+    <!-- suite des sous groupe 6 à 7 -->
+            <div class="quick-nav-subgroup">6. Action, Mouvement & Cadrage</div>
+            <div class="quick-nav-grid">
+              <a href="#pose-dancing" class="quick-nav-btn">Dancing</a>
+              <a href="#pose-jumping" class="quick-nav-btn">Jumping</a>
+              <a href="#pose-running" class="quick-nav-btn">Running</a>
+              <a href="#pose-swimming" class="quick-nav-btn">Swimming</a>
+              <a href="#pose-workingout" class="quick-nav-btn">Working out</a>
+              <a href="#pose-yoga" class="quick-nav-btn">Yoga / Cat pose</a>
+              <a href="#pose-victory" class="quick-nav-btn">Victory pose</a>
+              <a href="#pose-closeup" class="quick-nav-btn">Close up</a>
+              <a href="#pose-selfie" class="quick-nav-btn">Selfie / Mirror</a>
+            </div>
+    <!-- suite des sous groupe 7 à 7 -->
+            <div class="quick-nav-subgroup">7. Poses Intimistes & Sensuelles / Adultes</div>
+            <div class="quick-nav-grid">
+              <a href="#pose-spreadinglegs" class="quick-nav-btn">Spreading legs</a>
+              <a href="#pose-legsup" class="quick-nav-btn">Legs up</a>
+              <a href="#pose-handsonbreasts" class="quick-nav-btn">Hands on breasts</a>
+              <a href="#pose-showering" class="quick-nav-btn">Showering</a>
+              <a href="#pose-allfoursnude" class="quick-nav-btn">All fours (nude)</a>
+              <a href="#pose-masturbating" class="quick-nav-btn">Masturbating</a>
+              <a href="#pose-dildosquat" class="quick-nav-btn">Dildo squat</a>
+        </div>
+    </div>            
+</div><!-- Balise de fermeture du modal -->             
+<!-- fin du menu rapide de la section 06 --> 
+
+<!-- ================= ================= -->
+
+    <!-- Modale plein écran : Section 08 (Eclairage) -->
+<div id="modalEclairages" class="modal-overlay" role="dialog" aria-modal="true" aria-label="Menu de 35 types d'éclairages">
+    <button class="btn-close-menu" type="button">✖ Fermer le menu des éclairages </button>
+    
+    <div class="quick-nav-container" id="sec08-quick-nav">
+            <div class="quick-nav-title">⚡ Sommaire Rapide de 35 types d'éclairages 💡</div>   
             
-            <a href="#section-8" class="back-to-sec-menu">⬆️ Retour au menu</a>
+        <!-- Groupes de boutons de navigation Section 08 -->            
+            <div class="quick-nav-subgroup">1. Éclairage Naturel & Temporel</div>
+            <div class="quick-nav-grid">
+                <a href="#sec08-light-12" class="quick-nav-btn">Early Morning</a>
+                <a href="#sec08-light-14" class="quick-nav-btn">Golden Hour</a>
+                <a href="#sec08-light-18" class="quick-nav-btn">Late Afternoon</a>
+                <a href="#sec08-light-20" class="quick-nav-btn">Midday</a>
+                <a href="#sec08-light-25" class="quick-nav-btn">Noon</a>
+                <a href="#sec08-light-31" class="quick-nav-btn">Sunrise</a>
+                <a href="#sec08-light-32" class="quick-nav-btn">Sunset</a>
+                <a href="#sec08-light-33" class="quick-nav-btn">Twilight</a>
+            </div>
+    <!-- suite des sous groupe 2 à 3 -->
+            <div class="quick-nav-subgroup">2. Ambiance Sombre & Dramatique</div>
+            <div class="quick-nav-grid">
+                <a href="#sec08-light-1" class="quick-nav-btn">Backlit</a>
+                <a href="#sec08-light-2" class="quick-nav-btn">Backlight</a>
+                <a href="#sec08-light-5" class="quick-nav-btn">Chiaroscuro</a>
+                <a href="#sec08-light-8" class="quick-nav-btn">Dark Lighting</a>
+                <a href="#sec08-light-9" class="quick-nav-btn">Deep Shadow</a>
+                <a href="#sec08-light-11" class="quick-nav-btn">Dim Lighting</a>
+                <a href="#sec08-light-19" class="quick-nav-btn">Low Key</a>
+                <a href="#sec08-light-21" class="quick-nav-btn">Midnight</a>
+                <a href="#sec08-light-24" class="quick-nav-btn">No Lighting</a>
+            </div>
+    <!-- suite des sous groupe 3 à 3 -->
+            <div class="quick-nav-subgroup">3. Studio & Éclairages Spécifiques</div>
+            <div class="quick-nav-grid">
+                <a href="#sec08-light-3" class="quick-nav-btn">Bright Lighting</a>
+                <a href="#sec08-light-4" class="quick-nav-btn">Candlelight</a>
+                <a href="#sec08-light-6" class="quick-nav-btn">Christmas Lights</a>
+                <a href="#sec08-light-7" class="quick-nav-btn">Cinematic</a>
+                <a href="#sec08-light-10" class="quick-nav-btn">Diffused</a>
+                <a href="#sec08-light-13" class="quick-nav-btn">Fluorescent</a>
+                <a href="#sec08-light-15" class="quick-nav-btn">Harsh Lighting</a>
+                <a href="#sec08-light-16" class="quick-nav-btn">High Key</a>
+                <a href="#sec08-light-17" class="quick-nav-btn">Infrared</a>
+                <a href="#sec08-light-22" class="quick-nav-btn">Natural</a>
+                <a href="#sec08-light-23" class="quick-nav-btn">Neon</a>
+                <a href="#sec08-light-26" class="quick-nav-btn">Overcast</a>
+                <a href="#sec08-light-27" class="quick-nav-btn">Rim Lighting</a>
+                <a href="#sec08-light-28" class="quick-nav-btn">Soft Lighting</a>
+                <a href="#sec08-light-29" class="quick-nav-btn">Spotlight</a>
+                <a href="#sec08-light-30" class="quick-nav-btn">Studio</a>
+                <a href="#sec08-light-34" class="quick-nav-btn">Warm Lighting</a>
+                <a href="#sec08-light-35" class="quick-nav-btn">Window Lighting</a>
+            </div>
         </div>
+</div><!-- Balise de fermeture du modal -->             
+<!-- fin du menu rapide de la section 08 --> 
 
-        <!-- 2. Backlight -->
-        <div class="option-box" id="sec08-light-2">
-            <div class="content-h3">2. Backlight</div>
-            <div class="content-p">Éclairage sombre et mystérieux, souvent teinté de violet ou de bleu, fréquemment utilisé dans les films d'horreur et les thrillers.</div>
-            <div class="injected-box">
-                <div class="injected-label">TEXTE INJECTÉ PAR DÉFAUT</div>
-                Lighting : Dark and moody, with a purple or blue tint, often used in horror and thriller films.
-            </div>
+<!-- ================= ================= -->
 
-            <div class="learn-box">
-                <span class="learn-label">ANALYSE & PIÈGES À ÉVITER</span>
-                L'IA peut dériver vers un style cyberpunk si la teinte bleue/violette devient trop saturée.
-            </div>
+  <!-- Modale plein écran : Section 18 (Sec18) -->
+  <div id="modalSec18" class="modal-overlay" role="dialog" aria-modal="true" aria-label="Menu de la section 18">
+    <button class="btn-close-menu" type="button">✖ Fermer le menu de la section 18</button>
 
-            <div class="good-example-box">
-  <span class="good-example-label">✅ Exemple de Prompt Optimisé :</span>(backlight:1.3), dark and moody atmosphere, deep purple and blue light tint, thriller movie aesthetic, subtle backlight glow, mysterious shadows, dramatic lighting, high detail</div>
+    <div class="quick-nav-container" style="margin-top: 14px;">
+      <div class="quick-nav-title">⚡ Sommaire Rapide de la Section 18 (Toucher pour accéder)</div>
 
-            <div class="negative-box">
-                <span class="negative-label">🚫 Negative Prompt Suggéré :</span> bright sunlight, warm tones, high key, cheerful, front lighting, overexposed face
-            </div>
-
-            <div class="tip-title">Astuces d'ajustement :</div>
-            <div class="tip-text">Utilisez <em>cool color grade</em> pour renforcer l'ambiance horrifique sans surcharger les effets de lumière.</div>
-
-            <a href="#section-8" class="back-to-sec-menu">⬆️ Retour au menu</a>
+      <!-- Groupes de boutons de navigation Section 18 -->
+      <div class="quick-nav-subgroup">1. Écosystème Logiciel & Super-Résolution</div>
+      <div class="quick-nav-grid">
+        <a href="#sec18-dxo-pureraw" class="quick-nav-btn">DxO PureRAW</a>
+        <a href="#sec18-topaz-ai" class="quick-nav-btn">Topaz Photo AI</a>
+        <a href="#sec18-upscayl" class="quick-nav-btn">Upscayl / Real-ESRGAN</a>
+        <a href="#sec18-ps-freq" class="quick-nav-btn">Photoshop (Séparation)</a>
+        <a href="#sec18-ps-fill" class="quick-nav-btn">Photoshop (Gen Fill)</a>
+        <a href="#sec18-luminar" class="quick-nav-btn">Luminar Neo</a>
+        <a href="#sec18-autorite" class="quick-nav-btn">Biais d'Autorité (C2PA/ELA)</a>
+      </div>
+    <!-- suite des sous groupe 2 à 4 -->
+      <div class="quick-nav-subgroup">2. Colorimétrie & Étalonnage Numérique</div>
+      <div class="quick-nav-grid">
+        <a href="#sec18-captureone-aces" class="quick-nav-btn">Capture One Pro & ACES</a>
+        <a href="#sec18-canon" class="quick-nav-btn">Canon Color Science</a>
+        <a href="#sec18-hasselblad" class="quick-nav-btn">Hasselblad (HNCS)</a>
+        <a href="#sec18-leica" class="quick-nav-btn">Leica Look</a>
+        <a href="#sec18-nikon" class="quick-nav-btn">Nikon Picture Control</a>
+        <a href="#sec18-vsco" class="quick-nav-btn">VSCO Film</a>
+        <a href="#sec18-mastin" class="quick-nav-btn">Mastin Labs</a>
+        <a href="#sec18-cobalt" class="quick-nav-btn">Cobalt Image</a>
+      </div>
+    <!-- suite des sous groupe 3 à 4 -->
+      <div class="quick-nav-subgroup">3. Chimie Argentique, Émulsions & Tirages d'Art</div>
+      <div class="quick-nav-grid">
+        <a href="#sec18-dehancer-dxo" class="quick-nav-btn">Dehancer / DxO FilmPack</a>
+        <a href="#sec18-hahnemuhle" class="quick-nav-btn">Hahnemühle & Canson</a>
+        <a href="#sec18-ilford" class="quick-nav-btn">Ilford Galerie</a>
+        <a href="#sec18-tableau-photo" class="quick-nav-btn">Tableau Synthétique</a>
+      </div>
+    <!-- suite des sous groupe 4 à 4 -->
+      <div class="quick-nav-subgroup">4. Dynamique & Techniques de Mouvement</div>
+      <div class="quick-nav-grid">
+        <a href="#sec18-shutter-freeze" class="quick-nav-btn">High-Speed Freeze (1/4000s)</a>
+        <a href="#sec18-panning-shot" class="quick-nav-btn">Panning Shot (Filé)</a>
+        <a href="#sec18-shutter-blur" class="quick-nav-btn">Action Shutter Blur (1/60s)</a>
+        <a href="#sec18-candid-walk" class="quick-nav-btn">Candid Walking</a>
         </div>
-
-        <!-- 3. Bright Lighting -->
-        <div class="option-box" id="sec08-light-3">
-            <div class="content-h3">3. Bright Lighting</div>
-            <div class="content-p">Éclairage intense et direct qui atténue ou efface les détails en créant de forts contrastes.</div>
-            <div class="injected-box">
-                <div class="injected-label">TEXTE INJECTÉ PAR DÉFAUT</div>
-                Lighting : Harsh, bright light that washes out details and creates strong contrasts.
-            </div>
-
-            <div class="learn-box">
-                <span class="learn-label">ANALYSE & PIÈGES À ÉVITER</span>
-                Perte totale de texture sur la peau ou les objets due à la surexposition.
-            </div>
-
-            <div class="good-example-box">
-  <span class="good-example-label">✅ Exemple de Prompt Optimisé :</span>(bright lighting:1.2), harsh direct light, strong visual contrast, vivid colors, crisp focus, clear sharp details, outdoor sunlight, vibrant scene</div>
-
-            <div class="negative-box">
-                <span class="negative-label">🚫 Negative Prompt Suggéré :</span> shadowy, dark atmosphere, dim light, low contrast, underexposed, foggy, muted colors
-            </div>
-
-            <div class="tip-title">Astuces d'ajustement :</div>
-            <div class="tip-text">Ajoutez <em>sharp details</em> pour forcer le modèle à conserver les textures malgré la forte luminosité.</div>
-
-            <a href="#section-8" class="back-to-sec-menu">⬆️ Retour au menu</a>
-        </div>
-
-        <!-- 4. Candlelight -->
-        <div class="option-box" id="sec08-light-4">
-            <div class="content-h3">4. Candlelight</div>
-            <div class="content-p">Lumière douce et chaude émise par des bougies, créant une atmosphère intime et romantique.</div>
-            <div class="injected-box">
-                <div class="injected-label">TEXTE INJECTÉ PAR DÉFAUT</div>
-                Lighting : Soft, warm light from candles, creating a romantic and intimate atmosphere.
-            </div>
-
-            <div class="learn-box">
-                <span class="learn-label">ANALYSE & PIÈGES À ÉVITER</span>
-                Génération de vraies bougies parasites visibles dans le cadre si vous voulez uniquement la lumière.
-            </div>
-
-            <div class="good-example-box">
-  <span class="good-example-label">✅ Exemple de Prompt Optimisé :</span>(soft candlelight:1.3), warm golden glow, intimate romantic atmosphere, flicker effect, gentle shadow falloff, cozy indoor setting, photorealistic</div>
-
-            <div class="negative-box">
-                <span class="negative-label">🚫 Negative Prompt Suggéré :</span> harsh light, cool tones, fluorescent lighting, bright midday, cold colors, flash photography
-            </div>
-
-            <div class="tip-title">Astuces d'ajustement :</div>
-            <div class="tip-text">Spécifiez <em>off-screen candle illumination</em> si vous ne souhaitez pas voir les bougies dans l'image.</div>
-
-            <a href="#section-8" class="back-to-sec-menu">⬆️ Retour au menu</a>
-        </div>
-
-        <!-- 5. Chiaroscuro lighting -->
-        <div class="option-box" id="sec08-light-5">
-            <div class="content-h3">5. Chiaroscuro lighting</div>
-            <div class="content-p">Contraste marqué entre les zones de lumière et d'ombre, utilisé pour des scènes dramatiques et ténébreuses (style Caravage).</div>
-            <div class="injected-box">
-                <div class="injected-label">TEXTE INJECTÉ PAR DÉFAUT</div>
-                Lighting : Strong contrasts between light and dark, often used in dramatic and moody scenes.
-            </div>
-
-            <div class="learn-box">
-                <span class="learn-label">ANALYSE & PIÈGES À ÉVITER</span>
-                L'image peut devenir excessivement noire et perdre toute lisibilité dans les ombres.
-            </div>
-
-            <div class="good-example-box">
-  <span class="good-example-label">✅ Exemple de Prompt Optimisé :</span>(chiaroscuro lighting:1.3), strong contrast between light and dark, dramatic side lighting, deep shadows, fine art aesthetic, Rembrandt light style, cinematic</div>
-
-            <div class="negative-box">
-                <span class="negative-label">🚫 Negative Prompt Suggéré :</span> flat light, soft lighting, high key, bright background, even illumination, no shadows
-            </div>
-
-            <div class="tip-title">Astuces d'ajustement :</div>
-            <div class="tip-text">Utilisez <em>focused light beam on face</em> pour diriger la lumière précisément sur le sujet.</div>
-
-            <a href="#section-8" class="back-to-sec-menu">⬆️ Retour au menu</a>
-        </div>
-
-        <!-- 6. Christmas Lights -->
-        <div class="option-box" id="sec08-light-6">
-            <div class="content-h3">6. Christmas Lights</div>
-            <div class="content-p">Lumières vives et colorées issues de guirlandes, créant une atmosphère festive et joyeuse.</div>
-            <div class="injected-box">
-                <div class="injected-label">TEXTE INJECTÉ PAR DÉFAUT</div>
-                Lighting : Bright, colorful light from Christmas lights, creating a festive and cheerful atmosphere.
-            </div>
-
-            <div class="learn-box">
-                <span class="learn-label">ANALYSE & PIÈGES À ÉVITER</span>
-                Transformation du fond en un fouillis d'éléments de Noël inutiles.
-            </div>
-
-            <div class="good-example-box">
-  <span class="good-example-label">✅ Exemple de Prompt Optimisé :</span>(bright colorful Christmas lights: 1.2), festive illumination, soft bokeh background dots, cheerful cozy glow, winter evening atmosphere, vibrant colors</div>
-
-            <div class="negative-box">
-                <span class="negative-label">🚫 Negative Prompt Suggéré :</span> gloomy, dark thriller, moody lighting, black and white, harsh shadows, flat colors
-            </div>
-
-            <div class="tip-title">Astuces d'ajustement :</div>
-            <div class="tip-text">Ajoutez <em>shallow depth of field, background bokeh</em> pour isoler les lumières sous forme de belles bulles floues.</div>
-
-            <a href="#section-8" class="back-to-sec-menu">⬆️ Retour au menu</a>
-        </div>
-
-        <!-- 7. Cinematic lighting -->
-        <div class="option-box" id="sec08-light-7">
-            <div class="content-h3">7. Cinematic lighting</div>
-            <div class="content-p">Éclairage dramatique et expressif, riche en contrastes et ombres portées, évoquant le cinéma classique ou le film noir.</div>
-            <div class="injected-box">
-                <div class="injected-label">TEXTE INJECTÉ PAR DÉFAUT</div>
-                Lighting : Dramatic and moody, with strong contrasts and shadows, often used in film noir.
-            </div>
-
-            <div class="learn-box">
-                <span class="learn-label">ANALYSE & PIÈGES À ÉVITER</span>
-                Résultat trop générique si le prompt manque de contexte de scène.
-            </div>
-
-            <div class="good-example-box">
-  <span class="good-example-label">✅ Exemple de Prompt Optimisé :</span>(cinematic lighting: 1.3), dramatic moody contrast, stylized shadows, film noir aesthetic, color graded, anamorphic lens flare, movie scene quality, high dynamic range</div>
-
-            <div class="negative-box">
-                <span class="negative-label">🚫 Negative Prompt Suggéré :</span> amateur photo, flat lighting, phone camera, overexposed, plain background, plain lighting
-            </div>
-
-            <div class="tip-title">Astuces d'ajustement :</div>
-            <div class="tip-text">Combinez avec une focale précise comme <em>35mm lens shot</em> ou <em>anamorphic ratio</em>.</div>
-
-            <a href="#section-8" class="back-to-sec-menu">⬆️ Retour au menu</a>
-        </div>
-
-        <!-- 8. Dark lighting -->
-        <div class="option-box" id="sec08-light-8">
-            <div class="content-h3">8. Dark lighting</div>
-            <div class="content-p">Faible niveau d'éclairement instaurant une ambiance sombre, ténébreuse et mystérieuse.</div>
-            <div class="injected-box">
-                <div class="injected-label">TEXTE INJECTÉ PAR DÉFAUT</div>
-                Lighting : Low light levels, creating a moody and mysterious atmosphere.
-            </div>
-
-            <div class="learn-box">
-                <span class="learn-label">ANALYSE & PIÈGES À ÉVITER</span>
-                Obtenir un écran entièrement noir sans forme distinguable.
-            </div>
-
-            <div class="good-example-box">
-  <span class="good-example-label">✅ Exemple de Prompt Optimisé :</span>(dark lighting: 1.3), low light levels, moody mysterious atmosphere, faint ambient glow, deep dark tones, subtle highlights, highly detailed shadows</div>
-
-            <div class="negative-box">
-                <span class="negative-label">🚫 Negative Prompt Suggéré :</span> overexposed, bright sunny day, vivid lighting, high key, washed out, direct sunlight
-            </div>
-
-            <div class="tip-title">Astuces d'ajustement :</div>
-            <div class="tip-text">Conservez un léger relief avec le terme <em>subtle rim highlights</em>.</div>
-
-            <a href="#section-8" class="back-to-sec-menu">⬆️ Retour au menu</a>
-        </div>
-
-        <!-- 9. Deep shadow Lighting -->
-        <div class="option-box" id="sec08-light-9">
-            <div class="content-h3">9. Deep shadow Lighting</div>
-            <div class="content-p">Ambiance sombre marquée par des ombres profondes et une source lumineuse minimale, typique des thrillers et films d'horreur.</div>
-            <div class="injected-box">
-                <div class="injected-label">TEXTE INJECTÉ PAR DÉFAUT</div>
-                Dark and moody, with deep shadows and minimal light sources, often used in horror and thriller films.
-            </div>
-
-            <div class="learn-box">
-                <span class="learn-label">ANALYSE & PIÈGES À ÉVITER</span>
-                Artefacts de compression dans les zones sombres.
-            </div>
-
-            <div class="good-example-box">
-  <span class="good-example-label">✅ Exemple de Prompt Optimisé :</span>(deep shadow lighting:1.3), pitch dark areas, minimal light source, heavy shadow cast, horror movie tone, sharp edge shadows, dramatic atmosphere</div>
-
-            <div class="negative-box">
-                <span class="negative-label">🚫 Negative Prompt Suggéré :</span> bright even light, soft lighting, sunny, no shadows, high key, pastel colors
-            </div>
-
-            <div class="tip-title">Astuces d'ajustement :</div>
-            <div class="tip-text">Associez le terme à <em>high contrast sharp shadows</em> pour garder des bords d'ombre nets.</div>
-
-            <a href="#section-8" class="back-to-sec-menu">⬆️ Retour au menu</a>
-        </div>
-
-        <!-- 10. Diffused Lighting -->
-        <div class="option-box" id="sec08-light-10">
-            <div class="content-h3">10. Diffused Lighting</div>
-            <div class="content-p">Lumière douce et homogène sans ombres marquées, semblable à celle produite par un diffuseur ou un ciel couvert.</div>
-            <div class="injected-box">
-                <div class="injected-label">TEXTE INJECTÉ PAR DÉFAUT</div>
-                Lighting : Soft and even, with no harsh shadows, often achieved with a diffuser or overcast sky.
-            </div>
-
-            <div class="learn-box">
-                <span class="learn-label">ANALYSE & PIÈGES À ÉVITER</span>
-                Image plate qui manque de relief ou de profondeur.
-            </div>
-
-            <div class="good-example-box">
-  <span class="good-example-label">✅ Exemple de Prompt Optimisé :</span>(diffused lighting:1.2), soft even illumination, no harsh shadows, ambient lighting, smooth tonal transitions, gentle light falloff, studio softbox effect</div>
-
-            <div class="negative-box">
-                <span class="negative-label">🚫 Negative Prompt Suggéré :</span> hard direct light, harsh shadows, chiaroscuro, high contrast, spotlight, blinding sun
-            </div>
-
-            <div class="tip-title">Astuces d'ajustement :</div>
-            <div class="tip-text">Combinez avec <em>subtle depth of field</em> pour recréer du relief visuel.</div>
-
-            <a href="#section-8" class="back-to-sec-menu">⬆️ Retour au menu</a>
-        </div>
-
-        <!-- 11. Dim Lighting -->
-        <div class="option-box" id="sec08-light-11">
-            <div class="content-h3">11. Dim Lighting</div>
-            <div class="content-p">Éclairage de très faible intensité créant une ambiance feutrée, intime et ténébreuse.</div>
-            <div class="injected-box">
-                <div class="injected-label">TEXTE INJECTÉ PAR DÉFAUT</div>
-                Lighting : Low light levels, creating a moody and intimate atmosphere.
-            </div>
-
-            <div class="learn-box">
-                <span class="learn-label">ANALYSE & PIÈGES À ÉVITER</span>
-                Bruit visuel ou flou indésirable généré par l'IA.
-            </div>
-
-            <div class="good-example-box">
-  <span class="good-example-label">✅ Exemple de Prompt Optimisé :</span>(dim lighting: 1.2), low ambient light, cozy intimate mood, soft muted highlights, dark warm interior, quiet atmosphere</div>
-
-            <div class="negative-box">
-                <span class="negative-label">🚫 Negative Prompt Suggéré :</span> bright daylight, harsh sun, flash light, vibrant bright colors, overexposed
-            </div>
-
-            <div class="tip-title">Astuces d'ajustement :</div>
-            <div class="tip-text">Précisez la source ambiante comme <em>faint lamp glow</em>.</div>
-
-            <a href="#section-8" class="back-to-sec-menu">⬆️ Retour au menu</a>
-        </div>
-
-        <!-- 12. Early morning Lighting -->
-        <div class="option-box" id="sec08-light-12">
-            <div class="content-h3">12. Early morning Lighting</div>
-            <div class="content-p">Lumière douce et diffusée du petit matin, insufflant une atmosphère paisible et sereine.</div>
-            <div class="injected-box">
-                <div class="injected-label">TEXTE INJECTÉ PAR DÉFAUT</div>
-                Lighting : Soft, diffused light during early morning, creating a peaceful and serene atmosphere.
-            </div>
-
-            <div class="learn-box">
-                <span class="learn-label">ANALYSE & PIÈGES À ÉVITER</span>
-                Confusion par l'IA avec le coucher de soleil (teintes trop orange).
-            </div>
-
-            <div class="good-example-box">
-  <span class="good-example-label">✅ Exemple de Prompt Optimisé :</span>(early morning lighting: 1.2), soft diffused dawn light, peaceful serene atmosphere, gentle sunbeams through mist, cool blue and soft pink tones</div>
-
-            <div class="negative-box">
-                <span class="negative-label">🚫 Negative Prompt Suggéré :</span> midday sun, harsh shadows, dark midnight, neon lights, hot orange sunset
-            </div>
-
-            <div class="tip-title">Astuces d'ajustement :</div>
-            <div class="tip-text">Intégrez les termes <em>morning mist</em> ou <em>fog</em> pour étaler la lumière.</div>
-
-            <a href="#section-8" class="back-to-sec-menu">⬆️ Retour au menu</a>
-        </div>
-
-        <!-- 13. Fluorescent Lighting -->
-        <div class="option-box" id="sec08-light-13">
-            <div class="content-h3">13. Fluorescent Lighting</div>
-            <div class="content-p">Lumière crue et froide émanant de tubes fluorescents, propre aux bureaux et espaces publics.</div>
-            <div class="injected-box">
-                <div class="injected-label">TEXTE INJECTÉ PAR DÉFAUT</div>
-                Lighting : Harsh, cool light from fluorescent bulbs, often used in offices and public spaces.
-            </div>
-
-            <div class="learn-box">
-                <span class="learn-label">ANALYSE & PIÈGES À ÉVITER</span>
-                Rendu esthétique plat ou teintes vertes indésirables sur la peau.
-            </div>
-
-            <div class="good-example-box">
-  <span class="good-example-label">✅ Exemple de Prompt Optimisé :</span>(fluorescent lighting:1.2), harsh cool tones, overhead tube lights, sterile environment, realistic interior light, clinical atmosphere</div>
-
-            <div class="negative-box">
-                <span class="negative-label">🚫 Negative Prompt Suggéré :</span> warm golden light, romantic candlelight, cozy glow, natural sunlight, sunset
-            </div>
-
-            <div class="tip-title">Astuces d'ajustement :</div>
-            <div class="tip-text">Ajoutez <em>cool white color temperature</em> pour affiner le ton clinique.</div>
-
-            <a href="#section-8" class="back-to-sec-menu">⬆️ Retour au menu</a>
-        </div>
-
-        <!-- 14. Golden hour lighting -->
-        <div class="option-box" id="sec08-light-14">
-            <div class="content-h3">14. Golden hour lighting</div>
-            <div class="content-p">Lumière chaude et dorée caractéristique de l'heure qui suit le lever ou précède le coucher du soleil.</div>
-            <div class="injected-box">
-                <div class="injected-label">TEXTE INJECTÉ PAR DÉFAUT</div>
-                Lighting : Warm, soft light during the hour after sunrise or before sunset, creating a golden glow.
-            </div>
-
-            <div class="learn-box">
-                <span class="learn-label">ANALYSE & PIÈGES À ÉVITER</span>
-                Saturation excessive tournant au jaune/orange synthétique.
-            </div>
-
-            <div class="good-example-box">
-  <span class="good-example-label">✅ Exemple de Prompt Optimisé :</span>(golden hour lighting: 1.3), warm soft golden glow, low sun angle, radiant natural light, long gentle shadows, rich warm hues, photographic</div>
-
-            <div class="negative-box">
-                <span class="negative-label">🚫 Negative Prompt Suggéré :</span> cool blue light, harsh noon sun, fluorescent illumination, midnight dark, neon colors
-            </div>
-
-            <div class="tip-title">Astuces d'ajustement :</div>
-            <div class="tip-text">Associez avec <em>warm lens flare</em> pour accentuer l'immersion.</div>
-
-            <a href="#section-8" class="back-to-sec-menu">⬆️ Retour au menu</a>
-        </div>
-
-        <!-- 15. Harsh Lighting -->
-        <div class="option-box" id="sec08-light-15">
-            <div class="content-h3">15. Harsh Lighting</div>
-            <div class="content-p">Lumière directe et vive générant des ombres franches et un contraste élevé.</div>
-            <div class="injected-box">
-                <div class="injected-label">TEXTE INJECTÉ PAR DÉFAUT</div>
-                Lighting : Strong, direct light that creates deep shadows and high contrast.
-            </div>
-
-            <div class="learn-box">
-                <span class="learn-label">ANALYSE & PIÈGES À ÉVITER</span>
-                Aspect surexposé non esthétique.
-            </div>
-
-            <div class="good-example-box">
-  <span class="good-example-label">✅ Exemple de Prompt Optimisé :</span>(harsh lighting:1.3), strong direct light source, deep hard shadows, high dynamic contrast, crisp details, intense sunlight effect</div>
-
-            <div class="negative-box">
-                <span class="negative-label">🚫 Negative Prompt Suggéré :</span> soft lighting, diffused glow, dim atmospheric light, overcast sky, gentle illumination
-            </div>
-
-            <div class="tip-title">Astuces d'ajustement :</div>
-            <div class="tip-text">Utilisez <em>sharp geometric shadows</em> pour valoriser l'effet recherché.</div>
-
-            <a href="#section-8" class="back-to-sec-menu">⬆️ Retour au menu</a>
-        </div>
-
-        <!-- 16. High key Lighting -->
-        <div class="option-box" id="sec08-light-16">
-            <div class="content-h3">16. High key Lighting</div>
-            <div class="content-p">Éclairage très lumineux et uniforme aux ombres réduites au minimum, prisé en comédie et comédie musicale.</div>
-            <div class="injected-box">
-                <div class="injected-label">TEXTE INJECTÉ PAR DÉFAUT</div>
-                Lighting : Bright and even, with minimal shadows, often used in comedies and musicals.
-            </div>
-
-            <div class="learn-box">
-                <span class="learn-label">ANALYSE & PIÈGES À ÉVITER</span>
-                Visage lavé sans aucun relief ni contour.
-            </div>
-
-            <div class="good-example-box">
-  <span class="good-example-label">✅ Exemple de Prompt Optimisé :</span>(high key lighting: 1.3), bright even illumination, minimal shadows, airy clean aesthetic, soft highlights, cheerful tone, professional studio shot</div>
-
-            <div class="negative-box">
-                <span class="negative-label">🚫 Negative Prompt Suggéré :</span> dark shadows, chiaroscuro, moody lighting, low key, horror, deep blacks
-            </div>
-
-            <div class="tip-title">Astuces d'ajustement :</div>
-            <div class="tip-text">Ajoutez <em>subtle contrast on facial features</em> pour préserver les traits.</div>
-
-            <a href="#section-8" class="back-to-sec-menu">⬆️ Retour au menu</a>
-        </div>
-
-        <!-- 17. Infrared Lighting -->
-        <div class="option-box" id="sec08-light-17">
-            <div class="content-h3">17. Infrared Lighting</div>
-            <div class="content-p">Rendu sombre et singulier teinté de rouge ou de violet, évocateur des caméras thermiques ou du cinéma d'horreur.</div>
-            <div class="injected-box">
-                <div class="injected-label">TEXTE INJECTÉ PAR DÉFAUT</div>
-                Lighting : Dark and moody, with a red or purple tint, often used in horror and thriller films.
-            </div>
-
-            <div class="learn-box">
-                <span class="learn-label">ANALYSE & PIÈGES À ÉVITER</span>
-                L'IA mélange l'infrarouge avec un simple filtre rouge de mauvaise qualité.
-            </div>
-
-            <div class="good-example-box">
-  <span class="good-example-label">✅ Exemple de Prompt Optimisé :</span>(infrared lighting:1.3), dark moody atmosphere, distinct purple and red tint spectrum, surreal thermal look, night vision aesthetic, eerie glowing foliage</div>
-
-            <div class="negative-box">
-                <span class="negative-label">🚫 Negative Prompt Suggéré :</span> natural colors, realistic daylight, warm sun, simple black and white, standard lighting
-            </div>
-
-            <div class="tip-title">Astuces d'ajustement :</div>
-            <div class="tip-text">Spécifiez <em>surreal color shift</em> pour obtenir des feuillages blancs/rouges typiques de l'infrarouge.</div>
-
-            <a href="#section-8" class="back-to-sec-menu">⬆️ Retour au menu</a>
-        </div>
-
-        <!-- 18. Late afternoon Lighting -->
-        <div class="option-box" id="sec08-light-18">
-            <div class="content-h3">18. Late afternoon Lighting</div>
-            <div class="content-p">Lumière tiède et adoucie de la fin d'après-midi, projetant une douce clarté dorée.</div>
-            <div class="injected-box">
-                <div class="injected-label">TEXTE INJECTÉ PAR DÉFAUT</div>
-                Lighting : Warm, soft light during late afternoon, creating a golden glow.
-            </div>
-
-            <div class="learn-box">
-                <span class="learn-label">ANALYSE & PIÈGES À ÉVITER</span>
-                Confusion fréquente avec le coucher de soleil complet.
-            </div>
-
-            <div class="good-example-box">
-  <span class="good-example-label">✅ Exemple de Prompt Optimisé :</span>(late afternoon lighting:1.2), soft warm sun rays, relaxing ambient glow, angled shadows, realistic outdoor lighting, natural warmth</div>
-
-            <div class="negative-box">
-                <span class="negative-label">🚫 Negative Prompt Suggéré :</span> harsh midday sun, cold dawn light, dark midnight, blue hour, neon light
-            </div>
-
-            <div class="tip-title">Astuces d'ajustement :</div>
-            <div class="tip-text">Précisez <em>angled sunlight</em> pour indiquer une position du soleil encore au-dessus de l'horizon.</div>
-
-            <a href="#section-8" class="back-to-sec-menu">⬆️ Retour au menu</a>
-        </div>
-
-        <!-- 19. Low key Lighting -->
-        <div class="option-box" id="sec08-light-19">
-            <div class="content-h3">19. Low key Lighting</div>
-            <div class="content-p">Éclairage sombre et dramatique fondé sur des contrastes marqués et des ombres épaisses, employé dans le thriller ou le fantastique.</div>
-            <div class="injected-box">
-                <div class="injected-label">TEXTE INJECTÉ PAR DÉFAUT</div>
-                Lighting : Dark and moody, with strong contrasts and deep shadows, often used in horror and thriller films.
-            </div>
-
-            <div class="learn-box">
-                <span class="learn-label">ANALYSE & PIÈGES À ÉVITER</span>
-                Masquage total du sujet dans les aplats noirs.
-            </div>
-
-            <div class="good-example-box">
-  <span class="good-example-label">✅ Exemple de Prompt Optimisé :</span>(low key lighting:1.3), dark moody scene, deep shadows, selective light highlights, high contrast, dramatic tension, fine art photo</div>
-
-            <div class="negative-box">
-                <span class="negative-label">🚫 Negative Prompt Suggéré :</span> high key, bright light, soft even light, daylight, white background, flat profile
-            </div>
-
-            <div class="tip-title">Astuces d'ajustement :</div>
-            <div class="tip-text">Ajoutez <em>precise key light on subject</em> pour faire ressortir une zone précise.</div>
-
-            <a href="#section-8" class="back-to-sec-menu">⬆️ Retour au menu</a>
-        </div>
-
-        <!-- 20. Mid day Lighting -->
-        <div class="option-box" id="sec08-light-20">
-            <div class="content-h3">20. Mid day Lighting</div>
-            <div class="content-p">Scène éclairée par le soleil zénithal de milieu de journée, franc et intense.</div>
-            <div class="injected-box">
-                <div class="injected-label">TEXTE INJECTÉ PAR DÉFAUT</div>
-                The subject is lit by bright mid day sunlight.
-            </div>
-
-            <div class="learn-box">
-                <span class="learn-label">ANALYSE & PIÈGES À ÉVITER</span>
-                Ombres désagréables sous les yeux du sujet (panda eyes).
-            </div>
-
-            <div class="good-example-box">
-  <span class="good-example-label">✅ Exemple de Prompt Optimisé :</span>(bright mid day lighting: 1.2), direct overhead sunlight, vivid clear details, sharp natural shadows, bright environment, full illumination</div>
-
-            <div class="negative-box">
-                <span class="negative-label">🚫 Negative Prompt Suggéré :</span> sunset, golden hour, dark moody lights, long shadows, candlelight, nighttime
-            </div>
-
-            <div class="tip-title">Astuces d'ajustement :</div>
-            <div class="tip-text">Utilisez <em>fill light</em> si le soleil vertical crée des ombres trop dures sur les visages.</div>
-
-            <a href="#section-8" class="back-to-sec-menu">⬆️ Retour au menu</a>
-        </div>
-
-        <!-- 21. Midnight Lighting -->
-        <div class="option-box" id="sec08-light-21">
-            <div class="content-h3">21. Midnight Lighting</div>
-            <div class="content-p">Ambiance obscure et mystérieuse aux sources de lumière très restreintes (lune, lampadaire distant).</div>
-            <div class="injected-box">
-                <div class="injected-label">TEXTE INJECTÉ PAR DÉFAUT</div>
-                Lighting : Dark and moody, with minimal light sources, often used in horror and thriller films.
-            </div>
-
-            <div class="learn-box">
-                <span class="learn-label">ANALYSE & PIÈGES À ÉVITER</span>
-                Obtenir un bleu nuit trop artificiel ou une image illisible.
-            </div>
-
-            <div class="good-example-box">
-  <span class="good-example-label">✅ Exemple de Prompt Optimisé :</span>(midnight lighting:1.3), deep night darkness, minimal ambient light sources, subtle moonlight highlights, moody dark colors, quiet mystery</div>
-
-            <div class="negative-box">
-                <span class="negative-label">🚫 Negative Prompt Suggéré :</span> bright sunlight, daylight, morning light, high key, clear bright illumination
-            </div>
-
-            <div class="tip-title">Astuces d'ajustement :</div>
-            <div class="tip-text">Ajoutez <em>cool moonlit reflections</em> pour distinguer le sol et les surfaces.</div>
-
-            <a href="#section-8" class="back-to-sec-menu">⬆️ Retour au menu</a>
-        </div>
-
-        <!-- 22. Natural lighting -->
-        <div class="option-box" id="sec08-light-22">
-            <div class="content-h3">22. Natural lighting</div>
-            <div class="content-p">Lumière du jour douce et harmonieuse en provenance directe du soleil, idéale pour des vues extérieures naturelles.</div>
-            <div class="injected-box">
-                <div class="injected-label">TEXTE INJECTÉ PAR DÉFAUT</div>
-                Lighting : Soft, even light from the sun, often used in outdoor scenes.
-            </div>
-
-            <div class="learn-box">
-                <span class="learn-label">ANALYSE & PIÈGES À ÉVITER</span>
-                Rendu trop neutre ou manque de style photographique.
-            </div>
-
-            <div class="good-example-box">
-  <span class="good-example-label">✅ Exemple de Prompt Optimisé :</span>(natural lighting:1.2), soft realistic daylight, unprocessed light feel, authentic color rendition, gentle outdoor sun, true to life</div>
-
-            <div class="negative-box">
-                <span class="negative-label">🚫 Negative Prompt Suggéré :</span> studio flash, harsh spotlights, artificial neon, intense chiaroscuro, stylized color filters
-            </div>
-
-            <div class="tip-title">Astuces d'ajustement :</div>
-            <div class="tip-text">Combinez avec <em>photorealistic details</em> pour renforcer l'authenticité.</div>
-
-            <a href="#section-8" class="back-to-sec-menu">⬆️ Retour au menu</a>
-        </div>
-
-        <!-- 23. Neon Lighting -->
-        <div class="option-box" id="sec08-light-23">
-            <div class="content-h3">23. Neon Lighting</div>
-            <div class="content-p">Lumières vives, saturées et colorées diffusées par des enseignes au néon, créant un cadre dynamique et énergique.</div>
-            <div class="injected-box">
-                <div class="injected-label">TEXTE INJECTÉ PAR DÉFAUT</div>
-                Lighting : Bright, colorful light from neon signs, creating a vibrant and energetic atmosphere.
-            </div>
-
-            <div class="learn-box">
-                <span class="learn-label">ANALYSE & PIÈGES À ÉVITER</span>
-                Surcharger le sujet sous des halos de couleur au détriment de l'anatomie.
-            </div>
-
-            <div class="good-example-box">
-  <span class="good-example-label">✅ Exemple de Prompt Optimisé :</span>(vibrant neon lighting: 1.3), glowing colorful neon signs, bright pink and cyan highlights, energetic atmosphere, night city reflections, wet pavement glow</div>
-
-            <div class="negative-box">
-                <span class="negative-label">🚫 Negative Prompt Suggéré :</span> natural sunlight, dull flat lighting, black and white, monochrome, pastel colors
-            </div>
-
-            <div class="tip-title">Astuces d'ajustement :</div>
-            <div class="tip-text">Équilibrez les couleurs avec <em>dual tone neon illumination (pink and teal)</em>.</div>
-
-            <a href="#section-8" class="back-to-sec-menu">⬆️ Retour au menu</a>
-        </div>
-
-        <!-- 24. No Lighting -->
-        <div class="option-box" id="sec08-light-24">
-            <div class="content-h3">24. No Lighting</div>
-            <div class="content-p">Obscurité totale sans aucune source lumineuse visible.</div>
-            <div class="injected-box">
-                <div class="injected-label">TEXTE INJECTÉ PAR DÉFAUT</div>
-                Lighting : Complete darkness, with no visible light source.
-            </div>
-
-            <div class="learn-box">
-                <span class="learn-label">ANALYSE & PIÈGES À ÉVITER</span>
-                L'IA refusera souvent d'afficher du pur noir et générera des formes au hasard.
-            </div>
-
-            <div class="good-example-box">
-  <span class="good-example-label">✅ Exemple de Prompt Optimisé :</span>(no lighting:1.3), complete darkness, total absence of visible light, pitch black background, near-invisible outlines, deep obscurity</div>
-
-            <div class="negative-box">
-                <span class="negative-label">🚫 Negative Prompt Suggéré :</span> bright, lit room, light source, spotlight, sunny, glowing, highlights
-            </div>
-
-            <div class="tip-title">Astuces d'ajustement :</div>
-            <div class="tip-text">Indiquez <em>faint dark silhouettes</em> pour que le générateur produise quand même un contenu discernable.</div>
-
-            <a href="#section-8" class="back-to-sec-menu">⬆️ Retour au menu</a>
-        </div>
-
-        <!-- 25. Noon Lighting -->
-        <div class="option-box" id="sec08-light-25">
-            <div class="content-h3">25. Noon Lighting</div>
-            <div class="content-p">Lumière zénithale d'aplomb, dure et directe, produisant un fort contraste et des ombres très courtes.</div>
-            <div class="injected-box">
-                <div class="injected-label">TEXTE INJECTÉ PAR DÉFAUT</div>
-                Lighting : Harsh, direct light from the sun at midday, creating strong shadows and high contrast.
-            </div>
-
-            <div class="learn-box">
-                <span class="learn-label">ANALYSE & PIÈGES À ÉVITER</span>
-                Écrasement visuel des textures dû à l'angle vertical de la lumière.
-            </div>
-
-            <div class="good-example-box">
-  <span class="good-example-label">✅ Exemple de Prompt Optimisé :</span>(harsh noon lighting:1.2), direct zenith sunlight, strong highlights, short dark shadows, high contrast, crisp vivid environment</div>
-
-            <div class="negative-box">
-                <span class="negative-label">🚫 Negative Prompt Suggéré :</span> soft morning glow, sunset colors, long shadows, moody candle light, twilight
-            </div>
-
-            <div class="tip-title">Astuces d'ajustement :</div>
-            <div class="tip-text">Ajoutez <em>heat haze effect</em> pour renforcer l'ambiance de chaleur.</div>
-
-            <a href="#section-8" class="back-to-sec-menu">⬆️ Retour au menu</a>
-        </div>
-
-        <!-- 26. Overcast Lighting -->
-        <div class="option-box" id="sec08-light-26">
-            <div class="content-h3">26. Overcast Lighting</div>
-            <div class="content-p">Lumière diffuse et adoucie filtrée par un ciel nuageux, donnant un éclairage plat, égal et sans ombre marquée.</div>
-            <div class="injected-box">
-                <div class="injected-label">TEXTE INJECTÉ PAR DÉFAUT</div>
-                Lighting : Soft, diffused light from an overcast sky, creating a flat and even light.
-            </div>
-
-            <div class="learn-box">
-                <span class="learn-label">ANALYSE & PIÈGES À ÉVITER</span>
-                Image terne sans aucun relief.
-            </div>
-
-            <div class="good-example-box">
-  <span class="good-example-label">✅ Exemple de Prompt Optimisé :</span>(overcast lighting:1.2), soft diffused light from cloudy sky, flat even lighting, subtle tone shifts, no hard shadows, melancholic mood</div>
-
-            <div class="negative-box">
-                <span class="negative-label">🚫 Negative Prompt Suggéré :</span> direct bright sun, harsh shadows, neon glow, spotlight, high contrast sunset
-            </div>
-
-            <div class="tip-title">Astuces d'ajustement :</div>
-            <div class="tip-text">Jouez sur la saturation avec <em>rich desaturated colors</em> pour donner du style à la scène.</div>
-
-            <a href="#section-8" class="back-to-sec-menu">⬆️ Retour au menu</a>
-        </div>
-
-        <!-- 27. Rim lighting -->
-        <div class="option-box" id="sec08-light-27">
-            <div class="content-h3">27. Rim lighting</div>
-            <div class="content-p">Le rim lighting (ou éclairage de contour) consiste à placer une source lumineuse puissante derrière le sujet pour détacher sa silhouette du fond par une ligne de lumière brillante sur les contours (cheveux, épaules, profil).</div>
-            <div class="injected-box">
-                <div class="injected-label">TEXTE INJECTÉ PAR DÉFAUT</div>
-                Lighting : Light source behind the subject, creating a rim of light around the edges of the subject.
-            </div>
-
-            <div class="learn-box">
-                <span class="learn-label">ANALYSE & PIÈGES À ÉVITER</span>
-                <div class="custom-li"><strong>Blinding Background / Overexposure :</strong> En demandant une forte lumière dorsale, le modèle efface souvent le décor au profit d'un halo blanc.</div>
-                <div class="custom-li"><strong>Color Bleed :</strong> Si vous spécifiez une couleur pour la lumière de contour et une autre pour les vêtements, la teinte lumineuse risque d'envahir tout le sujet.</div>
-                <div class="custom-li"><strong>Loss of Facial Detail :</strong> Une source arrière intense pousse le modèle à mettre le visage entièrement dans l'ombre.</div>
-            </div>
-
-            <div class="good-example-box">
-  <span class="good-example-label">✅ Exemple de Prompt Optimisé :</span>(dramatic rim lighting:1.3), edge lighting highlighting silhouette, strong backlight, medium shot of a woman, intricate hair glow, illuminated outlines, subtle fill light on face, dark moody atmosphere, highly detailed, 85mm lens, f/1.8, cinematic depth of field, 8k resolution</div>
-
-            <div class="negative-box">
-                <span class="negative-label">🚫 Negative Prompt Suggéré :</span> overexposed, blown out highlights, bright white background, direct frontal light, flat lighting, dark silhouette, featureless face, low contrast, blurry, low quality, bad anatomy
-            </div>
-
-            <div class="tip-title">Astuces d'ajustement :</div>
-            <div class="tip-text">Garder les détails du visage : Si le visage est trop sombre, ajoutez <em>subtle front fill light</em> ou <em>soft ambient reflection on face</em> au début du prompt.<br>
-            Créer du contraste de couleur : Associez un fond sombre à une couleur de lumière précise : <em>(neon blue rim light on dark hair:1.2), ambient dark background</em>.</div>
-
-            <a href="#section-8" class="back-to-sec-menu">⬆️ Retour au menu</a>
-        </div>
-
-        <!-- 28. Soft lighting -->
-        <div class="option-box" id="sec08-light-28">
-            <div class="content-h3">28. Soft lighting</div>
-            <div class="content-p">Éclairage délicat et légèrement diffusé produisant des ombres douces, prisé pour les ambiances poétiques et intimes.</div>
-            <div class="injected-box">
-                <div class="injected-label">TEXTE INJECTÉ PAR DÉFAUT</div>
-                Lighting : Gentle and diffused, with soft shadows, often used in romantic and intimate scenes.
-            </div>
-
-            <div class="learn-box">
-                <span class="learn-label">ANALYSE & PIÈGES À ÉVITER</span>
-                Rendu manquant parfois de piqué ou de définition.
-            </div>
-
-            <div class="good-example-box">
-  <span class="good-example-label">✅ Exemple de Prompt Optimisé :</span>(soft lighting: 1.3), gentle diffused glow, tender shadows, smooth skin tones, intimate cozy mood, warm aesthetic, high quality</div>
-
-            <div class="negative-box">
-                <span class="negative-label">🚫 Negative Prompt Suggéré :</span> harsh light, direct sun, deep shadows, neon, flash photo, high contrast chiaroscuro
-            </div>
-
-            <div class="tip-title">Astuces d'ajustement :</div>
-            <div class="tip-text">Ajoutez <em>studio softbox light</em> pour un contrôle optimal en portrait.</div>
-
-            <a href="#section-8" class="back-to-sec-menu">⬆️ Retour au menu</a>
-        </div>
-
-        <!-- 29. Spotlight -->
-        <div class="option-box" id="sec08-light-29">
-            <div class="content-h3">29. Spotlight</div>
-            <div class="content-p">Faisceau lumineux unique et concentré isolant et mettant en valeur un élément précis de la scène.</div>
-            <div class="injected-box">
-                <div class="injected-label">TEXTE INJECTÉ PAR DÉFAUT</div>
-                Lighting : A single, focused beam of light, often used to highlight a specific subject or area.
-            </div>
-
-            <div class="learn-box">
-                <span class="learn-label">ANALYSE & PIÈGES À ÉVITER</span>
-                Halo trop découpé ou bord de faisceau mal intégré.
-            </div>
-
-            <div class="good-example-box">
-  <span class="good-example-label">✅ Exemple de Prompt Optimisé :</span>(dramatic spotlight: 1.3), single focused light beam, dust motes visible in light cone, subject highlighted, dark surrounding stage, intense focus</div>
-
-            <div class="negative-box">
-                <span class="negative-label">🚫 Negative Prompt Suggéré :</span> even ambient light, daylight, bright background, diffused illumination, multiple lights
-            </div>
-
-            <div class="tip-title">Astuces d'ajustement :</div>
-            <div class="tip-text">Intégrez <em>dust particles in light beam</em> pour matérialiser visuellement le rayon.</div>
-
-            <a href="#section-8" class="back-to-sec-menu">⬆️ Retour au menu</a>
-        </div>
-
-        <!-- 30. Studio lighting -->
-        <div class="option-box" id="sec08-light-30">
-            <div class="content-h3">30. Studio lighting</div>
-            <div class="content-p">Éclairage entièrement maîtrisé et équilibré, caractéristique de la photographie de mode ou de produit en studio.</div>
-            <div class="injected-box">
-                <div class="injected-label">TEXTE INJECTÉ PAR DÉFAUT</div>
-                Lighting : Controlled and even, often used in professional photography and film.
-            </div>
-
-            <div class="learn-box">
-                <span class="learn-label">ANALYSE & PIÈGES À ÉVITER</span>
-                Image trop "catalogue" ou dénuée de personnalité.
-            </div>
-
-            <div class="good-example-box">
-  <span class="good-example-label">✅ Exemple de Prompt Optimisé :</span>(professional studio lighting:1.3), balanced three-point lighting, soft key light, fill light, crisp details, professional color grading, magazine cover quality</div>
-
-            <div class="negative-box">
-                <span class="negative-label">🚫 Negative Prompt Suggéré :</span> natural outdoor sun, chaotic shadows, grainy light, harsh sunlight, dark room
-            </div>
-
-            <div class="tip-title">Astuces d'ajustement :</div>
-            <div class="tip-text">Précisez la configuration <em>key light, fill light, rim light setup</em>.</div>
-
-            <a href="#section-8" class="back-to-sec-menu">⬆️ Retour au menu</a>
-        </div>
-
-        <!-- 31. Sunrise Lighting -->
-        <div class="option-box" id="sec08-light-31">
-            <div class="content-h3">31. Sunrise Lighting</div>
-            <div class="content-p">Lumière tiède et tamisée marquant l'aube, instaurant un sentiment d'apaisement et de sérénité.</div>
-            <div class="injected-box">
-                <div class="injected-label">TEXTE INJECTÉ PAR DÉFAUT</div>
-                Lighting : Soft, warm light during sunrise, creating a peaceful and serene atmosphere.
-            </div>
-
-            <div class="learn-box">
-                <span class="learn-label">ANALYSE & PIÈGES À ÉVITER</span>
-                Similitude fréquente avec le coucher de soleil.
-            </div>
-
-            <div class="good-example-box">
-  <span class="good-example-label">✅ Exemple de Prompt Optimisé :</span>(sunrise lighting:1.2), soft morning warmth, gentle dawn sky glow, fresh light rays, serene mood, pale orange and pink tones</div>
-
-            <div class="negative-box">
-                <span class="negative-label">🚫 Negative Prompt Suggéré :</span> midday sun, dark midnight, harsh fluorescent, neon light, deep night
-            </div>
-
-            <div class="tip-title">Astuces d'ajustement :</div>
-            <div class="tip-text">Mettez en avant l'ambiance matinale avec <em>fresh morning dew</em>, <em>dawn haze</em>.</div>
-
-            <a href="#section-8" class="back-to-sec-menu">⬆️ Retour au menu</a>
-        </div>
-
-        <!-- 32. Sunset Lighting -->
-        <div class="option-box" id="sec08-light-32">
-            <div class="content-h3">32. Sunset Lighting</div>
-            <div class="content-p">Éclairage doré et chaleureux du soleil couchant, générateur d'ambiances dramatiques et romantiques.</div>
-            <div class="injected-box">
-                <div class="injected-label">TEXTE INJECTÉ PAR DÉFAUT</div>
-                Lighting : Warm, golden light during sunset, creating a romantic and dramatic atmosphere.
-            </div>
-
-            <div class="learn-box">
-                <span class="learn-label">ANALYSE & PIÈGES À ÉVITER</span>
-                Ciel trop saturé tombant dans le kitsch.
-            </div>
-
-            <div class="good-example-box">
-  <span class="good-example-label">✅ Exemple de Prompt Optimisé :</span>(vibrant sunset lighting:1.3), warm golden and crimson glow, low sun illumination, dramatic sky colors, romantic atmosphere, rich reflections</div>
-
-            <div class="negative-box">
-                <span class="negative-label">🚫 Negative Prompt Suggéré :</span> cold noon sun, cool fluorescent, overcast grey, harsh daylight, midnight dark
-            </div>
-
-            <div class="tip-title">Astuces d'ajustement :</div>
-            <div class="tip-text">Ajoutez <em>water reflections</em> en bord de mer pour démultiplier l'effet de la lumière.</div>
-
-            <a href="#section-8" class="back-to-sec-menu">⬆️ Retour au menu</a>
-        </div>
-
-        <!-- 33. Twilight Lighting -->
-        <div class="option-box" id="sec08-light-33">
-            <div class="content-h3">33. Twilight Lighting</div>
-            <div class="content-p">Lumière diffusée du crépuscule (blue hour), propre aux ambiances calmes, mélancoliques ou mystérieuses.</div>
-            <div class="injected-box">
-                <div class="injected-label">TEXTE INJECTÉ PAR DÉFAUT</div>
-                Lighting : Soft, diffused light during twilight, creating a peaceful and serene atmosphere.
-            </div>
-
-            <div class="learn-box">
-                <span class="learn-label">ANALYSE & PIÈGES À ÉVITER</span>
-                Dérive vers une scène de nuit noire classique.
-            </div>
-
-            <div class="good-example-box">
-  <span class="good-example-label">✅ Exemple de Prompt Optimisé :</span>(twilight lighting:1.2), dusk blue hour glow, soft ambient light, calm serene atmosphere, deep indigo sky, subtle artificial warm lights turning on</div>
-
-            <div class="negative-box">
-                <span class="negative-label">🚫 Negative Prompt Suggéré :</span> bright midday sun, golden hour warmth, harsh direct light, blinding white light
-            </div>
-
-            <div class="tip-title">Astuces d'ajustement :</div>
-            <div class="tip-text">Pour un beau contraste, ajoutez <em>warm indoor window light glowing in twilight</em>.</div>
-
-            <a href="#section-8" class="back-to-sec-menu">⬆️ Retour au menu</a>
-        </div>
-
-        <!-- 34. Warm lighting -->
-        <div class="option-box" id="sec08-light-34">
-            <div class="content-h3">34. Warm lighting</div>
-            <div class="content-p">Éclairage doux aux teintes dominantes chaudes (jaune, ambre), idéal pour créer un cadre intimiste et confortable.</div>
-            <div class="injected-box">
-                <div class="injected-label">TEXTE INJECTÉ PAR DÉFAUT</div>
-                Lighting : Soft, warm light, often used in romantic and intimate scenes.
-            </div>
-
-            <div class="learn-box">
-                <span class="learn-label">ANALYSE & PIÈGES À ÉVITER</span>
-                Virage au jaune uniforme sur l'ensemble de l'image (balance des blancs faussée).
-            </div>
-
-            <div class="good-example-box">
-  <span class="good-example-label">✅ Exemple de Prompt Optimisé :</span>(warm lighting:1.3), amber and golden tones, cozy welcoming atmosphere, soft illumination, gentle highlights, relaxed mood</div>
-
-            <div class="negative-box">
-                <span class="negative-label">🚫 Negative Prompt Suggéré :</span> cold blue light, sterile fluorescent, harsh daylight, icy background, stark shadows
-            </div>
-
-            <div class="tip-title">Astuces d'ajustement :</div>
-            <div class="tip-text">Équilibrez le prompt avec <em>cozy indoor atmosphere</em> pour justifier la dominante chaude.</div>
-
-            <a href="#section-8" class="back-to-sec-menu">⬆️ Retour au menu</a>
-        </div>
-
-        <!-- 35. Window Lighting -->
-        <div class="option-box" id="sec08-light-35">
-            <div class="content-h3">35. Window Lighting</div>
-            <div class="content-p">Lumière naturelle et adoucie provenant d'une fenêtre, parfaitement adaptée aux cadrages d'intérieur.</div>
-            <div class="injected-box">
-                <div class="injected-label">TEXTE INJECTÉ PAR DÉFAUT</div>
-                Lighting : Soft, natural light from a window, often used in indoor scenes.
-            </div>
-
-            <div class="learn-box">
-                <span class="learn-label">ANALYSE & PIÈGES À ÉVITER</span>
-                Fenêtre surexposée créant une zone de blanc pur sans détails.
-            </div>
-
-            <div class="good-example-box">
-  <span class="good-example-label">✅ Exemple de Prompt Optimisé :</span>(window lighting: 1.3), directional natural light from a window, soft side illumination, subtle shadows, indoor portrait depth, gentle light falloff</div>
-
-            <div class="negative-box">
-                <span class="negative-label">🚫 Negative Prompt Suggéré :</span> direct outdoor daylight, artificial studio flash, neon lights, complete darkness, ceiling light
-            </div>
-
-            <div class="tip-title">Astuces d'ajustement :</div>
-            <div class="tip-text">Spécifiez <em>curtain-filtered window light</em> pour étaler encore plus la lumière sur le visage.</div>
-
-            <a href="#section-8" class="back-to-sec-menu">⬆️ Retour au menu</a>
-        </div>
-
-    </div>
-</details>
+    </div>           
+</div><!-- Balise de fermeture du modal --> 
+<!-- fin du menu rapide de la section 18 -->
+
+<!-- ================= ================= -->
+
+  <!-- ================= ================= -->
+
+  <!-- Bouton pour remonter en haut de la page -->
+  <button class="back-to-top" id="backToTopBtn" title="Retour en haut" aria-label="Retour en haut">↑</button>
+  
+      <!-- Chargement des scripts JavaScript -->
+  <script src="./version.js" defer></script>
+  <script src="./js/index.js" defer></script>
+
+<!-- Bannière de mise à jour Toast -->
+<div id="update-toast" class="update-toast hidden">
+  <span>✨ Une nouvelle version est disponible !</span>
+  <div class="toast-actions">
+    <button id="reload-btn" type="button">Rafraîchir</button>
+    <button id="btn-close" type="button" onclick="document.getElementById('update-toast').classList.remove('visible');" aria-label="Fermer">✕</button>
+  </div>
+</div>
+
+</body>
+</html>
