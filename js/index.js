@@ -185,10 +185,13 @@ if ('serviceWorker' in navigator) {
 document.addEventListener('DOMContentLoaded', () => {
   const versionSpan = document.getElementById('app-version');
   if (versionSpan) {
+    // Vérification que APP_VERSION existe bien dans le scope global
+    const currentVersion = (typeof APP_VERSION !== 'undefined') ? APP_VERSION : 'v1.0.0';
+
     if (estServeurLocal) {
-      versionSpan.textContent = `${APP_VERSION} (Mode Local - TrebEdit)`;
+      versionSpan.textContent = `${currentVersion} (Mode Local - TrebEdit)`;
     } else {
-      versionSpan.textContent = APP_VERSION;
+      versionSpan.textContent = currentVersion;
     }
   }
 });
