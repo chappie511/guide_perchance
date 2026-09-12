@@ -2,6 +2,11 @@ importScripts('./version.js'); // Importe la variable APP_VERSION
 
 const CACHE_NAME = APP_VERSION; // Utilise la version définie dans version.js
 
+// sw.js
+importScripts('./version.js'); // Importe la variable APP_VERSION
+
+const CACHE_NAME = APP_VERSION; // Définit le nom du cache sur la nouvelle version
+
 const BASE_ASSETS = [
   './',
   './index.html',
@@ -9,7 +14,9 @@ const BASE_ASSETS = [
   './js/index.js',
   './manifest.json',
   'https://cdn.jsdelivr.net/gh/chappie511/Icon@main/golden_star_v3.png?v=1000'
+  // Remarque : version.js n'est plus dans BASE_ASSETS pour éviter son verrouillage en cache
 ];
+
 
 const SECTION_ASSETS = Array.from({ length: 24 }, (_, i) => {
   const num = String(i + 1).padStart(2, '0');
