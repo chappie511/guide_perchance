@@ -2,7 +2,6 @@
 // 1. Chargement dynamique des sections
 // ==========================================
 
-// Fonction pour charger et injecter du HTML de manière dynamique
 function chargerSection(idDeLaBoite, cheminDuFichier) {
     fetch(cheminDuFichier)
         .then(reponse => {
@@ -43,13 +42,23 @@ document.addEventListener('click', function (e) {
     
     function animationSucces() {
       boite.style.outline = "2px solid #22c55e";
+      
+      // Amélioration : Petit indicateur temporaire
+      const ancienTitre = boite.getAttribute('title');
+      boite.setAttribute('title', 'Copié dans le presse-papiers !');
+
       setTimeout(() => {
         boite.style.outline = "";
+        if (ancienTitre) {
+          boite.setAttribute('title', ancienTitre);
+        } else {
+          boite.removeAttribute('title');
+        }
       }, 1200);
     }
 
     if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(texte).then(animationSucces).catch(err => {
+      navigator.clipboard.writeText(texte).then(animationSucces).catch(() => {
         copierSecours(texte);
       });
     } else {
@@ -95,34 +104,37 @@ document.addEventListener('click', function (e) {
 // 3. Gestion des Modales & Navigation Ancre
 // ==========================================
 
+// Fonction utilitaire pour fermer toutes les modales
+function fermerModales() {
+  const modalesActives = document.querySelectorAll('.modal-overlay.active');
+  modalesActives.forEach(modal => modal.classList.remove('active'));
+  document.body.style.overflow = '';
+}
+
+// Écouteur global des clics
 document.addEventListener('click', function(event) {
   
-  // Ouverture des modales selon l'ID du bouton cliqué
+  // Ouverture des modales
   if (event.target && event.target.id === 'btnOuvrirPoses') {
     document.getElementById('modalPoses').classList.add('active');
     document.body.style.overflow = 'hidden';
   }
-
   if (event.target && event.target.id === 'btnOuvrirVues') {
     document.getElementById('modalVues').classList.add('active');
     document.body.style.overflow = 'hidden';
   }
-  
   if (event.target && event.target.id === 'btnOuvrirSec18') {
     document.getElementById('modalSec18').classList.add('active');
     document.body.style.overflow = 'hidden';
   }
-  
   if (event.target && event.target.id === 'btnOuvrirStyles') {
     document.getElementById('modalStyles').classList.add('active');
     document.body.style.overflow = 'hidden';
   }
-  
   if (event.target && event.target.id === 'btnOuvrirPerspectives') {
     document.getElementById('modalPerspectives').classList.add('active');
     document.body.style.overflow = 'hidden';
   }
-  
   if (event.target && event.target.id === 'btnOuvrirEclairages') {
     document.getElementById('modalEclairages').classList.add('active');
     document.body.style.overflow = 'hidden';
@@ -130,11 +142,12 @@ document.addEventListener('click', function(event) {
 
   // Fermeture explicite via le bouton "Fermer le menu"
   if (event.target && event.target.classList.contains('btn-close-menu')) {
-    const modalActif = event.target.closest('.modal-overlay');
-    if (modalActif) {
-      modalActif.classList.remove('active');
-      document.body.style.overflow = ''; 
-    }
+    fermerModales();
+  }
+
+  // Fermeture en cliquant sur le fond de la modale (hors du contenu inner)
+  if (event.target && event.target.classList.contains('modal-overlay')) {
+    fermerModales();
   }
 
   // Clic sur un lien de navigation rapide (ex. <a href="#style-casual">)
@@ -145,16 +158,10 @@ document.addEventListener('click', function(event) {
     if (targetId && targetId !== '#') {
       event.preventDefault();
 
-      // 1. Fermer la modale si le lien se trouve à l'intérieur d'une modale
-      const modalParent = lienAncre.closest('.modal-overlay');
-      if (modalParent) {
-        modalParent.classList.remove('active');
-      }
+      // Fermer les modales et débloquer le scroll
+      fermerModales();
 
-      // 2. Débloquer le défilement de la page
-      document.body.style.overflow = '';
-
-      // 3. Attendre 50ms pour laisser la modale se masquer puis scroller vers la cible
+      // Attendre 50ms pour laisser la modale se masquer puis scroller vers la cible
       setTimeout(function () {
         const targetElement = document.querySelector(targetId);
         if (targetElement) {
@@ -167,6 +174,13 @@ document.addEventListener('click', function(event) {
         }
       }, 50);
     }
+  }
+});
+
+// Écouteur pour fermer la modale avec la touche 'Échap' (Escape)
+document.addEventListener('keydown', function(event) {
+  if (event.key === 'Escape') {
+    fermerModales();
   }
 });
 
