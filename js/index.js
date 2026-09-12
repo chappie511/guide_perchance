@@ -3,14 +3,21 @@ function chargerSection(idDeLaBoite, cheminDuFichier) {
     fetch(cheminDuFichier)
         .then(reponse => {
             if (!reponse.ok) {
-                throw new Error("Impossible de charger " + cheminDuFichier);
+                throw new Error("Erreur HTTP " + reponse.status + " pour " + cheminDuFichier);
             }
             return reponse.text();
         })
         .then(texteHtml => {
-            document.getElementById(idDeLaBoite).innerHTML = texteHtml;
+            const conteneur = document.getElementById(idDeLaBoite);
+            if (conteneur) conteneur.innerHTML = texteHtml;
         })
-        .catch(erreur => console.error("Erreur :", erreur));
+        .catch(erreur => {
+            console.error("Erreur de chargement :", erreur);
+            const conteneur = document.getElementById(idDeLaBoite);
+            if (conteneur) {
+                conteneur.innerHTML = `<div style="padding:10px; color:#b91c1c;">⚠️ Impossible de charger cette section.</div>`;
+            }
+        });
 }
 
 // Charge automatiquement les 24 sections depuis le dossier sections_du_guide
@@ -26,12 +33,14 @@ document.addEventListener('click', function (e) {
   if (boite) {
     let texte = boite.innerText;
     
+    // Remplace le bloc alert() par un retour visuel direct
     navigator.clipboard.writeText(texte)
-      .then(function() { 
-        alert("Prompt copié dans le presse-papiers ! 📋"); 
-      })
-      .catch(function(erreur) { 
-        alert("Bloqué par le navigateur : " + erreur); 
+      .then(function() {
+        const originalBg = boite.style.backgroundColor;
+        boite.style.outline = "2px solid #22c55e";
+        setTimeout(() => {
+          boite.style.outline = "";
+        }, 1200);
       });
   }
 });
@@ -122,7 +131,6 @@ function afficherNotificationMAJ(worker) {
   }
 }
    
-
 if ('serviceWorker' in navigator) {
   if (estServeurLocal) {
     // EN LOCAL : On désactive le Service Worker pour coder tranquillement
@@ -175,4 +183,3 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 });
-
