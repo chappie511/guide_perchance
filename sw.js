@@ -49,11 +49,19 @@ self.addEventListener('activate', (event) => {
   );
 });
 
-// Service des ressources avec optimisation pour les CDNs externes
+// Service des ressources avec optimisation
 self.addEventListener('fetch', (event) => {
   if (event.request.method !== 'GET') return;
 
   const url = new URL(event.request.url);
+
+  // Exclure version.js du cache pour garantir la détection immédiate des mises à jour
+  if (url.pathname.endsWith('version.js')) {
+    event.respondWith(
+      fetch(event.request).catch(() => caches.match(event.request))
+    );
+    return;
+  }
 
   // 1. Cache First pour les icônes et fichiers distants (GitHub / jsDelivr)
   if (url.origin.includes('cdn.jsdelivr.net') || url.origin.includes('github.io')) {
