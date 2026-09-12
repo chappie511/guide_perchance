@@ -2,8 +2,6 @@ importScripts('./version.js'); // Importe la variable APP_VERSION
 
 const CACHE_NAME = APP_VERSION; // Utilise directement la variable unique
 
-const CACHE_NAME = 'guide-perchance-v1.6'; // Change la version
-
 const BASE_ASSETS = [
   './',
   './index.html',
