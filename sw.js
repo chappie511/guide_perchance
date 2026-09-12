@@ -1,4 +1,3 @@
-// Définir directement la version ici pour garantir que sw.js change d'octets à chaque MAJ
 const CACHE_NAME = 'guide-perchance-v1.2.2';
 
 const BASE_ASSETS = [
@@ -11,7 +10,6 @@ const BASE_ASSETS = [
   'https://cdn.jsdelivr.net/gh/chappie511/Icon@main/golden_star_v3.png?v=1000'
 ];
 
-
 const SECTION_ASSETS = Array.from({ length: 24 }, (_, i) => {
   const num = String(i + 1).padStart(2, '0');
   return `./sections_du_guide/section_${num}.html`;
@@ -19,7 +17,7 @@ const SECTION_ASSETS = Array.from({ length: 24 }, (_, i) => {
 
 const ASSETS_TO_CACHE = [...BASE_ASSETS, ...SECTION_ASSETS];
 
-// Installation tolérante aux erreurs (ne bloque pas si une section est manquante)
+// Installation tolérante aux erreurs
 self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME).then(async (cache) => {
@@ -50,13 +48,13 @@ self.addEventListener('activate', (event) => {
   );
 });
 
-// Service des ressources avec optimisation pour les CDNs externes
+// Interception des requêtes réseau
 self.addEventListener('fetch', (event) => {
   if (event.request.method !== 'GET') return;
 
   const url = new URL(event.request.url);
 
-  // 1. Cache First pour les icônes et fichiers distants (GitHub / jsDelivr)
+  // 1. Cache First pour les icônes et CDNs externes
   if (url.origin.includes('cdn.jsdelivr.net') || url.origin.includes('github.io')) {
     event.respondWith(
       caches.match(event.request).then((cachedResponse) => {
@@ -75,7 +73,7 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  // 2. Network First avec secours sur le cache pour le reste de l'application
+  // 2. Network First avec secours sur le cache
   event.respondWith(
     fetch(event.request)
       .then((networkResponse) => {
@@ -91,7 +89,7 @@ self.addEventListener('fetch', (event) => {
   );
 });
 
-// Activation forcée reçue lors du clic sur le bouton "Rafraîchir" du Toast
+// Activation immédiate sur demande du client
 self.addEventListener('message', (event) => {
   if (event.data && event.data.type === 'SKIP_WAITING') {
     self.skipWaiting();
