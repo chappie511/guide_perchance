@@ -18,15 +18,16 @@
 </head>
 <body>
     
+    ​<!-- Footer : Indicateur de version PWA -->
 <footer><p>Version actuelle : <span id="app-version">Chargement...</span></p>
 </footer>
 
   <div class="perchance-guide-container">
-    <div class="guide-header">
-      <div class="main-title">Guide de Prompt Engineering Perchance</div>
-      <div class="subtitle">Styles, Effets Visuels et Répertoire Algorithmique par IA — Référence Mobile</div>
-    </div>
-    
+  <div class="guide-header">
+    <div class="main-title">Guide de Prompt Engineering Perchance</div>
+    <div class="subtitle">Styles, Effets Visuels et Répertoire Algorithmique par IA — Référence Mobile</div>
+  </div>
+
     <details class="main-accordion" open>
       <summary class="main-summary">📖 CONSULTER LE GUIDE COMPLET (Toucher pour réduire/ouvrir)</summary>
       
@@ -60,7 +61,6 @@
     </details>
   </div>
   
-
 <!-- Modale plein écran : Section 03 (Styles) -->
   <div id="modalStyles" class="modal-overlay" role="dialog" aria-modal="true" aria-label="Menu des styles d'art">
     <button class="btn-close-menu" type="button">✖ Fermer le menu des styles d'art</button>    
@@ -217,7 +217,7 @@
 
     <!-- Modale plein écran : Section 04 (Vues) -->
   <div id="modalVues" class="modal-overlay" role="dialog" aria-modal="true" aria-label="Menu des types de vue">
-    <button class="btn-close-menu" >✖ Fermer le menu des vues</button>
+    <button class="btn-close-menu" type="button">✖ Fermer le menu des vues</button>
           
     <div class="quick-nav-container" >
       <div class="quick-nav-title">⚡ Sommaire Rapide des 40 Vues (Toucher pour accéder)</div>
@@ -432,7 +432,7 @@
 
     <!-- Modale plein écran : Section 08 (Éclairage) -->
 <div id="modalÉclairages" class="modal-overlay" role="dialog" aria-modal="true" aria-label="Menu de 35 types d'éclairages">
-    <button class="btn-close-menu">✖ Fermer le menu des éclairages </button>
+    <button class="btn-close-menu" type="button">✖ Fermer le menu des éclairages </button>
     
     <div class="quick-nav-container" id="sec08-quick-nav">
             <div class="quick-nav-title">⚡ Sommaire Rapide de 35 types d'éclairages 💡</div>   
@@ -492,7 +492,7 @@
 
   <!-- Modale plein écran : Section 18 (Sec18) -->
   <div id="modalSec18" class="modal-overlay" role="dialog" aria-modal="true" aria-label="Menu de la section 18">
-    <button class="btn-close-menu">✖ Fermer le menu de la section 18</button>
+    <button class="btn-close-menu" type="button">✖ Fermer le menu de la section 18</button>
 
     <div class="quick-nav-container" style="margin-top: 14px;">
       <div class="quick-nav-title">⚡ Sommaire Rapide de la Section 18 (Toucher pour accéder)</div>
@@ -547,9 +547,9 @@
   <!-- Bouton pour remonter en haut de la page -->
   <button class="back-to-top" id="backToTopBtn" title="Retour en haut" aria-label="Retour en haut">↑</button>
   
-    <!-- Chargement du script principal JavaScript avec defer -->
-  <script src="./version.js"></script>
-<script src="./js/index.js" defer></script>
+      <!-- Chargement des scripts JavaScript -->
+  <script src="./version.js" defer></script>
+  <script src="./js/index.js" defer></script>
 
 <!-- Bannière de mise à jour Toast -->
 <div id="update-toast" class="update-toast hidden">
