@@ -174,7 +174,7 @@ document.addEventListener('keydown', function(event) {
 });
 
 // ==========================================
-// 4. Enregistrement du Service Worker & PWA
+// Gestion du Service Worker & Toast de MAJ
 // ==========================================
 
 const estServeurLocal = location.hostname === 'localhost' || 
@@ -194,42 +194,46 @@ function afficherNotificationMAJ(worker) {
   }
 }
 
-// Clic sur le bouton "Rafraîchir" du Toast
-const btnRecharger = document.getElementById('reload-btn');
-if (btnRecharger) {
-  btnRecharger.onclick = () => {
-    const toast = document.getElementById('update-toast');
-    if (toast) {
-      toast.classList.remove('visible');
-      toast.classList.add('hidden');
-    }
-    if (newWorker) {
-      // Demande au nouveau Service Worker d'activer immédiatement le nouveau cache
-      newWorker.postMessage({ type: 'SKIP_WAITING' });
-    } else {
-      window.location.reload();
-    }
-  };
-}
+// Attachement dynamique de l'événement sur le bouton "Rafraîchir"
+document.addEventListener('DOMContentLoaded', () => {
+  const btnRecharger = document.getElementById('reload-btn');
+  if (btnRecharger) {
+    btnRecharger.addEventListener('click', () => {
+      const toast = document.getElementById('update-toast');
+      if (toast) {
+        toast.classList.remove('visible');
+        toast.classList.add('hidden');
+      }
+
+      if (newWorker) {
+        // Demande au nouveau Service Worker de s'activer immédiatement
+        newWorker.postMessage({ type: 'SKIP_WAITING' });
+      } else {
+        // Secours si newWorker n'est pas capturé
+        window.location.reload();
+      }
+    });
+  }
+});
 
 if ('serviceWorker' in navigator) {
   if (estServeurLocal) {
-    // EN LOCAL : Désactivation pour les tests dans TrebEdit
+    // EN LOCAL : Désactivation pour les tests
     navigator.serviceWorker.getRegistrations().then((registrations) => {
       for (let registration of registrations) {
         registration.unregister();
       }
     });
   } else {
-    // EN LIGNE : Enregistrement et écoute des mises à jour
+    // EN LIGNE : Enregistrement
     navigator.serviceWorker.register('./sw.js').then((registration) => {
       
-      // Cas 1 : Un nouveau worker attend déjà la validation
+      // Cas 1 : Un worker attend déjà
       if (registration.waiting) {
         afficherNotificationMAJ(registration.waiting);
       }
 
-      // Cas 2 : Un nouveau worker est en train d'être téléchargé/installé
+      // Cas 2 : Un nouveau worker est en train d'être installé
       registration.addEventListener('updatefound', () => {
         const installingWorker = registration.installing;
         if (installingWorker) {
@@ -242,12 +246,11 @@ if ('serviceWorker' in navigator) {
       });
     });
 
-    // Écoute le changement de contrôle (quand SKIP_WAITING a été activé)
+    // Écoute l'activation du nouveau Service Worker et recharge la page
     let refreshing = false;
     navigator.serviceWorker.addEventListener('controllerchange', () => {
       if (!refreshing) {
         refreshing = true;
-        // Recharge la page entière pour appliquer la nouvelle version en une seule fois
         window.location.reload();
       }
     });
