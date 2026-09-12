@@ -186,7 +186,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const versionSpan = document.getElementById('app-version');
   if (versionSpan) {
     // Vérification que APP_VERSION existe bien dans le scope global
-    const currentVersion = (typeof APP_VERSION !== 'undefined') ? APP_VERSION : 'v1.0.0';
+    const currentVersion = (typeof APP_VERSION !== 'undefined') ? APP_VERSION : 'v1.2.2';
 
     if (estServeurLocal) {
       versionSpan.textContent = `${currentVersion} (Mode Local - TrebEdit)`;
