@@ -1,631 +1,673 @@
-/* ==========================================================================
-   Feuille de Style - Guide Perchance (Optimisation Ergonomie Mobile)
-   ========================================================================== */
-
-/* 1. Base globale */
-html {
-  scroll-behavior: smooth;
-}
-
 body {
-  background-color: #f8fafc; 
-  margin: 0;
-  padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  -webkit-text-size-adjust: 100%;
-}
-
-/* 2. Conteneur principal */
-.perchance-guide-container {
-  max-width: 100%;
-  margin: 10px auto;
-  padding: 8px;
-  background-color: #f8fafc;
-  color: #1e293b;
-  border-radius: 12px;
-  border: 1px solid #e2e8f0;
-  font-size: 14px;
-  line-height: 1.6;
-  text-align: left !important; 
-  box-sizing: border-box;
-}
-
-/* 3. En-tête du guide */
-.guide-header {
-  text-align: center;
-  padding: 16px 12px;
-  background: linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%);
-  border-radius: 10px;
-  margin-bottom: 12px;
-  border: 1px solid #e2e8f0;
-  border-bottom: 3px solid #2563eb;
-}
-
-.guide-header .main-title {
-  font-size: 18px;
-  color: #0f172a;
-  margin: 0 0 6px 0;
-  font-weight: 700;
-  letter-spacing: 0.3px;
-}
-
-.guide-header .subtitle {
-  font-size: 11.5px;
-  color: #64748b;
-  margin: 0;
-  font-weight: 500;
-}
-
-/* 4. Accordéons & Structure */
-.main-accordion {
-  background-color: #ffffff;
-  border-radius: 8px;
-  overflow: hidden;
-  border: 1px solid #2563eb;
-}
-
-.main-summary {
-  padding: 14px;
-  font-weight: bold;
-  font-size: 13px;
-  background-color: #2563eb;
-  color: #ffffff;
-  cursor: pointer;
-  outline: none;
-  list-style: none;
-  text-align: center;
-  letter-spacing: 0.5px;
-  min-height: 48px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-sizing: border-box;
-  touch-action: manipulation;
-}
-
-.main-summary::-webkit-details-marker {
-  display: none;
-}
-
-.guide-content {
-  padding: 8px;
-  background-color: #f8fafc;
-}
-
-.section-accordion {
-  margin-bottom: 8px;
-  background-color: #ffffff;
-  border-radius: 6px;
-  border: 1px solid #cbd5e1;
-}
-
-.section-accordion > summary {
-  display: flex;
-  align-items: center;
-  padding: 12px;
-  font-weight: 600;
-  color: #1d4ed8;
-  cursor: pointer;
-  outline: none;
-  font-size: 13px;
-  background-color: #f1f5f9;
-  border-radius: 6px;
-  min-height: 48px;
-  box-sizing: border-box;
-  touch-action: manipulation;
-}
-
-.section-accordion > summary::-webkit-details-marker {
-  display: none !important;
-}
-
-.section-accordion[open] > summary {
-  border-bottom: 1px solid #cbd5e1;
-  color: #2563eb;
-  background-color: #e2e8f0;
-}
-
-.section-body {
-  padding: 12px;
-  font-size: 13.5px;
-  background-color: #ffffff;
-  line-height: 1.6;
-}
-
-/* 5. Typographie & Paragraphes */
-.content-h3 {
-  font-size: 14px;
-  font-weight: bold;
-  color: #0f172a;
-  margin: 14px 0 6px 0;
-  border-left: 3px solid #2563eb;
-  padding-left: 6px;
-}
-
-.content-h4 {
-  font-size: 13px;
-  font-weight: bold;
-  color: #334155;
-  margin: 12px 0 4px 14px;
-  text-decoration: underline;
-}
-
-.content-p {
-  margin: 10px 14px;
-  color: #334155;
-}
-
-.code-word {
-  font-family: monospace;
-  background-color: #ffe4e6;
-  padding: 1px 4px;
-  border-radius: 3px;
-  color: #b91c1c;
-  font-size: 12px;
-}
-
-.fluo { 
-  background-color: #ffff00; 
-}
-
-.division_contenu {
-  border-bottom: thick double #32a1ce;
-  margin: 0 0 6px 0;
-}
-
-/* 6. Listes à puces */
-.custom-li {
-  margin-bottom: 8px;
-  padding-left: 14px;
-  position: relative;
-  color: #334155;
-  line-height: 1.5;
-}
-
-.custom-li::before {
-  content: "•";
-  color: #2563eb;
-  font-weight: bold;
-  position: absolute;
-  left: 2px;
-  top: 0;
-}
-
-.custom-li-tiptext {
-  margin-bottom: 8px;
-  padding-left: 14px;
-  position: relative;
-  color: #78350f;
-  line-height: 1.5;
-}
-
-.custom-li-tiptext::before {
-  content: "•";
-  color: #2563eb;
-  font-weight: bold;
-  position: absolute;
-  left: 2px;
-  top: 0;
-}
-
-.tip-title {
-  font-size: 13.5px;
-  font-weight: bold;
-  color: #b45309;
-  border-left: 3px solid #d97706;
-  padding-left: 6px;
-  margin-top: 14px;
-  margin-bottom: 4px;
-}
-
-/* 7. Boîtes spécialisées (Encadrés) */
-.learn-box {
-  background-color: #f5f3ff;
-  border: 1px solid #ddd6fe;
-  border-left: 4px solid #7c3aed;
-  padding: 10px 12px;
-  margin: 8px 0;
-  border-radius: 6px;
-  color: #4c1d95;
-  font-size: 12.5px;
-  line-height: 1.5;
-}
-
-.learn-label {
-  font-size: 11px;
-  font-weight: 700;
-  color: #6d28d9;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  margin-bottom: 6px;
-  display: block;
-}
-
-.injected-box {
-  background-color: #eff6ff;
-  border: 1px solid #bfdbfe;
-  border-left: 4px solid #2563eb;
-  padding: 8px 12px;
-  margin: 8px 0 10px 0;
-  border-radius: 6px;
-  font-family: "Courier New", Courier, monospace;
-  font-size: 12px;
-  color: #1e40af;
-  word-break: break-word;
-  user-select: all;
-  line-height: 1.4;
-}
-
-.injected-label {
-  font-size: 11px;
-  font-weight: 700;
-  color: #1d4ed8;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  margin-bottom: 4px;
-  display: block;
-}
-
-.prompt-box {
-  background-color: #f0fdf4;
-  border-left: 3px solid #16a34a;
-  padding: 10px;
-  margin: 8px 0;
-  border-radius: 4px;
-  font-family: "Courier New", Courier, monospace;
-  font-size: 12px;
-  color: #14532d;
-  word-break: break-word;
-  user-select: all;
-  line-height: 1.4;
-}
-
-.good-example-box {
-  background-color: #f0fdf4;
-  border: 1px solid #bbf7d0;
-  border-left: 4px solid #bbf7d0;
-  border-right: 4px solid #bbf7d0;
-  padding: 10px 12px;
-  margin: 12px 0;
-  border-radius: 6px;
-  color: #14532d;
-  font-size: 12px;
-  font-family: "Courier New", Courier, monospace;
-  text-align: left;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-  word-break: break-word;
-  line-height: 1.4;
-}
-
-.good-example-label {
-  font-size: 11px;
-  font-weight: 700;
-  color: #15803d; 
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  margin-bottom: 4px;
-  display: block;
-}
-
-.negative-box {
-  background-color: #fef2f2;
-  border-left: 3px solid #dc2626;
-  padding: 6px 10px 8px 10px; 
-  margin: 8px 0;
-  border-radius: 4px;
-  font-family: "Courier New", Courier, monospace;
-  font-size: 12px;
-  line-height: 1.4;
-  color: #7f1d1d;
-  word-break: break-word;
-}
-
-.negative-label {
-  font-size: 11px;
-  font-weight: 700;
-  color: #dc2626; 
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  margin-bottom: 4px;
-  display: block;
-}
-
-.option-box {
-  background-color: #f1f5f9;
-  border: 1px dashed #64748b;
-  padding: 8px;
-  margin: 10px 0;
-  border-radius: 6px;
-}
-
-.tip-text {
-  background-color: #fef9c3;
-  padding: 8px;
-  border-radius: 4px;
-  border: 1px solid #f59e0b;
-  color: #78350f;
-  margin: 8px 0;
-  line-height: 1.5;
-}
-
-/* 8. Tooltips */
-.tooltip {
-  position: relative; 
-  display: inline-block;
-  cursor: pointer; 
-  margin-left: 6px; 
-}
-
-.tooltip .tooltip-texte {
-  visibility: hidden;
-  width: 85%;
-  max-width: 300px;
-  background-color: #333; 
-  color: #fff; 
-  text-align: center;
-  border-radius: 8px; 
-  padding: 12px; 
-  position: fixed;
-  z-index: 100001;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.6);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.tooltip:hover .tooltip-texte,
-.tooltip:active .tooltip-texte {
-  visibility: visible;
-  opacity: 1;
-}
-
-/* 9. Navigation Rapide & Modales */
-.quick-nav-container {
-  background-color: #f1f5f9;
-  border: 1px solid #cbd5e1;
-  border-radius: 8px;
-  padding: 12px;
-  margin-bottom: 16px;
-}
-
-.quick-nav-title {
-  font-weight: bold;
-  font-size: 13px;
-  color: #1d4ed8;
-  margin-bottom: 8px;
-  border-bottom: 1px solid #cbd5e1;
-  padding-bottom: 4px;
-}
-
-.quick-nav-subgroup {
-  font-size: 11.5px;
-  font-weight: 700;
-  color: #475569;
-  margin: 8px 0 4px 0;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-.quick-nav-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin-bottom: 8px;
-}
-
-.quick-nav-btn {
-  background-color: #ffffff;
-  border: 1px solid #2563eb;
-  color: #2563eb;
-  padding: 6px 10px;
-  border-radius: 4px;
-  font-size: 11.5px;
-  text-decoration: none;
-  font-weight: 500;
-  transition: all 0.2s ease;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
-  min-height: 40px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  touch-action: manipulation;
-}
-
-.quick-nav-btn:hover {
-  background-color: #2563eb;
-  color: #ffffff;
-}
-
-.quick-nav-btn:active {
-  transform: scale(0.96);
-  background-color: #1d4ed8;
-  color: #ffffff;
-}
-
-.back-to-sec-menu {
-  display: inline-block;
-  margin-top: 8px;
-  font-size: 11px;
-  color: #2563eb;
-  text-decoration: underline;
-  font-weight: 600;
-  cursor: pointer;
-  padding: 4px 0;
-}
-
-.modal-overlay {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #f8fafc;
-  z-index: 100000;
-  overflow-y: auto;
-  padding: 16px;
-  box-sizing: border-box;
-  -webkit-overflow-scrolling: touch;
-}
-
-.modal-overlay.active {
-  display: block; 
-}
-
-.btn-open-menu {
-  display: block;
-  width: 100%;
-  background-color: #2563eb;
-  color: #ffffff;
-  border: none;
-  padding: 14px;
-  font-size: 15px;
-  font-weight: bold;
-  border-radius: 8px;
-  text-align: center;
-  margin-bottom: 16px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-  cursor: pointer;
-  min-height: 48px;
-  touch-action: manipulation;
-}
-
-.btn-open-menu:active {
-  background-color: #1d4ed8;
-  transform: scale(0.98);
-}
-
-.btn-close-menu {
-  display: block;
-  width: 100%;
-  background-color: #ef4444;
-  color: #ffffff;
-  border: none;
-  padding: 14px;
-  font-size: 15px;
-  font-weight: bold;
-  border-radius: 8px;
-  margin-bottom: 20px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-  cursor: pointer;
-  min-height: 48px;
-  touch-action: manipulation;
-}
-
-.btn-close-menu:active {
-  background-color: #dc2626;
-}
-
-.modal-overlay .quick-nav-container {
-  border: none;
-  box-shadow: none;
-  padding: 0;
-}
-
-/* 10. Tableaux de données */
-.tableau-rapide {
-  width: 100%;
-  margin: 16px auto;
-  border-collapse: collapse;
-  font-size: 12.5px;
-  background-color: #ffffff;
-  border: 1px solid #cbd5e1;
-  border-radius: 6px;
-  overflow: hidden;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-  display: block;
-  overflow-x: auto;
-  box-sizing: border-box;
-  -webkit-overflow-scrolling: touch;
-}
-
-.tableau-rapide th {
-  background-color: #2563eb; 
-  color: #ffffff;
-  font-weight: 600;
-  text-align: center;
-  padding: 10px 12px;
-  border: 1px solid #cbd5e1; 
-}
-
-.tableau-rapide td {
-  padding: 8px 12px;
-  color: #334155;
-  border: 1px solid #cbd5e1; 
-}
-
-.tableau-rapide tr:last-child td {
-  border-bottom: none;
-}
-
-.tableau-rapide tr:active {
-  background-color: #f1f5f9;
-}
-
-/* 11. Interactions & Effets ciblés */
-.option-box[id], 
-#sec18-tableau-photo {
-  scroll-margin-top: 10px;
-}
-
-.option-box:target, 
-#sec18-tableau-photo:target,
-#sec12-tableau-comparatif[open],
-#sec-exemple-prompt[open] {
-  border-color: #2563eb;
-  background-color: #eff6ff;
-  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
-  transition: background-color 0.3s ease, border-color 0.3s ease;
-  border-radius: 6px;
-}
-
-#sec-exemple-prompt > summary {
-  list-style: none;
-}
-
-#sec-exemple-prompt > summary::marker {
-  display: none;
-}
-
-#sec-exemple-prompt > summary::-webkit-details-marker {
-  display: none !important;
-}
-
-/* 12. Bouton "Retour en haut" & Toast PWA */
-.back-to-top {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  z-index: 99998;
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  background: #2563eb;
-  color: #fff;
-  border: none;
-  font-size: 24px;
-  line-height: 1;
-  cursor: pointer;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-  display: none;
-  align-items: center;
-  justify-content: center;
-  transition: opacity 0.2s, background 0.2s;
-  opacity: 0.1;
-  touch-action: manipulation;
-}
-
-.back-to-top:hover { 
-  background: #1d4ed8; 
-}
-
-.back-to-top.visible { 
-  display: flex; 
-  opacity: 1; 
-}
-
+    background-color: #f8fafc; 
+    margin: 0;
+    padding: 0;
+  }
+
+/* ============ Base du guide ============ */
+
+  .perchance-guide-container {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    max-width: 100%;
+    margin: 10px auto;
+    padding: 6px;
+    background-color: #f8fafc;
+    color: #1e293b;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    font-size: 14px;
+    line-height: 1.5;
+    text-align: left !important; 
+  }
+
+  .guide-header {
+    text-align: center;
+    padding: 16px 10px;
+    background: linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%);
+    border-radius: 10px;
+    margin-bottom: 12px;
+    border: 1px solid #e2e8f0;
+    border-bottom: 3px solid #2563eb;
+  }
+
+  .guide-header .main-title {
+    font-size: 18px;
+    color: #0f172a;
+    margin: 0 0 6px 0;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+  }
+
+  .guide-header .subtitle {
+    font-size: 11.5px;
+    color: #64748b;
+    margin: 0;
+    font-weight: 500;
+  }
+
+  .main-accordion {
+    background-color: #ffffff;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #2563eb;
+  }
+
+  .main-summary {
+    padding: 14px;
+    font-weight: bold;
+    font-size: 13px;
+    background-color: #2563eb;
+    color: #ffffff;
+    cursor: pointer;
+    outline: none;
+    list-style: none;
+    text-align: center;
+    letter-spacing: 0.5px;
+  }
+  
+  .main-summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .guide-content {
+    padding: 8px;
+    background-color: #f8fafc;
+  }
+
+  .section-accordion {
+    margin-bottom: 8px;
+    background-color: #ffffff;
+    border-radius: 6px;
+    border: 1px solid #cbd5e1;
+  }
+
+  .section-accordion > summary {
+    display: block; 
+    padding: 12px;
+    font-weight: 600;
+    color: #1d4ed8;
+    cursor: pointer;
+    outline: none;
+    font-size: 13px;
+    background-color: #f1f5f9;
+    border-radius: 6px;
+  }
+
+  .section-accordion > summary::-webkit-details-marker {
+    display: none !important;
+  }
+
+  .section-accordion[open] > summary {
+    border-bottom: 1px solid #cbd5e1;
+    color: #2563eb;
+    background-color: #e2e8f0;
+  }
+
+  .section-body {
+    padding: 12px;
+    font-size: 13.5px;
+    background-color: #ffffff;
+  }
+
+/* ======= Fin de la base du guide ======= */
+
+/* ====== Typographie & Paragraphes ====== */
+
+  .content-h3 {
+    font-size: 14px;
+    font-weight: bold;
+    color: #0f172a;
+    margin: 14px 0 6px 0;
+    border-left: 3px solid #2563eb;
+    padding-left: 6px;
+  }
+
+  .content-h4 {
+    font-size: 13px;
+    font-weight: bold;
+    color: #334155;
+    margin: 12px 0 4px 14px;
+    text-decoration: underline;
+  }
+
+  .content-p {
+    margin: 10px 14px;
+    color: #334155;
+  }
+  
+  .code-word {
+    font-family: monospace;
+    background-color: #ffe4e6;
+    padding: 1px 4px;
+    border-radius: 3px;
+    color: #b91c1c;
+    font-size: 12px;
+  }
+  
+  .fluo { 
+    background-color: #ffff00; 
+  }
+  
+  .division_contenu {
+    border-bottom: thick double #32a1ce;
+    margin: 0 0 6px 0;
+  }
+  
+/* == Fin de Typographie & Paragraphes == */
+
+/* =========== Listes à puces =========== */
+
+  .custom-li {
+    margin-bottom: 8px;
+    padding-left: 14px;
+    position: relative;
+    color: #334155;
+  }
+  
+  .custom-li::before {
+    content: "•";
+    color: #2563eb;
+    font-weight: bold;
+    position: absolute;
+    left: 2px;
+    top: 0;
+  }
+  
+  .custom-li-tiptext {
+    margin-bottom: 8px;
+    padding-left: 14px;
+    position: relative;
+    color: #78350f;
+  }
+  
+  .custom-li-tiptext::before {
+    content: "•";
+    color: #2563eb;
+    font-weight: bold;
+    position: absolute;
+    left: 2px;
+    top: 0;
+  }
+  
+  .tip-title {
+    font-size: 13.5px;
+    font-weight: bold;
+    color: #b45309;
+    border-left: 3px solid #d97706;
+    padding-left: 6px;
+    margin-top: 14px;
+    margin-bottom: 4px;
+  }
+  
+/* ====== Fin de la listes à puces ====== */
+  
+/* === Boîtes spécialisées (Encadrés) === */  
+
+/* === Boîte Pour Aller Plus Loin / Décryptage Pédagogique === */
+  .learn-box {
+    background-color: #f5f3ff;
+    border: 1px solid #ddd6fe;
+    border-left: 4px solid #7c3aed;
+    padding: 10px 12px;
+    margin: 8px 0;
+    border-radius: 6px;
+    color: #4c1d95;
+    font-size: 12.5px;
+    line-height: 1.5;
+  }
+
+  .learn-label {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    color: #6d28d9;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 6px;
+    display: block;
+  }
+
+/* === Boîte pour le Texte Injecté par Défaut === */
+  .injected-box {
+    background-color: #eff6ff;
+    border: 1px solid #bfdbfe;
+    border-left: 4px solid #2563eb;
+    padding: 8px 12px;
+    margin: 8px 0 10px 0;
+    border-radius: 6px;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 12px;
+    color: #1e40af;
+    word-break: break-word;
+    user-select: all; /* Permet de tout sélectionner d'un coup au toucher */
+  }
+
+  .injected-label {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    color: #1d4ed8;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+    display: block;
+  }
+  
+/* Boîte Prompt */
+  .prompt-box {
+    background-color: #f0fdf4;
+    border-left: 3px solid #16a34a;
+    padding: 10px;
+    margin: 8px 0;
+    border-radius: 4px;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 12px;
+    color: #14532d;
+    word-break: break-word;
+    user-select: all;
+  }
+
+/* Boîte Bon Exemple */
+  .good-example-box {
+    background-color: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    border-left: 4px solid #bbf7d0;
+    border-right: 4px solid #bbf7d0;
+    padding: 10px 12px;
+    margin: 12px 0;
+    border-radius: 6px;
+    color: #14532d;
+    font-size: 12px;
+    font-family: "Courier New", Courier, monospace;
+    text-align: left;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    word-break: break-word;
+  }
+  
+  /* Label pour Boîte Bon Exemple */
+  .good-example-label {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    color: #15803d; 
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+    display: block;
+  }
+
+/* Boîte Négatif */
+    .negative-box {
+    background-color: #fef2f2;
+    border-left: 3px solid #dc2626;
+    /* NOUVEAU PADDING : 6px en haut, 10px sur les côtés, 8px en bas */
+    padding: 6px 10px 8px 10px; 
+    margin: 8px 0;
+    border-radius: 4px;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 12px;
+    line-height: 1.35; /* NOUVEAU : Resserre l'espace vertical entre les lignes de texte */
+    color: #7f1d1d;
+    word-break: break-word;
+  }
+  
+  .negative-label {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    color: #dc2626; 
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+    display: block;
+  }
+  
+/* Boîte d'option */
+  .option-box {
+    background-color: #f1f5f9;
+    border: 1px dashed #64748b;
+    padding: 8px;
+    margin: 10px 0;
+    border-radius: 6px;
+  }
+
+/* Boîte astuce */
+  .tip-text {
+    background-color: #fef9c3;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #f59e0b;
+    color: #78350f;
+    margin: 8px 0;
+  }
+  
+/* =Fin de Boîtes spécialisées (Encadrés)= */
+  
+/* ============== Tooltips ============== */ 
+
+/* 1. Le bouton émoji (Le parent) */
+  .tooltip {
+    position: relative; 
+    display: inline-block;
+    cursor: pointer; 
+    margin-left: 6px; 
+  }
+
+/* 2. La bulle cachée par défaut (L'enfant) */
+  .tooltip .tooltip-texte {
+    visibility: hidden;
+    width: 85%; /* S'adapte intelligemment à la largeur du cellulaire */
+    max-width: 300px; /* Évite que ce soit trop large sur un écran d'ordinateur */
+    background-color: #333; 
+    color: #fff; 
+    text-align: center;
+    border-radius: 8px; 
+    padding: 12px; 
+  
+  /* POSITIONNEMENT FIXÉ À L'ÉCRAN */
+    position: fixed;
+    z-index: 100; /* Un chiffre élevé pour être certain d'être au-dessus de tout */
+  
+  /* Centrage parfait au milieu de l'écran */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  
+  /* Ajout d'une ombre pour un effet pop-up professionnel */
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.6);
+
+  /* Effet d'apparition en douceur */
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+/* 3. L'apparition de la bulle au survol (PC) ou au clic (Cellulaire) */
+  .tooltip:hover .tooltip-texte,
+  .tooltip:active .tooltip-texte {
+    visibility: visible;
+    opacity: 1;
+  }
+  
+/* =========== Fin de Tooltips =========== */
+
+/* ========== Navigation Rapide ========== */
+  .quick-nav-container {
+    background-color: #f1f5f9;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    padding: 12px;
+    margin-bottom: 16px;
+  }
+
+  .quick-nav-title {
+    font-weight: bold;
+    font-size: 13px;
+    color: #1d4ed8;
+    margin-bottom: 8px;
+    border-bottom: 1px solid #cbd5e1;
+    padding-bottom: 4px;
+  }
+
+  .quick-nav-subgroup {
+    font-size: 11.5px;
+    font-weight: 700;
+    color: #475569;
+    margin: 8px 0 4px 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .quick-nav-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 8px;
+  }
+
+  .quick-nav-btn {
+    background-color: #ffffff;
+    border: 1px solid #2563eb;
+    color: #2563eb;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 11.5px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  }
+
+  .quick-nav-btn:hover {
+    background-color: #2563eb;
+    color: #ffffff;
+  }
+
+  .quick-nav-btn:active {
+    transform: scale(0.96);
+    background-color: #1d4ed8;
+    color: #ffffff;
+  }
+
+  .back-to-sec-menu {
+    display: inline-block;
+    margin-top: 8px;
+    font-size: 11px;
+    color: #2563eb;
+    text-decoration: underline;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  
+/* ===== Fin de la navigation rapide ===== */
+  
+/* === Fenêtre Plein Écran (Modal) pour Menu Rapide === */
+  .modal-overlay {
+    display: none; /* Caché par défaut */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #f8fafc; /* Garde le même fond que ton site */
+    z-index: 100000; /* Assure que le menu passe par-dessus TOUT le reste */
+    overflow-y: auto; /* Permet le défilement vertical si tu as beaucoup de boutons */
+    padding: 16px;
+    box-sizing: border-box;
+    role: dialog;
+    aria-modal="true"
+  }
+
+/* Classe ajoutée via JavaScript pour afficher la fenêtre */
+  .modal-overlay.active {
+    display: block; 
+  }
+
+/* === Bouton pour OUVRIR le menu (Interface principale) === */
+  .btn-open-menu {
+    display: block;
+    width: 100%;
+    background-color: #2563eb;
+    color: #ffffff;
+    border: none;
+    padding: 14px;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 8px;
+    text-align: center;
+    margin-bottom: 16px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    cursor: pointer;
+  }
+
+  .btn-open-menu:active {
+    background-color: #1d4ed8;
+    transform: scale(0.98); /* Petit effet d'enfoncement au toucher */
+  }
+
+/* === Bouton pour FERMER le menu (À l'intérieur du modal) === */
+  .btn-close-menu {
+    display: block;
+    width: 100%;
+    background-color: #ef4444; /* Rouge pour identifier clairement l'action de fermer */
+    color: #ffffff;
+    border: none;
+    padding: 14px;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    cursor: pointer;
+  }
+
+  .btn-close-menu:active {
+    background-color: #dc2626;
+  }
+
+/* Ajustement cosmétique pour ton conteneur existant dans le modal */
+  .modal-overlay .quick-nav-container {
+    border: none; /* Retire la bordure pour un look plus épuré en plein écran */
+    box-shadow: none;
+    padding: 0;
+  }
+  
+/* Fin de la Fenêtre Plein Écran (Modal) pour Menu Rapide */
+  
+/* ========= Tableaux de données ========= */
+  
+/* === Composant : Tableau Rapide === */
+  .tableau-rapide {
+    width: 100%;
+    margin: 16px auto; /* Centre le tableau horizontalement */
+    border-collapse: collapse;
+    font-size: 12.5px;
+    background-color: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    display: block;
+    overflow-x: auto;
+    box-sizing: border-box;
+  }
+
+/* L'en-tête du tableau (la première ligne) */
+  .tableau-rapide th {
+    background-color: #2563eb; 
+    color: #ffffff;
+    font-weight: 600;
+    text-align: center;
+    padding: 10px 12px;
+  /* Ajoute les lignes séparatrices (grille) dans l'en-tête */
+    border: 1px solid #cbd5e1; 
+  }
+
+/* Les cellules normales */
+  .tableau-rapide td {
+    padding: 8px 12px;
+    color: #334155;
+  /* Ajoute les lignes verticales et horizontales partout */
+    border: 1px solid #cbd5e1; 
+  }
+
+/* Enlever la bordure de la toute dernière ligne pour un fini parfait */
+  .tableau-rapide tr:last-child td {
+    border-bottom: none;
+  }
+
+/* Bonus : Effet de surbrillance très léger quand on touche une ligne */
+  .tableau-rapide tr:active {
+    background-color: #f1f5f9;
+  }
+  
+/* ===== Fin de tableaux de données ===== */ 
+ 
+/* === Optimisations d'Interaction & Navigation === */
+
+/* Défilement fluide sur toute la page */
+  html {
+    scroll-behavior: smooth;
+  }
+
+/* 1. Décalage d'aération : uniquement pour les éléments internes de section */
+  .option-box[id], 
+  #sec18-tableau-photo {
+    scroll-margin-top: 10px;
+  }
+
+/* 2. Surbrillance : restreinte exclusivement aux sous-éléments (ignore les grands accordéons) */
+  .option-box:target, 
+  #sec18-tableau-photo:target {
+    border-color: #2563eb;
+    background-color: #eff6ff;
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
+    transition: background-color 0.3s ease,    border-color 0.3s ease;
+  }
+  
+/* L'effet s'applique UNIQUEMENT quand l'élément est ouvert */
+  #sec12-tableau-comparatif[open] {
+    border-color: #2563eb;
+    background-color: #eff6ff;
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+    border-radius: 6px;
+  }
+  
+  #sec-exemple-prompt[open] {
+    border-color: #2563eb;
+    background-color: #eff6ff;
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+    border-radius: 6px;
+  }
+  
+  /* 1. La nouvelle norme (bloque la flèche sur les navigateurs récents) */
+  #sec-exemple-prompt > summary {
+    list-style: none;
+  }
+
+/* 2. La protection supplémentaire pour les très récents (Safari/Firefox) */
+  #sec-exemple-prompt > summary::marker {
+    display: none;
+  }
+
+/* 3. Ton ancien code en renfort (pour les vieux appareils) */
+  #sec-exemple-prompt >   summary::-webkit-details-marker {
+    display: none !important;
+  }
+  
+/* Boutton bleu qui s'affiche pour remonter vers le haut et disparait une fois en haut  */  
+  .back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 99998;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: #2563eb;
+    color: #fff;
+    border: none;
+    font-size: 24px;
+    line-height: 1;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.2s, background 0.2s;
+    opacity: 0.1;
+  }
+  
+  .back-to-top:hover { 
+    background: #1d4ed8; 
+  }
+  
+  .back-to-top.visible { 
+    display: flex; opacity: 1; 
+  }
+  
+/* Style du bandeau de mise à jour */
 #update-toast {
   position: fixed;
   bottom: 20px;
@@ -665,13 +707,11 @@ body {
   background-color: #2563eb;
   color: #ffffff;
   border: none;
-  padding: 8px 14px;
+  padding: 6px 12px;
   border-radius: 4px;
   font-size: 12px;
   font-weight: 600;
   cursor: pointer;
-  min-height: 36px;
-  touch-action: manipulation;
 }
 
 #reload-btn:active {
@@ -682,9 +722,7 @@ body {
   background: transparent;
   border: none;
   color: #94a3b8;
-  font-size: 18px;
+  font-size: 16px;
   cursor: pointer;
-  padding: 4px 8px;
-  min-height: 36px;
-  touch-action: manipulation;
+  padding: 0 4px;
 }
