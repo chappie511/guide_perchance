@@ -1,6 +1,8 @@
 {
-  "short_name": "Guide Perchance",
+  "id": "./",
   "name": "Guide de Prompt Engineering Perchance",
+  "short_name": "Guide Perchance",
+  "description": "Répertoire algorithmique et guide de prompt engineering pour Perchance : styles, éclairages, poses, vues et effets visuels pour la génération d'images.",
   "icons": [
     {
       "src": "https://cdn.jsdelivr.net/gh/chappie511/Icon@main/golden_star_v3.png?v=1000",
