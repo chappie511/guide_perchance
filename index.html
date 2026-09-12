@@ -547,18 +547,17 @@
   <!-- Bouton pour remonter en haut de la page -->
   <button class="back-to-top" id="backToTopBtn" title="Retour en haut" aria-label="Retour en haut">↑</button>
   
-      <!-- Modifier ces lignes dans index.html -->
-<script src="./version.js"></script>
-<script src="./js/index.js" defer></script>
+       <!-- Inclusion des scripts de versioning et principaux -->
+  <script src="./version.js"></script>
+  <script src="./js/index.js" defer></script>
 
-<!-- Bannière de mise à jour Toast -->
-<div id="update-toast" class="update-toast hidden">
-  <span>✨ Une nouvelle version est disponible !</span>
-  <div class="toast-actions">
-    <button id="reload-btn" type="button">Rafraîchir</button>
-    <button id="btn-close" type="button" onclick="document.getElementById('update-toast').classList.remove('visible');" aria-label="Fermer">✕</button>
+  <!-- Notification Toast pour mise à jour PWA -->
+  <div id="update-toast" class="update-toast hidden">
+    <span>✨ Une nouvelle version est disponible !</span>
+    <div class="toast-actions">
+      <button id="reload-btn" type="button">Rafraîchir</button>
+      <button id="btn-close" type="button" onclick="document.getElementById('update-toast').classList.remove('visible');" aria-label="Fermer">✕</button>
+    </div>
   </div>
-</div>
-
 </body>
 </html>
