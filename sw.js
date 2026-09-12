@@ -1,15 +1,16 @@
-importScripts('./version.js'); // Importe la variable APP_VERSION
-
-const CACHE_NAME = APP_VERSION; // Utilise directement la variable unique
+// Définir directement la version ici pour garantir que sw.js change d'octets à chaque MAJ
+const CACHE_NAME = 'guide-perchance-v1.2.2';
 
 const BASE_ASSETS = [
   './',
   './index.html',
+  './version.js',
   './css/index.css',
   './js/index.js',
   './manifest.json',
   'https://cdn.jsdelivr.net/gh/chappie511/Icon@main/golden_star_v3.png?v=1000'
 ];
+
 
 const SECTION_ASSETS = Array.from({ length: 24 }, (_, i) => {
   const num = String(i + 1).padStart(2, '0');
