@@ -1,4 +1,4 @@
-body {
+    body {
     background-color: #f8fafc; 
     margin: 0;
     padding: 0;
@@ -725,4 +725,8 @@ body {
   font-size: 16px;
   cursor: pointer;
   padding: 0 4px;
+}
+
+html {
+  scroll-behavior: smooth;
 }
