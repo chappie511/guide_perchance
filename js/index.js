@@ -26,22 +26,44 @@ for (let i = 1; i <= 24; i++) {
     chargerSection(`conteneur-section-${i}`, `./sections_du_guide/section_${num}.html`);
 }
 
-// Copie des prompts dans le presse-papiers
+// Copie des prompts dans le presse-papiers avec secours pour mobile
 document.addEventListener('click', function (e) {
   let boite = e.target.closest('.prompt-box');
   
   if (boite) {
     let texte = boite.innerText;
     
-    // Remplace le bloc alert() par un retour visuel direct
-    navigator.clipboard.writeText(texte)
-      .then(function() {
-        const originalBg = boite.style.backgroundColor;
-        boite.style.outline = "2px solid #22c55e";
-        setTimeout(() => {
-          boite.style.outline = "";
-        }, 1200);
+    function animationSucces() {
+      boite.style.outline = "2px solid #22c55e";
+      setTimeout(() => {
+        boite.style.outline = "";
+      }, 1200);
+    }
+
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(texte).then(animationSucces).catch(err => {
+        copierSecours(texte);
       });
+    } else {
+      copierSecours(texte);
+    }
+
+    function copierSecours(textToCopy) {
+      const textarea = document.createElement('textarea');
+      textarea.value = textToCopy;
+      textarea.style.position = 'fixed'; // Évite de scroller la page sur mobile
+      textarea.style.opacity = '0';
+      document.body.appendChild(textarea);
+      textarea.focus();
+      textarea.select();
+      try {
+        document.execCommand('copy');
+        animationSucces();
+      } catch (err) {
+        console.error('Échec de la copie secours', err);
+      }
+      document.body.removeChild(textarea);
+    }
   }
 });
 
@@ -87,8 +109,8 @@ document.addEventListener('click', function(event) {
     document.body.style.overflow = 'hidden';
   }
   
-  if (event.target && event.target.id === 'btnOuvrirÉclairages') {
-    document.getElementById('modalÉclairages').classList.add('active');
+  if (event.target && event.target.id === 'btnOuvrirEclairages') {
+    document.getElementById('modalEclairages').classList.add('active');
     document.body.style.overflow = 'hidden';
   }
 
@@ -152,12 +174,10 @@ if ('serviceWorker' in navigator) {
     // EN LIGNE (GitHub Pages) : Gestion PWA
     navigator.serviceWorker.register('./sw.js').then((registration) => {
       
-      // Si une mise à jour est déjà en attente au chargement
       if (registration.waiting) {
         afficherNotificationMAJ(registration.waiting);
       }
 
-      // Si une mise à jour est détectée pendant l'utilisation
       registration.addEventListener('updatefound', () => {
         const installingWorker = registration.installing;
         if (installingWorker) {
@@ -170,7 +190,6 @@ if ('serviceWorker' in navigator) {
       });
     });
 
-    // Rechargement automatique déclenché par l'activation du nouveau SW
     let refreshing = false;
     navigator.serviceWorker.addEventListener('controllerchange', () => {
       if (!refreshing) {
