@@ -185,10 +185,9 @@ if ('serviceWorker' in navigator) {
 document.addEventListener('DOMContentLoaded', () => {
   const versionSpan = document.getElementById('app-version');
   if (versionSpan) {
-    // 1. Détecte la version globale ou utilise la version courante du projet
-    const currentVersion = (typeof APP_VERSION !== 'undefined') ? APP_VERSION : 'guide-perchance-v1.2.2';
+    // Vérification que APP_VERSION existe bien dans le scope global
+    const currentVersion = (typeof APP_VERSION !== 'undefined') ? APP_VERSION : 'v1.2.2';
 
-    // 2. Met à jour l'affichage dans le DOM
     if (estServeurLocal) {
       versionSpan.textContent = `${currentVersion} (Mode Local - TrebEdit)`;
     } else {
