@@ -124,36 +124,37 @@ if ('serviceWorker' in navigator) {
   });
 }
 
-// Gestion du clic sur le bouton Rafraîchir
+// Gestion du clic sur le bouton Rafraîchir - FORCE IMMEDIATE ACTIVATION
 const reloadBtn = document.getElementById('reload-btn');
 if (reloadBtn) {
   reloadBtn.addEventListener('click', () => {
     navigator.serviceWorker.getRegistration().then((registration) => {
       if (registration && registration.waiting) {
-        // Envoie l'ordre au nouveau SW de s'activer
+        // Force le nouveau SW à s'activer IMMÉDIATEMENT
         registration.waiting.postMessage({ type: 'SKIP_WAITING' });
+        // Recharge la page immédiatement (ne pas attendre controllerchange)
+        setTimeout(() => {
+          window.location.reload();
+        }, 500);
       } else {
-        // Secours si aucun SW n'attend : on rafraîchit directement la page
+        // Secours : recharge directement
         window.location.reload();
       }
     });
   });
 }
 
-// Rechargement automatique de la page dès que le nouveau SW prend le contrôle
-let refreshing = false;
+// Écoute le changement de contrôleur (nouvelle activation du SW)
 navigator.serviceWorker.addEventListener('controllerchange', () => {
-  if (!refreshing) {
-    refreshing = true;
-    window.location.reload();
-  }
+  console.log('Service Worker activé - rechargement en cours');
+  window.location.reload();
 });
 
 // Affichage dynamique de la version dans l'interface
 document.addEventListener('DOMContentLoaded', () => {
   const versionSpan = document.getElementById('app-version');
   if (versionSpan) {
-    const currentVersion = (typeof APP_VERSION !== 'undefined') ? APP_VERSION : 'guide-perchance-v1.2.6';
+    const currentVersion = (typeof APP_VERSION !== 'undefined') ? APP_VERSION : 'guide-perchance-v1.2.7';
     versionSpan.textContent = currentVersion;
   }
 });
