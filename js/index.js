@@ -154,17 +154,15 @@ if (reloadBtn) {
   });
 }
 
-// Affichage dynamique de la version dans l'interface (supporte id et classe)
+// Affichage dynamique de la version dans l'interface
 document.addEventListener('DOMContentLoaded', () => {
-  const currentVersion = (typeof APP_VERSION !== 'undefined') ? APP_VERSION : 'Version indisponible';
+  const currentVersion = (typeof APP_VERSION !== 'undefined') ? APP_VERSION : 'guide-perchance-v1.2.9';
   
-  // Ciblage par ID
   const versionSpan = document.getElementById('app-version');
   if (versionSpan) {
     versionSpan.textContent = currentVersion;
   }
   
-  // Ciblage par classe si la version est affichée à plusieurs endroits dans la page
   const versionSpans = document.querySelectorAll('.app-version');
   versionSpans.forEach((el) => {
     el.textContent = currentVersion;
