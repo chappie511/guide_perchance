@@ -1,1 +1,1 @@
-const APP_VERSION = 'guide-perchance-v1.2.7';
+const APP_VERSION = 'guide-perchance-v1.2.8';
