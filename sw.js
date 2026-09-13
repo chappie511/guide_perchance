@@ -1,4 +1,4 @@
-const APP_VERSION = 'guide-perchance-v1.2.9';
+const CACHE_NAME = 'guide-perchance-v1.2.9';
 
 const BASE_ASSETS = [
   './',
