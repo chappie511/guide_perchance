@@ -1,5 +1,11 @@
 // Fonction pour charger et injecter du HTML de manière dynamique
 function chargerSection(idDeLaBoite, cheminDuFichier) {
+    const conteneur = document.getElementById(idDeLaBoite);
+    if (!conteneur) return;
+
+    // Protection anti-dédoublement : ne réinjecte pas si le conteneur a déjà du contenu
+    if (conteneur.children.length > 0) return;
+
     fetch(cheminDuFichier)
         .then(reponse => {
             if (!reponse.ok) {
@@ -8,17 +14,14 @@ function chargerSection(idDeLaBoite, cheminDuFichier) {
             return reponse.text();
         })
         .then(texteHtml => {
-            const conteneur = document.getElementById(idDeLaBoite);
-            if (conteneur) conteneur.innerHTML = texteHtml;
+            conteneur.innerHTML = texteHtml;
         })
         .catch(erreur => {
             console.error("Erreur de chargement :", erreur);
-            const conteneur = document.getElementById(idDeLaBoite);
-            if (conteneur) {
-                conteneur.innerHTML = `<div style="padding:10px; color:#b91c1c;">⚠️ Impossible de charger cette section.</div>`;
-            }
+            conteneur.innerHTML = `<div style="padding:10px; color:#b91c1c;">⚠️ Impossible de charger cette section.</div>`;
         });
 }
+
 
 // Charge automatiquement les 24 sections depuis le dossier sections_du_guide
 for (let i = 1; i <= 24; i++) {
@@ -46,8 +49,11 @@ document.addEventListener('click', function (e) {
 });
 
 // Bouton retour vers le haut
+// ✅ CORRECTION SÉCURISÉE :
 (function () {
   var btn = document.getElementById('backToTopBtn');
+  if (!btn) return; // Quitte silencieusement si le bouton n'est pas trouvé dans la page
+
   function onScroll() {
     if (window.scrollY > 1900) btn.classList.add('visible');
     else btn.classList.remove('visible');
@@ -58,6 +64,7 @@ document.addEventListener('click', function (e) {
   });
   onScroll();
 })();
+
 
 // Gestionnaires d'événements pour l'ouverture et la fermeture des modales
 document.addEventListener('click', function(event) {
@@ -124,30 +131,20 @@ if ('serviceWorker' in navigator) {
   });
 }
 
-// Gestion du clic sur le bouton Rafraîchir
+// ✅ CORRECTION SÉCURISÉE :
 const reloadBtn = document.getElementById('reload-btn');
 if (reloadBtn) {
   reloadBtn.addEventListener('click', () => {
     navigator.serviceWorker.getRegistration().then((registration) => {
       if (registration && registration.waiting) {
-        // Envoie l'ordre au nouveau SW de s'activer
         registration.waiting.postMessage({ type: 'SKIP_WAITING' });
       } else {
-        // Secours si aucun SW n'attend : on rafraîchit directement la page
         window.location.reload();
       }
     });
   });
 }
 
-// Rechargement automatique de la page dès que le nouveau SW prend le contrôle
-let refreshing = false;
-navigator.serviceWorker.addEventListener('controllerchange', () => {
-  if (!refreshing) {
-    refreshing = true;
-    window.location.reload();
-  }
-});
 
 // Affichage dynamique de la version dans l'interface
 document.addEventListener('DOMContentLoaded', () => {
