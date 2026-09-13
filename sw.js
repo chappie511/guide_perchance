@@ -66,6 +66,17 @@ self.addEventListener('activate', (event) => {
 self.addEventListener('fetch', (event) => {
   if (event.request.method !== 'GET') return;
 
+  // Interception et neutralisation immédiate de version.js
+  if (event.request.url.includes('version.js')) {
+    event.respondWith(
+      new Response('/* script neutralisé */', {
+        status: 200,
+        headers: { 'Content-Type': 'application/javascript' }
+      })
+    );
+    return;
+  }
+
   const url = new URL(event.request.url);
 
   // A. Cache First pour les CDN externes (icônes, scripts)
