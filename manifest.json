@@ -5,12 +5,14 @@
     {
       "src": "https://cdn.jsdelivr.net/gh/chappie511/Icon@main/golden_star_v3.png?v=1000",
       "type": "image/png",
-      "sizes": "192x192"
+      "sizes": "192x192",
+      "purpose": "any maskable"
     },
     {
       "src": "https://cdn.jsdelivr.net/gh/chappie511/Icon@main/golden_star_v3.png?v=1000",
       "type": "image/png",
-      "sizes": "512x512"
+      "sizes": "512x512",
+      "purpose": "any maskable"
     }
   ],
   "start_url": "./index.html",
