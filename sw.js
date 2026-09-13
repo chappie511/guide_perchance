@@ -2,7 +2,6 @@
 const APP_VERSION = '1.3.0';
 const CACHE_NAME = `guide-cache-v${APP_VERSION}`;
 
-
 // 1. Ressources de base du guide
 const BASE_ASSETS = [
   './',
@@ -69,23 +68,7 @@ self.addEventListener('fetch', (event) => {
 
   const url = new URL(event.request.url);
 
-  // A. Contournement du cache pour version.js (Données fraîches avec fallback)
-  if (url.pathname.endsWith('version.js')) {
-    event.respondWith(
-      fetch(event.request, { cache: 'no-store' })
-        .then((networkResponse) => {
-          if (networkResponse && networkResponse.status === 200) {
-            const responseToCache = networkResponse.clone();
-            caches.open(CACHE_NAME).then((cache) => cache.put(event.request, responseToCache));
-          }
-          return networkResponse;
-        })
-        .catch(() => caches.match(event.request))
-    );
-    return;
-  }
-
-  // B. Cache First pour les CDN externes (icônes, scripts)
+  // A. Cache First pour les CDN externes (icônes, scripts)
   if (url.origin.includes('cdn.jsdelivr.net') || url.origin.includes('github.io')) {
     event.respondWith(
       caches.match(event.request).then((cachedResponse) => {
@@ -104,7 +87,7 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  // C. Network First avec secours sur le cache pour l'application
+  // B. Network First avec secours sur le cache pour l'application
   event.respondWith(
     fetch(event.request)
       .then((networkResponse) => {
