@@ -185,7 +185,7 @@ if ('serviceWorker' in navigator) {
 document.addEventListener('DOMContentLoaded', () => {
   const versionSpan = document.getElementById('app-version');
   if (versionSpan) {
-    const currentVersion = (typeof APP_VERSION !== 'undefined') ? APP_VERSION : 'guide-perchance-v1.2.2';
+    const currentVersion = (typeof APP_VERSION !== 'undefined') ? APP_VERSION : 'guide-perchance-v1.2.3';
 
     if (estServeurLocal) {
       versionSpan.textContent = `${currentVersion} (Mode Local - TrebEdit)`;
