@@ -1,1 +1,0 @@
-const APP_VERSION = 'guide-perchance-v1.3.0';
