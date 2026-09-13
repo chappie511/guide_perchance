@@ -149,16 +149,6 @@ navigator.serviceWorker.addEventListener('controllerchange', () => {
   }
 });
 
-
-// Rechargement automatique de la page dès que le nouveau SW prend le contrôle
-let refreshing = false;
-navigator.serviceWorker.addEventListener('controllerchange', () => {
-  if (!refreshing) {
-    refreshing = true;
-    window.location.reload();
-  }
-});
-
 // Affichage dynamique de la version dans l'interface
 document.addEventListener('DOMContentLoaded', () => {
   const versionSpan = document.getElementById('app-version');
