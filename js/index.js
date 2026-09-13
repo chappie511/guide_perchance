@@ -49,7 +49,6 @@ document.addEventListener('click', function (e) {
 });
 
 // Bouton retour vers le haut
-// ✅ CORRECTION SÉCURISÉE :
 (function () {
   var btn = document.getElementById('backToTopBtn');
   if (!btn) return; // Quitte silencieusement si le bouton n'est pas trouvé dans la page
@@ -129,7 +128,7 @@ if ('serviceWorker' in navigator) {
       .catch((err) => console.error('Échec enregistrement SW:', err));
   });
 
-  // Recharche la page automatiquement quand le nouveau SW prend le contrôle
+  // Recharge la page automatiquement quand le nouveau SW prend le contrôle
   let refreshing = false;
   navigator.serviceWorker.addEventListener('controllerchange', () => {
     if (!refreshing) {
@@ -148,18 +147,26 @@ if (reloadBtn) {
         // Envoie le message au SW pour qu'il s'active
         registration.waiting.postMessage({ type: 'SKIP_WAITING' });
       } else {
-        // Si aucun SW en attente, recharche la page directement
+        // Si aucun SW en attente, recharge la page directement
         window.location.reload();
       }
     });
   });
 }
 
-// Affichage dynamique de la version dans l'interface
+// Affichage dynamique de la version dans l'interface (supporte id et classe)
 document.addEventListener('DOMContentLoaded', () => {
+  const currentVersion = (typeof APP_VERSION !== 'undefined') ? APP_VERSION : 'Version indisponible';
+  
+  // Ciblage par ID
   const versionSpan = document.getElementById('app-version');
   if (versionSpan) {
-    const currentVersion = (typeof APP_VERSION !== 'undefined') ? APP_VERSION : 'Version indisponible';
     versionSpan.textContent = currentVersion;
   }
+  
+  // Ciblage par classe si la version est affichée à plusieurs endroits dans la page
+  const versionSpans = document.querySelectorAll('.app-version');
+  versionSpans.forEach((el) => {
+    el.textContent = currentVersion;
+  });
 });
