@@ -37,12 +37,12 @@ self.addEventListener('activate', (event) => {
   event.waitUntil(
     caches.keys().then((keys) => {
       return Promise.all(
-        keys.map((key) => {
-          if (key !== CACHE_NAME) {
+        keys
+          .filter((key) => key !== CACHE_NAME)
+          .map((key) => {
             console.log('Suppression de l\'ancien cache :', key);
             return caches.delete(key);
-          }
-        })
+          })
       );
     }).then(() => self.clients.claim())
   );
