@@ -1,4 +1,4 @@
-const CACHE_NAME = 'guide-perchance-v1.2.2';
+const CACHE_NAME = 'guide-perchance-v1.2.3';
 
 const BASE_ASSETS = [
   './',
