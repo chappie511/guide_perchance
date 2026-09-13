@@ -150,7 +150,7 @@ if (reloadBtn) {
 document.addEventListener('DOMContentLoaded', () => {
   const versionSpan = document.getElementById('app-version');
   if (versionSpan) {
-    const currentVersion = (typeof APP_VERSION !== 'undefined') ? APP_VERSION : 'guide-perchance-v1.2.8';
+    const currentVersion = (typeof APP_VERSION !== 'undefined') ? APP_VERSION : 'guide-perchance-v1.2.9';
     versionSpan.textContent = currentVersion;
   }
 });
