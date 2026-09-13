@@ -102,23 +102,54 @@ document.addEventListener('click', function(event) {
   }
 });
 
-// ==========================================
-// DÉSACTIVATION TEMPORAIRE (GitHub Pages + Local)
-// ==========================================
 if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.getRegistrations().then((registrations) => {
-    for (let registration of registrations) {
-      registration.unregister();
-      console.log('Service Worker désactivé sur GitHub Pages');
-    }
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./sw.js', { updateViaCache: 'none' })
+      .then((registration) => {
+        // Force la vérification d'une mise à jour au chargement
+        registration.update();
+
+        registration.addEventListener('updatefound', () => {
+          const newWorker = registration.installing;
+          newWorker.addEventListener('statechange', () => {
+            if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+              // Affiche le toast de mise à jour
+              const toast = document.getElementById('update-toast');
+              if (toast) toast.classList.add('visible');
+            }
+          });
+        });
+      })
+      .catch((err) => console.error('Échec enregistrement SW:', err));
   });
 }
+
+// Gestion du bouton "Rafraîchir" sur le toast
+const reloadBtn = document.getElementById('reload-btn');
+if (reloadBtn) {
+  reloadBtn.addEventListener('click', () => {
+    navigator.serviceWorker.getRegistration().then((registration) => {
+      if (registration && registration.waiting) {
+        registration.waiting.postMessage({ type: 'SKIP_WAITING' });
+      }
+    });
+  });
+}
+
+// Rechargement automatique de la page dès que le nouveau SW prend le contrôle
+let refreshing = false;
+navigator.serviceWorker.addEventListener('controllerchange', () => {
+  if (!refreshing) {
+    refreshing = true;
+    window.location.reload();
+  }
+});
 
 // Affichage dynamique de la version dans l'interface
 document.addEventListener('DOMContentLoaded', () => {
   const versionSpan = document.getElementById('app-version');
   if (versionSpan) {
-    const currentVersion = (typeof APP_VERSION !== 'undefined') ? APP_VERSION : 'guide-perchance-v1.2.4';
+    const currentVersion = (typeof APP_VERSION !== 'undefined') ? APP_VERSION : 'guide-perchance-v1.2.6';
     versionSpan.textContent = currentVersion;
   }
 });
