@@ -22,7 +22,6 @@ function chargerSection(idDeLaBoite, cheminDuFichier) {
         });
 }
 
-
 // Charge automatiquement les 24 sections depuis le dossier sections_du_guide
 for (let i = 1; i <= 24; i++) {
     const num = String(i).padStart(2, '0');
@@ -63,7 +62,6 @@ document.addEventListener('click', function (e) {
   });
   onScroll();
 })();
-
 
 // Gestionnaires d'événements pour l'ouverture et la fermeture des modales
 document.addEventListener('click', function(event) {
@@ -154,12 +152,14 @@ if (reloadBtn) {
   });
 }
 
-
-document.addEventListener('DOMContentLoaded', () => {
-  const currentVersion = (typeof APP_VERSION !== 'undefined') ? APP_VERSION : 'guide-perchance-v?';
-  
+// Affichage dynamique et sécurisé de la version de l'application
+function afficherVersion() {
   const versionSpan = document.getElementById('app-version');
   if (versionSpan) {
+    const currentVersion = (typeof APP_VERSION !== 'undefined') ? `v${APP_VERSION}` : 'v1.3.0';
     versionSpan.textContent = currentVersion;
   }
-});
+}
+
+document.addEventListener('DOMContentLoaded', afficherVersion);
+window.addEventListener('load', afficherVersion);
