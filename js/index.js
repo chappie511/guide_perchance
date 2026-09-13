@@ -156,8 +156,8 @@ if (reloadBtn) {
 function afficherVersion() {
   const versionSpan = document.getElementById('app-version');
   if (versionSpan) {
-    const currentVersion = (typeof APP_VERSION !== 'undefined') ? `v${APP_VERSION}` : 'v1.3.0';
-    versionSpan.textContent = currentVersion;
+    const APP_VERSION = '1.3.0';
+    versionSpan.textContent = `v${APP_VERSION}`;
   }
 }
 
