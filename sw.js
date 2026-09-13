@@ -1,11 +1,7 @@
-try {
-  importScripts('./version.js');
-} catch (e) {
-  console.warn('Impossible de charger version.js dans le SW:', e);
-}
+// Définition directe dans le Service Worker
+const APP_VERSION = '1.3.0';
+const CACHE_NAME = `guide-cache-v${APP_VERSION}`;
 
-// Nom du cache basé sur APP_VERSION de version.js
-const CACHE_NAME = (typeof APP_VERSION !== 'undefined') ? APP_VERSION : 'guide-perchance-v1.3.0';
 
 // 1. Ressources de base du guide
 const BASE_ASSETS = [
@@ -127,7 +123,7 @@ self.addEventListener('fetch', (event) => {
 // ÉVÉNEMENT MESSAGE : Prise de contrôle à la demande (Bandeau Toast)
 // -------------------------------------------------------------
 self.addEventListener('message', (event) => {
-  if (event.data && event.data.type === 'SKIP_WAITING') {
+  if (event.data && (event.data.type === 'SKIP_WAITING' || event.data.action === 'skipWaiting')) {
     self.skipWaiting();
   }
 });
