@@ -1,4 +1,11 @@
-const CACHE_NAME = 'guide-perchance-v1.2.9';
+try {
+  importScripts('./version.js');
+} catch (e) {
+  console.warn('Impossible de charger version.js dans le SW:', e);
+}
+
+const CACHE_NAME = (typeof APP_VERSION !== 'undefined') ? APP_VERSION : 'guide-perchance-v?';
+
 
 const BASE_ASSETS = [
   './',
@@ -54,21 +61,24 @@ self.addEventListener('fetch', (event) => {
 
   const url = new URL(event.request.url);
 
-    // 1. Contournement du cache pour version.js (données fraîches avec mise en cache dynamique)
-  if (url.pathname.endsWith('version.js')) {
-    event.respondWith(
-      fetch(event.request, { cache: 'no-store' })
-        .then((networkResponse) => {
-          if (networkResponse && networkResponse.status === 200) {
-            const responseToCache = networkResponse.clone();
-            caches.open(CACHE_NAME).then((cache) => cache.put(event.request, responseToCache));
-          }
-          return networkResponse;
-        })
-        .catch(() => caches.match(event.request))
-    );
-    return;
-  }
+   // 1. Contournement du cache pour version.js (Données fraîches avec fallback)
+if (url.pathname.endsWith('version.js')) {
+  event.respondWith(
+    fetch(event.request, { cache: 'no-store' })
+      .then((networkResponse) => {
+        if (networkResponse && networkResponse.status === 200) {
+          const responseToCache = networkResponse.clone();
+          caches.open(CACHE_NAME).then((cache) => cache.put(event.request, responseToCache));
+        }
+        return networkResponse;
+      })
+      .catch(() => {
+        // Retourne la version en cache si hors-ligne
+        return caches.match(event.request);
+      })
+  );
+  return;
+}
 
 
   // 2. Cache First pour les icônes et CDNs externes
