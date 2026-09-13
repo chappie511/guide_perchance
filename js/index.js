@@ -154,17 +154,12 @@ if (reloadBtn) {
   });
 }
 
-// Affichage dynamique de la version dans l'interface
+
 document.addEventListener('DOMContentLoaded', () => {
-  const currentVersion = (typeof APP_VERSION !== 'undefined') ? APP_VERSION : 'guide-perchance-v1.2.9';
+  const currentVersion = (typeof APP_VERSION !== 'undefined') ? APP_VERSION : 'guide-perchance-v?';
   
   const versionSpan = document.getElementById('app-version');
   if (versionSpan) {
     versionSpan.textContent = currentVersion;
   }
-  
-  const versionSpans = document.querySelectorAll('.app-version');
-  versionSpans.forEach((el) => {
-    el.textContent = currentVersion;
-  });
 });
