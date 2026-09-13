@@ -8,25 +8,20 @@
   <!-- Icon du guide -->
   <link rel="icon" type="image/jpeg" href="https://cdn.jsdelivr.net/gh/chappie511/Icon@main/golden_star_v3.png?v=1000">  
 
-    <!-- Chemin CSS -->
+  <!-- Chemin CSS -->
   <link rel="stylesheet" href="./css/index.css">
   
-    <!-- Lien vers le fichier manifest.json -->
+  <!-- Lien vers le fichier manifest.json -->
   <link rel="manifest" href="./manifest.json">
   <meta name="theme-color" content="#2563eb">
-
 </head>
 <body>
-    
-    ​<!-- Footer : Indicateur de version PWA -->
-<footer><p>Version actuelle : <span id="app-version">Chargement...</span></p>
-</footer>
 
   <div class="perchance-guide-container">
-  <div class="guide-header">
-    <div class="main-title">Guide de Prompt Engineering Perchance</div>
-    <div class="subtitle">Styles, Effets Visuels et Répertoire Algorithmique par IA — Référence Mobile</div>
-  </div>
+    <div class="guide-header">
+      <div class="main-title">Guide de Prompt Engineering Perchance</div>
+      <div class="subtitle">Styles, Effets Visuels et Répertoire Algorithmique par IA — Référence Mobile</div>
+    </div>
 
     <details class="main-accordion" open>
       <summary class="main-summary">📖 CONSULTER LE GUIDE COMPLET (Toucher pour réduire/ouvrir)</summary>
@@ -60,6 +55,14 @@
       </div>
     </details>
   </div>
+
+  <!-- Footer placé au bas de la page -->
+  <footer>
+    <p>Version actuelle : <span id="app-version">Chargement...</span></p>
+  </footer>
+
+  <!-- Modales et scripts... -->
+
   
 <!-- Modale plein écran : Section 03 (Styles) -->
   <div id="modalStyles" class="modal-overlay" role="dialog" aria-modal="true" aria-label="Menu des styles d'art">
@@ -430,8 +433,8 @@
 
 <!-- ================= ================= -->
 
-    <!-- Modale plein écran : Section 08 (Éclairage) -->
-<div id="modalÉclairages" class="modal-overlay" role="dialog" aria-modal="true" aria-label="Menu de 35 types d'éclairages">
+    <!-- Modale plein écran : Section 08 (Eclairage) -->
+<div id="modalEclairages" class="modal-overlay" role="dialog" aria-modal="true" aria-label="Menu de 35 types d'éclairages">
     <button class="btn-close-menu" type="button">✖ Fermer le menu des éclairages </button>
     
     <div class="quick-nav-container" id="sec08-quick-nav">
@@ -559,6 +562,5 @@
       <button id="btn-close" type="button" onclick="document.getElementById('update-toast').classList.remove('visible');" aria-label="Fermer">✕</button>
     </div>
   </div>
-  
 </body>
 </html>
