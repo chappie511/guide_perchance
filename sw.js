@@ -32,7 +32,7 @@ self.addEventListener('install', (event) => {
   );
 });
 
-// Nettoyage automatique des anciens caches et prise de contrôle immédiate
+// Remplacez l'événement activate par celui-ci (suppression de self.clients.claim()) :
 self.addEventListener('activate', (event) => {
   event.waitUntil(
     caches.keys().then((keys) => {
@@ -44,7 +44,7 @@ self.addEventListener('activate', (event) => {
             return caches.delete(key);
           })
       );
-    }).then(() => self.clients.claim())
+    })
   );
 });
 
@@ -54,13 +54,22 @@ self.addEventListener('fetch', (event) => {
 
   const url = new URL(event.request.url);
 
-  // 1. Contournement du cache pour version.js (données fraîches du réseau)
+    // 1. Contournement du cache pour version.js (données fraîches avec mise en cache dynamique)
   if (url.pathname.endsWith('version.js')) {
     event.respondWith(
-      fetch(event.request, { cache: 'no-store' }).catch(() => caches.match(event.request))
+      fetch(event.request, { cache: 'no-store' })
+        .then((networkResponse) => {
+          if (networkResponse && networkResponse.status === 200) {
+            const responseToCache = networkResponse.clone();
+            caches.open(CACHE_NAME).then((cache) => cache.put(event.request, responseToCache));
+          }
+          return networkResponse;
+        })
+        .catch(() => caches.match(event.request))
     );
     return;
   }
+
 
   // 2. Cache First pour les icônes et CDNs externes
   if (url.origin.includes('cdn.jsdelivr.net') || url.origin.includes('github.io')) {
@@ -81,17 +90,19 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  // 3. Network First avec secours sur le cache
+    // 3. Network First avec secours sur le cache
   event.respondWith(
     fetch(event.request)
       .then((networkResponse) => {
-        if (networkResponse && (networkResponse.status === 200 || networkResponse.status === 0)) {
+        // On ne met en cache que les réponses valides du même domaine (status 200)
+        if (networkResponse && networkResponse.status === 200) {
           const responseToCache = networkResponse.clone();
           caches.open(CACHE_NAME).then((cache) => cache.put(event.request, responseToCache));
         }
         return networkResponse;
       })
       .catch(() => {
+        // En cas de coupure réseau ou d'échec fetch, on bascule sur la copie en cache
         return caches.match(event.request);
       })
   );
