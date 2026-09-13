@@ -144,12 +144,6 @@ if (reloadBtn) {
   });
 }
 
-// Écoute le changement de contrôleur (nouvelle activation du SW)
-navigator.serviceWorker.addEventListener('controllerchange', () => {
-  console.log('Service Worker activé - rechargement en cours');
-  window.location.reload();
-});
-
 // Affichage dynamique de la version dans l'interface
 document.addEventListener('DOMContentLoaded', () => {
   const versionSpan = document.getElementById('app-version');
