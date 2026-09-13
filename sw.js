@@ -97,7 +97,7 @@ self.addEventListener('fetch', (event) => {
   );
 });
 
-// Activation immédiate sur demande du client
+// Activation immédiate lorsque l'utilisateur clique sur "Rafraîchir"
 self.addEventListener('message', (event) => {
   if (event.data && event.data.type === 'SKIP_WAITING') {
     self.skipWaiting();
