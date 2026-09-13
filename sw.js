@@ -1,4 +1,4 @@
-const CACHE_NAME = 'guide-perchance-v1.2.4';
+const CACHE_NAME = 'guide-perchance-v1.2.6';
 
 const BASE_ASSETS = [
   './',
@@ -54,7 +54,15 @@ self.addEventListener('fetch', (event) => {
 
   const url = new URL(event.request.url);
 
-  // 1. Cache First pour les icônes et CDNs externes
+  // 1. Contournement du cache pour version.js (données fraîches du réseau)
+  if (url.pathname.endsWith('version.js')) {
+    event.respondWith(
+      fetch(event.request, { cache: 'no-store' }).catch(() => caches.match(event.request))
+    );
+    return;
+  }
+
+  // 2. Cache First pour les icônes et CDNs externes
   if (url.origin.includes('cdn.jsdelivr.net') || url.origin.includes('github.io')) {
     event.respondWith(
       caches.match(event.request).then((cachedResponse) => {
@@ -73,7 +81,7 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  // 2. Network First avec secours sur le cache
+  // 3. Network First avec secours sur le cache
   event.respondWith(
     fetch(event.request)
       .then((networkResponse) => {
