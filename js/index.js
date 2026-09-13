@@ -170,7 +170,7 @@ if ('serviceWorker' in navigator) {
       });
     });
 
-    // Rechargement automatique déclenché par l'activation du nouveau SW
+      // Détection du changement de contrôleur pour recharger la page
     let refreshing = false;
     navigator.serviceWorker.addEventListener('controllerchange', () => {
       if (!refreshing) {
@@ -178,8 +178,8 @@ if ('serviceWorker' in navigator) {
         window.location.reload();
       }
     });
-  }
-}
+  } // <-- Fermeture du `else` (ligne 161)
+} // <-- Fermeture du `if ('serviceWorker' in navigator)` (ligne 151)
 
 // Affichage dynamique de la version dans l'interface
 document.addEventListener('DOMContentLoaded', () => {
