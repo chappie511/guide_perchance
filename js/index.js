@@ -152,14 +152,18 @@ if (reloadBtn) {
   });
 }
 
-// Affichage dynamique et sécurisé de la version de l'application
+// Affichage dynamique et autonome de la version
 function afficherVersion() {
   const versionSpan = document.getElementById('app-version');
   if (versionSpan) {
-    const APP_VERSION = '1.3.0';
-    versionSpan.textContent = `v${APP_VERSION}`;
+    versionSpan.textContent = 'v1.3.0';
   }
 }
 
-document.addEventListener('DOMContentLoaded', afficherVersion);
+// Exécution immédiate + écouteurs de secours
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', afficherVersion);
+} else {
+  afficherVersion();
+}
 window.addEventListener('load', afficherVersion);
