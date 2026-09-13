@@ -103,94 +103,22 @@ document.addEventListener('click', function(event) {
 });
 
 // ==========================================
-// Enregistrement du Service Worker & Notifications
+// DÉSACTIVATION TEMPORAIRE (GitHub Pages + Local)
 // ==========================================
-
-const estServeurLocal = location.hostname === 'localhost' || 
-                       location.hostname === '127.0.0.1' || 
-                       location.hostname.startsWith('192.168.') || 
-                       location.hostname.startsWith('10.');
-
-let newWorker;
-
-function afficherNotificationMAJ(worker) {
-  newWorker = worker;
-  const toast = document.getElementById('update-toast');
-
-  if (toast) {
-    toast.classList.remove('hidden');
-    toast.classList.add('visible');
-  }
-}
-
-// Clic sur le bouton "Rafraîchir" du Toast
-const btnRecharger = document.getElementById('reload-btn');
-if (btnRecharger) {
-  btnRecharger.addEventListener('click', () => {
-    const toast = document.getElementById('update-toast');
-    if (toast) {
-      toast.classList.remove('visible');
-      toast.classList.add('hidden');
-    }
-    if (newWorker) {
-      newWorker.postMessage({ type: 'SKIP_WAITING' });
-    } else {
-      window.location.reload();
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.getRegistrations().then((registrations) => {
+    for (let registration of registrations) {
+      registration.unregister();
+      console.log('Service Worker désactivé sur GitHub Pages');
     }
   });
 }
-
-if ('serviceWorker' in navigator) {
-  if (estServeurLocal) {
-    // EN LOCAL : Désactivation pour le développement dans TrebEdit
-    navigator.serviceWorker.getRegistrations().then((registrations) => {
-      for (let registration of registrations) {
-        registration.unregister();
-      }
-    });
-  } else {
-    // EN LIGNE (GitHub Pages) : Gestion PWA
-    navigator.serviceWorker.register('./sw.js').then((registration) => {
-      
-      // Si une mise à jour est déjà en attente au chargement
-      if (registration.waiting) {
-        afficherNotificationMAJ(registration.waiting);
-      }
-
-      // Si une mise à jour est détectée pendant l'utilisation
-      registration.addEventListener('updatefound', () => {
-        const installingWorker = registration.installing;
-        if (installingWorker) {
-          installingWorker.addEventListener('statechange', () => {
-            if (installingWorker.state === 'installed' && navigator.serviceWorker.controller) {
-              afficherNotificationMAJ(registration.waiting || installingWorker);
-            }
-          });
-        }
-      });
-    });
-
-      // Détection du changement de contrôleur pour recharger la page
-    let refreshing = false;
-    navigator.serviceWorker.addEventListener('controllerchange', () => {
-      if (!refreshing) {
-        refreshing = true;
-        window.location.reload();
-      }
-    });
-  } // <-- Fermeture du `else` (ligne 161)
-} // <-- Fermeture du `if ('serviceWorker' in navigator)` (ligne 151)
 
 // Affichage dynamique de la version dans l'interface
 document.addEventListener('DOMContentLoaded', () => {
   const versionSpan = document.getElementById('app-version');
   if (versionSpan) {
     const currentVersion = (typeof APP_VERSION !== 'undefined') ? APP_VERSION : 'guide-perchance-v1.2.4';
-
-    if (estServeurLocal) {
-      versionSpan.textContent = `${currentVersion} (Mode Local - TrebEdit)`;
-    } else {
-      versionSpan.textContent = currentVersion;
-    }
+    versionSpan.textContent = currentVersion;
   }
 });
