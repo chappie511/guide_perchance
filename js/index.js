@@ -87,8 +87,8 @@ document.addEventListener('click', function(event) {
     document.body.style.overflow = 'hidden';
   }
   
-  if (event.target && event.target.id === 'btnOuvrirÉclairages') {
-    document.getElementById('modalÉclairages').classList.add('active');
+  if (event.target && event.target.id === 'btnOuvrirEclairages') {
+    document.getElementById('modalEclairages').classList.add('active');
     document.body.style.overflow = 'hidden';
   }
 
@@ -126,7 +126,7 @@ function afficherNotificationMAJ(worker) {
 // Clic sur le bouton "Rafraîchir" du Toast
 const btnRecharger = document.getElementById('reload-btn');
 if (btnRecharger) {
-  btnRecharger.onclick = () => {
+  btnRecharger.addEventListener('click', () => {
     const toast = document.getElementById('update-toast');
     if (toast) {
       toast.classList.remove('visible');
@@ -137,7 +137,7 @@ if (btnRecharger) {
     } else {
       window.location.reload();
     }
-  };
+  });
 }
 
 if ('serviceWorker' in navigator) {
@@ -163,7 +163,7 @@ if ('serviceWorker' in navigator) {
         if (installingWorker) {
           installingWorker.addEventListener('statechange', () => {
             if (installingWorker.state === 'installed' && navigator.serviceWorker.controller) {
-              afficherNotificationMAJ(installingWorker);
+              afficherNotificationMAJ(registration.waiting || installingWorker);
             }
           });
         }
@@ -185,7 +185,6 @@ if ('serviceWorker' in navigator) {
 document.addEventListener('DOMContentLoaded', () => {
   const versionSpan = document.getElementById('app-version');
   if (versionSpan) {
-    // Vérification que APP_VERSION existe bien dans le scope global
     const currentVersion = (typeof APP_VERSION !== 'undefined') ? APP_VERSION : 'guide-perchance-v1.2.2';
 
     if (estServeurLocal) {
