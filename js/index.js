@@ -124,17 +124,31 @@ if ('serviceWorker' in navigator) {
   });
 }
 
-// Gestion du bouton "Rafraîchir" sur le toast
+// Gestion du clic sur le bouton Rafraîchir
 const reloadBtn = document.getElementById('reload-btn');
 if (reloadBtn) {
   reloadBtn.addEventListener('click', () => {
     navigator.serviceWorker.getRegistration().then((registration) => {
       if (registration && registration.waiting) {
+        // Envoie l'ordre au nouveau SW de s'activer
         registration.waiting.postMessage({ type: 'SKIP_WAITING' });
+      } else {
+        // Secours si aucun SW n'attend : on rafraîchit directement la page
+        window.location.reload();
       }
     });
   });
 }
+
+// Rechargement automatique de la page dès que le nouveau SW prend le contrôle
+let refreshing = false;
+navigator.serviceWorker.addEventListener('controllerchange', () => {
+  if (!refreshing) {
+    refreshing = true;
+    window.location.reload();
+  }
+});
+
 
 // Rechargement automatique de la page dès que le nouveau SW prend le contrôle
 let refreshing = false;
