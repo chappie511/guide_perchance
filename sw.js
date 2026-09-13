@@ -4,9 +4,10 @@ try {
   console.warn('Impossible de charger version.js dans le SW:', e);
 }
 
-const CACHE_NAME = (typeof APP_VERSION !== 'undefined') ? APP_VERSION : 'guide-perchance-v?';
+// Nom du cache basé sur APP_VERSION de version.js
+const CACHE_NAME = (typeof APP_VERSION !== 'undefined') ? APP_VERSION : 'guide-perchance-v1.3.0';
 
-
+// 1. Ressources de base du guide
 const BASE_ASSETS = [
   './',
   './index.html',
@@ -17,37 +18,47 @@ const BASE_ASSETS = [
   'https://cdn.jsdelivr.net/gh/chappie511/Icon@main/golden_star_v3.png?v=1000'
 ];
 
+// 2. Génération automatique de la liste des 24 sections HTML
 const SECTION_ASSETS = Array.from({ length: 24 }, (_, i) => {
   const num = String(i + 1).padStart(2, '0');
   return `./sections_du_guide/section_${num}.html`;
 });
 
+// Assemblage complet des fichiers à mettre en cache
 const ASSETS_TO_CACHE = [...BASE_ASSETS, ...SECTION_ASSETS];
 
-// Installation tolérante aux erreurs
+// -------------------------------------------------------------
+// ÉVÉNEMENT INSTALL : Mise en cache tolérante aux erreurs
+// -------------------------------------------------------------
 self.addEventListener('install', (event) => {
+  console.log('[SW Guide] Installation du cache :', CACHE_NAME);
+  
   event.waitUntil(
     caches.open(CACHE_NAME).then(async (cache) => {
       for (const asset of ASSETS_TO_CACHE) {
         try {
           await cache.add(asset);
         } catch (err) {
-          console.warn('Impossible de mettre en cache la ressource :', asset, err);
+          console.warn('[SW Guide] Fichier introuvable ou échec de mise en cache :', asset, err);
         }
       }
     })
   );
 });
 
-// Remplacez l'événement activate par celui-ci (suppression de self.clients.claim()) :
+// -------------------------------------------------------------
+// ÉVÉNEMENT ACTIVATE : Nettoyage des anciens caches
+// -------------------------------------------------------------
 self.addEventListener('activate', (event) => {
+  console.log('[SW Guide] Activation et nettoyage des anciens caches...');
+  
   event.waitUntil(
     caches.keys().then((keys) => {
       return Promise.all(
         keys
           .filter((key) => key !== CACHE_NAME)
           .map((key) => {
-            console.log('Suppression de l\'ancien cache :', key);
+            console.log('[SW Guide] Suppression de l\'ancien cache :', key);
             return caches.delete(key);
           })
       );
@@ -55,33 +66,31 @@ self.addEventListener('activate', (event) => {
   );
 });
 
-// Interception des requêtes réseau
+// -------------------------------------------------------------
+// ÉVÉNEMENT FETCH : Stratégies de requêtes réseau / cache
+// -------------------------------------------------------------
 self.addEventListener('fetch', (event) => {
   if (event.request.method !== 'GET') return;
 
   const url = new URL(event.request.url);
 
-   // 1. Contournement du cache pour version.js (Données fraîches avec fallback)
-if (url.pathname.endsWith('version.js')) {
-  event.respondWith(
-    fetch(event.request, { cache: 'no-store' })
-      .then((networkResponse) => {
-        if (networkResponse && networkResponse.status === 200) {
-          const responseToCache = networkResponse.clone();
-          caches.open(CACHE_NAME).then((cache) => cache.put(event.request, responseToCache));
-        }
-        return networkResponse;
-      })
-      .catch(() => {
-        // Retourne la version en cache si hors-ligne
-        return caches.match(event.request);
-      })
-  );
-  return;
-}
+  // A. Contournement du cache pour version.js (Données fraîches avec fallback)
+  if (url.pathname.endsWith('version.js')) {
+    event.respondWith(
+      fetch(event.request, { cache: 'no-store' })
+        .then((networkResponse) => {
+          if (networkResponse && networkResponse.status === 200) {
+            const responseToCache = networkResponse.clone();
+            caches.open(CACHE_NAME).then((cache) => cache.put(event.request, responseToCache));
+          }
+          return networkResponse;
+        })
+        .catch(() => caches.match(event.request))
+    );
+    return;
+  }
 
-
-  // 2. Cache First pour les icônes et CDNs externes
+  // B. Cache First pour les CDN externes (icônes, scripts)
   if (url.origin.includes('cdn.jsdelivr.net') || url.origin.includes('github.io')) {
     event.respondWith(
       caches.match(event.request).then((cachedResponse) => {
@@ -100,25 +109,23 @@ if (url.pathname.endsWith('version.js')) {
     return;
   }
 
-    // 3. Network First avec secours sur le cache
+  // C. Network First avec secours sur le cache pour l'application
   event.respondWith(
     fetch(event.request)
       .then((networkResponse) => {
-        // On ne met en cache que les réponses valides du même domaine (status 200)
         if (networkResponse && networkResponse.status === 200) {
           const responseToCache = networkResponse.clone();
           caches.open(CACHE_NAME).then((cache) => cache.put(event.request, responseToCache));
         }
         return networkResponse;
       })
-      .catch(() => {
-        // En cas de coupure réseau ou d'échec fetch, on bascule sur la copie en cache
-        return caches.match(event.request);
-      })
+      .catch(() => caches.match(event.request))
   );
 });
 
-// Activation immédiate lorsque l'utilisateur clique sur "Rafraîchir"
+// -------------------------------------------------------------
+// ÉVÉNEMENT MESSAGE : Prise de contrôle à la demande (Bandeau Toast)
+// -------------------------------------------------------------
 self.addEventListener('message', (event) => {
   if (event.data && event.data.type === 'SKIP_WAITING') {
     self.skipWaiting();
