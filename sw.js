@@ -7,7 +7,6 @@ const CACHE_NAME = `guide-cache-v${APP_VERSION}`;
 const BASE_ASSETS = [
   './',
   './index.html',
-  './version.js',
   './css/index.css',
   './js/index.js',
   './manifest.json',
