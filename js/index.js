@@ -109,18 +109,17 @@ document.addEventListener('click', function(event) {
   }
 });
 
+// Enregistrement du Service Worker
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
     navigator.serviceWorker.register('./sw.js', { updateViaCache: 'none' })
       .then((registration) => {
-        // Force la vérification d'une mise à jour au chargement
         registration.update();
 
         registration.addEventListener('updatefound', () => {
           const newWorker = registration.installing;
           newWorker.addEventListener('statechange', () => {
             if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
-              // Affiche le toast de mise à jour
               const toast = document.getElementById('update-toast');
               if (toast) toast.classList.add('visible');
             }
@@ -129,28 +128,38 @@ if ('serviceWorker' in navigator) {
       })
       .catch((err) => console.error('Échec enregistrement SW:', err));
   });
+
+  // Recharche la page automatiquement quand le nouveau SW prend le contrôle
+  let refreshing = false;
+  navigator.serviceWorker.addEventListener('controllerchange', () => {
+    if (!refreshing) {
+      refreshing = true;
+      window.location.reload();
+    }
+  });
 }
 
-// ✅ CORRECTION SÉCURISÉE :
+// Action du bouton de rafraîchissement
 const reloadBtn = document.getElementById('reload-btn');
 if (reloadBtn) {
   reloadBtn.addEventListener('click', () => {
     navigator.serviceWorker.getRegistration().then((registration) => {
       if (registration && registration.waiting) {
+        // Envoie le message au SW pour qu'il s'active
         registration.waiting.postMessage({ type: 'SKIP_WAITING' });
       } else {
+        // Si aucun SW en attente, recharche la page directement
         window.location.reload();
       }
     });
   });
 }
 
-
 // Affichage dynamique de la version dans l'interface
 document.addEventListener('DOMContentLoaded', () => {
   const versionSpan = document.getElementById('app-version');
   if (versionSpan) {
-    const currentVersion = (typeof APP_VERSION !== 'undefined') ? APP_VERSION : 'guide-perchance-v1.2.9';
+    const currentVersion = (typeof APP_VERSION !== 'undefined') ? APP_VERSION : 'Version indisponible';
     versionSpan.textContent = currentVersion;
   }
 });
