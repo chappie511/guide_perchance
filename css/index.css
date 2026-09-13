@@ -1,12 +1,16 @@
-body {
-    background-color: #f8fafc; 
-    margin: 0;
-    padding: 0;
-  }
+html, body {
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  background-color: #f8fafc; 
+  display: flex;
+  flex-direction: column;
+  scroll-behavior: smooth;
+}
 
 /* ============ Base du guide ============ */
 
-  .perchance-guide-container {
+   .perchance-guide-container {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     max-width: 100%;
     margin: 10px auto;
@@ -17,6 +21,7 @@ body {
     border: 1px solid #e2e8f0;
     font-size: 14px;
     line-height: 1.5;
+    flex: 1 0 auto; /* <-- AJOUTER CETTE LIGNE */
   }
 
   .guide-header {
@@ -583,11 +588,6 @@ body {
  
 /* === Optimisations d'Interaction & Navigation === */
 
-/* Défilement fluide sur toute la page */
-  html {
-    scroll-behavior: smooth;
-  }
-
 /* 1. Décalage d'aération : uniquement pour les éléments internes de section */
   .option-box[id], 
   #sec18-tableau-photo {
@@ -727,30 +727,17 @@ body {
 }
 
 /* ============ Style du Footer ============ */
-/* Assure que la page occupe toute la hauteur de l'écran */
-html, body {
-  height: 100%;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-}
 
-/* Le conteneur principal prend tout l'espace disponible et pousse le footer en bas */
-.perchance-guide-container {
-  flex: 1 0 auto;
-}
-
-/* Votre footer actuel ajusté */
 .app-footer, footer {
   text-align: center;
   padding: 12px 8px;
-  margin-top: auto; /* Remplace les 16px : pousse automatiquement le footer tout en bas */
+  margin-top: auto; /* Pousse automatiquement le footer tout en bas */
   margin-bottom: 24px;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   font-size: 12px;
   color: #64748b;
   border-top: 1px solid #e2e8f0;
-  flex-shrink: 0; /* Empêche le footer de se compresser */
+  flex-shrink: 0;
 }
 
 .app-footer p, footer p {
