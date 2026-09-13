@@ -3,8 +3,8 @@ function chargerSection(idDeLaBoite, cheminDuFichier) {
     const conteneur = document.getElementById(idDeLaBoite);
     if (!conteneur) return;
 
-    // Protection anti-dédoublement : ne réinjecte pas si le conteneur a déjà du contenu
-    if (conteneur.children.length > 0) return;
+    // Protection anti-dédoublement : ne réinjecte pas si déjà chargée avec succès
+    if (conteneur.children.length > 0 && !conteneur.querySelector('.erreur-chargement')) return;
 
     fetch(cheminDuFichier)
         .then(reponse => {
@@ -18,14 +18,21 @@ function chargerSection(idDeLaBoite, cheminDuFichier) {
         })
         .catch(erreur => {
             console.error("Erreur de chargement :", erreur);
-            conteneur.innerHTML = `<div style="padding:10px; color:#b91c1c;">⚠️ Impossible de charger cette section.</div>`;
+            conteneur.innerHTML = `<div class="erreur-chargement" style="padding:10px; color:#b91c1c;">⚠️ Impossible de charger cette section.</div>`;
         });
 }
 
 // Charge automatiquement les 24 sections depuis le dossier sections_du_guide
 for (let i = 1; i <= 24; i++) {
     const num = String(i).padStart(2, '0');
-    chargerSection(`conteneur-section-${i}`, `./sections_du_guide/section_${num}.html`);
+    
+    // ID sans zéro pour cibler exactement index.html (ex: conteneur-section-1)
+    const idBoite = `conteneur-section-${i}`;
+    
+    // Chemin réseau avec zéro pour cibler le fichier physique (ex: section_01.html)
+    const cheminFichier = `./sections_du_guide/section_${num}.html`;
+    
+    chargerSection(idBoite, cheminFichier);
 }
 
 // Copie des prompts dans le presse-papiers
