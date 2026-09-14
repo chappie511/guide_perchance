@@ -1,5 +1,5 @@
 // Définition directe dans le Service Worker
-const APP_VERSION = '1.3.1';
+const APP_VERSION = '1.3.2';
 const CACHE_NAME = `guide-cache-v${APP_VERSION}`;
 
 // 1. Ressources de base du guide
