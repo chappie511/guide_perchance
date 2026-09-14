@@ -465,6 +465,7 @@ html, body {
 /* ===== Fin de la navigation rapide ===== */
   
 /* === Fenêtre Plein Écran (Modal) pour Menu Rapide === */
+  /* === Fenêtre Plein Écran (Modal) pour Menu Rapide === */
   .modal-overlay {
     display: none; /* Caché par défaut */
     position: fixed;
@@ -477,9 +478,8 @@ html, body {
     overflow-y: auto; /* Permet le défilement vertical si tu as beaucoup de boutons */
     padding: 16px;
     box-sizing: border-box;
-    role: dialog;
-    aria-modal="true"
   }
+
 
 /* Classe ajoutée via JavaScript pour afficher la fenêtre */
   .modal-overlay.active {
@@ -726,6 +726,7 @@ html, body {
   padding: 0 4px;
 }
 
+/* ============ Style du Footer ============ */
 /* ============ Style du Footer ============ */
 
 .app-footer, footer {
