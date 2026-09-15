@@ -35,5 +35,4 @@ guide_perchance/
  ├── index.html               # Structure HTML principale & conteneurs
  ├── manifest.json            # Configuration PWA (icônes, couleurs, application)
  ├── sw.js                    # Service Worker (stratégies de cache et mises à jour)
- ├── version.js               # Gestionnaire de version unique (ex: APP_VERSION)
  └── README.md                # Documentation du projet
