@@ -163,7 +163,7 @@ if (reloadBtn) {
 function afficherVersion() {
   const versionSpan = document.getElementById('app-version');
   if (versionSpan) {
-    versionSpan.textContent = 'v1.3.2';
+    versionSpan.textContent = 'v1.3.3';
   }
 }
 
@@ -174,3 +174,199 @@ if (document.readyState === 'loading') {
   afficherVersion();
 }
 window.addEventListener('load', afficherVersion);
+
+// --- GESTION DU SOMMAIRE LATÉRAL ---
+const btnToggleToc = document.getElementById('btnToggleToc');
+const btnCloseToc = document.getElementById('btnCloseToc');
+const sideTocPanel = document.getElementById('sideTocPanel');
+const sideTocOverlay = document.getElementById('sideTocOverlay');
+const sideTocContent = document.querySelector('.side-toc-content');
+
+// 1. Déclarations des variables d'état
+let startX = 0;
+let startY = 0; 
+let isDragging = false;
+let isScrolling = false; 
+let panelWidth = 250;
+
+// 2. Fonctions de contrôle du volet
+function updatePanelWidth() {
+  if (sideTocPanel) {
+    panelWidth = sideTocPanel.offsetWidth || 250;
+  }
+}
+
+function openToc() {
+  if (!sideTocPanel || !btnToggleToc) return;
+  sideTocPanel.classList.remove('no-transition');
+  btnToggleToc.classList.remove('no-transition');
+
+  sideTocPanel.classList.add('open');
+  btnToggleToc.classList.add('open');
+  
+  btnToggleToc.style.transform = `translate3d(${panelWidth}px, 0, 0)`; 
+  sideTocPanel.style.transform = 'translate3d(0, 0, 0)'; 
+  
+  if (sideTocOverlay) sideTocOverlay.classList.add('active');
+  document.body.classList.add('toc-open');
+}
+
+function closeToc() {
+  if (!sideTocPanel || !btnToggleToc) return;
+  sideTocPanel.classList.remove('no-transition');
+  btnToggleToc.classList.remove('no-transition');
+
+  sideTocPanel.classList.remove('open');
+  btnToggleToc.classList.remove('open');
+  
+  btnToggleToc.style.transform = ''; 
+  sideTocPanel.style.transform = ''; 
+
+  if (sideTocOverlay) sideTocOverlay.classList.remove('active');
+  document.body.classList.remove('toc-open');
+}
+
+window.addEventListener('resize', updatePanelWidth);
+updatePanelWidth();
+
+// 3. Écouteurs de clics
+if (btnToggleToc) {
+  btnToggleToc.addEventListener('click', () => {
+    if (!isDragging) {
+      const isOpen = sideTocPanel.classList.contains('open');
+      if (isOpen) closeToc();
+      else openToc();
+    }
+  });
+}
+
+if (btnCloseToc) btnCloseToc.addEventListener('click', closeToc);
+if (sideTocOverlay) sideTocOverlay.addEventListener('click', closeToc);
+
+document.addEventListener('click', function(e) {
+  const link = e.target.closest('.side-toc-link');
+  
+  if (link) {
+    // 1. Déverrouille le body immédiatement pour autoriser le défilement
+    document.body.classList.remove('toc-open');
+    
+    // 2. Récupère l'ID ciblé (ex: "#section-1")
+    const targetId = link.getAttribute('href');
+    if (targetId && targetId.startsWith('#')) {
+      const targetDetails = document.querySelector(targetId);
+      
+      // 3. Force l'ouverture native du <details> si trouvé
+      if (targetDetails && targetDetails.tagName === 'DETAILS') {
+        targetDetails.open = true;
+      }
+    }
+
+    // 4. Ferme le panneau latéral
+    closeToc();
+  }
+});
+
+
+// 4. Isolation du défilement tactile de la liste
+if (sideTocContent) {
+  sideTocContent.addEventListener('touchmove', (e) => {
+    e.stopPropagation();
+  }, { passive: true });
+}
+
+// 5. Gestion des gestes tactiles (drag horizontal)
+if (btnToggleToc && sideTocPanel) {
+
+  btnToggleToc.addEventListener('touchstart', (e) => {
+    startX = e.touches[0].clientX;
+    startY = e.touches[0].clientY;
+    isDragging = false;
+    isScrolling = false;
+  }, { passive: true });
+
+  btnToggleToc.addEventListener('touchmove', (e) => {
+    if (isScrolling) return;
+
+    const currentX = e.touches[0].clientX;
+    const currentY = e.touches[0].clientY;
+    const deltaX = currentX - startX;
+    const deltaY = currentY - startY;
+
+    if (!isDragging) {
+      if (Math.abs(deltaY) > Math.abs(deltaX) && Math.abs(deltaY) > 5) {
+        isScrolling = true;
+        return;
+      }
+      if (Math.abs(deltaX) > 5) {
+        isDragging = true;
+        sideTocPanel.classList.add('no-transition');
+        btnToggleToc.classList.add('no-transition');
+        if (sideTocOverlay) sideTocOverlay.classList.add('active');
+      }
+    }
+
+    if (isDragging) {
+      const isOpen = sideTocPanel.classList.contains('open');
+
+      if (!isOpen) {
+        const moveX = Math.max(0, Math.min(deltaX, panelWidth));
+        sideTocPanel.style.transform = `translate3d(${-panelWidth + moveX}px, 0, 0)`;
+        btnToggleToc.style.transform = `translate3d(${moveX}px, 0, 0)`;
+      } else {
+        const moveX = Math.max(-panelWidth, Math.min(deltaX, 0));
+        sideTocPanel.style.transform = `translate3d(${moveX}px, 0, 0)`;
+        btnToggleToc.style.transform = `translate3d(${panelWidth + moveX}px, 0, 0)`;
+      }
+    }
+  }, { passive: true });
+
+  btnToggleToc.addEventListener('touchend', (e) => {
+    sideTocPanel.classList.remove('no-transition');
+    btnToggleToc.classList.remove('no-transition');
+
+    if (isDragging) {
+      const endX = e.changedTouches[0].clientX;
+      const deltaX = endX - startX;
+      const isOpen = sideTocPanel.classList.contains('open');
+
+      if (!isOpen) {
+        if (deltaX > 60) openToc();
+        else closeToc();
+      } else {
+        if (deltaX < -60) closeToc();
+        else openToc();
+      }
+    }
+    
+    isDragging = false;
+    isScrolling = false;
+  }, { passive: true });
+}
+
+//API Fullscreen
+function basculerPleinEcran() {
+  if (!document.fullscreenElement) {
+    // Active le plein écran (prend en compte les déclinaisons des navigateurs)
+    const elem = document.documentElement;
+    if (elem.requestFullscreen) {
+      elem.requestFullscreen();
+    } else if (elem.webkitRequestFullscreen) { /* Safari / iOS */
+      elem.webkitRequestFullscreen();
+    } else if (elem.msRequestFullscreen) { /* IE/Edge */
+      elem.msRequestFullscreen();
+    }
+  } else {
+    // Quitte le plein écran
+    if (document.exitFullscreen) {
+      document.exitFullscreen();
+    } else if (document.webkitExitFullscreen) {
+      document.webkitExitFullscreen();
+    }
+  }
+}
+
+// Défilement personnalisé via JavaScript
+window.scrollTo({
+  top: 500, // Position en pixels
+  behavior: 'smooth'
+});
