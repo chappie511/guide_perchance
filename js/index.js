@@ -1,3 +1,40 @@
+// Charge automatiquement les 24 sections depuis le dossier sections_du_guide
+for (let i = 1; i <= 24; i++) {
+    const num = String(i).padStart(2, '0');
+    
+    // ID sans zéro pour cibler exactement index.html (ex: conteneur-section-1)
+    const idBoite = `conteneur-section-${i}`;
+    
+    // Chemin réseau avec zéro pour cibler le fichier physique (ex: section_01.html)
+    const cheminFichier = `./sections_du_guide/section_${num}.html`;
+    
+    chargerSection(idBoite, cheminFichier);
+}
+
+// --- 1. GARDER : La fonction utilitaire ---
+function debounce(func, delay = 150) {
+  let timer;
+  return function (...args) {
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      func.apply(this, args);
+    }, delay);
+  };
+}
+
+// --- 2. SUPPRIMER OU COMMENTER : Les logs de test de scroll/resize ---
+// window.addEventListener('scroll', debounce(() => {
+//   console.log("Position du défilement stabilisée");
+// }, 100));
+
+// window.addEventListener('resize', debounce(() => {
+//   console.log("Taille d'écran stabilisée");
+// }, 150));
+
+// console.time("CalculSommaire");
+// console.timeEnd("CalculSommaire");
+;
+
 // Fonction pour charger et injecter du HTML de manière dynamique
 function chargerSection(idDeLaBoite, cheminDuFichier) {
     const conteneur = document.getElementById(idDeLaBoite);
@@ -20,19 +57,6 @@ function chargerSection(idDeLaBoite, cheminDuFichier) {
             console.error("Erreur de chargement :", erreur);
             conteneur.innerHTML = `<div class="erreur-chargement" style="padding:10px; color:#b91c1c;">⚠️ Impossible de charger cette section.</div>`;
         });
-}
-
-// Charge automatiquement les 24 sections depuis le dossier sections_du_guide
-for (let i = 1; i <= 24; i++) {
-    const num = String(i).padStart(2, '0');
-    
-    // ID sans zéro pour cibler exactement index.html (ex: conteneur-section-1)
-    const idBoite = `conteneur-section-${i}`;
-    
-    // Chemin réseau avec zéro pour cibler le fichier physique (ex: section_01.html)
-    const cheminFichier = `./sections_du_guide/section_${num}.html`;
-    
-    chargerSection(idBoite, cheminFichier);
 }
 
 // Copie des prompts dans le presse-papiers
@@ -219,6 +243,7 @@ function closeToc() {
   sideTocPanel.classList.remove('open');
   btnToggleToc.classList.remove('open');
   
+  // Réinitialise complètement les styles injectés par le drag tactile
   btnToggleToc.style.transform = ''; 
   sideTocPanel.style.transform = ''; 
 
@@ -265,14 +290,6 @@ document.addEventListener('click', function(e) {
     closeToc();
   }
 });
-
-
-// 4. Isolation du défilement tactile de la liste
-if (sideTocContent) {
-  sideTocContent.addEventListener('touchmove', (e) => {
-    e.stopPropagation();
-  }, { passive: true });
-}
 
 // 5. Gestion des gestes tactiles (drag horizontal)
 if (btnToggleToc && sideTocPanel) {
@@ -370,3 +387,23 @@ window.scrollTo({
   top: 500, // Position en pixels
   behavior: 'smooth'
 });
+
+// Bouton Lucide
+document.addEventListener('DOMContentLoaded', () => {
+  if (typeof lucide !== 'undefined') {
+    lucide.createIcons();
+  }
+});
+
+
+//Boutton Eruda
+function lancerEruda() {
+  if (typeof eruda === 'undefined') {
+    var script = document.createElement('script');
+    script.src = "https://cdn.jsdelivr.net/npm/eruda";
+    document.head.appendChild(script);
+    script.onload = function () { eruda.init(); };
+  } else {
+    eruda.show();
+  }
+}
