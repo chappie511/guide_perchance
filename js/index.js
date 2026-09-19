@@ -187,7 +187,7 @@ if (reloadBtn) {
 function afficherVersion() {
   const versionSpan = document.getElementById('app-version');
   if (versionSpan) {
-    versionSpan.textContent = 'v1.3.3';
+    versionSpan.textContent = 'v1.3.4';
   }
 }
 
