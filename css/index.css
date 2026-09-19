@@ -27,7 +27,19 @@ body::-webkit-scrollbar,
     height: 0 !important;
 }
 
-/* ============ Base du guide ============ */
+/* Optionnel : Rendre le bouton visible si l'utilisateur approche le bord gauche */
+body:not(.toc-open):hover .toc-trigger-btn {
+    opacity: 0.4; /* Semi-transparent pour signaler sa présence */
+    pointer-events: auto;
+}
+
+body:not(.toc-open) .toc-trigger-btn:hover {
+    opacity: 1; /* Totalement opaque si on le survole directement */
+}
+
+/* ==========================================
+             Base du guide
+   ========================================== */
 
 .perchance-guide-container {
     font-family:
@@ -144,9 +156,11 @@ body::-webkit-scrollbar,
     background-color: #ffffff;
 }
 
-/* ======= Fin de la base du guide ======= */
+/* ////// Fin de la base du guide \\\\\\ */
 
-/* ====== Typographie & Paragraphes ====== */
+/* ==========================================
+       Typographie & Paragraphes
+   ========================================== */
 
 .content-h3 {
     font-size: 14px;
@@ -188,10 +202,12 @@ body::-webkit-scrollbar,
     margin: 0 0 6px 0;
 }
 
-/* == Fin de Typographie & Paragraphes == */
+/* // Fin de Typographie & Paragraphes \\ */
 
-/* =========== Listes à puces =========== */
-
+/* ==========================================
+             Listes à puces
+   ========================================== */
+   
 .custom-li {
     margin-bottom: 8px;
     padding-left: 14px;
@@ -234,9 +250,11 @@ body::-webkit-scrollbar,
     margin-bottom: 4px;
 }
 
-/* ====== Fin de la listes à puces ====== */
+/* ///// Fin de la listes à puces \\\\\ */
 
-/* === Boîtes spécialisées (Encadrés) === */
+/* ==========================================
+       Boîtes spécialisées (Encadrés)
+   ========================================== */
 
 /* === Boîte Pour Aller Plus Loin / Décryptage Pédagogique === */
 .learn-box {
@@ -278,6 +296,7 @@ body::-webkit-scrollbar,
     color: #1e40af;
     word-break: break-word;
     user-select: all; /* Permet de tout sélectionner d'un coup au toucher */
+    
 }
 
 .injected-label {
@@ -388,9 +407,11 @@ body::-webkit-scrollbar,
     margin: 8px 0;
 }
 
-/* =Fin de Boîtes spécialisées (Encadrés)= */
+/* Fin de Boîtes spécialisées (Encadrés) */
 
-/* ============== Tooltips ============== */
+/* ==========================================
+               Tooltips
+   ========================================== */
 
 /* 1. Le bouton émoji (Le parent) */
 .tooltip {
@@ -435,9 +456,12 @@ body::-webkit-scrollbar,
     opacity: 1;
 }
 
-/* =========== Fin de Tooltips =========== */
+/* ////////// Fin de Tooltips \\\\\\\\\\ */
 
-/* ========== Navigation Rapide ========== */
+/* ==========================================
+           Navigation Rapide
+   ========================================== */
+
 .quick-nav-container {
     background-color: #f1f5f9;
     border: 1px solid #cbd5e1;
@@ -505,10 +529,12 @@ body::-webkit-scrollbar,
     cursor: pointer;
 }
 
-/* ===== Fin de la navigation rapide ===== */
+/* //// Fin de la navigation rapide \\\\ */
 
-/* === Fenêtre Plein Écran (Modal) pour Menu Rapide === */
-/* === Fenêtre Plein Écran (Modal) pour Menu Rapide === */
+/* ==========================================
+   Fenêtre Plein Écran (Modal) pour Menu Rapide
+   ========================================== */
+
 .modal-overlay {
     display: none; /* Caché par défaut */
     position: fixed;
@@ -579,9 +605,11 @@ body::-webkit-scrollbar,
     padding: 0;
 }
 
-/* Fin de la Fenêtre Plein Écran (Modal) pour Menu Rapide */
+/*  Fin de la Fenêtre Plein Écran (Modal) pour Menu Rapide */
 
-/* ========= Tableaux de données ========= */
+/* ==========================================
+           Tableaux de données
+   ========================================== */
 
 /* === Composant : Tableau Rapide === */
 .tableau-rapide {
@@ -628,9 +656,11 @@ body::-webkit-scrollbar,
     background-color: #f1f5f9;
 }
 
-/* ===== Fin de tableaux de données ===== */
+/* ///// Fin de tableaux de données \\\\\ */
 
-/* === Optimisations d'Interaction & Navigation === */
+/* ==========================================
+ Optimisations d'Interaction & Navigation
+   ========================================== */
 
 /* 1. Décalage d'aération : uniquement pour les éléments internes de section */
 .option-box[id],
@@ -723,13 +753,21 @@ body::-webkit-scrollbar,
  /* ==========================================
    Style du bouton & Panneau Sommaire
    ========================================== */
+   
+   body.toc-open {
+    height: 100vh; /* Force la hauteur à 100% de l'écran */
+    height: 100dvh; /* Version moderne pour compenser la barre d'adresse mobile */
+    overflow: hidden !important;
+    touch-action: none;
+}
 
-/* Bouton fixe collé au bord gauche */
+/* --- Bouton fixe collé au bord gauche --- */
 .toc-trigger-btn {
     position: fixed;
-    top: 250px;
+    top: 50%;
+    top: 50dvh; /* S'adapte dynamiquement au plein écran mobile */
     left: 0;
-    z-index: 1001;
+    z-index: 1005;
     background-color: #2563eb;
     color: #ffffff;
     border: none;
@@ -747,14 +785,35 @@ body::-webkit-scrollbar,
     outline: none;
     user-select: none;
     touch-action: pan-y !important;
-    will-change: transform;
-    transition:
-        transform 0.3s ease-in-out,
-        background-color 0.2s;
+    will-change: transform, opacity;
+    
+    /* 🟢 Alignement centré exact & gestion de l'ouverture */
+    transform: translateY(-50%);
+    
+    /* 🟢 Au repos : Très discret */
+    opacity: 0.35;
+    pointer-events: auto;      
+    
+    transition: 
+        transform 0.3s ease-in-out, 
+        opacity 0.2s ease-in-out, 
+        background-color 0.15s ease;
 }
 
+.toc-trigger-btn:hover,
+.toc-trigger-btn:active,
 .toc-trigger-btn.open {
-    transform: translate3d(250px, 0, 0);
+  opacity: 1;
+  background-color: #2563eb;
+  transform: scale(1.1);
+}
+
+
+/* 🟢 Dès qu'il est ouvert, il glisse à droite ET conserve son centrage vertical */
+.toc-trigger-btn.open {
+    transform: translate3d(250px, -50%, 0);
+    opacity: 0.95 !important;
+    pointer-events: auto;
 }
 
 .toc-trigger-btn span {
@@ -764,6 +823,31 @@ body::-webkit-scrollbar,
 
 .toc-trigger-btn:active {
     background-color: #1d4ed8;
+    }
+    
+    /* Ajustement de la taille de l'icône à l'intérieur */
+.toc-trigger-btn svg {
+  width: 16px;
+  height: 16px;
+  stroke: #ffffff;
+}
+
+/* 🟢 SÉCURITÉ ANTI-BUG TACTILE : 
+   Dès que le menu perd la classe .open, on force le bouton à redescendre à 0.35, 
+   même si le navigateur mobile croit que le doigt est encore dessus. */
+.toc-trigger-btn:not(.open) {
+    opacity: 0.35 !important;
+}
+
+/* 🟢 Au survol direct quand il est fermé : Un peu plus visible */
+.toc-trigger-btn:not(.open):hover {
+    opacity: 0.7;
+}
+    
+    /* Force le retour à l'état discret dès que la fermeture est déclenchée */
+.toc-trigger-btn:not(.open):active,
+.toc-trigger-btn:not(.open):focus {
+    opacity: 0.35 !important;
 }
 
 /* Panneau latéral fixe */
@@ -853,12 +937,6 @@ body::-webkit-scrollbar,
     text-overflow: ellipsis; /* Trronque gentiment si trop long */
 }
 
-/* Feedback tactile discret */
-.side-toc-link:active {
-    background-color: #e2e8f0;
-    color: #0f172a;
-}
-
 /* Fond sombre (Overlay) */
 .side-toc-overlay {
     position: fixed;
@@ -887,11 +965,6 @@ body::-webkit-scrollbar,
     transition: none !important;
 }
 
-body.toc-open {
-    overflow: hidden !important;
-    touch-action: none;
-}
-
 /* Effet au survol / appui tactile */
 .side-toc-link:active,
 .side-toc-link:hover {
@@ -902,9 +975,12 @@ body.toc-open {
         4px
     ); /* Léger décalage vers la droite */
 }
-/* == Fin du Style du bouton Table des Matières Principale == */
+/* // Fin du Style du bouton Table des Matières Principale \\ */
 
-/* Style du bandeau de mise à jour */
+/* ==========================================
+   Style du bandeau de mise à jour
+   ========================================== */
+
 #update-toast {
     position: fixed;
     bottom: 20px;
@@ -966,7 +1042,12 @@ body.toc-open {
     padding: 0 4px;
 }
 
-/* ============ Style du Footer ============ */
+/* Fin Style du bandeau de mise à jour */
+
+/* ==========================================
+             Style du Footer
+   ========================================== */
+   
 .app-footer,
 footer {
     text-align: center;
@@ -1009,3 +1090,4 @@ footer p {
     height: 2px;
     background-color: #2563eb; /* Remplace la bordure inférieure */
 }
+/* /////// Fin Style du Footer \\\\\\\ */
