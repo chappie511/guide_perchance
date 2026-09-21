@@ -2,22 +2,25 @@
 <html lang="fr">
 
   <head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Guide de Prompt Engineering Perchance</title>
 
     <!-- Icon du guide -->
-    <link rel="icon" type="image/jpeg" href="https://cdn.jsdelivr.net/gh/chappie511/Icon@main/golden_star_v3.png?v=1000" />
+    <link rel="icon" type="image/jpeg" href="https://cdn.jsdelivr.net/gh/chappie511/Icon@main/golden_star_v3.png?v=1000">
 
     <!-- Chemin CSS -->
-    <link rel="stylesheet" href="./css/index.css" />
+    <link rel="stylesheet" href="./css/index.css">
 
     <!-- Lien vers le fichier manifest.json -->
-    <link rel="manifest" href="./manifest.json" />
-    <meta name="theme-color" content="#2563eb" />
+    <link rel="manifest" href="./manifest.json">
+    <meta name="theme-color" content="#2563eb">
     
-  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://unpkg.com/lucide@latest">
+  </script>
 
+
+<script src="./version.js"></script>
   </head>
   <body>
     
@@ -651,7 +654,7 @@
         <a href="#conteneur-section-1" class="side-toc-link">01. Introduction</a>
         <a href="#conteneur-section-2" class="side-toc-link">02. Structure</a>
         <a href="#conteneur-section-3" class="side-toc-link">03. Styles d'art</a>
-        <a href="#conteneur-section-4" class="side-toc-link">04. Vues & Cadrages</a>
+        <a href="#conteneur-section-4"        class="side-toc-link">04. Vues & Cadrages</a>
         <a href="#conteneur-section-5" class="side-toc-link">05. Perspectives</a>
         <a href="#conteneur-section-6" class="side-toc-link">06. Poses</a>
         <a href="#conteneur-section-7" class="side-toc-link">07. Atmosphères</a>
@@ -678,21 +681,16 @@
     <!-- Calque d'arrière-plan -->
     <div id="sideTocOverlay" class="side-toc-overlay"></div>
 
-    <div id="update-toast" class="update-toast hidden">
-      <span>✨ Une nouvelle version est disponible !</span>
-      <div class="toast-actions">
-        <button id="reload-btn" type="button">
-          Rafraîchir
-        </button>
-        <button id="btn-close" type="button" onclick="
-            document
-              .getElementById('update-toast')
-              .classList.remove('visible')
-          " aria-label="Fermer">
-          ✕
-        </button>
-      </div>
+    <!-- Toast de mise à jour PWA -->
+<div id="toast" class="update-toast hidden" role="alert" aria-live="polite">
+  <div class="toast-content">
+    <span class="toast-message">✨ Une nouvelle version est disponible !</span>
+    <div class="toast-actions">
+      <button type="button" id="reload-toast-btn" class="reloadToastBtn">Rafraîchir</button>
+      <button type="button" id="close-toast-btn" class="closeToastBtn" aria-label="Fermer">✕</button>
     </div>
+  </div>
+</div>
 
     <!-- Boutton plein écran -->
     <button id="btnPleinEcran" onclick="basculerPleinEcran()" type="button">
@@ -700,7 +698,7 @@
     </button>
 
     <!-- CHARGEMENT DU SCRIPT EN TOUTE FIN DE PAGE -->
-    <script src="./js/index.js?v=1.3.4" defer></script>
+    <script src="./js/index.js?v=1.3.8" defer></script>
 
     <!-- Bouton flottant pour lancer Eruda -->
     <button onclick="lancerEruda()" type="button" style="position: fixed; bottom: 10px; right: 10px; z-index: 9999; padding: 8px 12px; background: #2563eb; color: white; border: none; border-radius: 6px; font-weight: bold; font-size: 12px; opacity: 0.8;">
