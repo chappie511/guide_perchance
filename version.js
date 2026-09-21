@@ -1,5 +1,5 @@
 // 1. Tu inventes le nom de la constante globale
-const APP_VERSION = 'v1.3.8';
+const APP_VERSION = 'v1.3.9';
 console.log(`Version : ${APP_VERSION}`);
 
 // 2. Tu inventes le nom de la fonction
