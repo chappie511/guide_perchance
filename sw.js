@@ -1,19 +1,20 @@
 // sw.js
 
-// 1. Chargement de la version centralisée
+// 1. Déclarer la version du SW directement dans le fichier pour forcer la détection GitHub
+const SW_VERSION = 'v1.4.3';
+
+// 2. Chargement de la version centralisée
 importScripts('./version.js');
 
-// 2. Utilisation de la constante définie dans version.js
-const CACHE_NAME = `Version ${APP_VERSION}`;
+// 3. Utilisation du cache
+const CACHE_NAME = `Version-${SW_VERSION}`;
 
 const TOTAL_SECTIONS = 24;
 
-// Liste dynamique des 24 sections HTML
 const SECTIONS = Array.from({ length: TOTAL_SECTIONS }, (_, i) => 
   `./sections_du_guide/section_${String(i + 1).padStart(2, '0')}.html`
 );
 
-// Ressources locales à mettre en cache
 const LOCAL_ASSETS = [
   './',
   './index.html',
@@ -26,16 +27,15 @@ const LOCAL_ASSETS = [
   ...SECTIONS
 ];
 
-// 1. Installation du Service Worker et mise en cache
+// Installation
 self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME)
       .then((cache) => cache.addAll(LOCAL_ASSETS))
-      // Retrait de self.skipWaiting() ici pour laisser le Toast gérer l'activation
   );
 });
 
-// 2. Nettoyage des anciens caches lors de la mise à jour
+// Nettoyage des anciens caches
 self.addEventListener('activate', (event) => {
   event.waitUntil(
     caches.keys().then((keys) =>
@@ -50,20 +50,19 @@ self.addEventListener('activate', (event) => {
   );
 });
 
-// 3. Réception des commandes depuis index.js (Bandeau Toast)
+// Réception du message depuis index.js pour rafraîchir
 self.addEventListener('message', (event) => {
   if (event.data && (event.data.type === 'SKIP_WAITING' || event.data.action === 'SKIP_WAITING')) {
     self.skipWaiting();
   }
 });
 
-// 4. Interception des requêtes réseau (Network-First / Cache-First)
+// Requêtes réseau : Cache-First + mise à jour en arrière-plan
 self.addEventListener('fetch', (event) => {
   if (event.request.method !== 'GET') return;
 
   const url = new URL(event.request.url);
 
-  // CAS A : CDN externe -> Cache-First
   if (url.origin !== location.origin) {
     event.respondWith(
       caches.match(event.request).then((cachedResponse) => {
@@ -81,10 +80,8 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  // CAS B : Application locale -> Cache-First avec mise à jour en arrière-plan
   event.respondWith(
     caches.match(event.request).then((cachedResponse) => {
-      // Lance le téléchargement en arrière-plan
       const fetchPromise = fetch(event.request).then((networkResponse) => {
         if (networkResponse && networkResponse.status === 200) {
           const responseToCache = networkResponse.clone();
@@ -93,7 +90,6 @@ self.addEventListener('fetch', (event) => {
         return networkResponse;
       }).catch(() => {});
 
-      // Renvoie la version du cache immédiatement si disponible
       return cachedResponse || fetchPromise;
     })
   );
