@@ -1,8 +1,12 @@
 // 1. Enregistrement sécurisé du Service Worker et gestion du Toast
+// 1. Enregistrement sécurisé du Service Worker et gestion du Toast
 if ('serviceWorker' in navigator && window.location.protocol !== 'file:') {
   window.addEventListener('load', () => {
     navigator.serviceWorker.register('./sw.js').then((registration) => {
       console.log('Service Worker enregistré avec succès :', registration.scope);
+
+      // 🔍 Force la vérification d'une nouvelle version sur le serveur
+      registration.update();
 
       if (registration.waiting) {
         afficherToastMiseAJour(registration);
@@ -19,7 +23,6 @@ if ('serviceWorker' in navigator && window.location.protocol !== 'file:') {
         }
       });
     }).catch((erreur) => {
-      // Utilisation de console.warn au lieu de console.error pour éviter l'alerte rouge
       console.warn('Enregistrement du Service Worker ignoré ou indisponible :', erreur);
     });
   });
@@ -32,6 +35,7 @@ if ('serviceWorker' in navigator && window.location.protocol !== 'file:') {
     }
   });
 }
+
 
 
 // 2. Fonction d'affichage du Toast avec animation fluide
