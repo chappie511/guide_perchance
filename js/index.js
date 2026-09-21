@@ -1,15 +1,13 @@
-// 1. Enregistrement du Service Worker et gestion du Toast
-if ('serviceWorker' in navigator) {
+// 1. Enregistrement sécurisé du Service Worker et gestion du Toast
+if ('serviceWorker' in navigator && window.location.protocol !== 'file:') {
   window.addEventListener('load', () => {
     navigator.serviceWorker.register('./sw.js').then((registration) => {
       console.log('Service Worker enregistré avec succès :', registration.scope);
 
-      // Si un nouveau worker est déjà en attente
       if (registration.waiting) {
         afficherToastMiseAJour(registration);
       }
 
-      // Écoute des nouvelles mises à jour détectées
       registration.addEventListener('updatefound', () => {
         const nouveauWorker = registration.installing;
         if (nouveauWorker) {
@@ -21,11 +19,11 @@ if ('serviceWorker' in navigator) {
         }
       });
     }).catch((erreur) => {
-      console.error('Échec de l\'enregistrement du Service Worker :', erreur);
+      // Utilisation de console.warn au lieu de console.error pour éviter l'alerte rouge
+      console.warn('Enregistrement du Service Worker ignoré ou indisponible :', erreur);
     });
   });
 
-  // Recharger la page lorsque le nouveau Service Worker prend le contrôle
   let rechargementEnCours = false;
   navigator.serviceWorker.addEventListener('controllerchange', () => {
     if (!rechargementEnCours) {
@@ -34,6 +32,7 @@ if ('serviceWorker' in navigator) {
     }
   });
 }
+
 
 // 2. Fonction d'affichage du Toast avec animation fluide
 function afficherToastMiseAJour(registration) {
@@ -247,8 +246,15 @@ function closeToc() {
   document.body.classList.remove('toc-open');
 }
 
+function updatePanelWidth() {
+  if (sideTocPanel) {
+    panelWidth = sideTocPanel.offsetWidth || 250;
+  }
+}
+
 window.addEventListener('resize', updatePanelWidth);
 updatePanelWidth();
+
 
 // 3. Écouteurs de clics
 if (btnToggleToc) {
