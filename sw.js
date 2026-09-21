@@ -31,7 +31,7 @@ self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME)
       .then((cache) => cache.addAll(LOCAL_ASSETS))
-      .then(() => self.skipWaiting())
+      // Retrait de self.skipWaiting() ici pour laisser le Toast gérer l'activation
   );
 });
 
