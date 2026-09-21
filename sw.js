@@ -17,7 +17,7 @@ const LOCAL_ASSETS = [
   './index.html',
   './manifest.json',
   './version.js',
-  './index.css',
+  './css/index.css',
   './js/lucide.min.js',
   './js/index.js', 'https://cdn.jsdelivr.net/gh/chappie511/Icon@main/golden_star_v3.png?v=1000',
   ...SECTIONS
