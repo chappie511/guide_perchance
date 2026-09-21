@@ -1,8 +1,10 @@
+// sw.js
+
 // 1. Chargement de la version centralisée
 importScripts('./version.js');
 
 // 2. Utilisation de la constante définie dans version.js
-const CACHE_NAME = `guide-cache-${APP_VERSION}`;
+const CACHE_NAME = `Version ${APP_VERSION}`;
 
 const TOTAL_SECTIONS = 24;
 
@@ -19,10 +21,10 @@ const LOCAL_ASSETS = [
   './version.js',
   './css/index.css',
   './js/lucide.min.js',
-  './js/index.js', 'https://cdn.jsdelivr.net/gh/chappie511/Icon@main/golden_star_v3.png?v=1000',
+  './js/index.js',
+  'https://cdn.jsdelivr.net/gh/chappie511/Icon@main/golden_star_v3.png?v=1000',
   ...SECTIONS
 ];
-
 
 // 1. Installation du Service Worker et mise en cache
 self.addEventListener('install', (event) => {
@@ -79,16 +81,20 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  // CAS B : Application locale -> Network-First
+  // CAS B : Application locale -> Cache-First avec mise à jour en arrière-plan
   event.respondWith(
-    fetch(event.request)
-      .then((networkResponse) => {
+    caches.match(event.request).then((cachedResponse) => {
+      // Lance le téléchargement en arrière-plan
+      const fetchPromise = fetch(event.request).then((networkResponse) => {
         if (networkResponse && networkResponse.status === 200) {
           const responseToCache = networkResponse.clone();
           caches.open(CACHE_NAME).then((cache) => cache.put(event.request, responseToCache));
         }
         return networkResponse;
-      })
-      .catch(() => caches.match(event.request))
+      }).catch(() => {});
+
+      // Renvoie la version du cache immédiatement si disponible
+      return cachedResponse || fetchPromise;
+    })
   );
 });
