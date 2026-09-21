@@ -1,7 +1,7 @@
 // sw.js
 
 // 1. Déclarer la version du SW directement dans le fichier pour forcer la détection GitHub
-const SW_VERSION = 'v1.4.3';
+const SW_VERSION = 'v1.4.4';
 
 // 2. Chargement de la version centralisée
 importScripts('./version.js');
