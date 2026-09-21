@@ -1,13 +1,83 @@
+// 1. Enregistrement du Service Worker et gestion du Toast
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./sw.js').then((registration) => {
+      console.log('Service Worker enregistré avec succès :', registration.scope);
+
+      // Si un nouveau worker est déjà en attente
+      if (registration.waiting) {
+        afficherToastMiseAJour(registration);
+      }
+
+      // Écoute des nouvelles mises à jour détectées
+      registration.addEventListener('updatefound', () => {
+        const nouveauWorker = registration.installing;
+        if (nouveauWorker) {
+          nouveauWorker.addEventListener('statechange', () => {
+            if (nouveauWorker.state === 'installed' && navigator.serviceWorker.controller) {
+              afficherToastMiseAJour(registration);
+            }
+          });
+        }
+      });
+    }).catch((erreur) => {
+      console.error('Échec de l\'enregistrement du Service Worker :', erreur);
+    });
+  });
+
+  // Recharger la page lorsque le nouveau Service Worker prend le contrôle
+  let rechargementEnCours = false;
+  navigator.serviceWorker.addEventListener('controllerchange', () => {
+    if (!rechargementEnCours) {
+      rechargementEnCours = true;
+      window.location.reload();
+    }
+  });
+}
+
+// 2. Fonction d'affichage du Toast avec animation fluide
+function afficherToastMiseAJour(registration) {
+  const toast = document.getElementById('toast');
+  const btnReload = document.getElementById('reload-toast-btn');
+  const btnClose = document.getElementById('close-toast-btn');
+
+  if (!toast) return;
+
+  // Affichage fluide
+  toast.classList.remove('hidden');
+  requestAnimationFrame(() => {
+    toast.classList.add('visible');
+  });
+
+  // Clic sur "Rafraîchir"
+  if (btnReload) {
+    btnReload.onclick = () => {
+      if (registration.waiting) {
+        registration.waiting.postMessage({ type: 'SKIP_WAITING' });
+      }
+    };
+  }
+
+  // Clic sur "Fermer"
+  if (btnClose) {
+    btnClose.onclick = () => {
+      toast.classList.remove('visible');
+      setTimeout(() => toast.classList.add('hidden'), 300);
+    };
+  }
+}
+
+
 // Charge automatiquement les 24 sections depuis le dossier sections_du_guide
 for (let i = 1; i <= 24; i++) {
     const num = String(i).padStart(2, '0');
     
-    // ID sans zéro pour cibler exactement index.html (ex: conteneur-section-1)
+    // ID du conteneur dans index.html (ex: conteneur-section-1)
     const idBoite = `conteneur-section-${i}`;
     
-    // Chemin réseau avec zéro pour cibler le fichier physique (ex: section_01.html)
+    // Chemin vers le fichier physique (ex: section_01.html)
     const cheminFichier = `./sections_du_guide/section_${num}.html`;
-    
+
     chargerSection(idBoite, cheminFichier);
 }
 
@@ -21,19 +91,6 @@ function debounce(func, delay = 150) {
     }, delay);
   };
 }
-
-// --- 2. SUPPRIMER OU COMMENTER : Les logs de test de scroll/resize ---
-// window.addEventListener('scroll', debounce(() => {
-//   console.log("Position du défilement stabilisée");
-// }, 100));
-
-// window.addEventListener('resize', debounce(() => {
-//   console.log("Taille d'écran stabilisée");
-// }, 150));
-
-// console.time("CalculSommaire");
-// console.timeEnd("CalculSommaire");
-;
 
 // Fonction pour charger et injecter du HTML de manière dynamique
 function chargerSection(idDeLaBoite, cheminDuFichier) {
@@ -137,67 +194,6 @@ document.addEventListener('click', function(event) {
   }
 });
 
-// Enregistrement du Service Worker
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('./sw.js', { updateViaCache: 'none' })
-      .then((registration) => {
-        registration.update();
-
-        registration.addEventListener('updatefound', () => {
-          const newWorker = registration.installing;
-          newWorker.addEventListener('statechange', () => {
-            if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
-              const toast = document.getElementById('update-toast');
-              if (toast) toast.classList.add('visible');
-            }
-          });
-        });
-      })
-      .catch((err) => console.error('Échec enregistrement SW:', err));
-  });
-
-  // Recharge la page automatiquement quand le nouveau SW prend le contrôle
-  let refreshing = false;
-  navigator.serviceWorker.addEventListener('controllerchange', () => {
-    if (!refreshing) {
-      refreshing = true;
-      window.location.reload();
-    }
-  });
-}
-
-// Action du bouton de rafraîchissement
-const reloadBtn = document.getElementById('reload-btn');
-if (reloadBtn) {
-  reloadBtn.addEventListener('click', () => {
-    navigator.serviceWorker.getRegistration().then((registration) => {
-      if (registration && registration.waiting) {
-        // Envoie le message au SW pour qu'il s'active
-        registration.waiting.postMessage({ type: 'SKIP_WAITING' });
-      } else {
-        // Si aucun SW en attente, recharge la page directement
-        window.location.reload();
-      }
-    });
-  });
-}
-
-// Affichage dynamique et autonome de la version
-function afficherVersion() {
-  const versionSpan = document.getElementById('app-version');
-  if (versionSpan) {
-    versionSpan.textContent = 'v1.3.4';
-  }
-}
-
-// Exécution immédiate + écouteurs de secours
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', afficherVersion);
-} else {
-  afficherVersion();
-}
-window.addEventListener('load', afficherVersion);
 
 // --- GESTION DU SOMMAIRE LATÉRAL ---
 const btnToggleToc = document.getElementById('btnToggleToc');
@@ -382,11 +378,6 @@ function basculerPleinEcran() {
   }
 }
 
-// Défilement personnalisé via JavaScript
-window.scrollTo({
-  top: 500, // Position en pixels
-  behavior: 'smooth'
-});
 
 // Bouton Lucide
 document.addEventListener('DOMContentLoaded', () => {
