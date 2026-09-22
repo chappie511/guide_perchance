@@ -755,7 +755,6 @@ body:not(.toc-open) .toc-trigger-btn:hover {
    ========================================== */
    
    body.toc-open {
-    height: 100vh; /* Force la hauteur à 100% de l'écran */
     height: 100dvh; /* Version moderne pour compenser la barre d'adresse mobile */
     overflow: hidden !important;
     touch-action: none;
@@ -764,7 +763,6 @@ body:not(.toc-open) .toc-trigger-btn:hover {
 /* --- Bouton fixe collé au bord gauche --- */
 .toc-trigger-btn {
     position: fixed;
-    top: 50%;
     top: 50dvh; /* S'adapte dynamiquement au plein écran mobile */
     left: 0;
     z-index: 1005;
@@ -856,7 +854,6 @@ body:not(.toc-open) .toc-trigger-btn:hover {
     top: 0;
     left: 0;
     width: 250px;
-    height: 100vh;
     height: 100dvh; /* Support des barres de navigation mobiles */
     background-color: #ffffff;
     z-index: 1000;
@@ -978,7 +975,7 @@ body:not(.toc-open) .toc-trigger-btn:hover {
 /* // Fin du Style du bouton Table des Matières Principale \\ */
 
 /* ==========================================
-   Style du bandeau de mise à jour
+   Style du bandeau de mise à jour (Toast)
    ========================================== */
 
 /* Masquage strict */
@@ -986,60 +983,92 @@ body:not(.toc-open) .toc-trigger-btn:hover {
   display: none !important;
 }
 
-/* Structure du Toast */
+/* Conteneur principal du toast (Fixe & Flottant) */
 .update-toast {
   position: fixed;
   bottom: 20px;
   left: 50%;
-  transform: translateX(-50%) translateY(100px);
+  transform: translateX(-50%) translateY(20px);
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 10000;
   background-color: #1e293b;
   color: #ffffff;
-  padding: 12px 20px;
-  border-radius: 12px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-  z-index: 9999;
-  opacity: 0;
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
-  display: flex;
-  align-items: center;
+  padding: 12px 16px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  max-width: 90vw;
+  width: max-content;
+  box-sizing: border-box;
 }
 
-/* État visible avec animation */
+/* État visible avec animation d'apparition */
 .update-toast.visible {
   transform: translateX(-50%) translateY(0);
   opacity: 1;
 }
 
+/* Alignement interne du contenu */
 .toast-content {
   display: flex;
   align-items: center;
-  gap: 15px;
+  justify-content: space-between;
+  gap: 16px;
 }
 
-#reloadToastBtn {
-  background-color: #3b82f6;
-  color: white;
+/* Message textuel */
+.toast-message {
+  font-size: 14px;
+  font-weight: 500;
+  white-space: nowrap; /* Empêche les retours à la ligne indésirables */
+}
+
+/* Zone des boutons */
+.toast-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+/* Bouton "Rafraîchir" */
+#reload-toast-btn,
+.reloadToastBtn {
+  background-color: #2563eb;
+  color: #ffffff;
   border: none;
-  padding: 6px 14px;
+  padding: 6px 12px;
   border-radius: 6px;
+  font-size: 13px;
   font-weight: 600;
   cursor: pointer;
 }
 
+#reload-toast-btn:active,
 .reloadToastBtn:active {
   transform: scale(0.95);
+  background-color: #1d4ed8;
 }
 
-#closeToastBtn {
+/* Bouton Fermer (✕) */
+#close-toast-btn,
+.closeToastBtn {
   background: transparent;
   border: none;
   color: #94a3b8;
   font-size: 16px;
+  padding: 4px 8px;
   cursor: pointer;
+  line-height: 1;
 }
 
+#close-toast-btn:hover,
+.closeToastBtn:hover {
+  color: #ffffff;
+}
 
-/* Fin Style du bandeau de mise à jour */
+/* // Fin Style du bandeau de mise à jour \\ */
+
 
 /* ==========================================
              Style du Footer
