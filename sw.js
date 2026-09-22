@@ -1,5 +1,5 @@
 // sw.js
-const SW_VERSION = 'v1.5.0';
+const SW_VERSION = 'v1.5.1';
 const CACHE_NAME = `Version-${SW_VERSION}`;
 
 const TOTAL_SECTIONS = 24;
@@ -43,10 +43,20 @@ self.addEventListener('activate', (event) => {
   );
 });
 
-// Réception du message depuis index.js pour rafraîchir
+// Réception des messages depuis index.js
 self.addEventListener('message', (event) => {
-  if (event.data && (event.data.type === 'SKIP_WAITING' || event.data.action === 'SKIP_WAITING')) {
+  if (!event.data) return;
+
+  // Activation immédiate du nouveau SW sur demande du Toast
+  if (event.data.type === 'SKIP_WAITING' || event.data.action === 'SKIP_WAITING') {
     self.skipWaiting();
+  }
+
+  // Communication du numéro de version exact au JS principal
+  if (event.data.type === 'GET_VERSION') {
+    if (event.ports && event.ports[0]) {
+      event.ports[0].postMessage({ version: SW_VERSION });
+    }
   }
 });
 
