@@ -1,6 +1,3 @@
-//Chargement de la version centralisée
-importScripts('./version.js');
-
 // 1. Enregistrement sécurisé du Service Worker et gestion du Toast
 if ('serviceWorker' in navigator && window.location.protocol !== 'file:') {
   window.addEventListener('load', () => {
