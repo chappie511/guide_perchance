@@ -1,5 +1,5 @@
 // sw.js
-const SW_VERSION = 'v1.4.5';
+const SW_VERSION = 'v1.4.6';
 const CACHE_NAME = `Version-${SW_VERSION}`;
 
 const TOTAL_SECTIONS = 24;
