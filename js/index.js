@@ -1,19 +1,29 @@
 // 1. Enregistrement sécurisé du Service Worker, affichage de version et gestion du Toast
 if ('serviceWorker' in navigator && window.location.protocol !== 'file:') {
-  
-  // Affichage immédiat de la version actuellement installée en cache
-  const versionElement = document.getElementById('app-version');
-  const versionInstallee = localStorage.getItem('app_installed_version') || window.APP_VERSION || window.LATEST_VERSION;
-  
-  if (versionElement && versionInstallee) {
-    versionElement.textContent = versionInstallee;
-  }
+
+  const obtenirVersionDuSW = () => {
+    if (navigator.serviceWorker.controller) {
+      const messageChannel = new MessageChannel();
+      messageChannel.port1.onmessage = (event) => {
+        if (event.data && event.data.version) {
+          const el = document.getElementById('app-version');
+          if (el) el.textContent = event.data.version;
+        }
+      };
+      navigator.serviceWorker.controller.postMessage(
+        { type: 'GET_VERSION' }, 
+        [messageChannel.port2]
+      );
+    }
+  };
+
+  document.addEventListener('DOMContentLoaded', obtenirVersionDuSW);
 
   window.addEventListener('load', () => {
-    navigator.serviceWorker.register('./sw.js').then((registration) => {
-      console.log('Service Worker enregistré avec succès :', registration.scope);
+    // Le paramètre ?v=1.5.0 force le navigateur distant à télécharger le nouveau sw.js
+    navigator.serviceWorker.register('./sw.js?v=1.5.0').then((registration) => {
+      console.log('Service Worker enregistré :', registration.scope);
 
-      // 🔍 Force la vérification d'une nouvelle version sur le serveur
       registration.update();
 
       if (registration.waiting) {
@@ -30,8 +40,6 @@ if ('serviceWorker' in navigator && window.location.protocol !== 'file:') {
           });
         }
       });
-    }).catch((erreur) => {
-      console.warn('Enregistrement du Service Worker ignoré ou indisponible :', erreur);
     });
   });
 
@@ -39,19 +47,10 @@ if ('serviceWorker' in navigator && window.location.protocol !== 'file:') {
   navigator.serviceWorker.addEventListener('controllerchange', () => {
     if (!rechargementEnCours) {
       rechargementEnCours = true;
-      
-      // Met à jour le localStorage avec la nouvelle version juste avant de recharger la page
-      const nouvelleVersion = window.APP_VERSION || window.LATEST_VERSION;
-      if (nouvelleVersion) {
-        localStorage.setItem('app_installed_version', nouvelleVersion);
-      }
-      
       window.location.reload();
     }
   });
 }
-
-
 
 // 2. Fonction d'affichage du Toast avec animation fluide
 function afficherToastMiseAJour(registration) {
@@ -84,7 +83,6 @@ function afficherToastMiseAJour(registration) {
     };
   }
 }
-
 
 // Charge automatiquement les 24 sections depuis le dossier sections_du_guide
 for (let i = 1; i <= 24; i++) {
@@ -212,7 +210,6 @@ document.addEventListener('click', function(event) {
   }
 });
 
-
 // --- GESTION DU SOMMAIRE LATÉRAL ---
 const btnToggleToc = document.getElementById('btnToggleToc');
 const btnCloseToc = document.getElementById('btnCloseToc');
@@ -273,7 +270,6 @@ function updatePanelWidth() {
 
 window.addEventListener('resize', updatePanelWidth);
 updatePanelWidth();
-
 
 // 3. Écouteurs de clics
 if (btnToggleToc) {
@@ -402,7 +398,6 @@ function basculerPleinEcran() {
     }
   }
 }
-
 
 // Bouton Lucide
 document.addEventListener('DOMContentLoaded', () => {
