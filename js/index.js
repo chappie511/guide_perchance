@@ -1,5 +1,14 @@
-// 1. Enregistrement sécurisé du Service Worker et gestion du Toast
+// 1. Enregistrement sécurisé du Service Worker, affichage de version et gestion du Toast
 if ('serviceWorker' in navigator && window.location.protocol !== 'file:') {
+  
+  // Affichage immédiat de la version actuellement installée en cache
+  const versionElement = document.getElementById('app-version');
+  const versionInstallee = localStorage.getItem('app_installed_version') || window.APP_VERSION || window.LATEST_VERSION;
+  
+  if (versionElement && versionInstallee) {
+    versionElement.textContent = versionInstallee;
+  }
+
   window.addEventListener('load', () => {
     navigator.serviceWorker.register('./sw.js').then((registration) => {
       console.log('Service Worker enregistré avec succès :', registration.scope);
@@ -30,6 +39,13 @@ if ('serviceWorker' in navigator && window.location.protocol !== 'file:') {
   navigator.serviceWorker.addEventListener('controllerchange', () => {
     if (!rechargementEnCours) {
       rechargementEnCours = true;
+      
+      // Met à jour le localStorage avec la nouvelle version juste avant de recharger la page
+      const nouvelleVersion = window.APP_VERSION || window.LATEST_VERSION;
+      if (nouvelleVersion) {
+        localStorage.setItem('app_installed_version', nouvelleVersion);
+      }
+      
       window.location.reload();
     }
   });
