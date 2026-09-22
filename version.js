@@ -1,4 +1,4 @@
-window.APP_VERSION = 'v1.4.5';
+window.APP_VERSION = 'v1.4.6';
 
 function injecterMaVersion() {
   const el = document.getElementById('app-version');
