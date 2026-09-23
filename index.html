@@ -9,8 +9,13 @@
     <!-- Icon du guide -->
     <link rel="icon" type="image/jpeg" href="https://cdn.jsdelivr.net/gh/chappie511/Icon@main/golden_star_v3.png?v=1000">
 
-    <!-- Chemin CSS -->
+        <!-- Chemin CSS -->
+    <!-- Style du guide -->
     <link rel="stylesheet" href="./css/index.css">
+    <!-- Animations du guide -->
+    <link rel="stylesheet" href="./css/animations.css">
+    <!-- Animations du guide -->
+    <link rel="stylesheet" href="./css/menu_lateral.css">
 
     <!-- Lien vers le fichier manifest.json -->
     <link rel="manifest" href="./manifest.json">
@@ -23,11 +28,12 @@
   </head>
 
   <body>
-    
-    <!-- Bouton de commande du menu latéral -->
-    <button id="btnToggleToc" class="toc-trigger-btn" type="button" aria-label="Ouvrir le sommaire">
-      <i data-lucide="menu"></i>
-    </button>
+        
+    <!-- Bouton déclencheur (Gâchette latérale) -->
+<button type="button" id="btnToggleMenu" class="menu-trigger-btn">
+  <i data-lucide="settings"></i> <!-- Icône d'engrenage Lucide -->
+  <span>OPTIONS</span>
+</button>
 
     <!-- BOUTON RETOUR EN HAUT -->
     <button class="back-to-top" id="backToTopBtn" type="button" title="Retour en haut" aria-label="Retour en haut">
@@ -79,14 +85,6 @@
         </div>
       </details>
     </div>
-
-    <!-- FOOTER ET NOTIFICATIONS -->
-    <footer>
-      <p>
-        Version actuelle :
-        <span id="app-version">Chargement...</span>
-      </p>
-    </footer>
 
     <!-- ================= MODALES DE NAVIGATION (HORS DU FLUX PRINCIPAL) ================= -->
 
@@ -219,7 +217,7 @@
           <a href="#style-cursedphoto" class="quick-nav-btn">Cursed Photo</a>
         </div>
 
-        <div class="quick-nav-subgroup">10. 🔞 Adultes</div>
+        <div class="quick-nav-subgroup">10. &#128286 Adultes</div>
         <div class="quick-nav-grid">
           <a href="#style-NSFW" class="quick-nav-btn">NSFW</a>
           <a href="#style-Camgirl" class="quick-nav-btn">Camgirl</a>
@@ -543,47 +541,34 @@
       </div>
     </div>
 
-    <!-- ================= VOLET LATÉRAL DU SOMMAIRE ================= -->
+<!-- ================= VOLET LATÉRAL DES OPTIONS ================= -->
+<div id="sideMenuPanel" class="side-menu-panel">
+  <div class="side-menu-header">
+    <h1>Options du Guide</h1>
+    <button type="button" id="btnCloseMenu" class="close-btn" aria-label="Fermer le menu">&times;</button>
+  </div>
 
-    <!-- Panneau latéral -->
-    <aside id="sideTocPanel" class="side-toc-panel">
-      <div class="side-toc-header">
-        <h1>📚 Sommaire</h1>
-        <button id="btnCloseToc" class="close-btn" type="button" aria-label="Fermer le sommaire">✖</button>
-      </div>
+  <!-- Contenu du menu d'options -->
+  <div class="side-menu-content">
+    <div class="menu-option-item">
+      <label class="menu-option-label">Affichage</label>
+      <button type="button" onclick="basculerPleinEcran()" class="option-btn">
+        <i data-lucide="maximize"></i> Mode Plein Écran
+      </button>
+    </div>
+  </div>
 
-      <div class="side-toc-content">
-        <a href="#conteneur-section-1" class="side-toc-link">01. Introduction</a>
-        <a href="#conteneur-section-2" class="side-toc-link">02. Structure</a>
-        <a href="#conteneur-section-3" class="side-toc-link">03. Styles d'art</a>
-        <a href="#conteneur-section-4" class="side-toc-link">04. Vues & Cadrages</a>
-        <a href="#conteneur-section-5" class="side-toc-link">05. Perspectives</a>
-        <a href="#conteneur-section-6" class="side-toc-link">06. Poses</a>
-        <a href="#conteneur-section-7" class="side-toc-link">07. Atmosphères</a>
-        <a href="#conteneur-section-8" class="side-toc-link">08. Éclairages</a>
-        <a href="#conteneur-section-9" class="side-toc-link">09. Ombres</a>
-        <a href="#conteneur-section-10" class="side-toc-link">10. Compléments</a>
-        <a href="#conteneur-section-11" class="side-toc-link">11. Couleurs</a>
-        <a href="#conteneur-section-12" class="side-toc-link">12. Matériel Optique</a>
-        <a href="#conteneur-section-13" class="side-toc-link">13. Profondeur de Champ</a>
-        <a href="#conteneur-section-14" class="side-toc-link">14. Bokeh</a>
-        <a href="#conteneur-section-15" class="side-toc-link">15. Défauts de Lentille</a>
-        <a href="#conteneur-section-16" class="side-toc-link">16. Rendu et Texture</a>
-        <a href="#conteneur-section-17" class="side-toc-link">17. Effets Visuels</a>
-        <a href="#conteneur-section-18" class="side-toc-link">18. Post-Rendu</a>
-        <a href="#conteneur-section-19" class="side-toc-link">19. Retouche</a>
-        <a href="#conteneur-section-20" class="side-toc-link">20. Négatifs</a>
-        <a href="#conteneur-section-21" class="side-toc-link">21. Paramètres</a>
-        <a href="#conteneur-section-22" class="side-toc-link">22. Formats</a>
-        <a href="#conteneur-section-23" class="side-toc-link">23. Astuces</a>
-        <a href="#conteneur-section-24" class="side-toc-link">24. Glossaire</a>
-      </div>
-    </aside>
+  <!-- Pied de page du menu -->
+  <footer class="app-footer">
+    <p>Version : <span id="app-version">Chargement...</span></p>
+  </footer>
+</div>
 
-    <!-- Calque d'arrière-plan -->
-    <div id="sideTocOverlay" class="side-toc-overlay"></div>
+<!-- Fond d'obscurcissement pour fermer le menu -->
+<div id="sideMenuOverlay" class="side-menu-overlay"></div>
 
-    <!-- Toast de mise à jour PWA -->
+
+      <!-- Toast de mise à jour PWA -->
     <div id="toast" class="update-toast hidden" role="alert" aria-live="polite">
       <div class="toast-content">
         <span class="toast-message">✨ Une nouvelle version est disponible !</span>
@@ -593,15 +578,10 @@
         </div>
       </div>
     </div>
-
-    <!-- Bouton plein écran -->
-    <button id="btnPleinEcran" onclick="basculerPleinEcran()" type="button">
-      ⛶ Plein écran
-    </button>
-    
-    <!-- Bouton Eruda placé tout en bas du body -->
+  
+   <!-- Bouton Eruda placé tout en bas du body -->
   <button type="button" class="eruda-trigger-btn" onclick="lancerEruda()">🛠️ Eruda</button>
 
+  
   </body>
-
 </html>
