@@ -115,19 +115,36 @@ body:not(.toc-open) .toc-trigger-btn:hover {
     background-color: #f8fafc;
 }
 
+/* ==========================================
+      Accordéons de Section (Corrigé)
+   ========================================== */
+
 .section-accordion {
     margin-bottom: 8px;
-    background-color: #ffffff;
+    background-color: #f1f5f9;
     border-radius: 6px;
     border: 1px solid #cbd5e1;
+    overflow: hidden;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
+/* 1. Survol & État Ouvert (Glow + Bordure) */
+.section-accordion:hover {
+    border-color: #93c5fd;
+}
+
+.section-accordion[open] {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.25), 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* 2. Bouton <summary> avec indicateur actif sur le côté */
 .section-accordion > summary {
     display: flex;
-    align-items: center; /* Centre verticalement dans le bloc */
-    justify-content: center; /* Centre le bloc de texte horizontalement */
-    text-align: center; /* Centre le texte multi-lignes */
-    min-height: 58px; /* Uniformise la hauteur de tous les boutons */
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 58px;
     padding: 8px 12px;
     font-weight: 600;
     color: #1d4ed8;
@@ -135,25 +152,66 @@ body:not(.toc-open) .toc-trigger-btn:hover {
     outline: none;
     font-size: 13px;
     background-color: #f1f5f9;
-    border-radius: 6px;
+    border-radius: 5px;
     box-sizing: border-box;
+    border-left: 0px solid #2563eb;
+    transition: background-color 0.15s ease, border-left-width 0.2s ease, padding-left 0.2s ease;
+    -webkit-tap-highlight-color: transparent;
 }
 
-.section-accordion
-    > summary::-webkit-details-marker {
-    display: none !important;
+.section-accordion > summary:hover {
+    background-color: #e2e8f0;
 }
 
+.section-accordion > summary:active {
+    background-color: #dbeafe;
+}
+
+/* État quand la section est OUVERTE : Barre bleu vif à gauche */
 .section-accordion[open] > summary {
     border-bottom: 1px solid #cbd5e1;
+    border-left: 5px solid #2563eb;
     color: #2563eb;
     background-color: #e2e8f0;
+}
+
+/* 3. Chevron dynamique avec petit rebond (Bounce cubic-bezier) */
+.section-accordion > summary::after {
+    content: "❯";
+    font-size: 11px;
+    margin-left: auto;
+    color: #2563eb;
+    transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.section-accordion[open] > summary::after {
+    transform: rotate(90deg) scale(1.15);
+}
+
+.section-accordion > summary::-webkit-details-marker {
+    display: none !important;
 }
 
 .section-body {
     padding: 12px;
     font-size: 13.5px;
     background-color: #ffffff;
+}
+
+/* 4. Animation d'ouverture fluide (Déroulement + Fondu) */
+@keyframes accordionSlideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.section-accordion[open] .section-body {
+    animation: accordionSlideDown 0.28s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
 /* ////// Fin de la base du guide \\\\\\ */
@@ -573,10 +631,8 @@ body:not(.toc-open) .toc-trigger-btn:hover {
 
 .btn-open-menu:active {
     background-color: #1d4ed8;
-    transform: scale(
-        0.98
-    ); /* Petit effet d'enfoncement au toucher */
-}
+    transform: scale(0.98); /* Petit effet d'enfoncement au toucher */
+}    
 
 /* === Bouton pour FERMER le menu (À l'intérieur du modal) === */
 .btn-close-menu {
@@ -763,7 +819,7 @@ body:not(.toc-open) .toc-trigger-btn:hover {
 /* --- Bouton fixe collé au bord gauche --- */
 .toc-trigger-btn {
     position: fixed;
-    top: 50dvh; /* S'adapte dynamiquement au plein écran mobile */
+    top: 50dvh;
     left: 0;
     z-index: 1005;
     background-color: #2563eb;
@@ -785,10 +841,9 @@ body:not(.toc-open) .toc-trigger-btn:hover {
     touch-action: pan-y !important;
     will-change: transform, opacity;
     
-    /* 🟢 Alignement centré exact & gestion de l'ouverture */
+    /* Center verticalement de base */
     transform: translateY(-50%);
     
-    /* 🟢 Au repos : Très discret */
     opacity: 0.35;
     pointer-events: auto;      
     
@@ -798,16 +853,12 @@ body:not(.toc-open) .toc-trigger-btn:hover {
         background-color 0.15s ease;
 }
 
-.toc-trigger-btn:hover,
-.toc-trigger-btn:active,
-.toc-trigger-btn.open {
-  opacity: 1;
-  background-color: #2563eb;
-  transform: scale(1.1);
+.toc-trigger-btn.open:hover,
+.toc-trigger-btn.open:active {
+    transform: translate3d(250px, -50%, 0) scale(1.05);
 }
 
 
-/* 🟢 Dès qu'il est ouvert, il glisse à droite ET conserve son centrage vertical */
 .toc-trigger-btn.open {
     transform: translate3d(250px, -50%, 0);
     opacity: 0.95 !important;
@@ -821,28 +872,22 @@ body:not(.toc-open) .toc-trigger-btn:hover {
 
 .toc-trigger-btn:active {
     background-color: #1d4ed8;
-    }
-    
-    /* Ajustement de la taille de l'icône à l'intérieur */
-.toc-trigger-btn svg {
-  width: 16px;
-  height: 16px;
-  stroke: #ffffff;
 }
 
-/* 🟢 SÉCURITÉ ANTI-BUG TACTILE : 
-   Dès que le menu perd la classe .open, on force le bouton à redescendre à 0.35, 
-   même si le navigateur mobile croit que le doigt est encore dessus. */
+.toc-trigger-btn svg {
+    width: 16px;
+    height: 16px;
+    stroke: #ffffff;
+}
+
 .toc-trigger-btn:not(.open) {
     opacity: 0.35 !important;
 }
 
-/* 🟢 Au survol direct quand il est fermé : Un peu plus visible */
 .toc-trigger-btn:not(.open):hover {
     opacity: 0.7;
 }
-    
-    /* Force le retour à l'état discret dès que la fermeture est déclenchée */
+
 .toc-trigger-btn:not(.open):active,
 .toc-trigger-btn:not(.open):focus {
     opacity: 0.35 !important;
@@ -1073,6 +1118,7 @@ span.toast-message {
   color: #ffffff;
 }
 
+/* /////// Fin du style du Toast \\\\\\\ */
    
 .app-footer,
 footer {
@@ -1095,6 +1141,12 @@ footer p {
     padding: 0;
 }
 
+/* /////// Fin Style du Footer \\\\\\\ */
+
+/* ==========================================
+     Style du boutton plein écran
+   ========================================== */
+
 /* Boutton plein écran */
 #btnPleinEcran {
     position: relative; /* Sert de repère pour le pseudo-élément */
@@ -1116,4 +1168,138 @@ footer p {
     height: 2px;
     background-color: #2563eb; /* Remplace la bordure inférieure */
 }
-/* /////// Fin Style du Footer \\\\\\\ */
+/* Fin du style du boutton plein écran */
+
+/* ==========================================
+          Bouton Eruda (Isolation strict)
+   ========================================== */
+.eruda-trigger-btn {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    z-index: 99999;
+    padding: 8px 12px;
+    background: #2563eb;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 12px;
+    opacity: 0.8;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    transition: opacity 0.2s ease, transform 0.1s ease;
+}
+
+.eruda-trigger-btn:hover {
+    opacity: 1;
+}
+
+.eruda-trigger-btn:active {
+    transform: scale(0.95);
+    background-color: #1d4ed8;
+}
+
+/* Fin du style du Bouton Eruda */
+
+/* ==========================================
+            Animation :)
+   ========================================== */
+   
+   /* Effet "Magie / Pulsation Lumineuse" (Pour l'icône Boule de Cristal 🔮 - Section 14) */
+   /* Animation Magie */
+@keyframes crystalMagic {
+  0%, 100% {
+    transform: scale(1) rotate(0deg);
+    filter: drop-shadow(0 0 2px rgba(168, 85, 247, 0.4));
+  }
+  50% {
+    transform: scale(1.15) rotate(6deg);
+    filter: drop-shadow(0 0 8px rgba(168, 85, 247, 0.9));
+  }
+}
+
+/* Application à l'icône ou la section */
+.magic-icon {
+  display: inline-block;
+  animation: crystalMagic 2.5s ease-in-out infinite;
+}
+
+
+/* Effet "Scintillement / Éclat" (Pour l'icône Explosion 💥 - Section 20) */
+/* Animation Scintillement / Sparkle */
+@keyframes sparkleBurst {
+  0%, 100% {
+    transform: scale(1);
+    filter: brightness(1) drop-shadow(0 0 1px rgba(239, 68, 68, 0.5));
+  }
+  25% {
+    transform: scale(1.2) rotate(-5deg);
+    filter: brightness(1.4) drop-shadow(0 0 6px rgba(245, 158, 11, 0.9));
+  }
+  50% {
+    transform: scale(0.95) rotate(5deg);
+    filter: brightness(0.9);
+  }
+  75% {
+    transform: scale(1.15);
+    filter: brightness(1.3) drop-shadow(0 0 8px rgba(239, 68, 68, 0.8));
+  }
+}
+
+/* Application à l'icône de la section 20 */
+.burst-icon {
+  display: inline-block;
+  animation: sparkleBurst 1.2s ease-in-out infinite;
+}
+
+/* Effet Flottant / Suspendu */
+@keyframes floatSmooth {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+.float-icon {
+  display: inline-block;
+  animation: floatSmooth 3s ease-in-out infinite;
+}
+
+
+/* Effet Pulsation Périodique */
+@keyframes pulseGlow {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.12);
+    opacity: 0.85;
+  }
+}
+
+.pulse-icon {
+  display: inline-block;
+  animation: pulseGlow 2s infinite ease-in-out;
+}
+
+/* Effet Oscillant / Balancement */
+@keyframes tiltWiggle {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-8deg);
+  }
+  75% {
+    transform: rotate(8deg);
+  }
+}
+
+.wiggle-icon {
+  display: inline-block;
+  animation: tiltWiggle 2s infinite ease-in-out;
+}
