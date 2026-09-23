@@ -1,0 +1,300 @@
+/* Optionnel : Rendre le bouton visible si l'utilisateur approche le bord gauche */
+body:not(.menu-open):hover .menu-trigger-btn {
+    opacity: 0.4; /* Semi-transparent pour signaler sa présence */
+    pointer-events: auto;
+}
+
+body:not(.menu-open) .menu-trigger-btn:hover {
+    opacity: 1; /* Totalement opaque si on le survole directement */
+}
+
+/* ==========================================
+       Style du Menu lateral
+   ========================================== */
+   
+   body.menu-open {
+    height: 100dvh; /* Version moderne pour compenser la barre d'adresse mobile */
+    overflow: hidden !important;
+    touch-action: none;
+}
+
+/* --- Bouton fixe collé au bord gauche --- */
+.menu-trigger-btn {
+    position: fixed;
+    top: 50dvh;
+    left: 0;
+    z-index: 1005;
+    background-color: #2563eb;
+    color: #ffffff;
+    border: none;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 6px;
+    font-size: 11px;
+    font-weight: 600;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+    user-select: none;
+    touch-action: pan-y !important;
+    will-change: transform, opacity;
+    
+    /* Center verticalement de base */
+    transform: translateY(-50%);
+    
+    opacity: 0.35;
+    pointer-events: auto;      
+    
+    transition: 
+        transform 0.3s ease-in-out, 
+        opacity 0.2s ease-in-out, 
+        background-color 0.15s ease;
+}
+
+.menu-trigger-btn.open:hover,
+.menu-trigger-btn.open:active {
+    transform: translate3d(250px, -50%, 0) scale(1.05);
+}
+
+
+.menu-trigger-btn.open {
+    transform: translate3d(250px, -50%, 0);
+    opacity: 0.95 !important;
+    pointer-events: auto;
+}
+
+.menu-trigger-btn span {
+    writing-mode: vertical-lr;
+    text-orientation: mixed;
+}
+
+.menu-trigger-btn:active {
+    background-color: #1d4ed8;
+}
+
+.menu-trigger-btn svg {
+    width: 16px;
+    height: 16px;
+    stroke: #ffffff;
+}
+
+.menu-trigger-btn:not(.open) {
+    opacity: 0.35 !important;
+}
+
+.menu-trigger-btn:not(.open):hover {
+    opacity: 0.7;
+}
+
+.menu-trigger-btn:not(.open):active,
+.menu-trigger-btn:not(.open):focus {
+    opacity: 0.35 !important;
+}
+
+/* Panneau latéral fixe */
+.side-menu-panel {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100dvh; /* Support des barres de navigation mobiles */
+    background-color: #ffffff;
+    z-index: 1000;
+    box-shadow: 2px 0 12px rgba(0, 0, 0, 0.15);
+    transform: translate3d(-100%, 0, 0);
+    transition: transform 0.3s ease-in-out;
+    will-change: transform;
+    display: flex;
+    flex-direction: column; /* Alignement vertical strict */
+    overflow: hidden; /* Empêche tout le panneau de défiler */
+}
+
+.side-menu-panel.open {
+    transform: translate3d(0, 0, 0);
+}
+
+/* En-tête fixe en haut */
+.side-menu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 14px;
+    border-bottom: 1px solid #e2e8f0;
+    background-color: #ffffff;
+    flex-shrink: 0; /* Bloque l'en-tête pour qu'il ne réduise pas */
+    z-index: 2;
+}
+
+.side-menu-header h1 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 20px;
+    color: #64748b;
+    cursor: pointer;
+    padding: 4px 8px;
+    line-height: 1;
+}
+
+/* Zone défilable des liens */
+.side-menu-content {
+    flex: 1;
+    overflow-y: auto;
+    overscroll-behavior-y: contain;
+    touch-action: pan-y;
+    will-change: scroll-position;
+    padding: 6px 8px !important;
+}
+
+/* Personnalisation de la barre de défilement */
+.side-menu-content::-webkit-scrollbar {
+    width: 4px;
+}
+
+.side-menu-content::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+}
+
+.side-menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition:
+        opacity 0.3s ease,
+        visibility 0.3s ease;
+}
+
+.side-menu-overlay.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.side-menu-panel.no-transition,
+.menu-trigger-btn.no-transition {
+    transition: none !important;
+}
+
+/* Intérieur du menu d'options */
+.menu-option-item {
+    margin-bottom: 16px;
+    padding: 4px 6px;
+}
+
+.menu-option-label {
+    display: block;
+    font-size: 11px;
+    font-weight: 700;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+}
+
+.option-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    padding: 10px 12px;
+    background-color: #2563eb;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.option-btn:hover {
+    background-color: #1d4ed8;
+}
+
+.option-btn:active {
+    transform: scale(0.98);
+}
+
+.option-btn svg {
+    width: 16px;
+    height: 16px;
+    stroke: #ffffff;
+}
+
+/* // Fin du Style du bouton Table des Matières Principale \\ */
+
+
+/* ==========================================
+           Style du App Footer
+   ========================================== */
+   
+.app-footer,
+footer {
+    text-align: left;
+    margin-bottom: auto; /* Pousse automatiquement le footer tout en bas */
+    font-family:
+        -apple-system, BlinkMacSystemFont,
+        "Segoe UI", Roboto, sans-serif;
+    font-size: 12px;
+    color: #64748b;
+    flex-shrink: 0;
+    background-color: #f8fafc;
+    height: 14.25px;
+    width: auto;
+    padding: 6px 8px;
+}
+
+.app-footer p,
+footer p {
+    margin: 0;
+    padding: 0;
+}
+
+/* /////// Fin Style du Footer \\\\\\\ */
+
+/* ==========================================
+     Style du boutton plein écran
+   ========================================== */
+
+/* Boutton plein écran */
+#btnPleinEcran {
+    position: relative; /* Sert de repère pour le pseudo-élément */
+    background: none;
+    border: none;
+    color: #2563eb;
+    padding: 6px 12px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* Création d'un trait ou d'une barre avec le positionnement */
+#btnPleinEcran::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #2563eb; /* Remplace la bordure inférieure */
+}
+
+/* Fin du style du boutton plein écran */
