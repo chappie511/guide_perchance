@@ -84,6 +84,7 @@ function afficherToastMiseAJour(registration) {
   }
 }
 
+
 // Charge automatiquement les 24 sections depuis le dossier sections_du_guide
 for (let i = 1; i <= 24; i++) {
     const num = String(i).padStart(2, '0');
@@ -210,6 +211,7 @@ document.addEventListener('click', function(event) {
   }
 });
 
+
 // --- GESTION DU SOMMAIRE LATÉRAL ---
 const btnToggleToc = document.getElementById('btnToggleToc');
 const btnCloseToc = document.getElementById('btnCloseToc');
@@ -239,7 +241,8 @@ function openToc() {
   sideTocPanel.classList.add('open');
   btnToggleToc.classList.add('open');
   
-  btnToggleToc.style.transform = `translate3d(${panelWidth}px, 0, 0)`; 
+  // Conserve le centrage vertical -50% pendant la translation
+  btnToggleToc.style.transform = `translate3d(${panelWidth}px, -50%, 0)`; 
   sideTocPanel.style.transform = 'translate3d(0, 0, 0)'; 
   
   if (sideTocOverlay) sideTocOverlay.classList.add('active');
@@ -254,7 +257,7 @@ function closeToc() {
   sideTocPanel.classList.remove('open');
   btnToggleToc.classList.remove('open');
   
-  // Réinitialise complètement les styles injectés par le drag tactile
+  // Réinitialise le style inline pour laisser le CSS reprendre la main sur translateY(-50%)
   btnToggleToc.style.transform = ''; 
   sideTocPanel.style.transform = ''; 
 
@@ -270,6 +273,7 @@ function updatePanelWidth() {
 
 window.addEventListener('resize', updatePanelWidth);
 updatePanelWidth();
+
 
 // 3. Écouteurs de clics
 if (btnToggleToc) {
@@ -339,19 +343,22 @@ if (btnToggleToc && sideTocPanel) {
       }
     }
 
-    if (isDragging) {
-      const isOpen = sideTocPanel.classList.contains('open');
+    // Remplace le bloc 'if (isDragging)' par ceci :
+if (isDragging) {
+  const isOpen = sideTocPanel.classList.contains('open');
 
-      if (!isOpen) {
-        const moveX = Math.max(0, Math.min(deltaX, panelWidth));
-        sideTocPanel.style.transform = `translate3d(${-panelWidth + moveX}px, 0, 0)`;
-        btnToggleToc.style.transform = `translate3d(${moveX}px, 0, 0)`;
-      } else {
-        const moveX = Math.max(-panelWidth, Math.min(deltaX, 0));
-        sideTocPanel.style.transform = `translate3d(${moveX}px, 0, 0)`;
-        btnToggleToc.style.transform = `translate3d(${panelWidth + moveX}px, 0, 0)`;
-      }
+  if (!isOpen) {
+    const moveX = Math.max(0, Math.min(deltaX, panelWidth));
+    sideTocPanel.style.transform = `translate3d(${-panelWidth + moveX}px, 0, 0)`;
+    // Ajout de -50% pour préserver le centrage vertical
+    btnToggleToc.style.transform = `translate3d(${moveX}px, -50%, 0)`; 
+  } else {
+    const moveX = Math.max(-panelWidth, Math.min(deltaX, 0));
+    sideTocPanel.style.transform = `translate3d(${moveX}px, 0, 0)`;
+    // Ajout de -50% pour préserver le centrage vertical
+    btnToggleToc.style.transform = `translate3d(${panelWidth + moveX}px, -50%, 0)`; 
     }
+   }
   }, { passive: true });
 
   btnToggleToc.addEventListener('touchend', (e) => {
@@ -364,10 +371,10 @@ if (btnToggleToc && sideTocPanel) {
       const isOpen = sideTocPanel.classList.contains('open');
 
       if (!isOpen) {
-        if (deltaX > 60) openToc();
+        if (deltaX > 50) openToc();
         else closeToc();
       } else {
-        if (deltaX < -60) closeToc();
+        if (deltaX < -50) closeToc();
         else openToc();
       }
     }
@@ -406,15 +413,24 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
-
-//Boutton Eruda
+// Bouton Eruda (Toggle fluide)
 function lancerEruda() {
   if (typeof eruda === 'undefined') {
     var script = document.createElement('script');
     script.src = "https://cdn.jsdelivr.net/npm/eruda";
     document.head.appendChild(script);
-    script.onload = function () { eruda.init(); };
+    script.onload = function () {
+      eruda.init();
+      eruda.show();
+    };
   } else {
-    eruda.show();
+    if (eruda._isInit) {
+      const erudaDom = document.querySelector('.eruda-container');
+      if (erudaDom && erudaDom.style.display !== 'none') {
+        eruda.hide();
+      } else {
+        eruda.show();
+      }
+    }
   }
 }
