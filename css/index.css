@@ -13,28 +13,18 @@ body {
 /* Ciblage ciblé au lieu du sélecteur universel * */
 html,
 body,
-.side-toc-content,
+.side-menu-content,
 .modal-body {
     scrollbar-width: none !important;
 }
 
 html::-webkit-scrollbar,
 body::-webkit-scrollbar,
-.side-toc-content::-webkit-scrollbar,
+.side-menu-content::-webkit-scrollbar,
 .modal-body::-webkit-scrollbar {
     display: none !important;
     width: 0 !important;
     height: 0 !important;
-}
-
-/* Optionnel : Rendre le bouton visible si l'utilisateur approche le bord gauche */
-body:not(.toc-open):hover .toc-trigger-btn {
-    opacity: 0.4; /* Semi-transparent pour signaler sa présence */
-    pointer-events: auto;
-}
-
-body:not(.toc-open) .toc-trigger-btn:hover {
-    opacity: 1; /* Totalement opaque si on le survole directement */
 }
 
 /* ==========================================
@@ -47,7 +37,7 @@ body:not(.toc-open) .toc-trigger-btn:hover {
         "Segoe UI", Roboto, Helvetica, Arial,
         sans-serif;
     max-width: 100%;
-    margin: 10px auto;
+    margin: 0 auto;
     padding: 6px;
     background-color: #f8fafc;
     color: #1e293b;
@@ -89,7 +79,7 @@ body:not(.toc-open) .toc-trigger-btn:hover {
 .main-accordion {
     background-color: #ffffff;
     border-radius: 8px;
-    overflow: hidden;
+    overflow: hidden;    
     border: 1px solid #2563eb;
 }
 
@@ -142,10 +132,11 @@ body:not(.toc-open) .toc-trigger-btn:hover {
 .section-accordion > summary {
     display: flex;
     align-items: center;
-    justify-content: center;
-    text-align: center;
+    justify-content: center; /* Centre le contenu au milieu */
+    position: relative;     /* Sert de repère pour le chevron */
+    max-height: 58px;
     min-height: 58px;
-    padding: 8px 12px;
+    padding: 8px 32px;      /* 32px sur les côtés pour ne pas chevaucher le chevron */
     font-weight: 600;
     color: #1d4ed8;
     cursor: pointer;
@@ -155,6 +146,7 @@ body:not(.toc-open) .toc-trigger-btn:hover {
     border-radius: 5px;
     box-sizing: border-box;
     border-left: 0px solid #2563eb;
+    text-align: center;
     transition: background-color 0.15s ease, border-left-width 0.2s ease, padding-left 0.2s ease;
     -webkit-tap-highlight-color: transparent;
 }
@@ -179,10 +171,12 @@ body:not(.toc-open) .toc-trigger-btn:hover {
 .section-accordion > summary::after {
     content: "❯";
     font-size: 11px;
-    margin-left: auto;
+    position: absolute;   /* Le sort du flux flex pour ne plus pousser le texte */
+    right: 12px;          /* Fixé proprement à 12px du bord droit */
     color: #2563eb;
     transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
+
 
 .section-accordion[open] > summary::after {
     transform: rotate(90deg) scale(1.15);
@@ -193,7 +187,7 @@ body:not(.toc-open) .toc-trigger-btn:hover {
 }
 
 .section-body {
-    padding: 12px;
+    padding: 8px 4px;
     font-size: 13.5px;
     background-color: #ffffff;
 }
@@ -238,8 +232,7 @@ body:not(.toc-open) .toc-trigger-btn:hover {
 }
 
 .content-p {
-    margin: 10px 14px;
-    color: #334155;
+    margin: 8px 4px; /* Libère 10px de chaque côté pour le texte */
 }
 
 .code-word {
@@ -724,8 +717,19 @@ body:not(.toc-open) .toc-trigger-btn:hover {
     scroll-margin-top: 10px;
 }
 
-/* 2. Surbrillance : restreinte exclusivement aux sous-éléments (ignore les grands accordéons) */
-.option-box:target,
+.option-box:target {
+    border: 1px solid #2563eb; /* Définit l'épaisseur, le style ET la couleur */
+    background-color: #eff6ff;
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
+    border-radius: 6px;
+    transition:
+        background-color 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+/* 2. Surbrillance : tableau comparatif */
+#sec18-tableau-photo[open],
 #sec18-tableau-photo:target {
     border-color: #2563eb;
     background-color: #eff6ff;
@@ -805,219 +809,6 @@ body:not(.toc-open) .toc-trigger-btn:hover {
     display: flex;
     opacity: 1;
 }
-
- /* ==========================================
-   Style du bouton & Panneau Sommaire
-   ========================================== */
-   
-   body.toc-open {
-    height: 100dvh; /* Version moderne pour compenser la barre d'adresse mobile */
-    overflow: hidden !important;
-    touch-action: none;
-}
-
-/* --- Bouton fixe collé au bord gauche --- */
-.toc-trigger-btn {
-    position: fixed;
-    top: 50dvh;
-    left: 0;
-    z-index: 1005;
-    background-color: #2563eb;
-    color: #ffffff;
-    border: none;
-    border-radius: 0 8px 8px 0;
-    padding: 10px 6px;
-    font-size: 11px;
-    font-weight: 600;
-    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 4px;
-    -webkit-tap-highlight-color: transparent;
-    outline: none;
-    user-select: none;
-    touch-action: pan-y !important;
-    will-change: transform, opacity;
-    
-    /* Center verticalement de base */
-    transform: translateY(-50%);
-    
-    opacity: 0.35;
-    pointer-events: auto;      
-    
-    transition: 
-        transform 0.3s ease-in-out, 
-        opacity 0.2s ease-in-out, 
-        background-color 0.15s ease;
-}
-
-.toc-trigger-btn.open:hover,
-.toc-trigger-btn.open:active {
-    transform: translate3d(250px, -50%, 0) scale(1.05);
-}
-
-
-.toc-trigger-btn.open {
-    transform: translate3d(250px, -50%, 0);
-    opacity: 0.95 !important;
-    pointer-events: auto;
-}
-
-.toc-trigger-btn span {
-    writing-mode: vertical-lr;
-    text-orientation: mixed;
-}
-
-.toc-trigger-btn:active {
-    background-color: #1d4ed8;
-}
-
-.toc-trigger-btn svg {
-    width: 16px;
-    height: 16px;
-    stroke: #ffffff;
-}
-
-.toc-trigger-btn:not(.open) {
-    opacity: 0.35 !important;
-}
-
-.toc-trigger-btn:not(.open):hover {
-    opacity: 0.7;
-}
-
-.toc-trigger-btn:not(.open):active,
-.toc-trigger-btn:not(.open):focus {
-    opacity: 0.35 !important;
-}
-
-/* Panneau latéral fixe */
-.side-toc-panel {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 250px;
-    height: 100dvh; /* Support des barres de navigation mobiles */
-    background-color: #ffffff;
-    z-index: 1000;
-    box-shadow: 2px 0 12px rgba(0, 0, 0, 0.15);
-    transform: translate3d(-100%, 0, 0);
-    transition: transform 0.3s ease-in-out;
-    will-change: transform;
-    display: flex;
-    flex-direction: column; /* Alignement vertical strict */
-    overflow: hidden; /* Empêche tout le panneau de défiler */
-}
-
-.side-toc-panel.open {
-    transform: translate3d(0, 0, 0);
-}
-
-/* En-tête fixe en haut */
-.side-toc-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 12px 14px;
-    border-bottom: 1px solid #e2e8f0;
-    background-color: #ffffff;
-    flex-shrink: 0; /* Bloque l'en-tête pour qu'il ne réduise pas */
-    z-index: 2;
-}
-
-.side-toc-header h1 {
-    margin: 0;
-    font-size: 18px;
-    font-weight: 700;
-    color: #0f172a;
-}
-
-.close-btn {
-    background: none;
-    border: none;
-    font-size: 20px;
-    color: #64748b;
-    cursor: pointer;
-    padding: 4px 8px;
-    line-height: 1;
-}
-
-/* Zone défilable des liens */
-.side-toc-content {
-    flex: 1;
-    overflow-y: auto;
-    overscroll-behavior-y: contain;
-    touch-action: pan-y;
-    will-change: scroll-position;
-    padding: 6px 8px !important;
-}
-
-/* Personnalisation de la barre de défilement */
-.side-toc-content::-webkit-scrollbar {
-    width: 4px;
-}
-
-.side-toc-content::-webkit-scrollbar-thumb {
-    background-color: rgba(0, 0, 0, 0.15);
-    border-radius: 4px;
-}
-
-/* Style des éléments/liens du sommaire */
-.side-toc-link {
-    display: block;
-    padding: 4px 8px; /* Hauteur très réduite */
-    margin-bottom: 2px; /* Espace minimal entre les items */
-    font-size: 0.85rem; /* Texte légèrement plus petit */
-    line-height: 1.2;
-    color: #334155;
-    text-decoration: none;
-    border-bottom: 1px solid #f1f5f9; /* Simple ligne de séparation discrète */
-    white-space: nowrap; /* Évite que le texte passe sur 2 lignes */
-    overflow: hidden;
-    text-overflow: ellipsis; /* Trronque gentiment si trop long */
-}
-
-/* Fond sombre (Overlay) */
-.side-toc-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.4);
-    z-index: 999;
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-    transition:
-        opacity 0.3s ease,
-        visibility 0.3s ease;
-}
-
-.side-toc-overlay.active {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-}
-
-.side-toc-panel.no-transition,
-.toc-trigger-btn.no-transition {
-    transition: none !important;
-}
-
-/* Effet au survol / appui tactile */
-.side-toc-link:active,
-.side-toc-link:hover {
-    background-color: #eff6ff;
-    color: #2563eb;
-    border-color: #bfdbfe;
-    transform: translateX(
-        4px
-    ); /* Léger décalage vers la droite */
-}
-/* // Fin du Style du bouton Table des Matières Principale \\ */
 
 /* ==========================================
    Style du bandeau de mise à jour (Toast)
@@ -1119,56 +910,6 @@ span.toast-message {
 }
 
 /* /////// Fin du style du Toast \\\\\\\ */
-   
-.app-footer,
-footer {
-    text-align: center;
-    margin-top: -10px; /* Pousse automatiquement le footer tout en bas */
-    font-family:
-        -apple-system, BlinkMacSystemFont,
-        "Segoe UI", Roboto, sans-serif;
-    font-size: 12px;
-    color: #64748b;
-    flex-shrink: 0;
-    background-color: #f8fafc;
-    height: 14.25px;
-    width: 360px;
-}
-
-.app-footer p,
-footer p {
-    margin: 0;
-    padding: 0;
-}
-
-/* /////// Fin Style du Footer \\\\\\\ */
-
-/* ==========================================
-     Style du boutton plein écran
-   ========================================== */
-
-/* Boutton plein écran */
-#btnPleinEcran {
-    position: relative; /* Sert de repère pour le pseudo-élément */
-    background: none;
-    border: none;
-    color: #2563eb;
-    padding: 6px 12px;
-    font-weight: 600;
-    cursor: pointer;
-}
-
-/* Création d'un trait ou d'une barre avec le positionnement */
-#btnPleinEcran::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background-color: #2563eb; /* Remplace la bordure inférieure */
-}
-/* Fin du style du boutton plein écran */
 
 /* ==========================================
           Bouton Eruda (Isolation strict)
@@ -1200,106 +941,4 @@ footer p {
     background-color: #1d4ed8;
 }
 
-/* Fin du style du Bouton Eruda */
-
-/* ==========================================
-            Animation :)
-   ========================================== */
-   
-   /* Effet "Magie / Pulsation Lumineuse" (Pour l'icône Boule de Cristal 🔮 - Section 14) */
-   /* Animation Magie */
-@keyframes crystalMagic {
-  0%, 100% {
-    transform: scale(1) rotate(0deg);
-    filter: drop-shadow(0 0 2px rgba(168, 85, 247, 0.4));
-  }
-  50% {
-    transform: scale(1.15) rotate(6deg);
-    filter: drop-shadow(0 0 8px rgba(168, 85, 247, 0.9));
-  }
-}
-
-/* Application à l'icône ou la section */
-.magic-icon {
-  display: inline-block;
-  animation: crystalMagic 2.5s ease-in-out infinite;
-}
-
-
-/* Effet "Scintillement / Éclat" (Pour l'icône Explosion 💥 - Section 20) */
-/* Animation Scintillement / Sparkle */
-@keyframes sparkleBurst {
-  0%, 100% {
-    transform: scale(1);
-    filter: brightness(1) drop-shadow(0 0 1px rgba(239, 68, 68, 0.5));
-  }
-  25% {
-    transform: scale(1.2) rotate(-5deg);
-    filter: brightness(1.4) drop-shadow(0 0 6px rgba(245, 158, 11, 0.9));
-  }
-  50% {
-    transform: scale(0.95) rotate(5deg);
-    filter: brightness(0.9);
-  }
-  75% {
-    transform: scale(1.15);
-    filter: brightness(1.3) drop-shadow(0 0 8px rgba(239, 68, 68, 0.8));
-  }
-}
-
-/* Application à l'icône de la section 20 */
-.burst-icon {
-  display: inline-block;
-  animation: sparkleBurst 1.2s ease-in-out infinite;
-}
-
-/* Effet Flottant / Suspendu */
-@keyframes floatSmooth {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-4px);
-  }
-}
-
-.float-icon {
-  display: inline-block;
-  animation: floatSmooth 3s ease-in-out infinite;
-}
-
-
-/* Effet Pulsation Périodique */
-@keyframes pulseGlow {
-  0%, 100% {
-    transform: scale(1);
-    opacity: 1;
-  }
-  50% {
-    transform: scale(1.12);
-    opacity: 0.85;
-  }
-}
-
-.pulse-icon {
-  display: inline-block;
-  animation: pulseGlow 2s infinite ease-in-out;
-}
-
-/* Effet Oscillant / Balancement */
-@keyframes tiltWiggle {
-  0%, 100% {
-    transform: rotate(0deg);
-  }
-  25% {
-    transform: rotate(-8deg);
-  }
-  75% {
-    transform: rotate(8deg);
-  }
-}
-
-.wiggle-icon {
-  display: inline-block;
-  animation: tiltWiggle 2s infinite ease-in-out;
-}
+/* Fin du style du Bouton Eruda */    
