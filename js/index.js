@@ -20,8 +20,8 @@ if ('serviceWorker' in navigator && window.location.protocol !== 'file:') {
   document.addEventListener('DOMContentLoaded', obtenirVersionDuSW);
 
   window.addEventListener('load', () => {
-    // Le paramètre ?v=1.5.0 force le navigateur distant à télécharger le nouveau sw.js
-    navigator.serviceWorker.register('./sw.js?v=1.5.0').then((registration) => {
+    // Le paramètre ?v=v1.5.3 force le navigateur distant à télécharger le nouveau sw.js
+    navigator.serviceWorker.register('./sw.js?v=v1.5.3').then((registration) => {
       console.log('Service Worker enregistré :', registration.scope);
 
       registration.update();
@@ -84,29 +84,24 @@ function afficherToastMiseAJour(registration) {
   }
 }
 
+// Debounce léger pour regrouper le rendu des icônes Lucide lors du chargement assynchrone
+let timerLucide = null;
+function restituerIconesLucide() {
+  clearTimeout(timerLucide);
+  timerLucide = setTimeout(() => {
+    if (typeof lucide !== 'undefined') {
+      lucide.createIcons();
+    }
+  }, 50);
+}
 
 // Charge automatiquement les 24 sections depuis le dossier sections_du_guide
 for (let i = 1; i <= 24; i++) {
     const num = String(i).padStart(2, '0');
-    
-    // ID du conteneur dans index.html (ex: conteneur-section-1)
     const idBoite = `conteneur-section-${i}`;
-    
-    // Chemin vers le fichier physique (ex: section_01.html)
     const cheminFichier = `./sections_du_guide/section_${num}.html`;
 
     chargerSection(idBoite, cheminFichier);
-}
-
-// --- 1. GARDER : La fonction utilitaire ---
-function debounce(func, delay = 150) {
-  let timer;
-  return function (...args) {
-    clearTimeout(timer);
-    timer = setTimeout(() => {
-      func.apply(this, args);
-    }, delay);
-  };
 }
 
 // Fonction pour charger et injecter du HTML de manière dynamique
@@ -114,7 +109,6 @@ function chargerSection(idDeLaBoite, cheminDuFichier) {
     const conteneur = document.getElementById(idDeLaBoite);
     if (!conteneur) return;
 
-    // Protection anti-dédoublement : ne réinjecte pas si déjà chargée avec succès
     if (conteneur.children.length > 0 && !conteneur.querySelector('.erreur-chargement')) return;
 
     fetch(cheminDuFichier)
@@ -126,6 +120,12 @@ function chargerSection(idDeLaBoite, cheminDuFichier) {
         })
         .then(texteHtml => {
             conteneur.innerHTML = texteHtml;
+            
+            restituerIconesLucide();
+
+            if (typeof synchroniserBoutonsFavoris === 'function') {
+                synchroniserBoutonsFavoris();
+            }
         })
         .catch(erreur => {
             console.error("Erreur de chargement :", erreur);
@@ -140,10 +140,8 @@ document.addEventListener('click', function (e) {
   if (boite) {
     let texte = boite.innerText;
     
-    // Remplace le bloc alert() par un retour visuel direct
     navigator.clipboard.writeText(texte)
       .then(function() {
-        const originalBg = boite.style.backgroundColor;
         boite.style.outline = "2px solid #22c55e";
         setTimeout(() => {
           boite.style.outline = "";
@@ -155,7 +153,7 @@ document.addEventListener('click', function (e) {
 // Bouton retour vers le haut
 (function () {
   var btn = document.getElementById('backToTopBtn');
-  if (!btn) return; // Quitte silencieusement si le bouton n'est pas trouvé dans la page
+  if (!btn) return;
 
   function onScroll() {
     if (window.scrollY > 1900) btn.classList.add('visible');
@@ -201,6 +199,22 @@ document.addEventListener('click', function(event) {
     document.body.style.overflow = 'hidden';
   }
 
+  // Ouverture de la modale des favoris depuis le menu latéral
+  const btnFavoris = event.target.closest('#btnOuvrirFavoris');
+  if (btnFavoris) {
+    if (typeof closeMenu === 'function') {
+      closeMenu();
+    }
+    if (typeof afficherFavorisMenu === 'function') {
+      afficherFavorisMenu();
+    }
+    const modalFav = document.getElementById('modalFavoris');
+    if (modalFav) {
+      modalFav.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
   // Fermeture des modales
   if (event.target && (event.target.classList.contains('btn-close-menu') || event.target.classList.contains('quick-nav-btn'))) {
     const modalActif = event.target.closest('.modal-overlay');
@@ -208,171 +222,6 @@ document.addEventListener('click', function(event) {
       modalActif.classList.remove('active');
       document.body.style.overflow = ''; 
     }
-  }
-});
-
-
-// ==========================================
-//    GESTION DU MENU D'OPTIONS LATÉRAL
-// ==========================================
-const btnToggleMenu = document.getElementById('btnToggleMenu'); // Ancien btnToggleToc
-const btnCloseMenu = document.getElementById('btnCloseMenu');   // Ancien btnCloseToc
-const sideMenuPanel = document.getElementById('sideMenuPanel');   // Ancien sideTocPanel
-const sideMenuOverlay = document.getElementById('sideMenuOverlay'); // Ancien sideTocOverlay
-
-let startX = 0;
-let startY = 0; 
-let isDragging = false;
-let isScrolling = false; 
-let panelWidth = 250;
-
-function updatePanelWidth() {
-  if (sideMenuPanel) {
-    panelWidth = sideMenuPanel.offsetWidth || 250;
-  }
-}
-
-function openMenu() {
-  if (!sideMenuPanel || !btnToggleMenu) return;
-  sideMenuPanel.classList.remove('no-transition');
-  btnToggleMenu.classList.remove('no-transition');
-
-  sideMenuPanel.classList.add('open');
-  btnToggleMenu.classList.add('open');
-  
-  btnToggleMenu.style.transform = `translate3d(${panelWidth}px, -50%, 0)`; 
-  sideMenuPanel.style.transform = 'translate3d(0, 0, 0)'; 
-  
-  if (sideMenuOverlay) sideMenuOverlay.classList.add('active');
-  document.body.classList.add('menu-open'); // Changé toc-open -> menu-open
-}
-
-function closeMenu() {
-  if (!sideMenuPanel || !btnToggleMenu) return;
-  sideMenuPanel.classList.remove('no-transition');
-  btnToggleMenu.classList.remove('no-transition');
-
-  sideMenuPanel.classList.remove('open');
-  btnToggleMenu.classList.remove('open');
-  
-  btnToggleMenu.style.transform = ''; 
-  sideMenuPanel.style.transform = ''; 
-
-  if (sideMenuOverlay) sideMenuOverlay.classList.remove('active');
-  document.body.classList.remove('menu-open');
-}
-
-window.addEventListener('resize', updatePanelWidth);
-updatePanelWidth();
-
-// Écouteurs de clics
-if (btnToggleMenu) {
-  btnToggleMenu.addEventListener('click', () => {
-    if (!isDragging) {
-      const isOpen = sideMenuPanel.classList.contains('open');
-      if (isOpen) closeMenu();
-      else openMenu();
-    }
-  });
-}
-
-if (btnCloseMenu) btnCloseMenu.addEventListener('click', closeMenu);
-if (sideMenuOverlay) sideMenuOverlay.addEventListener('click', closeMenu);
-
-// --- SUPPRESSION DE L'ÉCOUTEUR '.side-toc-link' DEVENU INUTILE ---
-
-// Gestion des gestes tactiles (drag horizontal pour ouvrir/fermer)
-if (btnToggleMenu && sideMenuPanel) {
-  btnToggleMenu.addEventListener('touchstart', (e) => {
-    startX = e.touches[0].clientX;
-    startY = e.touches[0].clientY;
-    isDragging = false;
-    isScrolling = false;
-  }, { passive: true });
-
-  btnToggleMenu.addEventListener('touchmove', (e) => {
-    if (isScrolling) return;
-
-    const currentX = e.touches[0].clientX;
-    const currentY = e.touches[0].clientY;
-    const deltaX = currentX - startX;
-    const deltaY = currentY - startY;
-
-    if (!isDragging) {
-      if (Math.abs(deltaY) > Math.abs(deltaX) && Math.abs(deltaY) > 5) {
-        isScrolling = true;
-        return;
-      }
-      if (Math.abs(deltaX) > 5) {
-        isDragging = true;
-        sideMenuPanel.classList.add('no-transition');
-        btnToggleMenu.classList.add('no-transition');
-        if (sideMenuOverlay) sideMenuOverlay.classList.add('active');
-      }
-    }
-
-    if (isDragging) {
-      const isOpen = sideMenuPanel.classList.contains('open');
-      if (!isOpen) {
-        const moveX = Math.max(0, Math.min(deltaX, panelWidth));
-        sideMenuPanel.style.transform = `translate3d(${-panelWidth + moveX}px, 0, 0)`;
-        btnToggleMenu.style.transform = `translate3d(${moveX}px, -50%, 0)`; 
-      } else {
-        const moveX = Math.max(-panelWidth, Math.min(deltaX, 0));
-        sideMenuPanel.style.transform = `translate3d(${moveX}px, 0, 0)`;
-        btnToggleMenu.style.transform = `translate3d(${panelWidth + moveX}px, -50%, 0)`; 
-      }
-    }
-  }, { passive: true });
-
-  btnToggleMenu.addEventListener('touchend', (e) => {
-    sideMenuPanel.classList.remove('no-transition');
-    btnToggleMenu.classList.remove('no-transition');
-
-    if (isDragging) {
-      const endX = e.changedTouches[0].clientX;
-      const deltaX = endX - startX;
-      const isOpen = sideMenuPanel.classList.contains('open');
-
-      if (!isOpen) {
-        if (deltaX > 50) openMenu();
-        else closeMenu();
-      } else {
-        if (deltaX < -50) closeMenu();
-        else openMenu();
-      }
-    }
-    isDragging = false;
-    isScrolling = false;
-  }, { passive: true });
-}
-
-//API Fullscreen
-function basculerPleinEcran() {
-  if (!document.fullscreenElement) {
-    // Active le plein écran (prend en compte les déclinaisons des navigateurs)
-    const elem = document.documentElement;
-    if (elem.requestFullscreen) {
-      elem.requestFullscreen();
-    } else if (elem.webkitRequestFullscreen) { /* Safari / iOS */
-      elem.webkitRequestFullscreen();
-    } else if (elem.msRequestFullscreen) { /* IE/Edge */
-      elem.msRequestFullscreen();
-    }
-  } else {
-    // Quitte le plein écran
-    if (document.exitFullscreen) {
-      document.exitFullscreen();
-    } else if (document.webkitExitFullscreen) {
-      document.webkitExitFullscreen();
-    }
-  }
-}
-
-// Bouton Lucide
-document.addEventListener('DOMContentLoaded', () => {
-  if (typeof lucide !== 'undefined') {
-    lucide.createIcons();
   }
 });
 
