@@ -8,16 +8,17 @@ const SECTIONS = Array.from({ length: TOTAL_SECTIONS }, (_, i) =>
   `./sections_du_guide/section_${String(i + 1).padStart(2, '0')}.html`
 );
 
-// Retrait de version.js de la liste pour éviter de le bloquer en cache
+// Assets locaux à mettre en cache immédiatement
 const LOCAL_ASSETS = [
   './',
   './index.html',
   './manifest.json',
   './css/index.css',  
-'./css/animations.css',  
-'./css/menu_lateral.css',
+  './css/animations.css',  
+  './css/menu_lateral.css',
   './js/lucide.min.js',
   './js/index.js',
+  './js/menu_lateral_2.js',
   'https://cdn.jsdelivr.net/gh/chappie511/Icon@main/golden_star_v3.png?v=1000',
   ...SECTIONS
 ];
@@ -74,7 +75,7 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  // Domaines externes
+  // Domaines externes (Cache First avec fallback Réseau)
   if (url.origin !== location.origin) {
     event.respondWith(
       caches.match(event.request).then((cachedResponse) => {
@@ -86,7 +87,7 @@ self.addEventListener('fetch', (event) => {
             caches.open(CACHE_NAME).then((cache) => cache.put(event.request, responseToCache));
           }
           return networkResponse;
-        }).catch(() => {});
+        }).catch(() => new Response('', { status: 408, statusText: 'Request Timed Out' }));
       })
     );
     return;
@@ -101,7 +102,7 @@ self.addEventListener('fetch', (event) => {
           caches.open(CACHE_NAME).then((cache) => cache.put(event.request, responseToCache));
         }
         return networkResponse;
-      }).catch(() => {});
+      }).catch(() => cachedResponse);
 
       return cachedResponse || fetchPromise;
     })
