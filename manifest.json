@@ -6,13 +6,19 @@
       "src": "https://cdn.jsdelivr.net/gh/chappie511/Icon@main/golden_star_v3.png?v=1000",
       "type": "image/png",
       "sizes": "192x192",
-      "purpose": "any maskable"
+      "purpose": "any"
     },
     {
       "src": "https://cdn.jsdelivr.net/gh/chappie511/Icon@main/golden_star_v3.png?v=1000",
       "type": "image/png",
       "sizes": "512x512",
-      "purpose": "any maskable"
+      "purpose": "any"
+    },
+    {
+      "src": "https://cdn.jsdelivr.net/gh/chappie511/Icon@main/golden_star_v3.png?v=1000",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "maskable"
     }
   ],
   "start_url": "./index.html",
