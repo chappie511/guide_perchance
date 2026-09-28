@@ -1,19 +1,9 @@
-/* Optionnel : Rendre le bouton visible si l'utilisateur approche le bord gauche */
-body:not(.menu-open):hover .menu-trigger-btn {
-    opacity: 0.4; /* Semi-transparent pour signaler sa présence */
-    pointer-events: auto;
-}
-
-body:not(.menu-open) .menu-trigger-btn:hover {
-    opacity: 1; /* Totalement opaque si on le survole directement */
-}
-
 /* ==========================================
-       Style du Menu lateral
+       Style du Menu Latéral
    ========================================== */
-   
-   body.menu-open {
-    height: 100dvh; /* Version moderne pour compenser la barre d'adresse mobile */
+
+body.menu-open {
+    height: 100dvh;
     overflow: hidden !important;
     touch-action: none;
 }
@@ -42,29 +32,37 @@ body:not(.menu-open) .menu-trigger-btn:hover {
     user-select: none;
     touch-action: pan-y !important;
     will-change: transform, opacity;
-    
-    /* Center verticalement de base */
     transform: translateY(-50%);
-    
     opacity: 0.35;
-    pointer-events: auto;      
-    
+    pointer-events: auto;
     transition: 
         transform 0.3s ease-in-out, 
         opacity 0.2s ease-in-out, 
         background-color 0.15s ease;
 }
 
-.menu-trigger-btn.open:hover,
-.menu-trigger-btn.open:active {
-    transform: translate3d(250px, -50%, 0) scale(1.05);
+body:not(.menu-open):hover .menu-trigger-btn {
+    opacity: 0.4;
 }
 
+.menu-trigger-btn:not(.open):hover {
+    opacity: 0.7;
+}
+
+.menu-trigger-btn:not(.open):active,
+.menu-trigger-btn:not(.open):focus {
+    opacity: 0.35 !important;
+}
 
 .menu-trigger-btn.open {
     transform: translate3d(250px, -50%, 0);
     opacity: 0.95 !important;
     pointer-events: auto;
+}
+
+.menu-trigger-btn.open:hover,
+.menu-trigger-btn.open:active {
+    transform: translate3d(250px, -50%, 0) scale(1.05);
 }
 
 .menu-trigger-btn span {
@@ -82,26 +80,13 @@ body:not(.menu-open) .menu-trigger-btn:hover {
     stroke: #ffffff;
 }
 
-.menu-trigger-btn:not(.open) {
-    opacity: 0.35 !important;
-}
-
-.menu-trigger-btn:not(.open):hover {
-    opacity: 0.7;
-}
-
-.menu-trigger-btn:not(.open):active,
-.menu-trigger-btn:not(.open):focus {
-    opacity: 0.35 !important;
-}
-
 /* Panneau latéral fixe */
 .side-menu-panel {
     position: fixed;
     top: 0;
     left: 0;
     width: 250px;
-    height: 100dvh; /* Support des barres de navigation mobiles */
+    height: 100dvh;
     background-color: #ffffff;
     z-index: 1000;
     box-shadow: 2px 0 12px rgba(0, 0, 0, 0.15);
@@ -109,8 +94,8 @@ body:not(.menu-open) .menu-trigger-btn:hover {
     transition: transform 0.3s ease-in-out;
     will-change: transform;
     display: flex;
-    flex-direction: column; /* Alignement vertical strict */
-    overflow: hidden; /* Empêche tout le panneau de défiler */
+    flex-direction: column;
+    overflow: hidden;
 }
 
 .side-menu-panel.open {
@@ -125,7 +110,7 @@ body:not(.menu-open) .menu-trigger-btn:hover {
     padding: 12px 14px;
     border-bottom: 1px solid #e2e8f0;
     background-color: #ffffff;
-    flex-shrink: 0; /* Bloque l'en-tête pour qu'il ne réduise pas */
+    flex-shrink: 0;
     z-index: 2;
 }
 
@@ -156,7 +141,6 @@ body:not(.menu-open) .menu-trigger-btn:hover {
     padding: 6px 8px !important;
 }
 
-/* Personnalisation de la barre de défilement */
 .side-menu-content::-webkit-scrollbar {
     width: 4px;
 }
@@ -177,9 +161,7 @@ body:not(.menu-open) .menu-trigger-btn:hover {
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
-    transition:
-        opacity 0.3s ease,
-        visibility 0.3s ease;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
 .side-menu-overlay.active {
@@ -240,20 +222,154 @@ body:not(.menu-open) .menu-trigger-btn:hover {
     stroke: #ffffff;
 }
 
-/* // Fin du Style du bouton Table des Matières Principale \\ */
+/* Style du bouton favori sur les cartes de contenu */
+.btn-favorite {
+  background: transparent;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  padding: 6px 8px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
 
+.btn-favorite:hover {
+  background-color: #f1f5f9;
+}
+
+.btn-favorite.active {
+  border-color: #eab308;
+  background-color: #fef9c3;
+}
+
+.btn-favorite.active svg {
+  fill: #eab308;
+  stroke: #eab308;
+}
+
+/* ==========================================
+   STYLE POUR LA MODALE DES FAVORIS (CORRIGÉ)
+   ========================================== */
+
+.modal-favorites-container {
+  margin-top: 15px;
+  padding: 10px;
+}
+
+.modal-favorites-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #2b3a4a;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.favorites-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 12px;
+  max-height: 70vh;
+  overflow-y: auto;
+  /* Marge intérieure globale pour laisser l'ombre s'exprimer sans être coupée */
+  padding: 6px 8px 6px 6px; 
+}
+
+.favorite-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #ffffff;
+  
+  border: 1px solid #dcdfe6;
+  border-radius: 8px;
+  
+  padding: 10px 12px 10px 16px;
+  cursor: pointer;
+  box-sizing: border-box;
+  overflow: hidden;
+  
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+
+  /* Ombre douce qui ne bavera pas sur les bords */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  transition: background-color 0.15s ease, box-shadow 0.15s ease;
+  margin: 6px;
+}
+
+/* Barre orange verticale propre à gauche */
+.favorite-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 4px;
+  background-color: #f59e0b;
+}
+
+.favorite-item:hover {
+  background-color: #f8fafc;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.favorite-item:active {
+  background-color: #f1f5f9;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.favorite-item span {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #1f2937;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  pointer-events: none; /* Empêche tout glissement du texte sous le doigt */
+}
+
+.btn-remove-favorite {
+  background: transparent;
+  border: none;
+  color: #ef4444;
+  cursor: pointer;
+  padding: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  transition: background-color 0.2s, color 0.2s;
+  flex-shrink: 0;
+}
+
+.btn-remove-favorite:hover {
+  background-color: #fee2e2;
+  color: #dc2626;
+}
+
+.empty-favorites {
+  grid-column: 1 / -1;
+  text-align: center;
+  color: #6b7280;
+  font-style: italic;
+  padding: 20px 0;
+}
 
 /* ==========================================
            Style du App Footer
    ========================================== */
-   
+
 .app-footer,
 footer {
     text-align: left;
-    margin-bottom: auto; /* Pousse automatiquement le footer tout en bas */
-    font-family:
-        -apple-system, BlinkMacSystemFont,
-        "Segoe UI", Roboto, sans-serif;
+    margin-bottom: auto;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     font-size: 12px;
     color: #64748b;
     flex-shrink: 0;
@@ -269,15 +385,12 @@ footer p {
     padding: 0;
 }
 
-/* /////// Fin Style du Footer \\\\\\\ */
-
 /* ==========================================
-     Style du boutton plein écran
+     Style du bouton plein écran
    ========================================== */
 
-/* Boutton plein écran */
 #btnPleinEcran {
-    position: relative; /* Sert de repère pour le pseudo-élément */
+    position: relative;
     background: none;
     border: none;
     color: #2563eb;
@@ -286,7 +399,6 @@ footer p {
     cursor: pointer;
 }
 
-/* Création d'un trait ou d'une barre avec le positionnement */
 #btnPleinEcran::after {
     content: "";
     position: absolute;
@@ -294,7 +406,5 @@ footer p {
     left: 0;
     width: 100%;
     height: 2px;
-    background-color: #2563eb; /* Remplace la bordure inférieure */
+    background-color: #2563eb;
 }
-
-/* Fin du style du boutton plein écran */
