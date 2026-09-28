@@ -18,14 +18,16 @@ if ('serviceWorker' in navigator && window.location.protocol !== 'file:') {
           const el = document.getElementById('app-version');
           if (el) el.textContent = versionActuelle;
 
-          // Si version.js est plus récent que le SW actif, on demande l'update
+          // Si version.js est plus récent que le SW actif, on force la mise à jour
           if (window.LATEST_VERSION && window.LATEST_VERSION !== versionActuelle) {
             console.log(`Mise à jour requise : ${versionActuelle} -> ${window.LATEST_VERSION}`);
-            registration.update();
+            fetch('./sw.js', { cache: 'no-cache' }).then(() => {
+              registration.update();
+            });
           }
         }
       };
-      
+
       navigator.serviceWorker.controller.postMessage(
         { type: 'GET_VERSION' }, 
         [messageChannel.port2]
@@ -66,6 +68,7 @@ if ('serviceWorker' in navigator && window.location.protocol !== 'file:') {
     }
   });
 }
+
 
 // 2. Fonction d'affichage du Toast avec animation fluide
 function afficherToastMiseAJour(registration) {
