@@ -248,4 +248,46 @@
         transform: skewX(-3deg) rotate(-2deg) scaleY(1);
     }
 }
-/* ——————————————————————————————————————— */                                                  
+/* ——————————————————————————————————————— */
+
+/* HTML 
+<span class="lightning-icon">⚡</span> Sommaire Rapide des Poses */
+
+.lightning-icon {
+  display: inline-block;
+  transform-origin: center center;
+  animation: lightning-strike 2.5s ease-in-out infinite;
+}
+
+@keyframes lightning-strike {
+  /* État de repos */
+  0%, 70%, 100% {
+    transform: scale(1) rotate(0deg);
+    filter: drop-shadow(0 0 0px transparent);
+  }
+
+  /* Premier sursaut / Flash */
+  72% {
+    transform: scale(1.35) rotate(-12deg);
+    filter: drop-shadow(0 0 8px #f59e0b) brightness(1.4);
+  }
+
+  /* Court retour */
+  75% {
+    transform: scale(1.05) rotate(4deg);
+    filter: drop-shadow(0 0 3px #f59e0b);
+  }
+
+  /* Deuxième décharge électrique */
+  78% {
+    transform: scale(1.4) rotate(-6deg);
+    filter: drop-shadow(0 0 12px #fbbf24) brightness(1.6);
+  }
+
+  /* Retour progressif au calme */
+  85% {
+    transform: scale(1) rotate(0deg);
+    filter: drop-shadow(0 0 2px #f59e0b);
+  }
+}
+                                                  
