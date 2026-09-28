@@ -1,15 +1,31 @@
-// 1. Enregistrement sécurisé du Service Worker, affichage de version et gestion du Toast
+// 1. Enregistrement sécurisé du Service Worker & Détection de mise à jour
 if ('serviceWorker' in navigator && window.location.protocol !== 'file:') {
 
-  const obtenirVersionDuSW = () => {
+  const vérifierMiseAJour = (registration) => {
+    // 1. Si un worker est déjà prêt et attend
+    if (registration.waiting) {
+      afficherToastMiseAJour(registration);
+      return;
+    }
+
+    // 2. Comparaison des versions via le SW actif
     if (navigator.serviceWorker.controller) {
       const messageChannel = new MessageChannel();
       messageChannel.port1.onmessage = (event) => {
         if (event.data && event.data.version) {
+          const versionActuelle = event.data.version;
+          
           const el = document.getElementById('app-version');
-          if (el) el.textContent = event.data.version;
+          if (el) el.textContent = versionActuelle;
+
+          // Si version.js est plus récent que le SW actif, on demande l'update
+          if (window.LATEST_VERSION && window.LATEST_VERSION !== versionActuelle) {
+            console.log(`Mise à jour requise : ${versionActuelle} -> ${window.LATEST_VERSION}`);
+            registration.update();
+          }
         }
       };
+      
       navigator.serviceWorker.controller.postMessage(
         { type: 'GET_VERSION' }, 
         [messageChannel.port2]
@@ -17,29 +33,28 @@ if ('serviceWorker' in navigator && window.location.protocol !== 'file:') {
     }
   };
 
-  document.addEventListener('DOMContentLoaded', obtenirVersionDuSW);
-
   window.addEventListener('load', () => {
-    // Le paramètre ?v=1.5.4 force le navigateur distant à télécharger le nouveau sw.js
-    navigator.serviceWorker.register('./sw.js?v=1.5.4').then((registration) => {
+    navigator.serviceWorker.register('./sw.js').then((registration) => {
       console.log('Service Worker enregistré :', registration.scope);
 
-      registration.update();
-
-      if (registration.waiting) {
-        afficherToastMiseAJour(registration);
-      }
-
+      // Écoute des futurs workers installés
       registration.addEventListener('updatefound', () => {
         const nouveauWorker = registration.installing;
         if (nouveauWorker) {
           nouveauWorker.addEventListener('statechange', () => {
+            // Dès qu'il est installé, on AFFICHE LE TOAST
             if (nouveauWorker.state === 'installed' && navigator.serviceWorker.controller) {
               afficherToastMiseAJour(registration);
             }
           });
         }
       });
+
+      // Vérification immédiate de la version au chargement
+      vérifierMiseAJour(registration);
+
+    }).catch((erreur) => {
+      console.error("Échec de l'enregistrement du SW :", erreur);
     });
   });
 
