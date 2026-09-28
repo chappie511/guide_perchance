@@ -18,7 +18,7 @@ const LOCAL_ASSETS = [
   './css/menu_lateral.css',
   './js/lucide.min.js',
   './js/index.js',
-  './js/menu_lateral_2.js',
+  './js/menu_lateral.js',
   'https://cdn.jsdelivr.net/gh/chappie511/Icon@main/golden_star_v3.png?v=1000',
   ...SECTIONS
 ];
