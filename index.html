@@ -5,6 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Guide de Prompt Engineering Perchance</title>
+    
+    <!-- Lien vers le fichier manifest.json -->
+    <link rel="manifest" href="./manifest.json">
+    <meta name="theme-color" content="#2563eb">
 
     <!-- Icon du guide -->
     <link rel="icon" type="image/jpeg" href="https://cdn.jsdelivr.net/gh/chappie511/Icon@main/golden_star_v3.png?v=1000">
@@ -16,15 +20,13 @@
     <link rel="stylesheet" href="./css/animations.css">
     <!-- Animations du guide -->
     <link rel="stylesheet" href="./css/menu_lateral.css">
-
-    <!-- Lien vers le fichier manifest.json -->
-    <link rel="manifest" href="./manifest.json">
-    <meta name="theme-color" content="#2563eb">
     
     <!-- Scripts avec defer -->
-    <script src="https://unpkg.com/lucide@latest" defer></script>
-    <script src="./version.js" defer></script>
-    <script src="./js/index.js" defer></script>
+<script src="./js/lucide.min.js" defer></script>
+<script src="./version.js" defer></script>
+<script src="./js/index.js" defer></script>
+<script src="./js/menu_lateral.js" defer></script>
+
   </head>
 
   <body>
@@ -92,7 +94,7 @@
     <div id="modalStyles" class="modal-overlay" role="dialog" aria-modal="true" aria-label="Menu des styles d'art">
       <button class="btn-close-menu" type="button">✖ Fermer le menu des styles d'art</button>
       <div class="quick-nav-container" style="margin-top: 14px">
-        <div class="quick-nav-title">⚡ Sommaire Rapide des Styles (Toucher pour accéder)</div>
+        <div class="quick-nav-title"><span class="lightning-icon">⚡</span> Sommaire Rapide des Styles (Toucher pour accéder)</div>
 
         <div class="quick-nav-subgroup">1. Styles Réalistes & Humains</div>
         <div class="quick-nav-grid">
@@ -242,7 +244,7 @@
     <div id="modalVues" class="modal-overlay" role="dialog" aria-modal="true" aria-label="Menu des types de vue">
       <button class="btn-close-menu" type="button">✖ Fermer le menu des vues</button>
       <div class="quick-nav-container">
-        <div class="quick-nav-title">⚡ Sommaire Rapide des 40 Vues (Toucher pour accéder)</div>
+        <div class="quick-nav-title"><span class="lightning-icon">⚡</span> Sommaire Rapide des 40 Vues (Toucher pour accéder)</div>
 
         <div class="quick-nav-subgroup">Lot 1 : Plans Larges & Distants</div>
         <div class="quick-nav-grid">
@@ -310,7 +312,7 @@
     <div id="modalPerspectives" class="modal-overlay" role="dialog" aria-modal="true" aria-label="Menu des perspectives">
       <button class="btn-close-menu" type="button">✖ Fermer le menu des perspectives</button>
       <div class="quick-nav-container">
-        <div class="quick-nav-title">⚡ Navigation Rapide des Perspectives (Toucher pour accéder)</div>
+        <div class="quick-nav-title"><span class="lightning-icon">⚡</span> Navigation Rapide des Perspectives (Toucher pour accéder)</div>
 
         <div class="quick-nav-subgroup">1. Fondations Théoriques</div>
         <div class="quick-nav-grid">
@@ -344,7 +346,7 @@
     <div id="modalPoses" class="modal-overlay" role="dialog" aria-modal="true" aria-label="Menu des Poses">
       <button class="btn-close-menu" type="button">✖ Fermer le menu des poses</button>
       <div class="quick-nav-container" style="margin-top: 14px">
-        <div class="quick-nav-title">⚡ Sommaire Rapide des Poses (Toucher pour accéder)</div>
+        <div class="quick-nav-title"><span class="lightning-icon">⚡</span> Sommaire Rapide des Poses (Toucher pour accéder)</div>
 
         <div class="quick-nav-subgroup">1. Positions Debout (Standing Poses)</div>
         <div class="quick-nav-grid">
@@ -395,7 +397,7 @@
           <a href="#pose-lyingbackbed" class="quick-nav-btn">Lying (back, on bed)</a>
           <a href="#pose-lyingbackfloor" class="quick-nav-btn">Lying (back, on floor)</a>
           <a href="#pose-lyingside" class="quick-nav-btn">Lying on side</a>
-          <a href="#pose-restingsidehead" class="quick-nav-btn">Resting on side</a>
+          <a href="#pose-restingsidehead" class="quick-nav-btn">Resting on side</a
           <a href="#pose-archedbacklying" class="quick-nav-btn">Arched back (lying)</a>
           <a href="#pose-fetal" class="quick-nav-btn">Fetal position</a>
           <a href="#pose-recliningarms" class="quick-nav-btn">Reclining (arms)</a>
@@ -443,7 +445,7 @@
     <div id="modalEclairages" class="modal-overlay" role="dialog" aria-modal="true" aria-label="Menu de 35 types d'éclairages">
       <button class="btn-close-menu" type="button">✖ Fermer le menu des éclairages</button>
       <div class="quick-nav-container" style="margin-top: 14px">
-        <div class="quick-nav-title">⚡ Sommaire Rapide de 35 types d'éclairages 💡</div>
+        <div class="quick-nav-title"><span class="lightning-icon">⚡</span> Sommaire Rapide de 35 types d'éclairages 💡</div>
 
         <div class="quick-nav-subgroup">1. Éclairage Naturel & Temporel</div>
         <div class="quick-nav-grid">
@@ -487,7 +489,7 @@
           <a href="#sec08-light-27" class="quick-nav-btn">Rim Lighting</a>
           <a href="#sec08-light-28" class="quick-nav-btn">Soft Lighting</a>
           <a href="#sec08-light-29" class="quick-nav-btn">Spotlight</a>
-          <a href="#sec08-light-30" class="quick-nav-btn">Studio</a>
+          <a href="#sec08-light-30" class="quick-nav-btn">Studio Lightning</a>
           <a href="#sec08-light-34" class="quick-nav-btn">Warm Lighting</a>
           <a href="#sec08-light-35" class="quick-nav-btn">Window Lighting</a>
         </div>
@@ -498,7 +500,7 @@
     <div id="modalSec18" class="modal-overlay" role="dialog" aria-modal="true" aria-label="Menu de la section 18">
       <button class="btn-close-menu" type="button">✖ Fermer le menu de la section 18</button>
       <div class="quick-nav-container" style="margin-top: 14px">
-        <div class="quick-nav-title">⚡ Sommaire Rapide de la Section 18 (Toucher pour accéder)</div>
+        <div class="quick-nav-title"><span class="lightning-icon">⚡</span> Sommaire Rapide de la Section 18 (Toucher pour accéder)</div>
 
         <div class="quick-nav-subgroup">1. Écosystème Logiciel & Super-Résolution</div>
         <div class="quick-nav-grid">
@@ -540,6 +542,20 @@
         </div>
       </div>
     </div>
+    
+    <!-- Modale des Favoris -->
+<div id="modalFavoris" class="modal-overlay" role="dialog" aria-modal="true" aria-label="Menu des favoris">
+  <button class="btn-close-menu" type="button" onclick="fermerModaleFavoris()">✖ Fermer les favoris</button>
+  
+  <div class="modal-favorites-container">
+    <h2 class="modal-favorites-title">⭐ Vos Favoris</h2>
+    
+    <!-- Zone dynamique d'injection JS -->
+    <div id="favoritesListModal" class="favorites-grid">
+      <!-- Les items seront injectés dynamiquement ici -->
+    </div>
+  </div>
+</div>
 
 <!-- ================= VOLET LATÉRAL DES OPTIONS ================= -->
 <div id="sideMenuPanel" class="side-menu-panel">
@@ -548,25 +564,35 @@
     <button type="button" id="btnCloseMenu" class="close-btn" aria-label="Fermer le menu">&times;</button>
   </div>
 
-  <!-- Contenu du menu d'options -->
+  <!-- Conteneur intérieur -->
   <div class="side-menu-content">
+    
+    <!-- Bloc Mes Favoris (Bouton d'ouverture seulement) -->
+    <div class="menu-option-item">
+      <label class="menu-option-label">Mes Favoris</label>
+      <button type="button" id="btnOuvrirFavoris" class="option-btn" onclick="ouvrirModaleFavoris()">
+        <i data-lucide="star"></i> Afficher mes favoris
+      </button>
+    </div>
+    
+    <!-- Bloc Affichage -->
     <div class="menu-option-item">
       <label class="menu-option-label">Affichage</label>
       <button type="button" onclick="basculerPleinEcran()" class="option-btn">
         <i data-lucide="maximize"></i> Mode Plein Écran
       </button>
     </div>
-  </div>
+
+  </div> <!-- /side-menu-content -->
 
   <!-- Pied de page du menu -->
   <footer class="app-footer">
     <p>Version : <span id="app-version">Chargement...</span></p>
   </footer>
-</div>
+</div> <!-- /side-menu-panel -->
 
 <!-- Fond d'obscurcissement pour fermer le menu -->
 <div id="sideMenuOverlay" class="side-menu-overlay"></div>
-
 
       <!-- Toast de mise à jour PWA -->
     <div id="toast" class="update-toast hidden" role="alert" aria-live="polite">
@@ -581,7 +607,6 @@
   
    <!-- Bouton Eruda placé tout en bas du body -->
   <button type="button" class="eruda-trigger-btn" onclick="lancerEruda()">🛠️ Eruda</button>
-
   
   </body>
 </html>
