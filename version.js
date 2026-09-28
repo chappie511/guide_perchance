@@ -1,2 +1,2 @@
 // version.js
-window.LATEST_VERSION = 'v1.5.2';
+window.LATEST_VERSION = 'v1.5.3';
