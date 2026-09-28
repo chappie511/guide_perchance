@@ -20,8 +20,8 @@ if ('serviceWorker' in navigator && window.location.protocol !== 'file:') {
   document.addEventListener('DOMContentLoaded', obtenirVersionDuSW);
 
   window.addEventListener('load', () => {
-    // Le paramètre ?v=v1.5.3 force le navigateur distant à télécharger le nouveau sw.js
-    navigator.serviceWorker.register('./sw.js?v=v1.5.3').then((registration) => {
+    // Le paramètre ?v=v1.5.4 force le navigateur distant à télécharger le nouveau sw.js
+    navigator.serviceWorker.register('./sw.js?v=v1.5.4').then((registration) => {
       console.log('Service Worker enregistré :', registration.scope);
 
       registration.update();
